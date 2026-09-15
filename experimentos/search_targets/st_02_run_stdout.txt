@@ -1,0 +1,191 @@
+ST-02 predictibilidad por escalon -- inicio 2026-09-14 10:04:29
+cache_df_st.pkl: (3982, 282), batches DEV=299, batches lockbox=63
+Set A [Fusión] (45 features): ['ley_sn_escoria_pct_prev', 'ley_feo_escoria_pct_prev', 'ley_sio2_escoria_pct_prev', 'ley_cao_escoria_pct_prev', 'basicidad_B2_prev', 'basicidad_B4_prev', 'indice_estructural_molar_prev', 'indice_irf_prev', 'ratio_sn_feo_prev', 'ratio_sn_sio2_prev', 'interaccion_Sn_x_FeO_prev', 'interaccion_FeO_x_B2_prev', 'temperatura_horno_celsius_prev', 'grad_temperatura_horno_celsius_prev', 'termocupla_media_celsius_prev', 'tiro_horno_pct_prev', 'posicion_vertical_lanza_mm_prev', 'temperatura_gas_pre_bhf_celsius_prev', 'cum_feed_Sn_kg_prev', 'cum_feed_total_kg_prev', 'cum_feed_CaO_kg_prev', 'cum_feed_Carbon_kg_prev', 'cum_feed_Fe_kg_prev', 'cum_feed_dross_Fe_kg_prev', 'cum_feed_conc_kg_prev', 'cum_feed_reciclo_kg_prev', 'cum_feed_pellets_kg_prev', 'cum_feed_carga_secundaria_kg_prev', 'cum_gn_nm3_prev', 'cum_o2_nm3_prev', 'cum_aire_nm3_prev', 'relacion_C_cum_Sn_cum_prev', 'masa_escoria_est_kg_prev', 'sn_inventario_escoria_est_kg_prev', 'feo_inventario_escoria_est_kg_prev', 'avance_reduccion_sn_prev', 'orden_escalon_fase', 'tiempo_fase', 'espesor_ladrillo_norm_mm', 'ley_sn_conc_batch_pct', 'ley_sn_reciclo_batch_pct', 'ley_sn_Fe_batch_pct', 'ley_sn_dross_batch_pct', 'ley_sn_pellets_batch_pct', 'ley_sn_carga_batch_pct']
+Set B [Fusión] (53 features): ['ley_sn_escoria_pct_prev', 'ley_feo_escoria_pct_prev', 'ley_sio2_escoria_pct_prev', 'ley_cao_escoria_pct_prev', 'basicidad_B2_prev', 'basicidad_B4_prev', 'indice_estructural_molar_prev', 'indice_irf_prev', 'ratio_sn_feo_prev', 'ratio_sn_sio2_prev', 'interaccion_Sn_x_FeO_prev', 'interaccion_FeO_x_B2_prev', 'temperatura_horno_celsius_prev', 'grad_temperatura_horno_celsius_prev', 'termocupla_media_celsius_prev', 'tiro_horno_pct_prev', 'posicion_vertical_lanza_mm_prev', 'temperatura_gas_pre_bhf_celsius_prev', 'cum_feed_Sn_kg_prev', 'cum_feed_total_kg_prev', 'cum_feed_CaO_kg_prev', 'cum_feed_Carbon_kg_prev', 'cum_feed_Fe_kg_prev', 'cum_feed_dross_Fe_kg_prev', 'cum_feed_conc_kg_prev', 'cum_feed_reciclo_kg_prev', 'cum_feed_pellets_kg_prev', 'cum_feed_carga_secundaria_kg_prev', 'cum_gn_nm3_prev', 'cum_o2_nm3_prev', 'cum_aire_nm3_prev', 'relacion_C_cum_Sn_cum_prev', 'masa_escoria_est_kg_prev', 'sn_inventario_escoria_est_kg_prev', 'feo_inventario_escoria_est_kg_prev', 'avance_reduccion_sn_prev', 'orden_escalon_fase', 'tiempo_fase', 'espesor_ladrillo_norm_mm', 'ley_sn_conc_batch_pct', 'ley_sn_reciclo_batch_pct', 'ley_sn_Fe_batch_pct', 'ley_sn_dross_batch_pct', 'ley_sn_pellets_batch_pct', 'ley_sn_carga_batch_pct', 'tasa_feed_Carbon_kg_min', 'tasa_gn_nm3_min', 'tasa_o2_nm3_min', 'tasa_aire_nm3_min', 'exceso_o2_combustion_pct', 'Cx_sn_v4', 'Cx_av_v4', 'relacion_C_Sn_carga']
+Set C [Fusión] (8 features): ['tasa_feed_Carbon_kg_min', 'tasa_gn_nm3_min', 'tasa_o2_nm3_min', 'tasa_aire_nm3_min', 'exceso_o2_combustion_pct', 'Cx_sn_v4', 'Cx_av_v4', 'relacion_C_Sn_carga']
+Set A [Reducción] (37 features): ['ley_sn_escoria_pct_prev', 'ley_feo_escoria_pct_prev', 'ley_sio2_escoria_pct_prev', 'ley_cao_escoria_pct_prev', 'basicidad_B2_prev', 'basicidad_B4_prev', 'indice_estructural_molar_prev', 'indice_irf_prev', 'ratio_sn_feo_prev', 'ratio_sn_sio2_prev', 'log_ratio_sn_feo_prev', 'interaccion_Sn_x_FeO_prev', 'interaccion_FeO_x_B2_prev', 'temperatura_horno_celsius_prev', 'grad_temperatura_horno_celsius_prev', 'termocupla_media_celsius_prev', 'tiro_horno_pct_prev', 'posicion_vertical_lanza_mm_prev', 'temperatura_gas_pre_bhf_celsius_prev', 'cum_feed_Sn_kg_prev', 'cum_feed_total_kg_prev', 'cum_feed_CaO_kg_prev', 'cum_feed_Carbon_kg_prev', 'cum_gn_nm3_prev', 'cum_o2_nm3_prev', 'cum_aire_nm3_prev', 'relacion_C_cum_Sn_cum_prev', 'masa_escoria_est_kg_prev', 'sn_inventario_escoria_est_kg_prev', 'feo_inventario_escoria_est_kg_prev', 'avance_reduccion_sn_prev', 'orden_escalon_fase', 'tiempo_fase', 'espesor_ladrillo_norm_mm', 'ley_sn_carga_batch_pct', 'ley_sn_dross_batch_pct', 'ley_sn_pellets_batch_pct']
+Set B [Reducción] (44 features): ['ley_sn_escoria_pct_prev', 'ley_feo_escoria_pct_prev', 'ley_sio2_escoria_pct_prev', 'ley_cao_escoria_pct_prev', 'basicidad_B2_prev', 'basicidad_B4_prev', 'indice_estructural_molar_prev', 'indice_irf_prev', 'ratio_sn_feo_prev', 'ratio_sn_sio2_prev', 'log_ratio_sn_feo_prev', 'interaccion_Sn_x_FeO_prev', 'interaccion_FeO_x_B2_prev', 'temperatura_horno_celsius_prev', 'grad_temperatura_horno_celsius_prev', 'termocupla_media_celsius_prev', 'tiro_horno_pct_prev', 'posicion_vertical_lanza_mm_prev', 'temperatura_gas_pre_bhf_celsius_prev', 'cum_feed_Sn_kg_prev', 'cum_feed_total_kg_prev', 'cum_feed_CaO_kg_prev', 'cum_feed_Carbon_kg_prev', 'cum_gn_nm3_prev', 'cum_o2_nm3_prev', 'cum_aire_nm3_prev', 'relacion_C_cum_Sn_cum_prev', 'masa_escoria_est_kg_prev', 'sn_inventario_escoria_est_kg_prev', 'feo_inventario_escoria_est_kg_prev', 'avance_reduccion_sn_prev', 'orden_escalon_fase', 'tiempo_fase', 'espesor_ladrillo_norm_mm', 'ley_sn_carga_batch_pct', 'ley_sn_dross_batch_pct', 'ley_sn_pellets_batch_pct', 'tasa_feed_Carbon_kg_min', 'tasa_gn_nm3_min', 'tasa_o2_nm3_min', 'tasa_aire_nm3_min', 'exceso_o2_combustion_pct', 'Cx_sn_v4', 'Cx_av_v4']
+Set C [Reducción] (7 features): ['tasa_feed_Carbon_kg_min', 'tasa_gn_nm3_min', 'tasa_o2_nm3_min', 'tasa_aire_nm3_min', 'exceso_o2_combustion_pct', 'Cx_sn_v4', 'Cx_av_v4']
+Anti-fuga: OK, todas las features de A/B/C pasan es_feature_segura_para_prescripcion (o son _v4).
+
+--- 1) Predictibilidad OOF (GroupKFold5 DEV) + lockbox, sets A/B/C ---
+R01_sn_ext                 (Reducción ,extraccion      ): n_dev= 1076 n_lb= 238 r2A=+0.975 r2B=+0.976 r2C=+0.970 gan=+0.000 r2lbA=+0.986 r2lbB=+0.986 n_winsor=12
+R02_feo_ret                (Reducción ,sobre-reduccion ): n_dev= 1071 n_lb= 242 r2A=+0.336 r2B=+0.331 r2C=+0.187 gan=-0.005 r2lbA=+0.346 r2lbB=+0.361 n_winsor=12
+R03_sn_net_l03             (Reducción ,metal-equivalente): n_dev= 1062 n_lb= 238 r2A=+0.977 r2B=+0.978 r2C=+0.970 gan=+0.001 r2lbA=+0.986 r2lbB=+0.987 n_winsor=12
+R04_sn_net_l06             (Reducción ,metal-equivalente): n_dev= 1062 n_lb= 238 r2A=+0.973 r2B=+0.974 r2C=+0.965 gan=+0.001 r2lbA=+0.983 r2lbB=+0.985 n_winsor=12
+R05_sn_net_l10             (Reducción ,metal-equivalente): n_dev= 1062 n_lb= 238 r2A=+0.957 r2B=+0.959 r2C=+0.948 gan=+0.001 r2lbA=+0.973 r2lbB=+0.974 n_winsor=12
+R06_frac_sn                (Reducción ,extraccion      ): n_dev= 1043 n_lb= 240 r2A=+0.640 r2B=+0.642 r2C=+0.603 gan=+0.002 r2lbA=+0.712 r2lbB=+0.705 n_winsor=12
+R07_kapp_sn                (Reducción ,extraccion      ): n_dev= 1042 n_lb= 242 r2A=+0.504 r2B=+0.514 r2C=+0.477 gan=+0.010 r2lbA=+0.490 r2lbB=+0.471 n_winsor=12
+R08_feo_ret_frac           (Reducción ,sobre-reduccion ): n_dev= 1041 n_lb= 242 r2A=+0.286 r2B=+0.264 r2C=+0.091 gan=-0.022 r2lbA=+0.251 r2lbB=+0.238 n_winsor=12
+R09_selectividad           (Reducción ,selectividad    ): n_dev=  788 n_lb= 196 r2A=+0.145 r2B=+0.140 r2C=+0.015 gan=-0.004 r2lbA=+0.238 r2lbB=+0.232 n_winsor=8
+R10_log_selectividad       (Reducción ,selectividad    ): n_dev=  788 n_lb= 196 r2A=+0.616 r2B=+0.606 r2C=+0.564 gan=-0.011 r2lbA=+0.625 r2lbB=+0.622 n_winsor=8
+R11_util_carbon            (Reducción ,selectividad    ): n_dev= 1008 n_lb= 226 r2A=+0.569 r2B=+0.688 r2C=+0.630 gan=+0.120 r2lbA=+0.544 r2lbB=+0.699 n_winsor=12
+R12_d_avance               (Reducción ,extraccion      ): n_dev= 1076 n_lb= 238 r2A=+0.974 r2B=+0.975 r2C=+0.966 gan=+0.000 r2lbA=+0.984 r2lbB=+0.983 n_winsor=12
+R13_sn_residual            (Reducción ,extraccion      ): n_dev= 1089 n_lb= 242 r2A=+0.546 r2B=+0.555 r2C=+0.535 gan=+0.009 r2lbA=+0.562 r2lbB=+0.590 n_winsor=12
+R14_log_sn_feo_next        (Reducción ,selectividad    ): n_dev= 1091 n_lb= 242 r2A=+0.662 r2B=+0.674 r2C=+0.581 gan=+0.012 r2lbA=+0.595 r2lbB=+0.605 n_winsor=12
+R15_d_log_sn_feo           (Reducción ,selectividad    ): n_dev= 1087 n_lb= 242 r2A=+0.763 r2B=+0.763 r2C=+0.735 gan=+0.001 r2lbA=+0.812 r2lbB=+0.818 n_winsor=12
+R16_feo_por_sn_disp        (Reducción ,sobre-reduccion ): n_dev=  823 n_lb= 206 r2A=+0.308 r2B=+0.329 r2C=+0.289 gan=+0.021 r2lbA=+0.255 r2lbB=+0.240 n_winsor=10
+R17_dT                     (Reducción ,termico         ): n_dev= 1196 n_lb= 252 r2A=+0.496 r2B=+0.499 r2C=+0.119 gan=+0.003 r2lbA=+0.432 r2lbB=+0.494 n_winsor=12
+R18_T_ventana              (Reducción ,termico         ): n_dev= 1196 n_lb= 252 r2A=+0.893 r2B=+0.895 r2C=+0.047 gan=+0.002 r2lbA=+0.847 r2lbB=+0.852 n_winsor=12
+R19_T_gas_bhf              (Reducción ,polvo           ): n_dev= 1194 n_lb= 252 r2A=+0.246 r2B=+0.636 r2C=+0.500 gan=+0.390 r2lbA=+0.187 r2lbB=+0.540 n_winsor=12
+R20_fe_metalizado_por_sn   (Reducción ,sobre-reduccion ): n_dev= 1071 n_lb= 242 r2A=+0.357 r2B=+0.354 r2C=+0.215 gan=-0.003 r2lbA=+0.343 r2lbB=+0.378 n_winsor=6
+F01_sn_ext                 (Fusión    ,conservacion    ): n_dev= 1749 n_lb= 374 r2A=+0.718 r2B=+0.740 r2C=+0.632 gan=+0.022 r2lbA=+0.678 r2lbB=+0.687 n_winsor=18
+F02_frac_sn_ext            (Fusión    ,conservacion    ): n_dev= 1746 n_lb= 374 r2A=+0.326 r2B=+0.345 r2C=+0.343 gan=+0.019 r2lbA=+0.199 r2lbB=+0.138 n_winsor=18
+F03_feo_formado            (Fusión    ,matriz          ): n_dev= 1771 n_lb= 375 r2A=+0.361 r2B=+0.375 r2C=+0.291 gan=+0.014 r2lbA=+0.237 r2lbB=+0.279 n_winsor=18
+F04_feo_ret_por_fe         (Fusión    ,matriz          ): n_dev= 1745 n_lb= 375 r2A=+0.492 r2B=+0.492 r2C=+0.199 gan=+0.001 r2lbA=-0.400 r2lbB=-0.262 n_winsor=18
+F05_ley_feo_next           (Fusión    ,matriz          ): n_dev= 1781 n_lb= 377 r2A=+0.719 r2B=+0.721 r2C=+0.202 gan=+0.002 r2lbA=+0.645 r2lbB=+0.661 n_winsor=18
+F06_B2_ventana             (Fusión    ,matriz          ): n_dev= 1782 n_lb= 377 r2A=+0.262 r2B=+0.266 r2C=+0.063 gan=+0.003 r2lbA=+0.341 r2lbB=+0.395 n_winsor=18
+F07_T_media                (Fusión    ,termico         ): n_dev= 1794 n_lb= 378 r2A=+0.966 r2B=+0.966 r2C=+0.562 gan=-0.000 r2lbA=+0.813 r2lbB=+0.817 n_winsor=18
+F08_T_ventana              (Fusión    ,termico         ): n_dev= 1794 n_lb= 378 r2A=+0.917 r2B=+0.917 r2C=+0.368 gan=+0.000 r2lbA=+0.765 r2lbB=+0.784 n_winsor=18
+F09_T_gas_bhf              (Fusión    ,polvo           ): n_dev= 1793 n_lb= 378 r2A=+0.359 r2B=+0.685 r2C=+0.466 gan=+0.325 r2lbA=+0.076 r2lbB=+0.593 n_winsor=18
+F10_irf_next               (Fusión    ,matriz          ): n_dev= 1780 n_lb= 377 r2A=+0.746 r2B=+0.744 r2C=+0.201 gan=-0.002 r2lbA=+0.669 r2lbB=+0.662 n_winsor=18
+F11_log_sn_feo_next        (Fusión    ,conservacion    ): n_dev= 1780 n_lb= 377 r2A=+0.540 r2B=+0.544 r2C=+0.326 gan=+0.004 r2lbA=+0.315 r2lbB=+0.292 n_winsor=18
+F12_d_log_sn_feo           (Fusión    ,conservacion    ): n_dev= 1772 n_lb= 375 r2A=+0.490 r2B=+0.502 r2C=+0.407 gan=+0.012 r2lbA=+0.305 r2lbB=+0.299 n_winsor=18
+F13_masa_por_carga         (Fusión    ,matriz          ): n_dev= 1741 n_lb= 374 r2A=+0.382 r2B=+0.380 r2C=+0.349 gan=-0.001 r2lbA=+0.200 r2lbB=+0.195 n_winsor=18
+F14_sn_ret_por_c           (Fusión    ,conservacion    ): n_dev= 1749 n_lb= 374 r2A=+0.439 r2B=+0.460 r2C=+0.485 gan=+0.020 r2lbA=+0.476 r2lbB=+0.480 n_winsor=18
+F15_dT                     (Fusión    ,termico         ): n_dev= 1794 n_lb= 378 r2A=+0.408 r2B=+0.402 r2C=+0.105 gan=-0.006 r2lbA=+0.051 r2lbB=+0.076 n_winsor=18
+F16_sn_ret_frac            (Fusión    ,conservacion    ): n_dev= 1770 n_lb= 375 r2A=+0.541 r2B=+0.554 r2C=+0.510 gan=+0.013 r2lbA=-0.051 r2lbB=-0.003 n_winsor=18
+
+Guardado st_02_predictibilidad.csv (36 filas)
+
+--- 2) Techo de ruido (Monte Carlo, perturbacion trazador CaO/Sn/FeO) ---
+  Monte Carlo: 20/100 replicas (3.0s)
+  Monte Carlo: 40/100 replicas (6.0s)
+  Monte Carlo: 60/100 replicas (9.1s)
+  Monte Carlo: 80/100 replicas (12.1s)
+  Monte Carlo: 100/100 replicas (15.1s)
+Monte Carlo terminado: 100 replicas en 15.1s
+Techo ruido R01_sn_ext                : n= 1076 sd_ruido=     122.1 sd_target=      3780 r2_max=+0.999
+Techo ruido R02_feo_ret               : n= 1071 sd_ruido=     379.2 sd_target=     880.9 r2_max=+0.815
+Techo ruido R03_sn_net_l03            : n= 1062 sd_ruido=     113.4 sd_target=      3636 r2_max=+0.999
+Techo ruido R04_sn_net_l06            : n= 1062 sd_ruido=     172.5 sd_target=      3537 r2_max=+0.998
+Techo ruido R05_sn_net_l10            : n= 1062 sd_ruido=       285 sd_target=      3425 r2_max=+0.993
+Techo ruido R06_frac_sn               : n= 1043 sd_ruido=   0.03165 sd_target=    0.2977 r2_max=+0.989
+Techo ruido R07_kapp_sn               : n= 1042 sd_ruido=  0.002865 sd_target=   0.02284 r2_max=+0.984
+Techo ruido R08_feo_ret_frac          : n= 1041 sd_ruido=   0.03448 sd_target=   0.08513 r2_max=+0.836
+Techo ruido R09_selectividad          : n=  788 sd_ruido=     68.09 sd_target=     9.967 r2_max=-45.677
+Techo ruido R10_log_selectividad      : n=  788 sd_ruido=    0.6689 sd_target=      1.43 r2_max=+0.781
+Techo ruido R11_util_carbon           : n= 1008 sd_ruido=    0.0664 sd_target=     0.498 r2_max=+0.982
+Techo ruido R12_d_avance              : n= 1076 sd_ruido=  0.002436 sd_target=   0.07538 r2_max=+0.999
+Techo ruido R13_sn_residual           : n= 1089 sd_ruido=     41.11 sd_target=     884.7 r2_max=+0.998
+Techo ruido R14_log_sn_feo_next       : n= 1091 sd_ruido=   0.03678 sd_target=    0.5094 r2_max=+0.995
+Techo ruido R15_d_log_sn_feo          : n= 1087 sd_ruido=   0.04521 sd_target=    0.6059 r2_max=+0.994
+Techo ruido R16_feo_por_sn_disp       : n=  823 sd_ruido=    0.2366 sd_target=    0.3766 r2_max=+0.605
+Techo ruido R20_fe_metalizado_por_sn  : n= 1071 sd_ruido=  0.004953 sd_target=   0.01148 r2_max=+0.814
+Techo ruido F01_sn_ext                : n= 1749 sd_ruido=     202.9 sd_target=      2995 r2_max=+0.995
+Techo ruido F02_frac_sn_ext           : n= 1746 sd_ruido=   0.02506 sd_target=    0.2078 r2_max=+0.985
+Techo ruido F03_feo_formado           : n= 1771 sd_ruido=     254.1 sd_target=     806.2 r2_max=+0.901
+Techo ruido F04_feo_ret_por_fe        : n= 1745 sd_ruido=   0.05289 sd_target=    0.2056 r2_max=+0.934
+Techo ruido F05_ley_feo_next          : n= 1781 sd_ruido=    0.3003 sd_target=     1.744 r2_max=+0.970
+Techo ruido F11_log_sn_feo_next       : n= 1780 sd_ruido=   0.05101 sd_target=    0.2746 r2_max=+0.965
+Techo ruido F12_d_log_sn_feo          : n= 1772 sd_ruido=   0.07235 sd_target=    0.2636 r2_max=+0.925
+Techo ruido F13_masa_por_carga        : n= 1741 sd_ruido=   0.05279 sd_target=    0.2107 r2_max=+0.937
+Techo ruido F14_sn_ret_por_c          : n= 1749 sd_ruido=   0.08662 sd_target=    0.8395 r2_max=+0.989
+Techo ruido F16_sn_ret_frac           : n= 1770 sd_ruido=   0.01196 sd_target=     0.162 r2_max=+0.995
+
+Guardado st_02_techo_ruido.csv (36 filas)
+
+--- 3) Importancia por permutacion (OOF, top 6 por fase, top 8 features) ---
+Top 6 por fase (R2 oof B): {'Fusión': ['F07_T_media', 'F08_T_ventana', 'F10_irf_next', 'F01_sn_ext', 'F05_ley_feo_next', 'F09_T_gas_bhf'], 'Reducción': ['R03_sn_net_l03', 'R01_sn_ext', 'R12_d_avance', 'R04_sn_net_l06', 'R05_sn_net_l10', 'R18_T_ventana']}
+Importancia F07_T_media                (Fusión): top8 = temperatura_horno_celsius_prev(1.672), grad_temperatura_horno_celsius_prev(0.013), espesor_ladrillo_norm_mm(0.006), tasa_o2_nm3_min(0.002), posicion_vertical_lanza_mm_prev(0.001), termocupla_media_celsius_prev(0.001), relacion_C_cum_Sn_cum_prev(0.001), cum_o2_nm3_prev(0.000)
+Importancia F08_T_ventana              (Fusión): top8 = temperatura_horno_celsius_prev(1.653), grad_temperatura_horno_celsius_prev(0.027), espesor_ladrillo_norm_mm(0.007), tasa_o2_nm3_min(0.004), termocupla_media_celsius_prev(0.003), tiro_horno_pct_prev(0.002), relacion_C_cum_Sn_cum_prev(0.001), cum_feed_dross_Fe_kg_prev(0.001)
+Importancia F10_irf_next               (Fusión): top8 = indice_irf_prev(0.716), ley_feo_escoria_pct_prev(0.041), termocupla_media_celsius_prev(0.007), temperatura_horno_celsius_prev(0.005), interaccion_Sn_x_FeO_prev(0.004), cum_feed_Carbon_kg_prev(0.004), ley_sio2_escoria_pct_prev(0.003), posicion_vertical_lanza_mm_prev(0.003)
+Importancia F01_sn_ext                 (Fusión): top8 = tiempo_fase(0.562), Cx_sn_v4(0.032), feo_inventario_escoria_est_kg_prev(0.024), cum_feed_reciclo_kg_prev(0.014), cum_feed_Sn_kg_prev(0.014), relacion_C_Sn_carga(0.012), cum_aire_nm3_prev(0.012), cum_gn_nm3_prev(0.012)
+Importancia F05_ley_feo_next           (Fusión): top8 = ley_feo_escoria_pct_prev(0.923), indice_irf_prev(0.009), cum_feed_Sn_kg_prev(0.006), interaccion_FeO_x_B2_prev(0.004), ley_sn_conc_batch_pct(0.003), tasa_o2_nm3_min(0.003), tasa_gn_nm3_min(0.002), posicion_vertical_lanza_mm_prev(0.002)
+Importancia F09_T_gas_bhf              (Fusión): top8 = tasa_aire_nm3_min(0.393), temperatura_gas_pre_bhf_celsius_prev(0.328), espesor_ladrillo_norm_mm(0.152), tasa_gn_nm3_min(0.022), Cx_av_v4(0.016), tasa_feed_Carbon_kg_min(0.012), tiro_horno_pct_prev(0.009), posicion_vertical_lanza_mm_prev(0.006)
+Importancia R03_sn_net_l03             (Reducción): top8 = sn_inventario_escoria_est_kg_prev(0.625), avance_reduccion_sn_prev(0.144), Cx_sn_v4(0.030), ley_sn_escoria_pct_prev(0.005), cum_aire_nm3_prev(0.001), ratio_sn_sio2_prev(0.001), ratio_sn_feo_prev(0.001), cum_o2_nm3_prev(0.001)
+Importancia R01_sn_ext                 (Reducción): top8 = sn_inventario_escoria_est_kg_prev(0.558), avance_reduccion_sn_prev(0.168), Cx_sn_v4(0.015), ley_sn_escoria_pct_prev(0.001), cum_aire_nm3_prev(0.001), ratio_sn_feo_prev(0.001), relacion_C_cum_Sn_cum_prev(0.001), ratio_sn_sio2_prev(0.001)
+Importancia R12_d_avance               (Reducción): top8 = avance_reduccion_sn_prev(0.648), sn_inventario_escoria_est_kg_prev(0.157), Cx_sn_v4(0.011), ley_sn_escoria_pct_prev(0.002), interaccion_Sn_x_FeO_prev(0.001), cum_feed_Carbon_kg_prev(0.000), relacion_C_cum_Sn_cum_prev(0.000), ratio_sn_feo_prev(0.000)
+Importancia R04_sn_net_l06             (Reducción): top8 = sn_inventario_escoria_est_kg_prev(0.435), avance_reduccion_sn_prev(0.198), Cx_sn_v4(0.047), ley_sn_escoria_pct_prev(0.010), ratio_sn_feo_prev(0.002), ratio_sn_sio2_prev(0.002), cum_aire_nm3_prev(0.002), Cx_av_v4(0.001)
+Importancia R05_sn_net_l10             (Reducción): top8 = sn_inventario_escoria_est_kg_prev(0.326), avance_reduccion_sn_prev(0.186), Cx_sn_v4(0.066), ley_sn_escoria_pct_prev(0.016), ratio_sn_feo_prev(0.011), ratio_sn_sio2_prev(0.003), interaccion_Sn_x_FeO_prev(0.003), cum_aire_nm3_prev(0.002)
+Importancia R18_T_ventana              (Reducción): top8 = temperatura_horno_celsius_prev(1.504), espesor_ladrillo_norm_mm(0.028), grad_temperatura_horno_celsius_prev(0.013), termocupla_media_celsius_prev(0.009), ley_sn_pellets_batch_pct(0.005), ley_feo_escoria_pct_prev(0.003), cum_aire_nm3_prev(0.003), ley_sn_carga_batch_pct(0.002)
+
+Guardado st_02_importancia.csv (96 filas)
+ATENCION: 32 features con |corr|>0.9 con el target (posible fuga trivial, revisar tabla):
+            id                           feature  corr_con_target
+   F07_T_media    temperatura_horno_celsius_prev        -0.974510
+R03_sn_net_l03 sn_inventario_escoria_est_kg_prev         0.985473
+R03_sn_net_l03          avance_reduccion_sn_prev        -0.981743
+R03_sn_net_l03                          Cx_sn_v4         0.976955
+R03_sn_net_l03           ley_sn_escoria_pct_prev         0.942444
+R03_sn_net_l03                ratio_sn_sio2_prev         0.926647
+R03_sn_net_l03                 ratio_sn_feo_prev         0.930938
+    R01_sn_ext sn_inventario_escoria_est_kg_prev         0.985442
+    R01_sn_ext          avance_reduccion_sn_prev        -0.981744
+    R01_sn_ext                          Cx_sn_v4         0.976542
+    R01_sn_ext           ley_sn_escoria_pct_prev         0.939513
+    R01_sn_ext                 ratio_sn_feo_prev         0.927339
+    R01_sn_ext                ratio_sn_sio2_prev         0.924267
+  R12_d_avance          avance_reduccion_sn_prev        -0.985163
+  R12_d_avance sn_inventario_escoria_est_kg_prev         0.984746
+  R12_d_avance                          Cx_sn_v4         0.975716
+  R12_d_avance           ley_sn_escoria_pct_prev         0.940255
+  R12_d_avance         interaccion_Sn_x_FeO_prev         0.940516
+  R12_d_avance                 ratio_sn_feo_prev         0.928675
+R04_sn_net_l06 sn_inventario_escoria_est_kg_prev         0.982500
+R04_sn_net_l06          avance_reduccion_sn_prev        -0.978906
+R04_sn_net_l06                          Cx_sn_v4         0.974559
+R04_sn_net_l06           ley_sn_escoria_pct_prev         0.943251
+R04_sn_net_l06                 ratio_sn_feo_prev         0.932335
+R04_sn_net_l06                ratio_sn_sio2_prev         0.927266
+R05_sn_net_l10 sn_inventario_escoria_est_kg_prev         0.973434
+R05_sn_net_l10          avance_reduccion_sn_prev        -0.970048
+R05_sn_net_l10                          Cx_sn_v4         0.966189
+R05_sn_net_l10           ley_sn_escoria_pct_prev         0.939589
+R05_sn_net_l10                 ratio_sn_feo_prev         0.929628
+R05_sn_net_l10                ratio_sn_sio2_prev         0.923472
+R05_sn_net_l10         interaccion_Sn_x_FeO_prev         0.938009
+
+--- 4) Figuras ---
+Figura guardada: C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\search_targets\figs\st_02_r2_AB_fusion.png
+Figura guardada: C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\search_targets\figs\st_02_r2_AB_reduccion.png
+Figura guardada: C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\search_targets\figs\st_02_scatter_top3_fusion.png
+Figura guardada: C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\search_targets\figs\st_02_scatter_top3_reduccion.png
+
+--- 5) Resumen interpretativo ---
+
+=== RESUMEN POR FASE (id, r2_oof_A, r2_oof_B, ganancia_control, r2_lockbox_B, R2_max) ===
+
+-- Fusión --
+                 id      familia  r2_oof_A  r2_oof_B  ganancia_control  r2_lockbox_B  r2_max  predecible  sensible_palancas  trivial  ruido_puro
+        F07_T_media      termico     0.966     0.966            -0.000         0.817     NaN        True              False     True       False
+      F08_T_ventana      termico     0.917     0.917             0.000         0.784     NaN        True              False     True       False
+       F10_irf_next       matriz     0.746     0.744            -0.002         0.662     NaN        True              False    False       False
+         F01_sn_ext conservacion     0.718     0.740             0.022         0.687   0.995        True              False    False        True
+   F05_ley_feo_next       matriz     0.719     0.721             0.002         0.661   0.970        True              False    False        True
+      F09_T_gas_bhf        polvo     0.359     0.685             0.325         0.593     NaN        True               True    False       False
+    F16_sn_ret_frac conservacion     0.541     0.554             0.013        -0.003   0.995        True              False    False        True
+F11_log_sn_feo_next conservacion     0.540     0.544             0.004         0.292   0.965        True              False    False        True
+   F12_d_log_sn_feo conservacion     0.490     0.502             0.012         0.299   0.925        True              False    False        True
+ F04_feo_ret_por_fe       matriz     0.492     0.492             0.001        -0.262   0.934        True              False    False        True
+   F14_sn_ret_por_c conservacion     0.439     0.460             0.020         0.480   0.989        True              False    False        True
+             F15_dT      termico     0.408     0.402            -0.006         0.076     NaN        True              False    False       False
+ F13_masa_por_carga       matriz     0.382     0.380            -0.001         0.195   0.937        True              False    False        True
+    F03_feo_formado       matriz     0.361     0.375             0.014         0.279   0.901        True              False    False        True
+    F02_frac_sn_ext conservacion     0.326     0.345             0.019         0.138   0.985        True              False    False        True
+     F06_B2_ventana       matriz     0.262     0.266             0.003         0.395     NaN        True              False    False       False
+
+-- Reducción --
+                      id           familia  r2_oof_A  r2_oof_B  ganancia_control  r2_lockbox_B  r2_max  predecible  sensible_palancas  trivial  ruido_puro
+          R03_sn_net_l03 metal-equivalente     0.977     0.978             0.001         0.987   0.999        True              False     True        True
+              R01_sn_ext        extraccion     0.975     0.976             0.000         0.986   0.999        True              False     True        True
+            R12_d_avance        extraccion     0.974     0.975             0.000         0.983   0.999        True              False     True        True
+          R04_sn_net_l06 metal-equivalente     0.973     0.974             0.001         0.985   0.998        True              False     True        True
+          R05_sn_net_l10 metal-equivalente     0.957     0.959             0.001         0.974   0.993        True              False     True        True
+           R18_T_ventana           termico     0.893     0.895             0.002         0.852     NaN        True              False     True       False
+        R15_d_log_sn_feo      selectividad     0.763     0.763             0.001         0.818   0.994        True              False    False        True
+         R11_util_carbon      selectividad     0.569     0.688             0.120         0.699   0.982        True               True    False        True
+     R14_log_sn_feo_next      selectividad     0.662     0.674             0.012         0.605   0.995        True              False    False        True
+             R06_frac_sn        extraccion     0.640     0.642             0.002         0.705   0.989        True              False    False        True
+           R19_T_gas_bhf             polvo     0.246     0.636             0.390         0.540     NaN        True               True    False       False
+    R10_log_selectividad      selectividad     0.616     0.606            -0.011         0.622   0.781        True              False    False        True
+         R13_sn_residual        extraccion     0.546     0.555             0.009         0.590   0.998        True              False    False        True
+             R07_kapp_sn        extraccion     0.504     0.514             0.010         0.471   0.984        True              False    False        True
+                  R17_dT           termico     0.496     0.499             0.003         0.494     NaN        True              False    False       False
+R20_fe_metalizado_por_sn   sobre-reduccion     0.357     0.354            -0.003         0.378   0.814        True              False    False        True
+             R02_feo_ret   sobre-reduccion     0.336     0.331            -0.005         0.361   0.815        True              False    False        True
+     R16_feo_por_sn_disp   sobre-reduccion     0.308     0.329             0.021         0.240   0.605        True              False    False        True
+        R08_feo_ret_frac   sobre-reduccion     0.286     0.264            -0.022         0.238   0.836        True              False    False        True
+        R09_selectividad      selectividad     0.145     0.140            -0.004         0.232 -45.677       False              False    False        True
+
+Total: 646.5s

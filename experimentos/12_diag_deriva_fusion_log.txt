@@ -1,0 +1,19 @@
+limpiar_dataset: 2 valor(es) marcados como NaN en 2 columna(s) (detalle en el reporte devuelto).
+v2                                                 k= 7 R2 oof=0.512  walk-forward=0.527  lockbox=0.438
+v2+carga                                           k=19 R2 oof=0.549  walk-forward=0.538  lockbox=0.275
+v2+lanza                                           k=13 R2 oof=0.528  walk-forward=0.514  lockbox=0.394
+v2+estado                                          k=12 R2 oof=0.511  walk-forward=0.519  lockbox=0.391
+v2+inventario                                      k=15 R2 oof=0.518  walk-forward=0.529  lockbox=0.406
+v2+contexto_tendencial                             k=17 R2 oof=0.526  walk-forward=0.516  lockbox=0.319
+v2+carga+lanza+estado+inventario (sin contexto)    k=38 R2 oof=0.542  walk-forward=0.540  lockbox=0.349
+todo                                               k=48 R2 oof=0.549  walk-forward=0.540  lockbox=0.358
+
+espesor_ladrillo_norm_mm         dev:   234.78   270.88   300.00 | lockbox:   218.10   221.63   227.61
+ley_sn_conc_batch_pct            dev:    36.51    39.03    41.44 | lockbox:    37.47    41.50    43.49
+ley_sn_reciclo_batch_pct         dev:     0.00    49.75    55.82 | lockbox:    44.54    47.15    52.90
+termocupla_media_celsius_prev    dev:   292.49   331.71   384.14 | lockbox:   378.15   395.82   410.38
+ley_sn_carga_batch_pct           dev:    38.18    39.51    41.26 | lockbox:    38.75    40.72    41.49
+temperatura_horno_celsius_prev   dev:   959.10  1077.03  1216.81 | lockbox:   965.45   995.09  1043.00
+relacion_CaO_carga               dev:     0.07     0.10     0.12 | lockbox:     0.07     0.09     0.10
+tasa_feed_total_kg_min           dev:   344.07   419.17   439.39 | lockbox:   324.57   436.74   443.17
+target dev std 3.899 lockbox std 3.691

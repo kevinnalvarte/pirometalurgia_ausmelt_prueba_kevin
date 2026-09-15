@@ -1,0 +1,33 @@
+fase,metodo,regresor,coef,ci_lo,ci_hi,signo_teorico,concuerda_signo,teoria
+Fusión,nnls,q_combustion,0.026891546342205974,0.01840318724880665,0.036245388302171895,1,True,"~1 (paso directo, MJ->MJ)"
+Fusión,nnls,c_fijo,0.7397960054063116,0.510724675475938,1.0110298283293573,1,True,9.2 (a CO) - 32.8 (a CO2) MJ/kg C
+Fusión,nnls,dross_fe,0.0,0.0,0.0,1,,0 - 1.5 MJ/kg dross (4.9 MJ/kgFe x 0.30 FE_MET_DROSS)
+Fusión,nnls,feed_total,-0.0,-0.0,0.0,-1,,-1.3 a -2.2 MJ/kg (H_CARGA)
+Fusión,nnls,q_gas_sensible,-0.159173683310108,-0.19625524678955186,-0.12605871698828272,-1,True,"-1.35 a -2.10 (Cp gas kJ/Nm3K, aqui ya en MJ con /1000)"
+Fusión,nnls,delta_tiempo,-0.0,-0.0,0.0,-1,,-117 (Fusion) / -158 (Reduccion) MJ/min (PERDIDAS)
+Fusión,nnls,sn_disponible,-0.038904966698441956,-0.06649058600555809,-0.01869443247850966,-1,True,-(3.0 MJ/kg Sn) x fraccion media extraida/escalon
+Fusión,nnls,feed_fe_mineral,-0.0,-0.0,0.0,-1,,-1.519 MJ/kgFe x 0.55 FE_MINERAL = -0.84 MJ/kg mineral
+Fusión,ols,q_combustion,-0.008006968049682678,-0.031066641220038736,0.01578062215568025,1,False,"~1 (paso directo, MJ->MJ)"
+Fusión,ols,c_fijo,0.6680490131095168,0.44473292193142877,0.9431491247506143,1,True,9.2 (a CO) - 32.8 (a CO2) MJ/kg C
+Fusión,ols,dross_fe,-0.11289895676059375,-0.19013841083925606,-0.026768537121061784,1,False,0 - 1.5 MJ/kg dross (4.9 MJ/kgFe x 0.30 FE_MET_DROSS)
+Fusión,ols,feed_total,0.08444913859015896,0.05258885246814163,0.11030099931163206,-1,False,-1.3 a -2.2 MJ/kg (H_CARGA)
+Fusión,ols,q_gas_sensible,-0.17661478508746087,-0.23654974265312048,-0.12237402249843178,-1,True,"-1.35 a -2.10 (Cp gas kJ/Nm3K, aqui ya en MJ con /1000)"
+Fusión,ols,delta_tiempo,20.115555992789382,-3.8135195050983577,42.15424370980437,-1,False,-117 (Fusion) / -158 (Reduccion) MJ/min (PERDIDAS)
+Fusión,ols,sn_disponible,-0.04621690654698418,-0.07277556979612075,-0.021711664676799584,-1,True,-(3.0 MJ/kg Sn) x fraccion media extraida/escalon
+Fusión,ols,feed_fe_mineral,0.0033869651419557376,-0.05695454299595264,0.0673004303311509,-1,False,-1.519 MJ/kgFe x 0.55 FE_MINERAL = -0.84 MJ/kg mineral
+Reducción,nnls,q_combustion,0.0,0.0,0.0,1,,"~1 (paso directo, MJ->MJ)"
+Reducción,nnls,c_fijo,0.8576604517726446,0.470322934546084,1.2292021914134987,1,True,9.2 (a CO) - 32.8 (a CO2) MJ/kg C
+Reducción,nnls,dross_fe,0.2598995310296621,0.07278749020589663,0.46359730063388976,1,True,0 - 1.5 MJ/kg dross (4.9 MJ/kgFe x 0.30 FE_MET_DROSS)
+Reducción,nnls,feed_total,-0.0,-0.0,0.0,-1,,-1.3 a -2.2 MJ/kg (H_CARGA)
+Reducción,nnls,q_gas_sensible,-0.1938836916356885,-0.23829203330728882,-0.12626281469623696,-1,True,"-1.35 a -2.10 (Cp gas kJ/Nm3K, aqui ya en MJ con /1000)"
+Reducción,nnls,delta_tiempo,-0.0,-7.125969471259493,0.0,-1,,-117 (Fusion) / -158 (Reduccion) MJ/min (PERDIDAS)
+Reducción,nnls,sn_disponible,-0.04111591853875427,-0.07122111445947135,-0.013067303115218884,-1,True,-(3.0 MJ/kg Sn) x fraccion media extraida/escalon
+Reducción,nnls,feed_fe_mineral,-0.0,-0.0,0.0,-1,,-1.519 MJ/kgFe x 0.55 FE_MINERAL = -0.84 MJ/kg mineral
+Reducción,ols,q_combustion,-0.10106738426360118,-0.12435303736292586,-0.07584442629393609,1,False,"~1 (paso directo, MJ->MJ)"
+Reducción,ols,c_fijo,0.9888006663317682,0.4346382485081141,1.4712519766127452,1,True,9.2 (a CO) - 32.8 (a CO2) MJ/kg C
+Reducción,ols,dross_fe,-0.20129051360644584,-0.46761651212477073,0.08747907980286501,1,False,0 - 1.5 MJ/kg dross (4.9 MJ/kgFe x 0.30 FE_MET_DROSS)
+Reducción,ols,feed_total,0.44394166784662437,0.22380879129724562,0.6757188308686424,-1,False,-1.3 a -2.2 MJ/kg (H_CARGA)
+Reducción,ols,q_gas_sensible,-0.049346979578756556,-0.20479675901743885,0.12719510328389871,-1,True,"-1.35 a -2.10 (Cp gas kJ/Nm3K, aqui ya en MJ con /1000)"
+Reducción,ols,delta_tiempo,41.60511265947569,23.0928605559937,59.056731488563855,-1,False,-117 (Fusion) / -158 (Reduccion) MJ/min (PERDIDAS)
+Reducción,ols,sn_disponible,-0.060381471666044795,-0.09154785233292549,-0.032619650753985645,-1,True,-(3.0 MJ/kg Sn) x fraccion media extraida/escalon
+Reducción,ols,feed_fe_mineral,-0.1945086771713415,-0.48669401025930636,0.14386261806843526,-1,True,-1.519 MJ/kgFe x 0.55 FE_MINERAL = -0.84 MJ/kg mineral

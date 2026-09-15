@@ -1,0 +1,8 @@
+variante lanza ['Cx_sn_v4', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min', 'posicion_vertical_lanza_mm', 'posicion_vertical_lanza_mm__sq']
+[  170.7s] lockbox: 10/63
+[  292.5s] lockbox: 20/63
+[  415.2s] lockbox: 30/63
+[  535.3s] lockbox: 40/63
+[  653.0s] lockbox: 50/63
+[  774.5s] lockbox: 60/63
+[  792.9s] LISTO lockbox (628, 68)

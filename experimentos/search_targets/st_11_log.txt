@@ -1,0 +1,171 @@
+df escalon (3982, 282), batch reconstruido (362, 93)  (10.4s)
+Validacion vs st_batch.csv provisto: 50 columnas comunes; max |diff| peor caso = 7.27596e-12 (st_F01_sn_ext)
+st_F01_sn_ext         7.275958e-12
+st_R01_sn_ext         1.818989e-12
+st_R05_sn_net_l10     1.818989e-12
+st_R04_sn_net_l06     1.818989e-12
+st_F03_feo_formado    1.818989e-12
+
+==========================================================================================
+PARTE 1 -- Estructura del KPI
+==========================================================================================
+
+1.1 Identidad rendimiento_proxy_batch == 100*(1-f_dross-f_polvo): r=1.000000, max|diff|=0.0000 pp (n=362) -> identidad exacta (redondeo)
+OLS rendimiento ~ const + f_dross + f_polvo: R2=1.0000  coef f_dross=-100.00 (p=0.00e+00), coef f_polvo=-100.00 (p=0.00e+00)
+Descomposicion de varianza (Var(rendimiento) = 10000*[Var(fd)+Var(fp)+2Cov(fd,fp)]): Var(rend) observada=21.02, teorica=21.02
+  sd(f_dross)=3.738 pp, sd(f_polvo)=3.228 pp, corr(f_dross,f_polvo)=-0.140
+  Share de la varianza del KPI atribuible a f_dross = 58.4%, a f_polvo = 41.6% (suman 100% por construccion; polvo domina si sd_polvo > sd_dross)
+
+1.2 Correlaciones M/D/P (t) y con Sn cargado (feed_sn_total_t):
+  sn_metal_t         vs sn_dross_t          rho=-0.193 [IC -0.29,-0.09] p=2.25e-04  r_pearson=-0.217  n=362
+  sn_metal_t         vs sn_polvo_t          rho=0.090 [IC -0.01,0.19] p=8.68e-02  r_pearson=0.069  n=362
+  sn_dross_t         vs sn_polvo_t          rho=0.067 [IC -0.04,0.17] p=2.02e-01  r_pearson=0.073  n=362
+  sn_metal_t         vs feed_sn_total_t     rho=0.522 [IC 0.43,0.60] p=9.88e-27  r_pearson=0.536  n=362
+  sn_dross_t         vs feed_sn_total_t     rho=0.257 [IC 0.16,0.36] p=7.20e-07  r_pearson=0.236  n=362
+  sn_polvo_t         vs feed_sn_total_t     rho=0.134 [IC 0.04,0.22] p=1.08e-02  r_pearson=0.087  n=362
+
+1.3 Autocorrelacion de D y P entre batches consecutivos (lags 1-5, orden idx_cronologico):
+  sn_dross_t               lag=1  rho=0.253  p=0.000  n=361
+  sn_dross_t               lag=2  rho=0.247  p=0.000  n=360
+  sn_dross_t               lag=3  rho=0.376  p=0.000  n=359
+  sn_dross_t               lag=4  rho=0.254  p=0.000  n=358
+  sn_dross_t               lag=5  rho=0.158  p=0.003  n=357
+  sn_polvo_t               lag=1  rho=-0.059  p=0.263  n=361
+  sn_polvo_t               lag=2  rho=-0.115  p=0.028  n=360
+  sn_polvo_t               lag=3  rho=0.480  p=0.000  n=359
+  sn_polvo_t               lag=4  rho=-0.012  p=0.820  n=358
+  sn_polvo_t               lag=5  rho=-0.092  p=0.081  n=357
+  rendimiento_proxy_batch  lag=1  rho=0.167  p=0.001  n=361
+  rendimiento_proxy_batch  lag=2  rho=0.052  p=0.326  n=360
+  rendimiento_proxy_batch  lag=3  rho=0.265  p=0.000  n=359
+  rendimiento_proxy_batch  lag=4  rho=0.050  p=0.347  n=358
+  rendimiento_proxy_batch  lag=5  rho=-0.019  p=0.714  n=357
+
+  Cruce P (Sn en polvo, t) del batch b vs pellets cargados (tolva 7, Sn kg) en el batch b+k:
+    k=-5  rho(P_b, pellets_Sn_{b+k})=0.009  p=0.870  n=357
+    k=-4  rho(P_b, pellets_Sn_{b+k})=0.004  p=0.935  n=358
+    k=-3  rho(P_b, pellets_Sn_{b+k})=0.010  p=0.846  n=359
+    k=-2  rho(P_b, pellets_Sn_{b+k})=0.008  p=0.885  n=360
+    k=-1  rho(P_b, pellets_Sn_{b+k})=-0.007  p=0.891  n=361
+    k=+0  rho(P_b, pellets_Sn_{b+k})=-0.023  p=0.660  n=362
+    k=+1  rho(P_b, pellets_Sn_{b+k})=-0.028  p=0.592  n=361
+    k=+2  rho(P_b, pellets_Sn_{b+k})=-0.042  p=0.422  n=360
+    k=+3  rho(P_b, pellets_Sn_{b+k})=-0.033  p=0.534  n=359
+    k=+4  rho(P_b, pellets_Sn_{b+k})=-0.068  p=0.203  n=358
+    k=+5  rho(P_b, pellets_Sn_{b+k})=-0.040  p=0.447  n=357
+
+1.4 P (sn_polvo_t) vs carga total, duracion total y n de escalones del batch:
+  sn_polvo_t vs carga_total_kg       rho=0.136 [IC 0.04,0.23] p=9.49e-03 n=362
+  sn_dross_t vs carga_total_kg       rho=0.194 p=2.03e-04 n=362
+  sn_polvo_t vs duracion_total_min   rho=-0.014 [IC -0.12,0.09] p=7.88e-01 n=362
+  sn_dross_t vs duracion_total_min   rho=0.026 p=6.20e-01 n=362
+  sn_polvo_t vs n_escalones          rho=nan [IC nan,nan] p=nan n=362
+  sn_dross_t vs n_escalones          rho=nan p=nan n=362
+
+1.5 Evidencia de atribucion por stock/periodo (valores unicos, rachas de valores iguales, corr con media movil):
+  sn_dross_t     n=362  valores_unicos=351 (97.0%)  rachas(valor repetido consecutivo)=0  racha_max=1
+      corr(sn_dross_t, media_movil_centrada_3) rho=0.697 p=1.43e-53 n=360
+      corr(sn_dross_t, media_movil_centrada_5) rho=0.607 p=2.21e-37 n=358
+      corr(sn_dross_t, media_movil_centrada_7) rho=0.641 p=1.18e-42 n=356
+  sn_polvo_t     n=362  valores_unicos=350 (96.7%)  rachas(valor repetido consecutivo)=0  racha_max=1
+      corr(sn_polvo_t, media_movil_centrada_3) rho=0.517 p=5.68e-26 n=360
+      corr(sn_polvo_t, media_movil_centrada_5) rho=0.227 p=1.48e-05 n=358
+      corr(sn_polvo_t, media_movil_centrada_7) rho=0.509 p=8.22e-25 n=356
+  sn_metal_t     n=362  valores_unicos=355 (98.1%)  rachas(valor repetido consecutivo)=0  racha_max=1
+      corr(sn_metal_t, media_movil_centrada_3) rho=0.762 p=1.45e-69 n=360
+      corr(sn_metal_t, media_movil_centrada_5) rho=0.696 p=4.31e-53 n=358
+      corr(sn_metal_t, media_movil_centrada_7) rho=0.696 p=6.66e-53 n=356
+
+Guardado st_11_estructura_kpi.csv (62 filas)
+
+==========================================================================================
+PARTE 2 -- KPIs alternativos y su predictibilidad
+==========================================================================================
+n features = 44 (38 st_* + 5 controles + 1 heel)
+  rendimiento_proxy_batch  HGB    n_dev=299  sd=4.651  R2_oof_dev=0.051+-0.024  rho_oof_dev=0.331+-0.028  R2_lockbox=-0.215  rho_lockbox=0.239  n_lb=63
+  rendimiento_proxy_batch  Ridge  n_dev=299  sd=4.651  R2_oof_dev=0.138+-0.015  rho_oof_dev=0.385+-0.019  R2_lockbox=0.021  rho_lockbox=0.252  n_lb=63
+  f_dross                  HGB    n_dev=299  sd=0.037  R2_oof_dev=0.101+-0.030  rho_oof_dev=0.382+-0.029  R2_lockbox=-0.277  rho_lockbox=0.431  n_lb=63
+  f_dross                  Ridge  n_dev=299  sd=0.037  R2_oof_dev=0.110+-0.022  rho_oof_dev=0.352+-0.021  R2_lockbox=-0.239  rho_lockbox=0.215  n_lb=63
+  f_polvo                  HGB    n_dev=299  sd=0.033  R2_oof_dev=-0.111+-0.027  rho_oof_dev=0.159+-0.017  R2_lockbox=-0.184  rho_lockbox=0.020  n_lb=63
+  f_polvo                  Ridge  n_dev=299  sd=0.033  R2_oof_dev=0.082+-0.011  rho_oof_dev=0.303+-0.014  R2_lockbox=-0.080  rho_lockbox=0.059  n_lb=63
+  recuperacion_real_pct    HGB    n_dev=299  sd=5.306  R2_oof_dev=0.110+-0.029  rho_oof_dev=0.402+-0.020  R2_lockbox=-0.129  rho_lockbox=0.315  n_lb=63
+  recuperacion_real_pct    Ridge  n_dev=299  sd=5.306  R2_oof_dev=0.154+-0.015  rho_oof_dev=0.401+-0.016  R2_lockbox=-0.140  rho_lockbox=0.453  n_lb=63
+  rend_mean_b_bnext        HGB    n_dev=299  sd=3.473  R2_oof_dev=0.138+-0.025  rho_oof_dev=0.407+-0.014  R2_lockbox=-0.185  rho_lockbox=0.291  n_lb=62
+  rend_mean_b_bnext        Ridge  n_dev=299  sd=3.473  R2_oof_dev=0.077+-0.027  rho_oof_dev=0.322+-0.022  R2_lockbox=0.011  rho_lockbox=0.381  n_lb=62
+  rend_ma3_centrada        HGB    n_dev=298  sd=2.918  R2_oof_dev=0.253+-0.024  rho_oof_dev=0.501+-0.015  R2_lockbox=-0.326  rho_lockbox=0.348  n_lb=62
+  rend_ma3_centrada        Ridge  n_dev=298  sd=2.918  R2_oof_dev=0.094+-0.022  rho_oof_dev=0.332+-0.029  R2_lockbox=-0.078  rho_lockbox=0.296  n_lb=62
+
+Ranking de predictibilidad (R2_oof_dev promedio HGB+Ridge):
+target
+rend_ma3_centrada          0.173409
+recuperacion_real_pct      0.132214
+rend_mean_b_bnext          0.107873
+f_dross                    0.105545
+rendimiento_proxy_batch    0.094026
+f_polvo                   -0.014470
+
+Guardado st_11_kpis_predictibilidad.csv (12 filas)
+
+==========================================================================================
+PARTE 3 -- Canal polvo por escalon (>=10 candidatos)
+==========================================================================================
+  P01_T_gas_bhf            [twmean        ] rho_dev(f_polvo)=+0.074 (p=0.203)  rho_dev(rend)=+0.101 (p=0.083)  lockbox(f_polvo)=-0.040  lockbox(rend)=+0.089  theta_ols(rend)=+0.551pp/sd (p=0.058)
+  P01_T_gas_bhf            [sum_exposicion] rho_dev(f_polvo)=+0.123 (p=0.034)  rho_dev(rend)=-0.035 (p=0.552)  lockbox(f_polvo)=-0.144  lockbox(rend)=+0.256  theta_ols(rend)=-0.276pp/sd (p=0.378)
+  P02_T_gas_cuchilla       [twmean        ] rho_dev(f_polvo)=+0.066 (p=0.255)  rho_dev(rend)=+0.099 (p=0.086)  lockbox(f_polvo)=+0.110  lockbox(rend)=+0.018  theta_ols(rend)=+0.433pp/sd (p=0.100)
+  P02_T_gas_cuchilla       [sum_exposicion] rho_dev(f_polvo)=+0.117 (p=0.044)  rho_dev(rend)=-0.035 (p=0.544)  lockbox(f_polvo)=-0.089  lockbox(rend)=+0.205  theta_ols(rend)=-0.330pp/sd (p=0.300)
+  P03_delta_T_gas          [twmean        ] rho_dev(f_polvo)=-0.044 (p=0.443)  rho_dev(rend)=-0.045 (p=0.443)  lockbox(f_polvo)=+0.073  lockbox(rend)=-0.056  theta_ols(rend)=-0.468pp/sd (p=0.106)
+  P03_delta_T_gas          [sum_exposicion] rho_dev(f_polvo)=-0.030 (p=0.601)  rho_dev(rend)=-0.052 (p=0.369)  lockbox(f_polvo)=+0.080  lockbox(rend)=-0.059  theta_ols(rend)=-0.515pp/sd (p=0.078)
+  P04_tiro                 [twmean        ] rho_dev(f_polvo)=+0.073 (p=0.209)  rho_dev(rend)=+0.085 (p=0.144)  lockbox(f_polvo)=+0.281  lockbox(rend)=-0.097  theta_ols(rend)=+0.904pp/sd (p=0.014)
+  P04_tiro                 [sum_exposicion] rho_dev(f_polvo)=+0.136 (p=0.018)  rho_dev(rend)=+0.025 (p=0.661)  lockbox(f_polvo)=+0.094  lockbox(rend)=+0.073  theta_ols(rend)=+0.492pp/sd (p=0.167)
+  P05_gas_total_min        [twmean        ] rho_dev(f_polvo)=-0.001 (p=0.983)  rho_dev(rend)=+0.188 (p=0.001)  lockbox(f_polvo)=+0.427  lockbox(rend)=-0.050  theta_ols(rend)=+0.914pp/sd (p=0.005)
+  P05_gas_total_min        [sum_exposicion] rho_dev(f_polvo)=+0.084 (p=0.147)  rho_dev(rend)=+0.050 (p=0.385)  lockbox(f_polvo)=+0.028  lockbox(rend)=+0.161  theta_ols(rend)=+0.050pp/sd (p=0.884)
+  P06_gas_por_carga        [twmean        ] rho_dev(f_polvo)=-0.020 (p=0.733)  rho_dev(rend)=+0.032 (p=0.580)  lockbox(f_polvo)=-0.338  lockbox(rend)=+0.028  theta_ols(rend)=+0.206pp/sd (p=0.423)
+  P06_gas_por_carga        [sum_exposicion] rho_dev(f_polvo)=-0.014 (p=0.806)  rho_dev(rend)=+0.033 (p=0.568)  lockbox(f_polvo)=-0.336  lockbox(rend)=+0.047  theta_ols(rend)=+0.145pp/sd (p=0.583)
+  P06_gas_por_carga        [ratio_sum     ] rho_dev(f_polvo)=-0.064 (p=0.267)  rho_dev(rend)=-0.012 (p=0.838)
+  P07_presion_punta        [twmean        ] rho_dev(f_polvo)=-0.075 (p=0.220)  rho_dev(rend)=+0.170 (p=0.005)  lockbox(f_polvo)=+0.249  lockbox(rend)=-0.030  theta_ols(rend)=+0.643pp/sd (p=0.029)
+  P07_presion_punta        [sum_exposicion] rho_dev(f_polvo)=-0.093 (p=0.126)  rho_dev(rend)=+0.170 (p=0.005)  lockbox(f_polvo)=+0.273  lockbox(rend)=-0.065  theta_ols(rend)=+0.659pp/sd (p=0.025)
+  P08_posicion_lanza       [twmean        ] rho_dev(f_polvo)=+0.032 (p=0.584)  rho_dev(rend)=+0.135 (p=0.020)  lockbox(f_polvo)=+0.254  lockbox(rend)=+0.045  theta_ols(rend)=+0.630pp/sd (p=0.054)
+  P08_posicion_lanza       [sum_exposicion] rho_dev(f_polvo)=-0.030 (p=0.602)  rho_dev(rend)=+0.146 (p=0.012)  lockbox(f_polvo)=+0.271  lockbox(rend)=+0.048  theta_ols(rend)=+0.685pp/sd (p=0.039)
+  P09_T_bano               [twmean        ] rho_dev(f_polvo)=-0.149 (p=0.010)  rho_dev(rend)=+0.011 (p=0.847)  lockbox(f_polvo)=-0.195  lockbox(rend)=+0.245  theta_ols(rend)=+0.025pp/sd (p=0.959)
+  P09_T_bano               [sum_exposicion] rho_dev(f_polvo)=-0.073 (p=0.209)  rho_dev(rend)=-0.012 (p=0.832)  lockbox(f_polvo)=-0.203  lockbox(rend)=+0.288  theta_ols(rend)=-0.458pp/sd (p=0.243)
+  P10_intensidad_fume      [twmean        ] rho_dev(f_polvo)=-0.150 (p=0.009)  rho_dev(rend)=+0.013 (p=0.817)  lockbox(f_polvo)=-0.177  lockbox(rend)=+0.244  theta_ols(rend)=-0.676pp/sd (p=0.106)
+  P10_intensidad_fume      [sum_exposicion] rho_dev(f_polvo)=-0.147 (p=0.011)  rho_dev(rend)=+0.012 (p=0.836)  lockbox(f_polvo)=-0.204  lockbox(rend)=+0.265  theta_ols(rend)=-0.682pp/sd (p=0.113)
+  P11_carga_fina           [twmean        ] rho_dev(f_polvo)=-0.072 (p=0.211)  rho_dev(rend)=+0.006 (p=0.923)  lockbox(f_polvo)=+0.031  lockbox(rend)=+0.001  theta_ols(rend)=+0.310pp/sd (p=0.466)
+  P11_carga_fina           [sum_exposicion] rho_dev(f_polvo)=-0.046 (p=0.429)  rho_dev(rend)=+0.005 (p=0.933)  lockbox(f_polvo)=-0.044  lockbox(rend)=+0.069  theta_ols(rend)=-0.181pp/sd (p=0.631)
+  P12_tasa_carga           [twmean        ] rho_dev(f_polvo)=+0.051 (p=0.376)  rho_dev(rend)=+0.105 (p=0.071)  lockbox(f_polvo)=+0.312  lockbox(rend)=-0.148  theta_ols(rend)=+0.663pp/sd (p=0.146)
+  P12_tasa_carga           [sum_exposicion] rho_dev(f_polvo)=+0.096 (p=0.099)  rho_dev(rend)=+0.056 (p=0.338)  lockbox(f_polvo)=+0.150  lockbox(rend)=+0.092  theta_ols(rend)=-0.079pp/sd (p=0.911)
+
+Top 5 candidatos de polvo por rho_dev(rendimiento):
+                id            agg  rho_dev_posKPI  p_dev_posKPI_bh  rho_dev_negKPI  p_dev_negKPI_bh  rho_lockbox_posKPI  n_dev
+ P05_gas_total_min         twmean        0.187941         0.027334       -0.001223         0.983200           -0.049923    299
+ P07_presion_punta         twmean        0.170428         0.041257       -0.074812         0.392146           -0.029522    271
+ P07_presion_punta sum_exposicion        0.170248         0.041257       -0.093058         0.392146           -0.065140    271
+P08_posicion_lanza sum_exposicion        0.145643         0.073072       -0.030279         0.684112            0.047811    299
+P08_posicion_lanza         twmean        0.134990         0.097685        0.031771         0.684112            0.044547    299
+
+Guardado st_11_polvo.csv (25 filas)
+
+==========================================================================================
+PARTE 4 -- Canal dross por escalon (>=6 candidatos)
+==========================================================================================
+  D01_feo_reducido_total       [sum  ] rho_dev(f_dross)=-0.195 (p=0.001)  rho_dev(rend)=+0.219 (p=0.000)  lockbox(f_dross)=+0.043  lockbox(rend)=-0.049  theta_ols(rend)=+1.316pp/sd (p=0.000)  n_dev=299
+  D02_fe_dross_t5              [sum  ] rho_dev(f_dross)=+0.017 (p=0.765)  rho_dev(rend)=+0.071 (p=0.220)  lockbox(f_dross)=-0.239  lockbox(rend)=+0.174  theta_ols(rend)=+16.654pp/sd (p=0.000)  n_dev=299
+  D03_fe_mineral_t4            [sum  ] rho_dev(f_dross)=-0.075 (p=0.196)  rho_dev(rend)=-0.045 (p=0.434)  lockbox(f_dross)=-0.129  lockbox(rend)=+0.115  theta_ols(rend)=+0.295pp/sd (p=0.523)  n_dev=299
+  D04_sn_dross_alimentado      [sum  ] rho_dev(f_dross)=-0.093 (p=0.110)  rho_dev(rend)=+0.076 (p=0.190)  lockbox(f_dross)=-0.156  lockbox(rend)=+0.124  theta_ols(rend)=-0.019pp/sd (p=0.964)  n_dev=299
+  D05_feo_final                [last ] rho_dev(f_dross)=-0.144 (p=0.013)  rho_dev(rend)=+0.306 (p=0.000)  lockbox(f_dross)=-0.297  lockbox(rend)=+0.206  theta_ols(rend)=+1.582pp/sd (p=0.000)  n_dev=299
+  D06_irf_final                [last ] rho_dev(f_dross)=-0.155 (p=0.007)  rho_dev(rend)=+0.315 (p=0.000)  lockbox(f_dross)=-0.279  lockbox(rend)=+0.201  theta_ols(rend)=+1.742pp/sd (p=0.000)  n_dev=299
+  D07_sdi                      [sdi  ] rho_dev(f_dross)=-0.196 (p=0.001)  rho_dev(rend)=+0.319 (p=0.000)  lockbox(f_dross)=-0.119  lockbox(rend)=+0.094  theta_ols(rend)=+1.549pp/sd (p=0.000)  n_dev=286
+
+Ranking de candidatos de dross por rho_dev(rendimiento):
+                     id  agg  rho_dev_posKPI  p_dev_posKPI_bh  rho_dev_negKPI  p_dev_negKPI_bh  rho_lockbox_posKPI  n_dev
+                D07_sdi  sdi        0.319023     1.211396e-07       -0.196201         0.002975            0.093798    286
+          D06_irf_final last        0.315133     1.211396e-07       -0.155495         0.016478            0.200797    299
+          D05_feo_final last        0.306032     1.557256e-07       -0.143739         0.022481            0.205837    299
+ D01_feo_reducido_total  sum        0.219030     2.354528e-04       -0.195141         0.002975           -0.049299    299
+D04_sn_dross_alimentado  sum        0.075951     2.566462e-01       -0.092547         0.154366            0.124088    299
+        D02_fe_dross_t5  sum        0.071143     2.566462e-01        0.017321         0.765489            0.173771    299
+      D03_fe_mineral_t4  sum       -0.045443     4.336861e-01       -0.074931         0.229054            0.115447    299
+
+Guardado st_11_dross.csv (7 filas)
+
+Tiempo total: 63.1s

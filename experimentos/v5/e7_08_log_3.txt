@@ -1,0 +1,8 @@
+variante lanza ['Cx_sn_v4', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min', 'posicion_vertical_lanza_mm', 'posicion_vertical_lanza_mm__sq']
+[  161.5s] 3: 10/60
+[  281.9s] 3: 20/60
+[  404.2s] 3: 30/60
+[  522.9s] 3: 40/60
+[  637.3s] 3: 50/60
+[  759.7s] 3: 60/60
+[  759.8s] LISTO 3 (592, 68)

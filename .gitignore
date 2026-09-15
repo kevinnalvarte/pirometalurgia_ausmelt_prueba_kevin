@@ -1,0 +1,32 @@
+# entorno Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# tooling local / editor
+.claude/
+.idea/
+.vscode/
+func-teorethical-model/.idea/
+func-teorethical-model/.vscode/
+
+# artefactos de build
+func-teorethical-model/target/
+func-teorethical-model/theoretical_model
+func-teorethical-model/bin/
+func-teorethical-model/obj/
+
+# archivos temporales de Office
+~$*.xlsx
+~$*.xlsm
+~$*.docx
+
+# caches de experimentos (regenerables desde el Excel fuente)
+experimentos/cache/*.pkl
+experimentos/search_targets/cache_df_st.pkl
+experimentos/**/cache_*.pkl
+
+# sistema
+.DS_Store
+Thumbs.db

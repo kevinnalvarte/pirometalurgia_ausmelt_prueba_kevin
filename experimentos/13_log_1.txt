@@ -1,0 +1,16 @@
+[    0.0s] cargando dataset
+[   21.8s] 1: sistema entrenado (21.8s); 60 batches
+[   78.1s]   1: 5/60 batches (78s)
+[  188.2s]   1: 10/60 batches (188s)
+[  205.9s]   ERROR AP0060: ('AP0060', 'ValueError: Input X contains NaN.\nNearestNeighbors does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values')
+[  288.9s]   1: 15/60 batches (289s)
+[  358.4s]   1: 20/60 batches (358s)
+[  385.4s]   1: 25/60 batches (385s)
+[  461.9s]   1: 30/60 batches (462s)
+[  556.3s]   1: 35/60 batches (556s)
+[  651.1s]   1: 40/60 batches (651s)
+[  755.9s]   1: 45/60 batches (756s)
+[  856.5s]   1: 50/60 batches (856s)
+[  891.2s]   1: 55/60 batches (891s)
+[  926.2s]   1: 60/60 batches (926s)
+[  926.2s] 1: LISTO 59 ok, 1 fallidos, 926s

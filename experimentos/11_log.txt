@@ -1,0 +1,125 @@
+limpiar_dataset: 2 valor(es) marcados como NaN en 2 columna(s) (detalle en el reporte devuelto).
+Fusión    | sn_extraido_est_kg         | trivial_solo_Sn_cargado        | k= 1 | R2 oof=0.685 lb=0.714 | MAE lb=1118.241
+Fusión    | sn_extraido_est_kg         | trivial_Sn_cargado+inventario  | k= 3 | R2 oof=0.716 lb=0.714 | MAE lb=1050.692
+Fusión    | sn_extraido_est_kg         | curado_A_10                    | k=10 | R2 oof=0.718 lb=0.652 | MAE lb=1169.056
+Fusión    | sn_extraido_est_kg         | curado_B_13                    | k=13 | R2 oof=0.722 lb=0.680 | MAE lb=1113.094
+Fusión    | sn_extraido_est_kg         | curado_C_15                    | k=15 | R2 oof=0.715 lb=0.670 | MAE lb=1162.145
+Fusión    | sn_extraido_est_kg         | auto09_k8                      | k= 8 | R2 oof=0.740 lb=0.701 | MAE lb=1097.033
+Fusión    | d_ley_sn_escoria_pct       | v2_actual_7                    | k= 7 | R2 oof=0.512 lb=0.438 | MAE lb=2.171
+Fusión    | d_ley_sn_escoria_pct       | v2+masa_9                      | k= 9 | R2 oof=0.512 lb=0.445 | MAE lb=2.137
+Fusión    | d_ley_sn_escoria_pct       | v2_plan_7                      | k= 7 | R2 oof=0.517 lb=0.450 | MAE lb=2.143
+Fusión    | d_ley_feo_escoria_pct      | v2_actual_7                    | k= 7 | R2 oof=0.125 lb=0.070 | MAE lb=0.760
+Fusión    | d_ley_feo_escoria_pct      | curado_feo_9                   | k= 9 | R2 oof=0.202 lb=0.042 | MAE lb=0.780
+Reducción | sn_extraido_est_kg         | trivial_solo_inventario        | k= 1 | R2 oof=0.973 lb=0.984 | MAE lb=332.925
+Reducción | sn_extraido_est_kg         | trivial_inventario+avance      | k= 3 | R2 oof=0.972 lb=0.981 | MAE lb=344.536
+Reducción | sn_extraido_est_kg         | curado_A_10                    | k=10 | R2 oof=0.971 lb=0.983 | MAE lb=347.407
+Reducción | sn_extraido_est_kg         | curado_B_13                    | k=13 | R2 oof=0.971 lb=0.981 | MAE lb=356.987
+Reducción | d_ley_sn_escoria_pct       | v2_configC_9                   | k= 9 | R2 oof=0.947 lb=0.967 | MAE lb=0.672
+Reducción | d_ley_sn_escoria_pct       | v2C+masa_11                    | k=11 | R2 oof=0.948 lb=0.968 | MAE lb=0.655
+Reducción | d_ley_sn_escoria_pct       | v2C+ratio_10                   | k=10 | R2 oof=0.946 lb=0.969 | MAE lb=0.650
+Reducción | d_ley_feo_escoria_pct      | v2_configC_9                   | k= 9 | R2 oof=0.450 lb=0.508 | MAE lb=0.630
+Reducción | d_ley_feo_escoria_pct      | curado_feo_11                  | k=11 | R2 oof=0.465 lb=0.570 | MAE lb=0.582
+Reducción | feo_extraido_est_kg        | curado_feo_kg_11               | k=11 | R2 oof=0.286 lb=0.271 | MAE lb=514.856
+Fusión    | d_temperatura_horno_celsius | v3_dT                          | k=15 | R2 oof=0.385 lb=0.097 | MAE lb=7.481
+Reducción | d_temperatura_horno_celsius | v3_dT                          | k=14 | R2 oof=0.444 lb=0.320 | MAE lb=7.171
+
+=== (b) FeO Reduccion en escala kg (lockbox) ===
+pts->kg (x masa_prev): R2=-1.777 MAE=891 kg
+kg directo:            R2=0.271 MAE=515 kg  (std target lb=814)
+
+=== (c) frac_sn_extraido_escalon: distribucion dev vs lockbox ===
+Fusión    dev      frac: mean=0.482 std=0.156 | kg: mean=6049 std=3018 | feedSn mean=7583 | ley conc=39.30
+Fusión    lockbox  frac: mean=0.436 std=0.098 | kg: mean=6283 std=2941 | feedSn mean=8149 | ley conc=41.38
+Reducción dev      frac: mean=0.442 std=0.300 | kg: mean=2620 std=3796 | feedSn mean=150 | ley conc=39.30
+Reducción lockbox  frac: mean=0.437 std=0.296 | kg: mean=3014 std=4386 | feedSn mean=156 | ley conc=41.38
+
+=== (d) signos SHAP (corr Pearson valor vs SHAP; media |SHAP|) ===
+-- ('Fusión', 'sn_extraido_est_kg', 'curado_B_13')
+                           feature  corr_valor_shap  media_abs_shap
+                       feed_Sn_kgf            0.974        1413.714
+feo_inventario_escoria_est_kg_prev            0.853         443.320
+          masa_escoria_est_kg_prev            0.158         177.856
+                relacion_CaO_carga           -0.877         142.930
+ sn_inventario_escoria_est_kg_prev            0.613         134.096
+                   tasa_gn_nm3_min            0.116         108.454
+           interaccion_C_x_Sn_prev            0.830         105.255
+             frac_carga_secundaria            0.404          96.142
+           ley_sn_escoria_pct_prev            0.684          87.973
+          exceso_o2_combustion_pct            0.085          68.893
+    temperatura_horno_celsius_prev            0.212          63.287
+                 basicidad_B2_prev           -0.196          53.133
+           tasa_feed_Carbon_kg_min            0.788          43.588
+-- ('Reducción', 'sn_extraido_est_kg', 'curado_B_13')
+                          feature  corr_valor_shap  media_abs_shap
+sn_inventario_escoria_est_kg_prev            0.994        2091.078
+         avance_reduccion_sn_prev           -0.956         786.670
+          interaccion_C_x_Sn_prev            0.953         160.221
+         masa_escoria_est_kg_prev            0.384          64.569
+          ley_sn_escoria_pct_prev            0.295          63.344
+                  tasa_gn_nm3_min            0.407          55.280
+        interaccion_Sn_x_FeO_prev            0.401          48.893
+         ley_feo_escoria_pct_prev           -0.107          41.143
+         exceso_o2_combustion_pct           -0.415          34.678
+        interaccion_C_x_exceso_o2            0.255          28.769
+   temperatura_horno_celsius_prev            0.157          24.155
+          tasa_feed_Carbon_kg_min            0.788          15.186
+                duracion_plan_min           -0.728           1.340
+-- ('Reducción', 'd_ley_feo_escoria_pct', 'curado_feo_11')
+                            feature  corr_valor_shap  media_abs_shap
+            ley_sn_escoria_pct_prev            0.946           0.309
+                 ratio_sn_sio2_prev            0.875           0.193
+            cum_feed_Carbon_kg_prev           -0.924           0.125
+           ley_feo_escoria_pct_prev           -0.667           0.121
+grad_temperatura_horno_celsius_prev            0.296           0.111
+                    tasa_gn_nm3_min            0.143           0.106
+           exceso_o2_combustion_pct            0.536           0.105
+          interaccion_Sn_x_FeO_prev            0.566           0.082
+           interaccion_C_x_FeO_prev           -0.652           0.025
+            tasa_feed_Carbon_kg_min           -0.358           0.023
+                  duracion_plan_min            0.804           0.018
+-- ('Fusión', 'd_ley_feo_escoria_pct', 'curado_feo_9')
+                  feature  corr_valor_shap  media_abs_shap
+ ley_feo_escoria_pct_prev           -0.892           0.301
+        duracion_plan_min            0.345           0.119
+  ley_sn_escoria_pct_prev            0.531           0.095
+ley_sio2_escoria_pct_prev           -0.574           0.084
+     tasa_feed_CaO_kg_min            0.145           0.083
+tasa_feed_dross_Fe_kg_min           -0.308           0.048
+ exceso_o2_combustion_pct            0.156           0.034
+  tasa_feed_Carbon_kg_min           -0.657           0.029
+      tasa_feed_Fe_kg_min           -0.021           0.018
+-- ('Reducción', 'd_temperatura_horno_celsius', 'v3_dT')
+                            feature  corr_valor_shap  media_abs_shap
+           espesor_ladrillo_norm_mm            0.740           5.177
+     temperatura_horno_celsius_prev           -0.882           3.621
+grad_temperatura_horno_celsius_prev            0.715           3.508
+      termocupla_media_celsius_prev           -0.046           2.957
+                  duracion_plan_min           -0.816           1.793
+           exceso_o2_combustion_pct           -0.468           1.589
+                    tasa_o2_nm3_min           -0.842           1.257
+            ley_sn_escoria_pct_prev           -0.403           1.129
+                tiro_horno_pct_prev            0.515           1.101
+            tasa_feed_Carbon_kg_min            0.072           0.960
+                    tasa_gn_nm3_min           -0.135           0.730
+           masa_escoria_est_kg_prev            0.353           0.707
+                  tasa_aire_nm3_min            0.097           0.700
+                 orden_escalon_fase            0.654           0.164
+-- ('Fusión', 'd_temperatura_horno_celsius', 'v3_dT')
+                            feature  corr_valor_shap  media_abs_shap
+     temperatura_horno_celsius_prev           -0.893           5.458
+grad_temperatura_horno_celsius_prev            0.927           5.369
+                    tasa_o2_nm3_min           -0.667           1.892
+           espesor_ladrillo_norm_mm            0.757           1.804
+      termocupla_media_celsius_prev            0.010           1.478
+                tiro_horno_pct_prev           -0.233           1.358
+                 orden_escalon_fase           -0.766           1.085
+           masa_escoria_est_kg_prev           -0.484           1.007
+            tasa_feed_Carbon_kg_min            0.569           0.971
+               tasa_feed_CaO_kg_min            0.704           0.947
+                  duracion_plan_min           -0.697           0.865
+                  tasa_aire_nm3_min           -0.175           0.585
+           exceso_o2_combustion_pct           -0.114           0.540
+                    tasa_gn_nm3_min           -0.699           0.513
+             tasa_feed_total_kg_min            0.395           0.442
+
+LISTO

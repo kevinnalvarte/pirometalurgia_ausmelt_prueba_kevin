@@ -1,0 +1,100 @@
+limpiar_dataset: 2 valor(es) marcados como NaN en 2 columna(s) (detalle en el reporte devuelto).
+tabla batch (362, 102); features candidatas 83
+
+=== Spearman |rho| > 0.2 con algun target ===
+                              rendimiento_ha_batch  frac_sn_dross  frac_sn_polvo  frac_sn_metal
+R_feo_extraido_frac                         -0.263          0.199          0.181         -0.082
+reduccion_sn_caida_total                    -0.108          0.142         -0.098         -0.216
+delta_FR_ley_sn_escoria_pct                 -0.107          0.133         -0.079         -0.212
+F_avance_reduccion_final                    -0.097          0.132         -0.113         -0.211
+F_sn_extraido_t                             -0.077          0.117         -0.164         -0.245
+reduccion_lanza_pos_std                      0.070         -0.043          0.054          0.218
+fusion_ley_sn_pico                           0.077         -0.209          0.134          0.076
+F_C_por_t_Sn                                 0.095         -0.232          0.153          0.066
+R_sn_extraido_t                              0.096         -0.116          0.078          0.201
+F_sn_escoria_final_t                         0.100         -0.130          0.089          0.201
+reduccion_ley_sn_inicio                      0.113         -0.146          0.101          0.216
+fusion_ley_sn_final                          0.113         -0.146          0.101          0.216
+F_lanza_mean                                 0.116         -0.209          0.082          0.140
+reduccion_carbon_total_kg                    0.135         -0.233          0.122          0.156
+F_irf_final                                  0.224         -0.110         -0.118          0.300
+delta_FR_ley_feo_escoria_pct                 0.238         -0.247          0.011          0.249
+R_selectividad_masa                          0.246         -0.234         -0.071          0.142
+reduccion_feo_caida_total                    0.274         -0.251         -0.069          0.216
+{'target': 'rendimiento_ha_batch', 'modelo': 'XGB_chico', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': 0.11369875784184391, 'r2_walkforward': -0.03919501569050521, 'r2_lockbox': 0.0066234372961513355, 'mae_lockbox': 0.034481811473483115, 'rho_lockbox': np.float64(0.24167726766916403)}
+  top-12 permutation (lockbox) rendimiento_ha_batch:
+F_irf_final                     0.0312
+F_feo_final                     0.0286
+fusion_carbon_total_kg          0.0255
+F_feo_escoria_final_t           0.0224
+F_C_por_t_Sn                    0.0157
+reduccion_feo_caida_total       0.0115
+reduccion_o2_total_nm3          0.0079
+delta_FR_ley_feo_escoria_pct    0.0071
+reduccion_carbon_total_kg       0.0064
+F_frac_conc                     0.0054
+R_feo_extraido_t                0.0039
+F_masa_escoria_final_t          0.0035
+{'target': 'rendimiento_ha_batch', 'modelo': 'XGB_top8', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': 0.13295250142016202, 'r2_walkforward': nan, 'r2_lockbox': -0.062054795132866714, 'mae_lockbox': 0.03562317705608548, 'rho_lockbox': np.float64(0.2608309531990074), 'features': 'R_feo_extraido_frac;F_irf_final;reduccion_feo_caida_total;fusion_carbon_total_kg;F_feo_escoria_final_t;R_gn_rate_mean;F_lanza_mean;F_feo_final'}
+{'target': 'rendimiento_ha_batch', 'modelo': 'ElasticNet', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': -1.1366863543906333e+35, 'r2_walkforward': -0.028349249285102074, 'r2_lockbox': -0.0719349391870916, 'mae_lockbox': 0.03536460763124716, 'rho_lockbox': np.float64(0.16244629532077687)}
+{'target': 'frac_sn_dross', 'modelo': 'XGB_chico', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': 0.1787745719269297, 'r2_walkforward': -0.03392077001150384, 'r2_lockbox': 0.02476897229248254, 'mae_lockbox': 0.03177599657465979, 'rho_lockbox': np.float64(0.3970334101382489)}
+  top-12 permutation (lockbox) frac_sn_dross:
+F_lanza_mean                        0.0311
+F_C_por_t_Sn                        0.0230
+F_feo_escoria_final_t               0.0149
+reduccion_feo_caida_total           0.0137
+fusion_carbon_total_kg              0.0129
+F_feo_final                         0.0123
+F_irf_final                         0.0115
+fusion_o2_exceso_mean               0.0115
+R_gn_rate_mean                      0.0111
+reduccion_o2_total_nm3              0.0102
+delta_FR_ley_feo_escoria_pct        0.0082
+delta_FR_presion_punta_lanza_kpa    0.0081
+{'target': 'frac_sn_dross', 'modelo': 'XGB_top8', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': 0.1825437717574806, 'r2_walkforward': nan, 'r2_lockbox': -0.00832499324860625, 'mae_lockbox': 0.03243145553542691, 'rho_lockbox': np.float64(0.3449980798771122), 'features': 'F_lanza_mean;reduccion_feo_caida_total;F_C_por_t_Sn;R_gn_rate_mean;fusion_carbon_total_kg;R_feo_extraido_frac;fusion_ley_sn_pico;R_tiro_mean'}
+{'target': 'frac_sn_dross', 'modelo': 'ElasticNet', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': -2.9394705328053357e+36, 'r2_walkforward': -0.03009683510161354, 'r2_lockbox': 0.006862673279404596, 'mae_lockbox': 0.032457210772659596, 'rho_lockbox': np.float64(0.36875960061443935)}
+{'target': 'frac_sn_polvo', 'modelo': 'XGB_chico', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': 0.03527822288019811, 'r2_walkforward': -0.13243612239927605, 'r2_lockbox': -0.28192703805042263, 'mae_lockbox': 0.031044403043095935, 'rho_lockbox': np.float64(-0.22523041474654376)}
+  top-12 permutation (lockbox) frac_sn_polvo:
+F_sn_extraido_t                0.0075
+F_lanza_std                    0.0072
+ley_sn_conc_batch_pct          0.0070
+F_b2_final                     0.0063
+fusion_b2_mean                 0.0049
+fusion_carbon_rate_cv          0.0047
+F_irf_final                    0.0042
+reduccion_carbon_rate_first    0.0033
+fusion_duracion_total_min      0.0029
+R_frac_sn_extraido_R0          0.0028
+reduccion_o2_exceso_mean       0.0019
+fusion_o2_exceso_mean          0.0018
+{'target': 'frac_sn_polvo', 'modelo': 'XGB_top8', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': 0.10687806677297074, 'r2_walkforward': nan, 'r2_lockbox': -0.2703559603512018, 'mae_lockbox': 0.029591628349885223, 'rho_lockbox': np.float64(-0.022129416282642093), 'features': 'reduccion_carbon_rate_first;R_feo_extraido_t;R_feo_extraido_frac;F_frac_reciclo;delta_FR_ley_sn_escoria_pct;F_frac_pellets;ley_sn_conc_batch_pct;delta_FR_presion_punta_lanza_kpa'}
+{'target': 'frac_sn_polvo', 'modelo': 'ElasticNet', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': 0.03656405794580542, 'r2_walkforward': -0.06816566648823863, 'r2_lockbox': -0.12507663323285656, 'mae_lockbox': 0.02804805752713599, 'rho_lockbox': np.float64(-0.04209869431643626)}
+{'target': 'frac_sn_metal', 'modelo': 'XGB_chico', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': 0.17148045771602083, 'r2_walkforward': 0.07928402476740515, 'r2_lockbox': -0.024285180571657294, 'mae_lockbox': 0.034229428641001494, 'rho_lockbox': np.float64(0.40764208909370203)}
+  top-12 permutation (lockbox) frac_sn_metal:
+F_irf_final                    0.0450
+F_b2_final                     0.0158
+fusion_o2_exceso_std           0.0148
+F_C_por_t_Sn                   0.0128
+F_feo_final                    0.0120
+F_feo_escoria_final_t          0.0065
+R_feo_extraido_frac            0.0040
+fusion_temp_trend              0.0035
+F_gn_por_t_carga               0.0033
+R_C_por_t_Sn_escoria_inicio    0.0030
+F_tipp_mean                    0.0030
+fusion_duracion_total_min      0.0030
+{'target': 'frac_sn_metal', 'modelo': 'XGB_top8', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': 0.18102273589433981, 'r2_walkforward': nan, 'r2_lockbox': -0.04264090251177244, 'mae_lockbox': 0.03495782356016578, 'rho_lockbox': np.float64(0.3834005376344086), 'features': 'F_irf_final;F_sn_extraido_t;F_feo_final;reduccion_lanza_pos_std;delta_FR_ley_feo_escoria_pct;F_C_por_t_Sn;F_avance_reduccion_final;R_tiro_mean'}
+{'target': 'frac_sn_metal', 'modelo': 'ElasticNet', 'n_dev': 299, 'n_lockbox': 63, 'r2_oof': 0.12501375516287128, 'r2_walkforward': 0.06327538361542973, 'r2_lockbox': 0.07661292131901287, 'mae_lockbox': 0.03186920950215386, 'rho_lockbox': np.float64(0.47652649769585254)}
+                  target      modelo  n_dev  n_lockbox        r2_oof  r2_walkforward  r2_lockbox  mae_lockbox  rho_lockbox                                                                                                                                                                           features
+0   rendimiento_ha_batch   XGB_chico    299         63  1.140000e-01          -0.039       0.007        0.034        0.242                                                                                                                                                                                NaN
+1   rendimiento_ha_batch    XGB_top8    299         63  1.330000e-01             NaN      -0.062        0.036        0.261                                     R_feo_extraido_frac;F_irf_final;reduccion_feo_caida_total;fusion_carbon_total_kg;F_feo_escoria_final_t;R_gn_rate_mean;F_lanza_mean;F_feo_final
+2   rendimiento_ha_batch  ElasticNet    299         63 -1.136686e+35          -0.028      -0.072        0.035        0.162                                                                                                                                                                                NaN
+3          frac_sn_dross   XGB_chico    299         63  1.790000e-01          -0.034       0.025        0.032        0.397                                                                                                                                                                                NaN
+4          frac_sn_dross    XGB_top8    299         63  1.830000e-01             NaN      -0.008        0.032        0.345                                       F_lanza_mean;reduccion_feo_caida_total;F_C_por_t_Sn;R_gn_rate_mean;fusion_carbon_total_kg;R_feo_extraido_frac;fusion_ley_sn_pico;R_tiro_mean
+5          frac_sn_dross  ElasticNet    299         63 -2.939471e+36          -0.030       0.007        0.032        0.369                                                                                                                                                                                NaN
+6          frac_sn_polvo   XGB_chico    299         63  3.500000e-02          -0.132      -0.282        0.031       -0.225                                                                                                                                                                                NaN
+7          frac_sn_polvo    XGB_top8    299         63  1.070000e-01             NaN      -0.270        0.030       -0.022  reduccion_carbon_rate_first;R_feo_extraido_t;R_feo_extraido_frac;F_frac_reciclo;delta_FR_ley_sn_escoria_pct;F_frac_pellets;ley_sn_conc_batch_pct;delta_FR_presion_punta_lanza_kpa
+8          frac_sn_polvo  ElasticNet    299         63  3.700000e-02          -0.068      -0.125        0.028       -0.042                                                                                                                                                                                NaN
+9          frac_sn_metal   XGB_chico    299         63  1.710000e-01           0.079      -0.024        0.034        0.408                                                                                                                                                                                NaN
+10         frac_sn_metal    XGB_top8    299         63  1.810000e-01             NaN      -0.043        0.035        0.383                                     F_irf_final;F_sn_extraido_t;F_feo_final;reduccion_lanza_pos_std;delta_FR_ley_feo_escoria_pct;F_C_por_t_Sn;F_avance_reduccion_final;R_tiro_mean
+11         frac_sn_metal  ElasticNet    299         63  1.250000e-01           0.063       0.077        0.032        0.477                                                                                                                                                                                NaN

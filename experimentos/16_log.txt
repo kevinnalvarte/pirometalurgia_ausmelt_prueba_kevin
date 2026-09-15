@@ -1,0 +1,74 @@
+[   0.0s] cargando dataset cache...
+[   0.0s] df (3982, 222), base (3620, 222), batches dev=299 lockbox=63
+[   0.0s] 8 especificaciones de modelo:
+  - Fusión_sn_kg_default (13 features, monotono=True)
+  - Fusión_sn_kg_libre (13 features, monotono=False)
+  - Fusión_sn_kg_pool_amplio (22 features, monotono=True)
+  - Reducción_sn_kg_default (10 features, monotono=True)
+  - Reducción_sn_kg_libre (10 features, monotono=False)
+  - Reducción_sn_kg_pool_amplio (17 features, monotono=True)
+  - Reducción_feo_kg_default (11 features, monotono=True)
+  - Reducción_feo_kg_pool_amplio (19 features, monotono=True)
+[   0.3s]   entrenado Fusión_sn_kg_default: n=1743, sd_target=3019.5
+[   0.5s]   entrenado Fusión_sn_kg_libre: n=1743, sd_target=3019.5
+[   0.8s]   entrenado Fusión_sn_kg_pool_amplio: n=1743, sd_target=3019.5
+[   1.0s]   entrenado Reducción_sn_kg_default: n=1074, sd_target=3794.3
+[   1.2s]   entrenado Reducción_sn_kg_libre: n=1074, sd_target=3794.3
+[   1.5s]   entrenado Reducción_sn_kg_pool_amplio: n=1074, sd_target=3794.3
+[   1.7s]   entrenado Reducción_feo_kg_default: n=1070, sd_target=891.4
+[   1.9s]   entrenado Reducción_feo_kg_pool_amplio: n=1070, sd_target=891.4
+[   1.9s] PD/ALE/SHAP para Fusión_sn_kg_default (13 features, n=1743)...
+[   6.8s] PD/ALE/SHAP para Fusión_sn_kg_libre (13 features, n=1743)...
+[  11.5s] PD/ALE/SHAP para Fusión_sn_kg_pool_amplio (22 features, n=1743)...
+[  19.0s] PD/ALE/SHAP para Reducción_sn_kg_default (10 features, n=1074)...
+[  22.4s] PD/ALE/SHAP para Reducción_sn_kg_libre (10 features, n=1074)...
+[  25.7s] PD/ALE/SHAP para Reducción_sn_kg_pool_amplio (17 features, n=1074)...
+[  31.6s] PD/ALE/SHAP para Reducción_feo_kg_default (11 features, n=1070)...
+[  35.5s] PD/ALE/SHAP para Reducción_feo_kg_pool_amplio (19 features, n=1070)...
+[  43.7s] 16_formas_pd.csv -> (115, 16)
+[  43.7s] 16_pd_curvas.csv -> (5551, 6)
+[  43.7s] 
+=== resumen concuerda por modelo ===
+concuerda                     n/a  no  parcial  sí
+modelo                                            
+Fusión_sn_kg_default            4   3        2   4
+Fusión_sn_kg_libre              4   3        4   2
+Fusión_sn_kg_pool_amplio        8   2        6   6
+Reducción_feo_kg_default        3   0        5   3
+Reducción_feo_kg_pool_amplio    7   3        6   3
+Reducción_sn_kg_default         2   3        2   3
+Reducción_sn_kg_libre           2   2        3   3
+Reducción_sn_kg_pool_amplio     6   5        2   4
+[  43.7s]   carbon_x_inventarioSn: rango del efecto de tasa_feed_Carbon_kg_min por nivel de sn_inventario_escoria_est_kg_prev: [76.0, 82.1, 182.4, 167.5, 123.5, 137.8, 137.8, 131.7, 126.4, 126.4]; Spearman(nivel_sn_inventario_escoria_est_kg_prev, rango_efecto_tasa_feed_Carbon_kg_min)=0.18 -> sin relacion clara con sn_inventario_escoria_est_kg_prev
+[  43.9s]   carbon_x_leyFeO: rango del efecto de tasa_feed_Carbon_kg_min por nivel de ley_feo_escoria_pct_prev: [126.5, 132.0, 166.9, 132.6, 122.6, 117.9, 119.5, 129.5, 129.5, 129.5]; Spearman(nivel_ley_feo_escoria_pct_prev, rango_efecto_tasa_feed_Carbon_kg_min)=-0.26 -> sin relacion clara con ley_feo_escoria_pct_prev
+[  44.1s]   gn_x_temperatura: rango del efecto de tasa_gn_nm3_min por nivel de temperatura_horno_celsius_prev: [359.9, 362.2, 362.2, 344.8, 339.1, 331.8, 331.8, 354.7, 462.2, 459.2]; Spearman(nivel_temperatura_horno_celsius_prev, rango_efecto_tasa_gn_nm3_min)=0.13 -> sin relacion clara con temperatura_horno_celsius_prev
+[  44.3s]   CaO_x_basicidad: rango del efecto de tasa_feed_CaO_kg_min por nivel de basicidad_B2_prev: [679.6, 677.2, 723.8, 735.7, 746.6, 743.6, 734.5, 733.8, 733.8, 733.8]; Spearman(nivel_basicidad_B2_prev, rango_efecto_tasa_feed_CaO_kg_min)=0.36 -> CRECE con basicidad_B2_prev
+[  44.5s] 16_interacciones.csv -> (400, 9)
+[  44.5s] entrenando sistema v3 completo (mp3.entrenar_sistema_v3) para la forma de J...
+[  71.7s] sistema entrenado.
+[  71.7s] forma de J -- Fusión: muestra 20 escalones (orden_escalon_fase unicos=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)])
+[  83.3s] forma de J -- Reducción: muestra 30 escalones (orden_escalon_fase unicos=[np.int64(0), np.int64(1), np.int64(2), np.int64(3)])
+[ 247.5s] 16_forma_J.csv -> (190, 14)
+[ 247.5s] 
+=== resumen tipo_forma de J por fase/palanca ===
+tipo_forma                         frontera_alta  frontera_baja  plana  óptimo_interior
+fase      palanca                                                                      
+Fusión    tasa_feed_CaO_kg_min                 8              1      0               11
+          tasa_feed_Carbon_kg_min              0              1      0               19
+Reducción duracion_plan_min                    6              5      2               17
+          tasa_aire_nm3_min                    5              0      0               25
+          tasa_feed_Carbon_kg_min              7              8      0               15
+          tasa_gn_nm3_min                      4              1      0               25
+          tasa_o2_nm3_min                      5              4      0               21
+[ 247.5s] 
+=== delta_relativo_optimo_vs_hist (mediana) por fase/palanca ===
+fase       palanca                
+Fusión     tasa_feed_CaO_kg_min      -0.003012
+           tasa_feed_Carbon_kg_min   -0.004559
+Reducción  duracion_plan_min         -0.005882
+           tasa_aire_nm3_min         -0.010827
+           tasa_feed_Carbon_kg_min    0.023959
+           tasa_gn_nm3_min            0.003196
+           tasa_o2_nm3_min           -0.004950
+[ 247.5s] 
+FIN experimento 16.

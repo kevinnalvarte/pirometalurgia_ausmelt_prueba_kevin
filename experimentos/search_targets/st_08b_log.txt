@@ -1,0 +1,54 @@
+=== 1) fiabilidad del KPI ===
+rendimiento_proxy vs recuperacion_real        pearson +0.566 spearman +0.552 (n=362)
+rendimiento_proxy vs rendimiento_HA           pearson +0.999 spearman +0.998 (n=362)
+recuperacion_real vs rendimiento_HA           pearson +0.565 spearman +0.549 (n=362)
+rendimiento_proxy vs cierre_balance           pearson -0.366 spearman -0.370 (n=362)
+recuperacion_real vs cierre_balance           pearson +0.550 spearman +0.486 (n=362)
+rendimiento_proxy vs (M+D+P)/Sn_cargado       pearson -0.365 spearman -0.374 (n=362)
+rendimiento_proxy vs Sn_cargado               pearson +0.021 spearman -0.025 (n=362)
+rendimiento_proxy vs M                        pearson +0.496 spearman +0.450 (n=362)
+rendimiento_proxy vs D                        pearson -0.736 spearman -0.737 (n=362)
+rendimiento_proxy vs P                        pearson -0.597 spearman -0.553 (n=362)
+M vs D                                        pearson -0.217 spearman -0.193 (n=362)
+M vs P                                        pearson +0.069 spearman +0.090 (n=362)
+D vs P                                        pearson +0.073 spearman +0.067 (n=362)
+M vs Sn_cargado                               pearson +0.536 spearman +0.522 (n=362)
+D vs Sn_cargado                               pearson +0.236 spearman +0.257 (n=362)
+P vs Sn_cargado                               pearson +0.087 spearman +0.134 (n=362)
+cierre del balance (M+D+P+Sn_escoria_fin)/Sn_cargado: media 1.018 sd 0.068 P5 0.919 P95 1.135
+sd del KPI 4.585; sd de f_dross 0.0374; sd de f_polvo 0.0323; sd recuperacion real 5.187
+cota de correlacion alcanzable con el KPI (atenuacion, fiabilidad ~ r(proxy, recuperacion real) = 0.566): rho_max ~ sqrt(0.566) = 0.753
+M: unicos 355/362, valores iguales al anterior 0, autocorr lag1 +0.400
+D: unicos 351/362, valores iguales al anterior 0, autocorr lag1 +0.225
+P: unicos 350/362, valores iguales al anterior 0, autocorr lag1 -0.087
+
+=== 2) techo empirico: R2 OOF con toda la informacion de escalon agregada por fase ===
+matriz X: 2003 features x 362 batches
+rendimiento            Ridge      R2oof -904847495.473 [-1712651918.394,-97043072.552] rho_oof +0.471 | lockbox R2 +0.331 rho +0.546 | walk-forward R2 -2083235349.470
+rendimiento            HGB        R2oof +0.159 [+0.143,+0.175] rho_oof +0.444 | lockbox R2 -0.101 rho +0.402 | walk-forward R2 +0.067
+recuperacion_real      Ridge      R2oof -83758862353.469 [-94255031114.459,-73262693592.479] rho_oof +0.414 | lockbox R2 +0.192 rho +0.460 | walk-forward R2 -188263080567.508
+recuperacion_real      HGB        R2oof +0.148 [+0.143,+0.154] rho_oof +0.417 | lockbox R2 -0.069 rho +0.430 | walk-forward R2 +0.081
+f_dross                Ridge      R2oof -927359955.245 [-1159257961.131,-695461949.358] rho_oof +0.481 | lockbox R2 +0.277 rho +0.638 | walk-forward R2 -3210237970.528
+f_dross                HGB        R2oof +0.251 [+0.246,+0.257] rho_oof +0.505 | lockbox R2 +0.034 rho +0.500 | walk-forward R2 -0.041
+f_polvo                Ridge      R2oof -1472640442.725 [-2862601415.564,-82679469.887] rho_oof +0.289 | lockbox R2 -0.111 rho +0.070 | walk-forward R2 -1524098784.963
+f_polvo                HGB        R2oof -0.019 [-0.031,-0.007] rho_oof +0.181 | lockbox R2 -0.383 rho -0.002 | walk-forward R2 -0.090
+rendimiento_2batches   Ridge      R2oof -3174292760.066 [-5989599504.886,-358986015.246] rho_oof +0.426 | lockbox R2 +0.310 rho +0.545 | walk-forward R2 -4946694008.111
+rendimiento_2batches   HGB        R2oof +0.208 [+0.203,+0.213] rho_oof +0.455 | lockbox R2 +0.011 rho +0.651 | walk-forward R2 +0.043
+
+Top-15 permutation importance (HGB, rendimiento, DEV in-sample):
+interaccion_Sn_x_FeO_prev__F_mean               0.0456
+ley_feo_escoria_pct_prev__F_mean                0.0205
+feo_inventario_escoria_est_kg__R_last           0.0199
+ley_fe_total_escoria_pct__F_first               0.0176
+feo_extraido_est_kg__R_sum                      0.0153
+termocupla_50mm_N_celsius__heel_prev            0.0102
+interaccion_C_x_FeO_prev__R_mean                0.0094
+total_process_gas_nm3_min__heel_prev            0.0085
+d_ley_sn_escoria_pct__heel_prev                 0.0082
+tasa_gn_nm3_min__heel_prev                      0.0074
+grad_contrapresion_gn_lanza_kpa__F_last         0.0070
+tiro_horno_pct__R_sum                           0.0069
+grad_contrapresion_gn_lanza_kpa__F_mean         0.0063
+temperatura_gas_pre_bhf_celsius_prev__F_last    0.0061
+ley_sio2_escoria_pct_prev__R_sum                0.0060
+tiempo 570s

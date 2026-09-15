@@ -1,0 +1,4 @@
+set shell := ["pwsh.exe", "-c"]
+
+lint:
+    python -m pre_commit run --all

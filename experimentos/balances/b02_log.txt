@@ -1,0 +1,182 @@
+df0 (3982, 331), DEV batches=299, lockbox batches=63
+anti-fuga OK: {'b6_reductor_neto_kg_ceq': 'DERIVED (A_t x S_prev)', 'b6_ratio_reductor_demanda': 'DERIVED (A_t x S_prev)', 'b6_capacidad_sobre_reduccion_feo_kg': 'DERIVED (A_t x S_prev)', 'b6_cum_reductor_neto_kg_prev': 'STATE', 'b6_cum_oferta_reductora_kg_prev': 'STATE'}
+
+==========================================================================================
+SECCION 1 -- Descriptiva y coherencia fisica
+==========================================================================================
+columna                       b6_capacidad_sobre_reduccion_feo_kg  b6_ceq_lanza_kg  b6_cum_reductor_neto_kg_prev  b6_ratio_reductor_demanda  b6_reductor_neto_kg_ceq
+fase      orden_escalon_fase                                                                                                                                        
+Fusión    0                                                   0.0           -304.3                           0.0                        0.1                   -895.6
+          1                                                   0.0           -355.3                        -895.6                        0.4                   -753.7
+          2                                                   0.0           -418.7                       -1656.1                        0.6                   -873.3
+          3                                                   0.0           -480.6                       -2551.7                        0.5                  -1216.7
+          4                                                   0.0           -543.6                       -3722.1                        0.5                  -1549.7
+          5                                                   0.0           -600.5                       -5315.6                        0.4                  -2040.5
+          6                                                   0.0           -811.4                       -7297.5                        0.4                  -2732.7
+Reducción 0                                                   0.0            107.6                      -10000.0                        0.7                   -715.5
+          1                                                1352.2             62.4                      -10662.2                        1.7                    250.9
+          2                                                   0.0             39.0                      -10530.9                        0.8                    -36.3
+          3                                                   0.0             24.0                      -10588.3                        0.4                    -91.4
+                          predictor                   target     tramo    n       rho            p
+            b6_reductor_neto_kg_ceq      feo_extraido_est_kg    global 1313 -0.328236 2.353747e-34
+            b6_reductor_neto_kg_ceq      feo_extraido_est_kg     <0.84  272 -0.016100 7.915306e-01
+            b6_reductor_neto_kg_ceq      feo_extraido_est_kg 0.84-0.96  211 -0.088553 2.001302e-01
+            b6_reductor_neto_kg_ceq      feo_extraido_est_kg     >0.96  830 -0.162884 2.392253e-06
+            b6_reductor_neto_kg_ceq b6_feo_extraido_multi_kg    global  956 -0.096530 2.810701e-03
+            b6_reductor_neto_kg_ceq b6_feo_extraido_multi_kg 0.84-0.96  136 -0.031105 7.192310e-01
+            b6_reductor_neto_kg_ceq b6_feo_extraido_multi_kg     >0.96  819 -0.100070 4.148662e-03
+            b6_reductor_neto_kg_ceq       sn_extraido_est_kg    global 1314 -0.504195 1.188242e-85
+            b6_reductor_neto_kg_ceq       sn_extraido_est_kg     <0.84  272 -0.747402 7.280360e-50
+            b6_reductor_neto_kg_ceq       sn_extraido_est_kg 0.84-0.96  212 -0.258663 1.395540e-04
+            b6_reductor_neto_kg_ceq       sn_extraido_est_kg     >0.96  830  0.037321 2.828438e-01
+b6_capacidad_sobre_reduccion_feo_kg      feo_extraido_est_kg    global 1313 -0.220046 7.329582e-16
+b6_capacidad_sobre_reduccion_feo_kg      feo_extraido_est_kg     <0.84  272       NaN          NaN
+b6_capacidad_sobre_reduccion_feo_kg      feo_extraido_est_kg 0.84-0.96  211 -0.114134 9.823868e-02
+b6_capacidad_sobre_reduccion_feo_kg      feo_extraido_est_kg     >0.96  830 -0.147082 2.098414e-05
+b6_capacidad_sobre_reduccion_feo_kg b6_feo_extraido_multi_kg    global  956 -0.089622 5.554411e-03
+b6_capacidad_sobre_reduccion_feo_kg b6_feo_extraido_multi_kg 0.84-0.96  136 -0.022873 7.915362e-01
+b6_capacidad_sobre_reduccion_feo_kg b6_feo_extraido_multi_kg     >0.96  819 -0.107841 1.998037e-03
+b6_capacidad_sobre_reduccion_feo_kg       sn_extraido_est_kg    global 1314 -0.198045 4.357215e-13
+b6_capacidad_sobre_reduccion_feo_kg       sn_extraido_est_kg     <0.84  272       NaN          NaN
+b6_capacidad_sobre_reduccion_feo_kg       sn_extraido_est_kg 0.84-0.96  212 -0.223972 1.024832e-03
+b6_capacidad_sobre_reduccion_feo_kg       sn_extraido_est_kg     >0.96  830  0.115464 8.603455e-04
+
+b6_utilizacion_reductor por fase (mediana, P25, P75):
+  Fusión: mediana=0.994 P25=0.832 P75=1.230 n=2119
+  Reducción: mediana=0.906 P25=0.379 P75=1.492 n=1266
+
+==========================================================================================
+SECCION 2 -- PLM v4: variantes de palancas (Reduccion y Fusion)
+==========================================================================================
+  R feo_extraido_est_kg          [a] r2_oof=+0.367 r2_lb=+0.378 n_dev=1045 (19s acum)
+  R feo_extraido_est_kg          [b] r2_oof=+0.368 r2_lb=+0.377 n_dev=1045 (41s acum)
+  R feo_extraido_est_kg          [c] r2_oof=+0.367 r2_lb=+0.379 n_dev=1045 (73s acum)
+  R feo_extraido_est_kg          [d] r2_oof=+0.367 r2_lb=+0.358 n_dev=1045 (101s acum)
+  R feo_extraido_est_kg          [e] r2_oof=+0.368 r2_lb=+0.358 n_dev=1045 (120s acum)
+  R b6_feo_extraido_multi_kg     [a] r2_oof=-0.034 r2_lb=-1.044 n_dev=758 (137s acum)
+  R b6_feo_extraido_multi_kg     [b] r2_oof=-0.035 r2_lb=-1.035 n_dev=758 (148s acum)
+  R b6_feo_extraido_multi_kg     [c] r2_oof=-0.034 r2_lb=-1.046 n_dev=758 (164s acum)
+  R b6_feo_extraido_multi_kg     [d] r2_oof=-0.031 r2_lb=-1.119 n_dev=758 (181s acum)
+  R b6_feo_extraido_multi_kg     [e] r2_oof=-0.032 r2_lb=-1.103 n_dev=758 (195s acum)
+  R sn_extraido_est_kg           [a] r2_oof=+0.976 r2_lb=+0.984 n_dev=1049 (208s acum)
+  R sn_extraido_est_kg           [b] r2_oof=+0.975 r2_lb=+0.984 n_dev=1049 (220s acum)
+  R sn_extraido_est_kg           [c] r2_oof=+0.976 r2_lb=+0.984 n_dev=1049 (237s acum)
+  R sn_extraido_est_kg           [d] r2_oof=+0.977 r2_lb=+0.983 n_dev=1049 (255s acum)
+  R sn_extraido_est_kg           [e] r2_oof=+0.976 r2_lb=+0.983 n_dev=1049 (270s acum)
+  R st_R22_sdi                   [a] r2_oof=+0.131 r2_lb=+0.143 n_dev=1015 (282s acum)
+  R st_R22_sdi                   [b] r2_oof=+0.131 r2_lb=+0.165 n_dev=1015 (290s acum)
+  R st_R22_sdi                   [c] r2_oof=+0.132 r2_lb=+0.132 n_dev=1015 (301s acum)
+  R st_R22_sdi                   [d] r2_oof=+0.132 r2_lb=+0.077 n_dev=1015 (311s acum)
+  R st_R22_sdi                   [e] r2_oof=+0.131 r2_lb=+0.097 n_dev=1015 (319s acum)
+  R b6_sdi_multi                 [a] r2_oof=+0.022 r2_lb=-0.398 n_dev=727 (328s acum)
+  R b6_sdi_multi                 [b] r2_oof=+0.021 r2_lb=-0.403 n_dev=727 (335s acum)
+  R b6_sdi_multi                 [c] r2_oof=+0.022 r2_lb=-0.398 n_dev=727 (349s acum)
+  R b6_sdi_multi                 [d] r2_oof=+0.024 r2_lb=-0.370 n_dev=727 (364s acum)
+  R b6_sdi_multi                 [e] r2_oof=+0.024 r2_lb=-0.379 n_dev=727 (377s acum)
+  F sn_extraido_est_kg [a] r2_oof=+0.732 r2_lb=+0.723 n_dev=1749
+  F sn_extraido_est_kg [b] r2_oof=+0.732 r2_lb=+0.723 n_dev=1749
+seccion 2 completa en 402s
+
+==========================================================================================
+SECCION 3 -- Utilizacion del reductor por batch/fase
+==========================================================================================
+Utilizacion por batch (sum consumido / sum oferta), mediana / IQR, vs supuesto Rust (0.80 F / 0.52 R):
+  Fusión: mediana=1.028 IQR=[0.920,1.121] n=361
+  Reducción: mediana=1.045 IQR=[0.866,1.246] n=361
+
+Regresion utilizacion_R ~ proxies de arrastre (OLS HC3, DEV, n=298):
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            utilizacion   R-squared:                       0.124
+Model:                            OLS   Adj. R-squared:                  0.105
+Method:                 Least Squares   F-statistic:                     5.950
+Date:                Mon, 14 Sep 2026   Prob (F-statistic):           7.03e-06
+Time:                        20:01:06   Log-Likelihood:                -88.681
+No. Observations:                 298   AIC:                             191.4
+Df Residuals:                     291   BIC:                             217.2
+Df Model:                           6                                         
+Covariance Type:                  HC3                                         
+========================================================================================
+                           coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+const                    0.9924      0.019     51.379      0.000       0.955       1.030
+tiro_horno_pct_medio     0.0756      0.026      2.864      0.004       0.024       0.127
+gas_total_medio          0.0183      0.024      0.754      0.451      -0.029       0.066
+pos_lanza_media          0.0887      0.022      4.092      0.000       0.046       0.131
+frac_pellets_F          -0.0804      0.023     -3.477      0.001      -0.126      -0.035
+f_polvo                  0.0355      0.017      2.124      0.034       0.003       0.068
+f_dross                 -0.0090      0.020     -0.448      0.654      -0.048       0.030
+==============================================================================
+Omnibus:                       18.350   Durbin-Watson:                   1.491
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               20.334
+Skew:                          -0.568   Prob(JB):                     3.84e-05
+Kurtosis:                       3.589   Cond. No.                         2.46
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+==========================================================================================
+SECCION 4 -- Sensibilidad a supuestos
+==========================================================================================
+  CARBONO_FIJO=0.6: 26s acum
+  CARBONO_FIJO=0.75: 51s acum
+  CARBONO_FIJO=0.85: 76s acum
+  FE_MET_DROSS=0.2: 100s acum
+  FE_MET_DROSS=0.3: 126s acum
+  FE_MET_DROSS=0.4: 151s acum
+  FE_MINERAL=0.45: 176s acum
+  FE_MINERAL=0.55: 202s acum
+  FE_MINERAL=0.65: 228s acum
+       param  valor              target  r2_oof_dev  r2_lockbox  theta_1sd_reductor_neto  ci_lo_1sd_reductor_neto  ci_hi_1sd_reductor_neto
+CARBONO_FIJO   0.60 feo_extraido_est_kg    0.368699    0.375418               160.181103               -13.690578               453.469412
+CARBONO_FIJO   0.60          st_R22_sdi    0.131736    0.162563                -0.120746                -0.341990                 0.067596
+CARBONO_FIJO   0.75 feo_extraido_est_kg    0.368014    0.376817               115.060260               -11.457069               345.531377
+CARBONO_FIJO   0.75          st_R22_sdi    0.131012    0.165427                -0.064578                -0.247348                 0.109290
+CARBONO_FIJO   0.85 feo_extraido_est_kg    0.368072    0.377599               105.671683                -8.020729               320.536325
+CARBONO_FIJO   0.85          st_R22_sdi    0.130731    0.165770                -0.040075                -0.193749                 0.103386
+FE_MET_DROSS   0.20 feo_extraido_est_kg    0.368418    0.376122               127.116396                -3.980321               370.345436
+FE_MET_DROSS   0.20          st_R22_sdi    0.131174    0.164469                -0.073183                -0.259185                 0.095593
+FE_MET_DROSS   0.30 feo_extraido_est_kg    0.368014    0.376817               115.060260               -11.457069               345.531377
+FE_MET_DROSS   0.30          st_R22_sdi    0.131012    0.165427                -0.064578                -0.247348                 0.109290
+FE_MET_DROSS   0.40 feo_extraido_est_kg    0.367420    0.377615                95.106433               -24.373606               321.327455
+FE_MET_DROSS   0.40          st_R22_sdi    0.130895    0.165112                -0.056806                -0.232194                 0.132165
+  FE_MINERAL   0.45 feo_extraido_est_kg    0.367677    0.377142               104.322531               -19.373600               329.879293
+  FE_MINERAL   0.45          st_R22_sdi    0.131070    0.165635                -0.067736                -0.247492                 0.102812
+  FE_MINERAL   0.55 feo_extraido_est_kg    0.368014    0.376817               115.060260               -11.457069               345.531377
+  FE_MINERAL   0.55          st_R22_sdi    0.131012    0.165427                -0.064578                -0.247348                 0.109290
+  FE_MINERAL   0.65 feo_extraido_est_kg    0.368022    0.376317               115.072467               -11.647481               345.990834
+  FE_MINERAL   0.65          st_R22_sdi    0.130977    0.165732                -0.062040                -0.246835                 0.103125
+
+Variante 'sin lanza' (b6_c_fijo_kg + b6_ceq_fe_dross_kg - demanda, sin CO de la lanza):
+  feo_extraido_est_kg: r2_oof=+0.367 r2_lb=+0.376
+             target    variante                            palanca  theta_unidad     ci_lo     ci_hi  sd_palanca  theta_1sd   ci_lo_1sd  ci_hi_1sd  significativo  signo_teorico  concuerda
+feo_extraido_est_kg b_sin_lanza b02_reductor_neto_sin_lanza_kg_ceq      0.192319 -0.072570  0.609286  546.410727 105.085249  -39.653294 332.920195          False              1       True
+feo_extraido_est_kg b_sin_lanza                    tasa_gn_nm3_min     11.027942 -9.522274 30.476019    4.915809  54.211257  -46.809680 149.814295          False              1       True
+feo_extraido_est_kg b_sin_lanza           exceso_o2_combustion_pct     -4.755444 -9.301724 -1.397458   10.827674 -51.490400 -100.716027 -15.131215           True             -1       True
+feo_extraido_est_kg b_sin_lanza                  tasa_aire_nm3_min      1.206399 -3.430114  6.393079    9.311101  11.232907  -31.938137  59.526599          False             -1      False
+  st_R22_sdi: r2_oof=+0.131 r2_lb=+0.162
+    target    variante                            palanca  theta_unidad     ci_lo    ci_hi  sd_palanca  theta_1sd  ci_lo_1sd  ci_hi_1sd  significativo  signo_teorico  concuerda
+st_R22_sdi b_sin_lanza b02_reductor_neto_sin_lanza_kg_ceq     -0.000151 -0.000480 0.000176  525.691340  -0.079568  -0.252453   0.092743          False             -1       True
+st_R22_sdi b_sin_lanza                    tasa_gn_nm3_min     -0.027097 -0.053940 0.002797    4.953751  -0.134234  -0.267205   0.013855          False             -1       True
+st_R22_sdi b_sin_lanza           exceso_o2_combustion_pct      0.000811 -0.005448 0.006061   10.775541   0.008736  -0.058707   0.065312          False              1       True
+st_R22_sdi b_sin_lanza                  tasa_aire_nm3_min      0.005164 -0.000593 0.011451    9.443953   0.048765  -0.005597   0.108144          False              1       True
+
+==========================================================================================
+SECCION 5 -- Curvas de respuesta de la mejor variante
+==========================================================================================
+mejor variante para feo_extraido_est_kg: b (r2_oof=0.368 vs a=0.367; r2_lb=0.377 vs a=0.378)
+mejor variante para sn_extraido_est_kg: d (r2_oof=0.977 vs a=0.976; r2_lb=0.983 vs a=0.984)
+(nota: la curva usa variante 'b' en los 3 targets; 'mejor variante' por R2 fue {'feo_extraido_est_kg': 'b', 'sn_extraido_est_kg': 'd'} para feo/sn)
+
+Optimo interior de J = Sn - 0.6*FeO por tramo de avance (si existe, valor de reductor_neto en el maximo):
+  avance 0.84-0.96: optimo J en reductor_neto=-1165 kg_ceq (J=2123.2) [BORDE]
+    optimo SDI en reductor_neto=-1165 kg_ceq (SDI=0.267) [BORDE]
+  avance <0.84: optimo J en reductor_neto=-1165 kg_ceq (J=9160.3) [BORDE]
+    optimo SDI en reductor_neto=-1165 kg_ceq (SDI=0.670) [BORDE]
+  avance >0.96: optimo J en reductor_neto=-1165 kg_ceq (J=148.2) [BORDE]
+    optimo SDI en reductor_neto=-1165 kg_ceq (SDI=-0.086) [BORDE]
+
+==========================================================================================
+FIN b02_balance_reductor.py
+==========================================================================================

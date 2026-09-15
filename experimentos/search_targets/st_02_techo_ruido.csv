@@ -1,0 +1,37 @@
+id,fase,familia,aplica_mc,n,sd_ruido,sd_target,r2_max,n_replicas,nota
+R01_sn_ext,Reducción,extraccion,True,1076,122.09906768798828,3780.0053436718104,0.9989566263416568,100,
+R02_feo_ret,Reducción,sobre-reduccion,True,1071,379.1533203125,880.9120765322726,0.8147472773860791,100,
+R03_sn_net_l03,Reducción,metal-equivalente,True,1062,113.40704345703125,3636.264046391589,0.9990273216864103,100,
+R04_sn_net_l06,Reducción,metal-equivalente,True,1062,172.5330810546875,3537.1690355518517,0.9976207880814898,100,
+R05_sn_net_l10,Reducción,metal-equivalente,True,1062,284.9634094238281,3425.282389411668,0.9930787357118623,100,
+R06_frac_sn,Reducción,extraccion,True,1043,0.031651683151721954,0.297652925201902,0.9886923252203387,100,
+R07_kapp_sn,Reducción,extraccion,True,1042,0.0028646194841712713,0.022838520982021535,0.9842674930700914,100,
+R08_feo_ret_frac,Reducción,sobre-reduccion,True,1041,0.03447550907731056,0.0851340163874467,0.8360108441511223,100,
+R09_selectividad,Reducción,selectividad,True,788,68.09261322021484,9.966600210131933,-45.67732159115074,100,
+R10_log_selectividad,Reducción,selectividad,True,788,0.668890655040741,1.4299853599688477,0.7812001224451938,100,
+R11_util_carbon,Reducción,selectividad,True,1008,0.06639669090509415,0.49796954424141987,0.982221819693102,100,
+R12_d_avance,Reducción,extraccion,True,1076,0.0024355542846024036,0.0753764183198835,0.998955941981317,100,
+R13_sn_residual,Reducción,extraccion,True,1089,41.10767364501953,884.7073632694633,0.9978410304540505,100,
+R14_log_sn_feo_next,Reducción,selectividad,True,1091,0.036778807640075684,0.509405131320764,0.99478722883748,100,
+R15_d_log_sn_feo,Reducción,selectividad,True,1087,0.04521368443965912,0.6059488213729876,0.9944324015189526,100,
+R16_feo_por_sn_disp,Reducción,sobre-reduccion,True,823,0.2366231232881546,0.37661215515896035,0.6052467634249714,100,
+R17_dT,Reducción,termico,False,0,,,,0,"no depende de la cadena de trazador CaO/Sn/FeO recalculada aqui (termico/polvo, o usa basicidad_B2/indice_irf calculados aguas arriba): techo de ruido no medible con este metodo"
+R18_T_ventana,Reducción,termico,False,0,,,,0,"no depende de la cadena de trazador CaO/Sn/FeO recalculada aqui (termico/polvo, o usa basicidad_B2/indice_irf calculados aguas arriba): techo de ruido no medible con este metodo"
+R19_T_gas_bhf,Reducción,polvo,False,0,,,,0,"no depende de la cadena de trazador CaO/Sn/FeO recalculada aqui (termico/polvo, o usa basicidad_B2/indice_irf calculados aguas arriba): techo de ruido no medible con este metodo"
+R20_fe_metalizado_por_sn,Reducción,sobre-reduccion,True,1071,0.004952812567353249,0.011480976667458426,0.8139001096220673,100,
+F01_sn_ext,Fusión,conservacion,True,1749,202.92910766601562,2995.2287358908015,0.9954098306996303,100,
+F02_frac_sn_ext,Fusión,conservacion,True,1746,0.02505938895046711,0.2078049201482578,0.9854578271708991,100,
+F03_feo_formado,Fusión,matriz,True,1771,254.14190673828125,806.2072077741796,0.9006291019388802,100,
+F04_feo_ret_por_fe,Fusión,matriz,True,1745,0.05289050191640854,0.2056162583312992,0.9338331479777822,100,
+F05_ley_feo_next,Fusión,matriz,True,1781,0.30027663707733154,1.7439699198978096,0.9703540680823994,100,
+F06_B2_ventana,Fusión,matriz,False,0,,,,0,"no depende de la cadena de trazador CaO/Sn/FeO recalculada aqui (termico/polvo, o usa basicidad_B2/indice_irf calculados aguas arriba): techo de ruido no medible con este metodo"
+F07_T_media,Fusión,termico,False,0,,,,0,"no depende de la cadena de trazador CaO/Sn/FeO recalculada aqui (termico/polvo, o usa basicidad_B2/indice_irf calculados aguas arriba): techo de ruido no medible con este metodo"
+F08_T_ventana,Fusión,termico,False,0,,,,0,"no depende de la cadena de trazador CaO/Sn/FeO recalculada aqui (termico/polvo, o usa basicidad_B2/indice_irf calculados aguas arriba): techo de ruido no medible con este metodo"
+F09_T_gas_bhf,Fusión,polvo,False,0,,,,0,"no depende de la cadena de trazador CaO/Sn/FeO recalculada aqui (termico/polvo, o usa basicidad_B2/indice_irf calculados aguas arriba): techo de ruido no medible con este metodo"
+F10_irf_next,Fusión,matriz,False,0,,,,0,"no depende de la cadena de trazador CaO/Sn/FeO recalculada aqui (termico/polvo, o usa basicidad_B2/indice_irf calculados aguas arriba): techo de ruido no medible con este metodo"
+F11_log_sn_feo_next,Fusión,conservacion,True,1780,0.05100930854678154,0.2746175451234388,0.9654981556228227,100,
+F12_d_log_sn_feo,Fusión,conservacion,True,1772,0.0723521038889885,0.2635827634787283,0.9246525923918769,100,
+F13_masa_por_carga,Fusión,matriz,True,1741,0.05278710648417473,0.2107167136487404,0.9372436400972141,100,
+F14_sn_ret_por_c,Fusión,conservacion,True,1749,0.08662040531635284,0.8395049941813177,0.9893538187685517,100,
+F15_dT,Fusión,termico,False,0,,,,0,"no depende de la cadena de trazador CaO/Sn/FeO recalculada aqui (termico/polvo, o usa basicidad_B2/indice_irf calculados aguas arriba): techo de ruido no medible con este metodo"
+F16_sn_ret_frac,Fusión,conservacion,True,1770,0.011956680566072464,0.16201814448663993,0.9945537954906053,100,

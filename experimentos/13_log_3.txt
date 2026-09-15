@@ -1,0 +1,17 @@
+[    0.0s] cargando dataset
+[   21.9s] 3: sistema entrenado (21.9s); 60 batches
+[   83.0s]   3: 5/60 batches (83s)
+[  190.8s]   3: 10/60 batches (191s)
+[  294.0s]   3: 15/60 batches (294s)
+[  359.8s]   3: 20/60 batches (360s)
+[  387.1s]   3: 25/60 batches (387s)
+[  469.1s]   3: 30/60 batches (469s)
+[  473.0s]   ERROR AP0168: ('AP0168', 'ValueError: Input X contains NaN.\nNearestNeighbors does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values')
+[  548.4s]   3: 35/60 batches (548s)
+[  642.3s]   3: 40/60 batches (642s)
+[  743.7s]   3: 45/60 batches (744s)
+[  819.5s]   ERROR AP0261: ('AP0261', 'ValueError: Input X contains NaN.\nNearestNeighbors does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values')
+[  838.4s]   3: 50/60 batches (838s)
+[  885.2s]   3: 55/60 batches (885s)
+[  921.5s]   3: 60/60 batches (922s)
+[  921.6s] 3: LISTO 58 ok, 2 fallidos, 922s

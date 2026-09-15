@@ -1,0 +1,40 @@
+[   0.0s] cargando dataset (cache v3 + v4 + b6 + v5)...
+[   0.1s] dR (1448, 255), dF (2172, 255)
+[   0.1s] 
+===== 2) cuadraticos cross-fitted =====
+[   0.1s]   Reducción / v5_ln_sn_dep: palancas base = ['v5_dosis_C_sn', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min']
+[ 298.1s]     R2_oof lineal=0.7603 (lockbox 0.8022)  lineal+cuad=0.7586 (lockbox 0.8008)  n_dev=1039
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\v5\e7_03_formas.py", line 170, in <module>
+    th1, th1_lo, th1_hi = tabla_quad.loc[a, ["theta_unidad", "ci_lo", "ci_hi"]]
+                          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\indexing.py", line 1200, in __getitem__
+    return self._getitem_tuple(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\indexing.py", line 1386, in _getitem_tuple
+    return self._getitem_lowerdim(tup)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\indexing.py", line 1117, in _getitem_lowerdim
+    return getattr(section, self.name)[new_key]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\indexing.py", line 1200, in __getitem__
+    return self._getitem_tuple(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\indexing.py", line 1386, in _getitem_tuple
+    return self._getitem_lowerdim(tup)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\indexing.py", line 1093, in _getitem_lowerdim
+    section = self._getitem_axis(key, axis=i)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\indexing.py", line 1449, in _getitem_axis
+    return self._get_label(key, axis=axis)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\indexing.py", line 1399, in _get_label
+    return self.obj.xs(label, axis=axis)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\generic.py", line 4241, in xs
+    loc = index.get_loc(key)
+          ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\indexes\range.py", line 525, in get_loc
+    raise KeyError(key)
+KeyError: 'v5_dosis_C_sn'

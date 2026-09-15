@@ -1,0 +1,62 @@
+[    0.0s] cargando dataset v3 (escalones) ...
+[    0.0s] df escalones: (3982, 222), batches dev=299 lockbox=63
+[    1.8s] selectividad_R: winsorizada a [0.24, 16.34] (8 valores recortados)
+[    1.8s] dataset batch: (362, 49) (63 lockbox)
+[    1.8s] n total=362, n dev=299, n lockbox=63
+[    1.8s] === VIF (modelo conjunto M3, DEV) ===
+[    2.0s] variables eliminadas por VIF>10: [('perfil_carbon_R', np.float64(166.12978105050553)), ('T_media_R', np.float64(14.429405782237312)), ('T_media_F', np.float64(11.223806785586515))]
+[    2.0s] VIF finales:
+C_por_Sn_F                  2.55
+cal_por_carga_F             4.58
+gn_por_t_carga_F            2.61
+exceso_o2_F                 1.18
+enriq_o2_F                  6.57
+T_final_F                   2.72
+dur_F                       5.96
+feed_rate_F                 9.13
+lanza_media_F               2.39
+lanza_std_F                 2.56
+carbon_total_R              2.65
+carbon_por_Sn_inv_R         1.30
+gn_total_R                  2.89
+exceso_o2_R                 2.23
+dur_R                       4.93
+carbon_rate_R0              1.48
+lanza_media_R               2.06
+feed_sn_total_t             9.71
+ley_sn_conc_batch_pct       3.06
+espesor_ladrillo_norm_mm    6.44
+frac_carga_secundaria_F     7.34
+feed_dross_Fe_total_t       5.94
+[    2.0s] === Regresiones OLS HC3 (variables estandarizadas) ===
+[    2.1s]   [f_dross/M2_Reduccion/lockbox] variable(s) sin varianza excluida(s): {'carbon_por_Sn_inv_R', 'dur_R'}
+[    2.2s]   [f_dross/M3_Conjunto/lockbox] variable(s) sin varianza excluida(s): {'carbon_por_Sn_inv_R', 'dur_R'}
+[    2.2s]   f_dross: listo
+[    2.3s]   [f_polvo/M2_Reduccion/lockbox] variable(s) sin varianza excluida(s): {'carbon_por_Sn_inv_R', 'dur_R'}
+[    2.4s]   [f_polvo/M3_Conjunto/lockbox] variable(s) sin varianza excluida(s): {'carbon_por_Sn_inv_R', 'dur_R'}
+[    2.5s]   f_polvo: listo
+[    2.6s]   [f_metal/M2_Reduccion/lockbox] variable(s) sin varianza excluida(s): {'carbon_por_Sn_inv_R', 'dur_R'}
+[    2.6s]   [f_metal/M3_Conjunto/lockbox] variable(s) sin varianza excluida(s): {'carbon_por_Sn_inv_R', 'dur_R'}
+[    2.7s]   f_metal: listo
+[    2.8s]   [rendimiento_proxy_batch/M2_Reduccion/lockbox] variable(s) sin varianza excluida(s): {'carbon_por_Sn_inv_R', 'dur_R'}
+[    2.9s]   [rendimiento_proxy_batch/M3_Conjunto/lockbox] variable(s) sin varianza excluida(s): {'carbon_por_Sn_inv_R', 'dur_R'}
+[    2.9s]   rendimiento_proxy_batch: listo
+[    3.0s] guardado 19_regresiones_kpi.csv (704 filas)
+[    3.0s] === HGB no parametrico (OOF + permutation importance + PD) ===
+[    4.9s]   f_dross: R2 OOF(dev)=0.121 R2(lockbox)=-0.845 top5 perm-imp (todas)=['C_por_Sn_F', 'exceso_o2_F', 'perfil_carbon_R', 'lanza_media_F', 'gn_total_R'] top5 decisiones=['C_por_Sn_F', 'exceso_o2_F', 'perfil_carbon_R', 'lanza_media_F', 'gn_total_R']
+[    6.7s]   f_polvo: R2 OOF(dev)=-0.081 R2(lockbox)=-0.238 top5 perm-imp (todas)=['ley_sn_conc_batch_pct', 'perfil_carbon_R', 'C_por_Sn_F', 'lanza_std_F', 'carbon_por_Sn_inv_R'] top5 decisiones=['perfil_carbon_R', 'C_por_Sn_F', 'lanza_std_F', 'carbon_por_Sn_inv_R', 'cal_por_carga_F']
+[    8.4s]   f_metal: R2 OOF(dev)=-0.015 R2(lockbox)=-0.268 top5 perm-imp (todas)=['exceso_o2_F', 'lanza_media_F', 'feed_dross_Fe_total_t', 'perfil_carbon_R', 'carbon_total_R'] top5 decisiones=['exceso_o2_F', 'lanza_media_F', 'perfil_carbon_R', 'carbon_total_R', 'C_por_Sn_F']
+[   10.8s]   rendimiento_proxy_batch: R2 OOF(dev)=-0.015 R2(lockbox)=-0.268 top5 perm-imp (todas)=['exceso_o2_F', 'lanza_media_F', 'feed_dross_Fe_total_t', 'perfil_carbon_R', 'carbon_total_R'] top5 decisiones=['exceso_o2_F', 'lanza_media_F', 'perfil_carbon_R', 'carbon_total_R', 'C_por_Sn_F']
+[   10.9s] guardado 19_hgb_resumen.csv y 19_pd_kpi.csv
+[   10.9s] === Deteccion de optimo interior (PD) y terminos cuadraticos ===
+[   10.9s]   optimo interior sugerido: f_dross ~ perfil_carbon_R
+[   10.9s]   optimo interior sugerido: f_polvo ~ carbon_por_Sn_inv_R
+[   10.9s]   optimo interior sugerido: f_polvo ~ cal_por_carga_F
+[   10.9s]   optimo interior sugerido: f_metal ~ C_por_Sn_F
+[   10.9s]   optimo interior sugerido: rendimiento_proxy_batch ~ C_por_Sn_F
+[   11.3s] guardado 19_regresiones_cuadraticas.csv (25 filas)
+[   11.3s] === Figuras ===
+[   13.8s] figuras de coeficientes guardadas
+[   16.0s] figuras PD guardadas
+[   16.0s] === FIN experimento 19 ===
+[   16.0s] tiempo total: 16.0s

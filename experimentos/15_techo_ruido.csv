@@ -1,0 +1,4 @@
+metodo,n,sd_ruido_feo_kg,sd_ruido_sn_kg,sd_total_feo_kg,sd_total_sn_kg,r2_max_feo,r2_max_sn,sd_ruido_cao_pct,rel_ruido_cao_pct,sd_ruido_feo_pct,rel_ruido_feo_pct,masa_tipica_kg,feo_pct_tipico,feo_inventario_tipico_kg,rel_ruido_feo_inventario_pct,sd_feo_inventario_kg,sd_feo_extraido_kg_analitico,mae_modelo_feo_kg_referencia_hallazgos,std_total_referencia_hallazgos
+subgrupo_carbon_bajo_duracion_corta,66.0,502.952926691209,213.4857236337115,891.1337443127691,3796.400697718413,0.6814563876491684,0.9968377690374182,,,,,,,,,,,,
+pares_R2R3_carbon_bajo_ensayo,9.0,,,,,,,0.25366055101037843,1.1176295344826548,0.25536830599623705,1.3830012321729763,,,,,,,,
+propagacion_analitica_a_kg,,,,,,,,,,,,54876.988195752856,18.496501208702657,10150.32278492704,1.7781417785260787,180.4871300940395,255.24734721278784,515.0,814.0

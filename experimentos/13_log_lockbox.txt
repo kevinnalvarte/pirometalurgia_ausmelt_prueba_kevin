@@ -1,0 +1,15 @@
+[    0.0s] cargando dataset
+[   22.9s] lockbox: sistema entrenado (22.9s); 63 batches
+[   86.6s]   lockbox: 5/63 batches (87s)
+[  197.6s]   lockbox: 10/63 batches (198s)
+[  303.5s]   lockbox: 15/63 batches (303s)
+[  362.6s]   lockbox: 20/63 batches (363s)
+[  390.7s]   lockbox: 25/63 batches (391s)
+[  479.6s]   lockbox: 30/63 batches (480s)
+[  573.5s]   lockbox: 35/63 batches (573s)
+[  670.1s]   lockbox: 40/63 batches (670s)
+[  776.5s]   lockbox: 45/63 batches (776s)
+[  864.1s]   lockbox: 50/63 batches (864s)
+[  898.5s]   lockbox: 55/63 batches (898s)
+[  930.5s]   lockbox: 60/63 batches (930s)
+[  942.5s] lockbox: LISTO 63 ok, 0 fallidos, 942s

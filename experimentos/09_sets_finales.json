@@ -1,0 +1,73 @@
+{
+  "Fusión|sn_extraido_est_kg": {
+    "k": 8,
+    "features": [
+      "feed_Sn_kgf",
+      "margen_presion_gn",
+      "basicidad_B4_prev",
+      "interaccion_C_x_Sn_prev",
+      "cum_feed_reciclo_kg_prev",
+      "posicion_vertical_lanza_mm_prev",
+      "carbon_sobre_inventario_sn_prev",
+      "sn_inventario_escoria_est_kg_prev"
+    ],
+    "r2_oof": 0.7396266412673335,
+    "r2_lockbox": 0.7007913184309336
+  },
+  "Fusión|d_ley_sn_escoria_pct": {
+    "k": 8,
+    "features": [
+      "ley_sn_escoria_pct_prev",
+      "interaccion_C_x_Sn_prev",
+      "interaccion_Sn_x_FeO_prev",
+      "sn_inventario_escoria_est_kg_prev",
+      "volumen_aire_inyectado_lanza_escalon_nm3",
+      "cum_feed_reciclo_kg_prev",
+      "avance_reduccion_sn_prev",
+      "oxidante_sobre_carga_total"
+    ],
+    "r2_oof": 0.5411571124471491,
+    "r2_lockbox": 0.39419394145287023
+  },
+  "Fusión|d_ley_feo_escoria_pct": {
+    "k": 12,
+    "features": [
+      "ley_feo_escoria_pct_prev",
+      "ratio_sn_feo_prev",
+      "ley_sn_conc_batch_pct",
+      "basicidad_B4_prev",
+      "indice_irf_prev",
+      "grad_posicion_vertical_lanza_mm",
+      "carbon_sobre_inventario_sn_prev",
+      "ley_sio2_escoria_pct_prev",
+      "interaccion_C_x_temp_prev",
+      "posicion_vertical_lanza_mm",
+      "relacion_C_cum_Sn_cum_prev",
+      "feed_Sn_kgf"
+    ],
+    "r2_oof": 0.21243101787389418,
+    "r2_lockbox": 0.02449727132766122
+  },
+  "Reducción|tasa_relativa_sn_escoria": {
+    "k": 4,
+    "features": [
+      "ley_sn_escoria_pct_prev",
+      "tiro_horno_pct_prev",
+      "grad_presion_suministro_o2_lanza_kpa",
+      "d_posicion_vertical_lanza_mm"
+    ],
+    "r2_oof": 0.5817873450894544,
+    "r2_lockbox": 0.541230863446592
+  },
+  "Reducción|sn_extraido_est_kg": {
+    "k": 4,
+    "features": [
+      "sn_inventario_escoria_est_kg_prev",
+      "interaccion_C_x_Sn_prev",
+      "cum_feed_CaO_kg_prev",
+      "cum_feed_Sn_kg_prev"
+    ],
+    "r2_oof": 0.9722063415292211,
+    "r2_lockbox": 0.9820061010299295
+  }
+}

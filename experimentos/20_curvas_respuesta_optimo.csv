@@ -1,0 +1,7 @@
+estado,variable_barrida,valor_optimo,J_optimo,tipo
+R0,tasa_feed_Carbon_kg_min,70.0,9589.205909248281,borde_sup
+R0,tasa_gn_nm3_min,29.60074318613833,9491.110472303482,borde_sup
+R1,tasa_feed_Carbon_kg_min,70.0,1675.0429242749235,borde_sup
+R1,tasa_gn_nm3_min,29.60074318613833,1600.448092554378,borde_sup
+R3,tasa_feed_Carbon_kg_min,70.0,225.81877186207802,borde_sup
+R3,tasa_gn_nm3_min,29.60074318613833,312.8607354600397,borde_sup

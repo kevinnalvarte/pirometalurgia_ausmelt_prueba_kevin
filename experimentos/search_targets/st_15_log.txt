@@ -1,0 +1,181 @@
+df (3982, 283), batch (362, 95)  (4.5s)
+n batches = 362, DEV = 299, lockbox = 63
+M/D/P/Sn_cargado/Sn_escoria_final no-NaN: 362/362/362/362/362 de 362
+KPIs construidos: ['K0', 'K1', 'K2', 'K3', 'K3b', 'K4', 'K5_k1', 'K5_k2', 'K5_k3', 'K6', 'K7']
+  K0       n_no_nan=362  media=69.302  sd=4.585
+  K1       n_no_nan=362  media=69.504  sd=5.187
+  K2       n_no_nan=362  media=70.475  sd=5.291
+  K3       n_no_nan=360  media=69.217  sd=2.892
+  K3b      n_no_nan=360  media=69.217  sd=2.892
+  K4       n_no_nan=358  media=69.189  sd=2.488
+  K5_k1    n_no_nan=361  media=69.285  sd=4.267
+  K5_k2    n_no_nan=360  media=69.279  sd=4.098
+  K5_k3    n_no_nan=359  media=69.237  sd=4.217
+  K6       n_no_nan=362  media=87.406  sd=3.738
+  K7       n_no_nan=362  media=0.846  sd=0.045
+guardado st_15_kpis.csv ((362, 18))
+
+=== 2) Techo de predictibilidad de cada KPI (HGB / Ridge) ===
+FEATURES = 46 (39 st_ + 5 controles + 2 heel)
+K0       HGB    n_dev=299  R2_OOF +0.148(+-0.040)  rho_OOF +0.433(+-0.039)  ||  lockbox R2 +0.122  rho +0.482 (n=63)
+K0       Ridge  n_dev=299  R2_OOF +0.207(+-0.023)  rho_OOF +0.472(+-0.012)  ||  lockbox R2 +0.108  rho +0.347 (n=63)
+K1       HGB    n_dev=299  R2_OOF +0.098(+-0.010)  rho_OOF +0.387(+-0.023)  ||  lockbox R2 -0.016  rho +0.396 (n=63)
+K1       Ridge  n_dev=299  R2_OOF +0.147(+-0.011)  rho_OOF +0.407(+-0.008)  ||  lockbox R2 -0.088  rho +0.506 (n=63)
+K2       HGB    n_dev=299  R2_OOF +0.098(+-0.024)  rho_OOF +0.387(+-0.001)  ||  lockbox R2 -0.097  rho +0.390 (n=63)
+K2       Ridge  n_dev=299  R2_OOF +0.151(+-0.013)  rho_OOF +0.422(+-0.007)  ||  lockbox R2 -0.159  rho +0.460 (n=63)
+K3       HGB    n_dev=298  R2_OOF +0.264(+-0.024)  rho_OOF +0.514(+-0.017)  ||  lockbox R2 -0.542  rho +0.357 (n=62)
+K3       Ridge  n_dev=298  R2_OOF +0.096(+-0.023)  rho_OOF +0.347(+-0.026)  ||  lockbox R2 -0.069  rho +0.322 (n=62)
+K3b      HGB    n_dev=299  R2_OOF +0.224(+-0.014)  rho_OOF +0.488(+-0.020)  ||  lockbox R2 -0.484  rho +0.372 (n=61)
+K3b      Ridge  n_dev=299  R2_OOF +0.066(+-0.029)  rho_OOF +0.292(+-0.046)  ||  lockbox R2 -0.319  rho +0.396 (n=61)
+K4       HGB    n_dev=297  R2_OOF +0.319(+-0.016)  rho_OOF +0.571(+-0.011)  ||  lockbox R2 -1.499  rho +0.248 (n=61)
+K4       Ridge  n_dev=297  R2_OOF +0.016(+-0.090)  rho_OOF +0.287(+-0.070)  ||  lockbox R2 -0.443  rho +0.275 (n=61)
+K5_k1    HGB    n_dev=299  R2_OOF -0.044(+-0.010)  rho_OOF +0.213(+-0.014)  ||  lockbox R2 +0.057  rho +0.347 (n=62)
+K5_k1    Ridge  n_dev=299  R2_OOF -0.005(+-0.018)  rho_OOF +0.130(+-0.045)  ||  lockbox R2 +0.064  rho +0.423 (n=62)
+K5_k2    HGB    n_dev=299  R2_OOF -0.081(+-0.052)  rho_OOF +0.131(+-0.058)  ||  lockbox R2 -0.621  rho +0.154 (n=61)
+K5_k2    Ridge  n_dev=299  R2_OOF -0.039(+-0.021)  rho_OOF -0.009(+-0.036)  ||  lockbox R2 -0.239  rho +0.245 (n=61)
+K5_k3    HGB    n_dev=299  R2_OOF -0.006(+-0.054)  rho_OOF +0.209(+-0.066)  ||  lockbox R2 -0.391  rho +0.235 (n=60)
+K5_k3    Ridge  n_dev=299  R2_OOF +0.029(+-0.017)  rho_OOF +0.212(+-0.022)  ||  lockbox R2 -0.188  rho +0.101 (n=60)
+K6       HGB    n_dev=299  R2_OOF +0.132(+-0.019)  rho_OOF +0.399(+-0.029)  ||  lockbox R2 +0.049  rho +0.575 (n=63)
+K6       Ridge  n_dev=299  R2_OOF +0.177(+-0.010)  rho_OOF +0.432(+-0.011)  ||  lockbox R2 -0.212  rho +0.333 (n=63)
+K7       HGB    n_dev=299  R2_OOF +0.163(+-0.022)  rho_OOF +0.436(+-0.025)  ||  lockbox R2 +0.041  rho +0.593 (n=63)
+K7       Ridge  n_dev=299  R2_OOF +0.195(+-0.007)  rho_OOF +0.455(+-0.005)  ||  lockbox R2 -0.175  rho +0.346 (n=63)
+guardado st_15_techo.csv ((22, 11))  [35s]
+
+=== 3) Correlaciones Spearman targets ganadores x KPIs alternativos ===
+targets: ['st_R22_sdi', 'st_R23_lnirf_R', 'st_R21_ln_feo_ret', 'st_F10_irf_next', 'z_sdi_plus_lnirfR'] (z_sdi_plus_lnirfR estandarizado con media/sd de DEV)
+correlaciones raw calculadas: 165 filas  [40s]
+
+-- st_R22_sdi --
+subset    DEV  lockbox  total
+kpi                          
+K0      0.319    0.094  0.280
+K1      0.123    0.273  0.145
+K2      0.132    0.250  0.147
+K3      0.222    0.137  0.209
+K3b     0.215    0.336  0.223
+K4      0.147    0.274  0.167
+K5_k1   0.147    0.398  0.186
+K5_k2   0.087    0.294  0.122
+K5_k3   0.144    0.036  0.124
+K6      0.196    0.119  0.177
+K7      0.228    0.135  0.206
+
+-- st_R23_lnirf_R --
+subset    DEV  lockbox  total
+kpi                          
+K0      0.304    0.380  0.331
+K1      0.262    0.497  0.317
+K2      0.274    0.481  0.324
+K3      0.228    0.443  0.290
+K3b     0.200    0.465  0.265
+K4      0.175    0.467  0.252
+K5_k1   0.184    0.524  0.258
+K5_k2   0.076    0.273  0.130
+K5_k3   0.161    0.150  0.178
+K6      0.135    0.440  0.206
+K7      0.173    0.442  0.239
+
+-- st_R21_ln_feo_ret --
+subset    DEV  lockbox  total
+kpi                          
+K0      0.315   -0.061  0.244
+K1      0.096    0.102  0.086
+K2      0.128    0.170  0.121
+K3      0.225    0.124  0.192
+K3b     0.218    0.265  0.200
+K4      0.152    0.295  0.153
+K5_k1   0.150    0.340  0.170
+K5_k2   0.082    0.236  0.096
+K5_k3   0.150   -0.099  0.092
+K6      0.184   -0.012  0.135
+K7      0.218   -0.003  0.163
+
+-- st_F10_irf_next --
+subset    DEV  lockbox  total
+kpi                          
+K0      0.195    0.331  0.225
+K1      0.278    0.353  0.300
+K2      0.272    0.341  0.296
+K3      0.151    0.443  0.228
+K3b     0.113    0.311  0.179
+K4      0.102    0.419  0.187
+K5_k1   0.150    0.403  0.205
+K5_k2   0.046    0.137  0.089
+K5_k3   0.097    0.222  0.136
+K6      0.053    0.465  0.141
+K7      0.080    0.441  0.161
+
+-- z_sdi_plus_lnirfR --
+subset    DEV  lockbox  total
+kpi                          
+K0      0.410    0.256  0.399
+K1      0.259    0.447  0.307
+K2      0.269    0.430  0.311
+K3      0.284    0.332  0.315
+K3b     0.264    0.471  0.312
+K4      0.193    0.415  0.257
+K5_k1   0.212    0.533  0.281
+K5_k2   0.098    0.316  0.159
+K5_k3   0.200    0.083  0.203
+K6      0.217    0.302  0.250
+K7      0.263    0.312  0.291
+
+=== 4) Comparacion justa (autocorrelacion inducida por la ventana movil) ===
+K3 (centered3) x st_R22_sdi           [DEV     ] raw rho=+0.222  ||  suavizado-justo rho=+0.271 (p=3.97e-06, n=281)
+K3 (centered3) x st_R22_sdi           [lockbox ] raw rho=+0.137  ||  suavizado-justo rho=+0.229 (p=0.0736, n=62)
+K3 (centered3) x st_R22_sdi           [total   ] raw rho=+0.209  ||  suavizado-justo rho=+0.266 (p=5.96e-07, n=343)
+K3 (centered3) x st_R23_lnirf_R       [DEV     ] raw rho=+0.228  ||  suavizado-justo rho=+0.265 (p=3.4e-06, n=298)
+K3 (centered3) x st_R23_lnirf_R       [lockbox ] raw rho=+0.443  ||  suavizado-justo rho=+0.555 (p=2.8e-06, n=62)
+K3 (centered3) x st_R23_lnirf_R       [total   ] raw rho=+0.290  ||  suavizado-justo rho=+0.335 (p=6.79e-11, n=360)
+K3 (centered3) x st_R21_ln_feo_ret    [DEV     ] raw rho=+0.225  ||  suavizado-justo rho=+0.305 (p=1.88e-07, n=281)
+K3 (centered3) x st_R21_ln_feo_ret    [lockbox ] raw rho=+0.124  ||  suavizado-justo rho=+0.198 (p=0.124, n=62)
+K3 (centered3) x st_R21_ln_feo_ret    [total   ] raw rho=+0.192  ||  suavizado-justo rho=+0.264 (p=7.06e-07, n=343)
+K3 (centered3) x st_F10_irf_next      [DEV     ] raw rho=+0.151  ||  suavizado-justo rho=+0.156 (p=0.00721, n=295)
+K3 (centered3) x st_F10_irf_next      [lockbox ] raw rho=+0.443  ||  suavizado-justo rho=+0.460 (p=0.00017, n=62)
+K3 (centered3) x st_F10_irf_next      [total   ] raw rho=+0.228  ||  suavizado-justo rho=+0.241 (p=4.17e-06, n=357)
+K3 (centered3) x z_sdi_plus_lnirfR    [DEV     ] raw rho=+0.284  ||  suavizado-justo rho=+0.339 (p=5.68e-09, n=281)
+K3 (centered3) x z_sdi_plus_lnirfR    [lockbox ] raw rho=+0.332  ||  suavizado-justo rho=+0.466 (p=0.000136, n=62)
+K3 (centered3) x z_sdi_plus_lnirfR    [total   ] raw rho=+0.315  ||  suavizado-justo rho=+0.391 (p=5.77e-14, n=343)
+K3b (forward3) x st_R22_sdi           [DEV     ] raw rho=+0.215  ||  suavizado-justo rho=+0.278 (p=2.09e-06, n=282)
+K3b (forward3) x st_R22_sdi           [lockbox ] raw rho=+0.336  ||  suavizado-justo rho=+0.191 (p=0.14, n=61)
+K3b (forward3) x st_R22_sdi           [total   ] raw rho=+0.223  ||  suavizado-justo rho=+0.266 (p=5.96e-07, n=343)
+K3b (forward3) x st_R23_lnirf_R       [DEV     ] raw rho=+0.200  ||  suavizado-justo rho=+0.264 (p=3.61e-06, n=299)
+K3b (forward3) x st_R23_lnirf_R       [lockbox ] raw rho=+0.465  ||  suavizado-justo rho=+0.541 (p=6.64e-06, n=61)
+K3b (forward3) x st_R23_lnirf_R       [total   ] raw rho=+0.265  ||  suavizado-justo rho=+0.335 (p=6.79e-11, n=360)
+K3b (forward3) x st_R21_ln_feo_ret    [DEV     ] raw rho=+0.218  ||  suavizado-justo rho=+0.311 (p=9.31e-08, n=282)
+K3b (forward3) x st_R21_ln_feo_ret    [lockbox ] raw rho=+0.265  ||  suavizado-justo rho=+0.158 (p=0.225, n=61)
+K3b (forward3) x st_R21_ln_feo_ret    [total   ] raw rho=+0.200  ||  suavizado-justo rho=+0.264 (p=7.06e-07, n=343)
+K3b (forward3) x st_F10_irf_next      [DEV     ] raw rho=+0.113  ||  suavizado-justo rho=+0.152 (p=0.00878, n=296)
+K3b (forward3) x st_F10_irf_next      [lockbox ] raw rho=+0.311  ||  suavizado-justo rho=+0.462 (p=0.000179, n=61)
+K3b (forward3) x st_F10_irf_next      [total   ] raw rho=+0.179  ||  suavizado-justo rho=+0.241 (p=4.17e-06, n=357)
+K3b (forward3) x z_sdi_plus_lnirfR    [DEV     ] raw rho=+0.264  ||  suavizado-justo rho=+0.344 (p=2.94e-09, n=282)
+K3b (forward3) x z_sdi_plus_lnirfR    [lockbox ] raw rho=+0.471  ||  suavizado-justo rho=+0.440 (p=0.000387, n=61)
+K3b (forward3) x z_sdi_plus_lnirfR    [total   ] raw rho=+0.312  ||  suavizado-justo rho=+0.391 (p=5.77e-14, n=343)
+K4 (centered5) x st_R22_sdi           [DEV     ] raw rho=+0.147  ||  suavizado-justo rho=+0.255 (p=1.85e-05, n=276)
+K4 (centered5) x st_R22_sdi           [lockbox ] raw rho=+0.274  ||  suavizado-justo rho=+0.238 (p=0.0651, n=61)
+K4 (centered5) x st_R22_sdi           [total   ] raw rho=+0.167  ||  suavizado-justo rho=+0.264 (p=8.74e-07, n=337)
+K4 (centered5) x st_R23_lnirf_R       [DEV     ] raw rho=+0.175  ||  suavizado-justo rho=+0.240 (p=2.97e-05, n=297)
+K4 (centered5) x st_R23_lnirf_R       [lockbox ] raw rho=+0.467  ||  suavizado-justo rho=+0.647 (p=1.8e-08, n=61)
+K4 (centered5) x st_R23_lnirf_R       [total   ] raw rho=+0.252  ||  suavizado-justo rho=+0.334 (p=9.31e-11, n=358)
+K4 (centered5) x st_R21_ln_feo_ret    [DEV     ] raw rho=+0.152  ||  suavizado-justo rho=+0.302 (p=3.23e-07, n=276)
+K4 (centered5) x st_R21_ln_feo_ret    [lockbox ] raw rho=+0.295  ||  suavizado-justo rho=+0.172 (p=0.185, n=61)
+K4 (centered5) x st_R21_ln_feo_ret    [total   ] raw rho=+0.153  ||  suavizado-justo rho=+0.257 (p=1.68e-06, n=337)
+K4 (centered5) x st_F10_irf_next      [DEV     ] raw rho=+0.102  ||  suavizado-justo rho=+0.124 (p=0.0344, n=292)
+K4 (centered5) x st_F10_irf_next      [lockbox ] raw rho=+0.419  ||  suavizado-justo rho=+0.636 (p=3.52e-08, n=61)
+K4 (centered5) x st_F10_irf_next      [total   ] raw rho=+0.187  ||  suavizado-justo rho=+0.238 (p=5.95e-06, n=353)
+K4 (centered5) x z_sdi_plus_lnirfR    [DEV     ] raw rho=+0.193  ||  suavizado-justo rho=+0.342 (p=5.44e-09, n=276)
+K4 (centered5) x z_sdi_plus_lnirfR    [lockbox ] raw rho=+0.415  ||  suavizado-justo rho=+0.539 (p=7.46e-06, n=61)
+K4 (centered5) x z_sdi_plus_lnirfR    [total   ] raw rho=+0.257  ||  suavizado-justo rho=+0.414 (p=2.2e-15, n=337)
+guardado st_15_correlaciones_targets.csv ((210, 9))  [41s]
+
+=== Pares target x KPI con |rho| > 0.5 (raw, cualquier subset) ===
+           target   kpi  subset    rho   p  n  ci_lo  ci_hi
+z_sdi_plus_lnirfR K5_k1 lockbox 0.5331 0.0 62 0.2799 0.7166
+   st_R23_lnirf_R K5_k1 lockbox 0.5240 0.0 62 0.2764 0.7094
+
+=== Pares target x KPI con |rho| > 0.7 (raw, cualquier subset) ===
+(ninguno)
+
+=== 5) Figuras ===
+
+tiempo total 41.7s

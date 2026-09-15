@@ -1,0 +1,23 @@
+# =============================================================================
+# Configuracion de limpieza de datos - Lingo Smelter
+# =============================================================================
+# Gobierna por completo la funcion `limpiar_dataset()` de dataset_lingo_smelter.py.
+# Cualquier cambio de columna o limite se hace aqui, sin tocar el codigo.
+#
+# Unica regla: rangos_fisicos -> un valor fuera de [min, max] se reemplaza por NaN
+# (nunca se elimina la fila). Referencia: hallazgos.md seccion 5 -> 2 registros de
+# leyes fuera de [0, 100]% (ley_sn_escoria_pct=241.5% y ley_al2o3_escoria_pct=549.1%,
+# batch AP0263). Toda ley de escoria (%) comparte el mismo limite fisico: no puede
+# ser negativa ni superar 100%.
+# =============================================================================
+
+rangos_fisicos:
+  ley_sn_escoria_pct: {min: 0, max: 100}
+  ley_fe_total_escoria_pct: {min: 0, max: 100}
+  ley_sio2_escoria_pct: {min: 0, max: 100}
+  ley_cao_escoria_pct: {min: 0, max: 100}
+  ley_al2o3_escoria_pct: {min: 0, max: 100}
+  ley_mgo_escoria_pct: {min: 0, max: 100}
+  ley_as_escoria_pct: {min: 0, max: 100}
+  ley_sb_escoria_pct: {min: 0, max: 100}
+  ley_cr_escoria_pct: {min: 0, max: 100}

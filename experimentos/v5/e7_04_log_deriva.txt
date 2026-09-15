@@ -1,0 +1,12 @@
+[02:25:18] deriva calculada para v5_ln_sn_dep (9 columnas)
+[02:25:18] deriva calculada para v5_ln_feo_ret (21 columnas)
+[02:25:18] deriva calculada para v5_d_lnirf (9 columnas)
+[02:25:18] deriva calculada para sn_extraido_est_kg (9 columnas)
+[02:25:18] deriva calculada para v5_sdi_w10 (24 columnas)
+[02:25:57]   v5_ln_sn_dep: 100% fuera=ninguna r2_oof con=0.764 sin=nan r2_lockbox con=0.803 sin=nan (38.6s)
+[02:28:00]   v5_ln_feo_ret: 100% fuera=ninguna r2_oof con=0.219 sin=nan r2_lockbox con=0.266 sin=nan (123.6s)
+[02:29:15]   v5_d_lnirf: 100% fuera=ninguna r2_oof con=0.415 sin=nan r2_lockbox con=-0.016 sin=nan (74.6s)
+[02:29:59]   sn_extraido_est_kg: 100% fuera=ninguna r2_oof con=0.722 sin=nan r2_lockbox con=0.642 sin=nan (44.8s)
+[02:30:57]   v5_sdi_w10: 100% fuera=ninguna r2_oof con=0.159 sin=nan r2_lockbox con=0.178 sin=nan (57.2s)
+[02:30:57] Guardado e7_04_deriva.csv
+[02:30:57] listo en 339.1s

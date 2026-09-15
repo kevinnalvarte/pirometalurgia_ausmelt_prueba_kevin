@@ -1,0 +1,56 @@
+[   0.0s] df (3982, 237)
+[  44.2s] sistema entrenado; soporte minimo {'Fusión': 0.29164859215825983, 'Reducción': 0.2816656561504571} ventana T {'Fusión': (959.1007877544544, 1208.5790401503912), 'Reducción': (941.6922397436567, 1177.1668220412348)}
+[  44.2s] 
+          fase    clave                   palanca  theta_1sd  ci_lo_1sd  ci_hi_1sd  significativo concuerda
+0      Fusión   sn_dep       relacion_C_Sn_carga    -0.0034    -0.0176     0.0133          False     False
+1      Fusión   sn_dep           tasa_gn_nm3_min     0.0525     0.0305     0.0751           True      True
+2      Fusión   sn_dep  exceso_o2_combustion_pct     0.0270     0.0097     0.0575           True     False
+3      Fusión   sn_dep         tasa_aire_nm3_min     0.0064    -0.0207     0.0266          False       NaN
+4      Fusión  d_lnirf       relacion_C_Sn_carga     0.0022    -0.0022     0.0057          False       NaN
+5      Fusión  d_lnirf           tasa_gn_nm3_min    -0.0014    -0.0058     0.0038          False      True
+6      Fusión  d_lnirf  exceso_o2_combustion_pct     0.0012    -0.0025     0.0054          False      True
+7      Fusión  d_lnirf         tasa_aire_nm3_min     0.0000    -0.0052     0.0049          False       NaN
+8      Fusión       dT           tasa_gn_nm3_min    -0.0641    -1.5348     1.2892          False     False
+9      Fusión       dT           tasa_o2_nm3_min    -1.1216    -2.5392     1.1750          False       NaN
+10     Fusión       dT         tasa_aire_nm3_min     0.7346    -1.2053     1.6848          False     False
+11     Fusión       dT   tasa_feed_Carbon_kg_min    -0.1111    -1.2683     0.9107          False       NaN
+12  Reducción   sn_dep             v5_dosis_C_sn     0.0165    -0.0189     0.0380          False      True
+13  Reducción   sn_dep           tasa_gn_nm3_min     0.0330    -0.0013     0.0827          False      True
+14  Reducción   sn_dep  exceso_o2_combustion_pct    -0.0102    -0.0235     0.0076          False      True
+15  Reducción   sn_dep         tasa_aire_nm3_min     0.0175    -0.0012     0.0294          False       NaN
+16  Reducción  feo_ret           v5_exceso_C_pos    -0.0076    -0.0214     0.0082          False      True
+17  Reducción  feo_ret             v5_C_x_avance     0.0215    -0.0066     0.0478          False     False
+18  Reducción  feo_ret           tasa_gn_nm3_min    -0.0132    -0.0242     0.0048          False      True
+19  Reducción  feo_ret  exceso_o2_combustion_pct    -0.0001    -0.0073     0.0090          False     False
+20  Reducción  feo_ret         tasa_aire_nm3_min     0.0018    -0.0027     0.0082          False      True
+21  Reducción       dT           tasa_gn_nm3_min     2.2797     0.0288     4.3893           True      True
+22  Reducción       dT           tasa_o2_nm3_min    -3.6779    -6.8052    -0.8591           True       NaN
+23  Reducción       dT         tasa_aire_nm3_min    -0.4129    -1.1847     0.4830          False      True
+24  Reducción       dT   tasa_feed_Carbon_kg_min     1.8829    -0.2275     4.3737          False       NaN
+[  46.0s] AP0150 
+         fase  orden_escalon_fase  avance_reduccion_sn_prev  hist__tasa_feed_Carbon_kg_min  rec__tasa_feed_Carbon_kg_min  hist__tasa_gn_nm3_min  rec__tasa_gn_nm3_min  hist__tasa_o2_nm3_min  rec__tasa_o2_nm3_min  J_historico  J_recomendado  support_historico  support_recomendado
+0     Fusión                   1                      0.84                          27.67                         32.05                  29.88                 30.09                  45.66                 46.32     -1160.29       -1147.92               0.46                 0.47
+1     Fusión                   2                      0.72                          56.75                         44.91                  28.42                 30.22                  41.86                 47.30     -1413.59       -1128.07               0.37                 0.50
+2     Fusión                   3                      0.69                          56.53                         56.38                  29.11                 31.03                  43.37                 48.73     -1323.77       -1133.03               0.42                 0.52
+3     Fusión                   4                      0.70                          49.32                         48.36                  29.19                 30.62                  43.77                 48.40     -1350.48       -1205.13               0.41                 0.49
+4     Fusión                   5                      0.75                          45.36                         49.27                  29.98                 29.95                  45.79                 45.04     -1135.97       -1127.90               0.52                 0.53
+5     Fusión                   6                      0.80                          37.75                         39.26                  29.91                 30.85                  45.84                 48.34     -1368.21       -1290.19               0.41                 0.46
+6  Reducción                   0                      0.80                          60.53                         60.53                  26.63                 26.63                  25.22                 25.22     -1363.72       -1363.72               0.54                 0.54
+7  Reducción                   1                      0.93                          26.22                         26.22                  23.63                 23.63                  21.94                 21.94      -995.61        -995.61               0.47                 0.47
+8  Reducción                   2                      0.97                          11.19                         11.19                  17.94                 17.94                   8.64                  8.64     -1393.39       -1393.39               0.62                 0.62
+9  Reducción                   3                      0.99                           5.58                          5.58                  15.64                 15.64                   6.22                  6.22     -1174.61       -1174.61               0.65                 0.65
+[  46.0s] {'n_escalones': 10, 'uplift_fisico_fusion_kg': -13.217799299340797, 'uplift_fisico_reduccion_kg': 0.0, 'uplift_fisico_total_kg': -13.217799299340797, 'uplift_J_total_kg': 720.0827659687525, 'pct_escalones_con_mejora': 60.0, 'support_medio_historico': 0.48710555933764715, 'support_medio_recomendado': 0.5237705876010519, 'R_sdi_pred_hist': 0.7321403213486088, 'R_sdi_pred_rec': 0.7321403213486088, 'R_d_sn_dep_pred': 0.0, 'R_d_feo_ret_pred': 0.0, 'F_d_sn_dep_pred': 0.25494879017767724, 'F_d_lnirf_pred': -0.005953209255284796}
+[  47.8s] AP0300 
+         fase  orden_escalon_fase  avance_reduccion_sn_prev  hist__tasa_feed_Carbon_kg_min  rec__tasa_feed_Carbon_kg_min  hist__tasa_gn_nm3_min  rec__tasa_gn_nm3_min  hist__tasa_o2_nm3_min  rec__tasa_o2_nm3_min  J_historico  J_recomendado  support_historico  support_recomendado
+0     Fusión                   1                      0.92                          22.43                         33.89                  31.37                 30.71                  49.29                 48.97     -1464.32       -1302.85               0.31                 0.40
+1     Fusión                   2                      0.66                          38.19                         42.10                  31.42                 31.38                  49.66                 48.91     -1258.94       -1198.44               0.44                 0.47
+2     Fusión                   3                      0.64                          41.72                         51.24                  31.87                 30.99                  51.09                 49.73     -1433.56       -1290.48               0.36                 0.44
+3     Fusión                   4                      0.67                          44.62                         51.39                  31.42                 31.37                  50.53                 49.72     -1383.69       -1308.52               0.40                 0.45
+4     Fusión                   5                      0.71                          53.27                         51.24                  32.11                 30.99                  51.24                 49.73     -1335.82       -1237.26               0.45                 0.49
+5     Fusión                   6                      0.69                          56.27                         51.24                  32.11                 30.99                  51.21                 49.73     -1542.09       -1420.16               0.33                 0.38
+6  Reducción                   0                      0.72                          62.96                         61.50                  27.55                 27.77                  31.29                 30.06     -1917.08       -1902.08               0.30                 0.31
+7  Reducción                   1                      0.88                          32.40                         32.40                  20.38                 20.38                  24.94                 24.94     -2333.60       -2333.60               0.16                 0.16
+8  Reducción                   2                      0.97                          10.78                         16.06                  13.15                 20.96                  16.44                 15.92     -1739.02       -1458.38               0.23                 0.40
+9  Reducción                   3                      0.98                           5.77                          9.86                  17.33                 17.02                  13.13                  9.57     -1729.71       -1581.66               0.39                 0.45
+[  47.8s] {'n_escalones': 10, 'uplift_fisico_fusion_kg': -40.38860832330177, 'uplift_fisico_reduccion_kg': -34.47318740604716, 'uplift_fisico_total_kg': -74.86179572934893, 'uplift_J_total_kg': 1104.3917400183052, 'pct_escalones_con_mejora': 90.0, 'support_medio_historico': 0.3374621184513974, 'support_medio_recomendado': 0.39642479523878005, 'R_sdi_pred_hist': 0.11360349993257979, 'R_sdi_pred_rec': 0.07621917621512997, 'R_d_sn_dep_pred': 0.12870556042636944, 'R_d_feo_ret_pred': -0.016608988414381916, 'F_d_sn_dep_pred': -0.09838176189016484, 'F_d_lnirf_pred': 0.013804743009363274}
+[  47.8s] LISTO

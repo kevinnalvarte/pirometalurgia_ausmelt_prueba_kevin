@@ -1,0 +1,59 @@
+[    0.0s] cargando dataset v3 ...
+[    0.0s] df: (3982, 222), batches dev=299 lockbox=63
+[    0.0s] === Parte 1: balance CaO nominal vs medido ===
+[    0.0s] n valido balance CaO: 2147 de 2155 escalones Fusion orden>=1
+[    0.6s] tercil_tasa_cao   n  cal_kg_min_media  d_cao_medido_media  d_cao_medido_ci_lo  d_cao_medido_ci_hi  d_cao_esperado_media  d_cao_esperado_ci_lo  d_cao_esperado_ci_hi  razon_medido_esperado_media  razon_ci_lo  razon_ci_hi
+        T1_bajo 716         30.973616            0.061610           -0.036780            0.156139             -5.667870             -6.590416             -4.843321                    -0.083612    -0.114585    -0.055519
+       T2_medio 715         41.033744           -0.138242           -0.238469           -0.046502             -4.411388             -4.544339             -4.280003                    -0.056120    -0.091481    -0.013571
+        T3_alto 716         44.664972           -0.468070           -0.564135           -0.379054             -4.536374             -4.691050             -4.375869                     0.023998    -0.016810     0.073334
+[    0.6s] Rebote d%CaO[t+1] ~ cal[t] + cal[t+1] (HC3):
+[    0.6s] ==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.0003      0.203      0.001      0.999      -0.398       0.399
+cal_t          0.0151      0.009      1.621      0.105      -0.003       0.033
+cal_tp1       -0.0080      0.009     -0.870      0.384      -0.026       0.010
+==============================================================================
+[    0.6s] coef cal[t] sobre d%CaO[t+1]: 0.01505 IC95% [-0.00315, 0.03326] n=1785
+[    0.6s] guardado 18_balance_cao.csv
+[    1.8s] figura 1 guardada
+[    1.8s] === Parte 2: DML con rezago sobre la cal en Fusion ===
+[    1.8s] DML conjunto Fusion -> sn_kg[t] (sn_extraido_est_kg) ...
+[   23.8s]   cal: theta=-42.638 efecto/1sd=-403.0 IC95%=[-693.4, -108.6] n=1749 sig=True
+[   23.8s] DML conjunto Fusion -> sn_kg[t+1] (sn_extraido_est_kg_tp1) ...
+[   38.1s]   cal: theta=-7.663 efecto/1sd=-71.6 IC95%=[-437.9, 296.7] n=1456 sig=False
+[   38.1s] DML conjunto Fusion -> sn_kg[t]+sn_kg[t+1] (sn_extraido_suma_t_tp1) ...
+[   51.1s]   cal: theta=-58.567 efecto/1sd=-549.2 IC95%=[-950.2, -87.0] n=1444 sig=True
+[   51.1s] DML conjunto Fusion -> d_ley_sn_pct[t] (d_ley_sn_escoria_pct) ...
+[   66.5s]   cal: theta=0.035 efecto/1sd=0.3 IC95%=[-0.1, 0.8] n=1778 sig=False
+[   66.5s] DML conjunto Fusion -> masa_extra[t] (masa_extra_no_explicada_kg) ...
+[   80.8s]   cal: theta=236.490 efecto/1sd=2227.8 IC95%=[1371.2, 3336.4] n=1772 sig=True
+[   80.8s] guardado 18_dml_rezago_cal.csv
+[   80.9s] figura 2 guardada
+[   80.9s] === Parte 3: efecto de la cal a nivel de batch ===
+[   80.9s] batches construidos: 362
+[   81.0s]             dependiente         palanca   n       coef    se_hc3      p_valor    ci95_lo   ci95_hi       r2  spearman_rho  spearman_p
+    Sn_extraido_total_F     cal_total_F 361  -0.682126  0.063082 2.978558e-27  -0.805765 -0.558487 0.255202     -0.218404    0.000028
+         F_avance_final cal_por_carga_F 361  -1.766550  0.110249 8.780075e-58  -1.982634 -1.550467 0.273403     -0.165156    0.001640
+                f_metal cal_por_carga_F 362  -0.161425  0.126235 2.009789e-01  -0.408840  0.085991 0.022350     -0.060032    0.254597
+                f_dross cal_por_carga_F 362   0.181809  0.096427 5.936982e-02  -0.007186  0.370803 0.117497      0.056473    0.283894
+rendimiento_proxy_batch cal_por_carga_F 362 -16.142484 12.623469 2.009789e-01 -40.884029  8.599060 0.022350     -0.060032    0.254597
+[   81.0s] guardado 18_batch_cal.csv y 18_batch_cal_dataset.csv
+[   81.2s] figura 3 guardada
+[   81.2s] === Parte 4: reversion de ruido de medicion ===
+[   81.2s] OOF sn_kg Fusion (modelo curado v3) ...
+[   82.7s]   R2 OOF=0.724, autocorr lag1 residuo OOF = -0.020 (p=0.4518, n=1446)
+[   82.7s] OOF sn_kg Reduccion (modelo curado v3) ...
+[   84.1s]   R2 OOF=0.970, autocorr lag1 residuo OOF = -0.036 (p=0.3157, n=776)
+[   84.1s] OOF feo_kg Reduccion (modelo curado v3) ...
+[   85.3s]   R2 OOF=0.275, autocorr lag1 residuo OOF = -0.138 (p=0.0001141, n=773)
+[   85.3s]   autocorr target sn_extraido_est_kg (Reduccion) = 0.414 (p=8.382e-41, n=953)
+[   85.3s]   autocorr target feo_extraido_est_kg (Reduccion) = -0.313 (p=4.137e-23, n=953)
+[   85.3s] Comparando baseline / regla fisica trivial / modelo curado (Reduccion sn_kg) ...
+[   85.4s]   R2 OOF baseline (solo inventario_prev, lineal) = 0.971
+[   85.4s]   R2 OOF regla fisica trivial (inv_prev x frac media por orden) = 0.971
+[   85.4s]   R2 OOF modelo curado v3 (10 features) = 0.970
+[   85.4s]   R2 adicional aportado por las palancas quimicas = -0.0007
+[   85.4s] guardado 18_ruido_reversion.csv
+[   85.4s] === FIN experimento 18 ===
+[   85.4s] tiempo total: 85.4s

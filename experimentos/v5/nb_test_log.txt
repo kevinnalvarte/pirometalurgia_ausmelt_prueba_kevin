@@ -1,0 +1,101 @@
+[NbConvertApp] WARNING | Config option `cwd` not recognized by `ExecutePreprocessor`.
+[NbConvertApp] WARNING | Config option `cwd` not recognized by `ExecutePreprocessor`.
+[NbConvertApp] Converting notebook experimentos/v5/_nb_test.ipynb to notebook
+[NbConvertApp] WARNING | Config option `cwd` not recognized by `ExecutePreprocessor`.
+C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Scripts\jupyter-nbconvert.EXE\__main__.py", line 10, in <module>
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\jupyter_core\application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\traitlets\config\application.py", line 1080, in launch_instance
+    app.start()
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\exporters\notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\preprocessors\base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\preprocessors\execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbconvert\preprocessors\execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings("ignore")
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.stats import spearmanr
+import statsmodels.api as sm
+
+import feature_engineering as fe
+import modelo_prescriptivo as mp
+import modelo_predictivo_v4 as mp4
+import modelo_predictivo_v5 as mp5
+
+pd.set_option("display.width", 200); pd.set_option("display.max_columns", 60); pd.set_option("display.max_rows", 120)
+EXP = Path("experimentos/v5")
+RECALCULAR = False   # True: recalcula tablas pesadas (validacion, cross-fitting) en vez de leer experimentos/v5/e7_05_*.csv
+
+df = mp5.construir_dataset_modelo_v5("Datos Lingo smelter fase II.xlsx")
+df_base = mp5._preparar_base(df)
+batches_dev, batches_lockbox = mp.split_dev_lockbox(df)
+F, R = df_base["fase_proceso"] == "Fusión", df_base["fase_proceso"] == "Reducción"
+print(f"escalones modelables {df_base.shape[0]} (Fusion {F.sum()}, Reduccion {R.sum()}) | batches DEV {len(batches_dev)} | lockbox {len(batches_lockbox)}")
+print("Configuracion v5:", {k: v for k, v in mp5.CONFIG_V5.items() if k != 'beta_fusion'})
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 10[39m
+[32m      6[39m [38;5;28;01mimport[39;00m matplotlib.pyplot [38;5;28;01mas[39;00m plt
+[32m      7[39m [38;5;28;01mfrom[39;00m scipy.stats [38;5;28;01mimport[39;00m spearmanr
+[32m      8[39m [38;5;28;01mimport[39;00m statsmodels.api [38;5;28;01mas[39;00m sm
+[32m      9[39m 
+[32m---> [39m[32m10[39m [38;5;28;01mimport[39;00m feature_engineering [38;5;28;01mas[39;00m fe
+[32m     11[39m [38;5;28;01mimport[39;00m modelo_prescriptivo [38;5;28;01mas[39;00m mp
+[32m     12[39m [38;5;28;01mimport[39;00m modelo_predictivo_v4 [38;5;28;01mas[39;00m mp4
+[32m     13[39m [38;5;28;01mimport[39;00m modelo_predictivo_v5 [38;5;28;01mas[39;00m mp5
+
+[31mModuleNotFoundError[39m: No module named 'feature_engineering'
+

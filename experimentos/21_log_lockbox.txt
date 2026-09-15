@@ -1,0 +1,7 @@
+[  103.8s] lockbox: 10/63
+[  122.3s] lockbox: 20/63
+[  140.9s] lockbox: 30/63
+[  159.9s] lockbox: 40/63
+[  178.5s] lockbox: 50/63
+[  197.5s] lockbox: 60/63
+[  201.8s] LISTO lockbox (628, 57)

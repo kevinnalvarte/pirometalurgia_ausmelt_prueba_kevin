@@ -1,0 +1,143 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - develop
+      - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  RUST_TARGET: "x86_64-unknown-linux-musl"
+  BUILD_CONFIGURATION: "release"
+
+stages:
+- stage: Build
+  displayName: 'Build'
+  jobs:
+  - job: Build
+    displayName: 'Build Rust Project'
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.x'
+        addToPath: true
+
+    - script: |
+        sudo apt-get update
+        sudo apt-get install build-essential musl-tools -y
+      displayName: 'Install build dependencies'
+
+    - script: |
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        source $HOME/.cargo/env
+        rustup target add $(RUST_TARGET)
+      displayName: 'Install Rust and target'
+
+    - script: |
+        cargo build --target $(RUST_TARGET) --features "with_openssl use_f64" --$(BUILD_CONFIGURATION)
+      displayName: 'Build Project'
+
+    - script: |
+        set -euo pipefail
+        mkdir -p "$(Build.ArtifactStagingDirectory)/package"
+        rsync -av \
+          --exclude target/ \
+          --exclude .git/ \
+          --exclude .idea/ \
+          --exclude .vscode/ \
+          --exclude .cargo/ \
+          "$(System.DefaultWorkingDirectory)/" \
+          "$(Build.ArtifactStagingDirectory)/package/"
+        cp "target/$(RUST_TARGET)/$(BUILD_CONFIGURATION)/theoretical_model" \
+          "$(Build.ArtifactStagingDirectory)/package/theoretical_model"
+        chmod +x "$(Build.ArtifactStagingDirectory)/package/theoretical_model"
+      displayName: 'Stage Azure Functions package'
+      condition: succeeded()
+
+    - task: ArchiveFiles@2
+      displayName: 'Archive package'
+      inputs:
+        rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/package'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/theoretical_model.zip'
+        replaceExistingArchive: true
+
+    - publish: $(Build.ArtifactStagingDirectory)/theoretical_model.zip
+      artifact: drop
+      displayName: 'Publish Artifact'
+
+- stage: Deploy_Dev
+  displayName: 'Deploy Dev'
+  dependsOn: Build
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+  jobs:
+  - deployment: Deploy
+    displayName: 'Deploy to Dev'
+    environment: 'func-teorethical-model-dev'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          - task: AzureFunctionApp@2
+            displayName: 'Deploy Function App (Dev)'
+            inputs:
+              azureSubscription: AnaliticaDEV-Apps - Optimus TIN
+              appType: 'functionAppLinux'
+              appName: func-lingosmelter2-dev
+              package: '$(Pipeline.Workspace)/drop/theoretical_model.zip'
+              deploymentMethod: 'zipDeploy'
+
+- stage: Deploy_QAS
+  displayName: 'Deploy QAS'
+  dependsOn: Deploy_Dev
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+  jobs:
+  - deployment: Deploy
+    displayName: 'Deploy to QAS'
+    environment: 'func-teorethical-model-qas'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          - task: AzureFunctionApp@2
+            displayName: 'Deploy Function App (QAS)'
+            inputs:
+              azureSubscription: AnaliticaQAS-Apps - Optimus TIN
+              appType: 'functionAppLinux'
+              appName: func-lingosmelter2-qas
+              package: '$(Pipeline.Workspace)/drop/theoretical_model.zip'
+              deploymentMethod: 'zipDeploy'
+
+- stage: Deploy_PRD
+  displayName: 'Deploy PRD'
+  dependsOn: Deploy_QAS
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+  jobs:
+  - deployment: Deploy
+    displayName: 'Deploy to PRD'
+    environment: 'func-teorethical-model-prd'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          - task: AzureFunctionApp@2
+            displayName: 'Deploy Function App (PRD)'
+            inputs:
+              azureSubscription: AnaliticaPRD-Apps - Optimus TIN
+              appType: 'functionAppLinux'
+              appName: func-lingosmelter2-prd
+              package: '$(Pipeline.Workspace)/drop/theoretical_model.zip'
+              deploymentMethod: 'zipDeploy'

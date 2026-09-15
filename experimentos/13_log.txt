@@ -1,0 +1,40 @@
+[    0.0s] cargando dataset
+[    0.4s] escalones guardados (3541, 50) batches con reporte: 357
+[    0.4s] calculando sd_DEV por palanca/fase (para normalizar distancias)
+[    0.4s]   sd_DEV[Fusión][tasa_feed_Carbon_kg_min] = 8.705
+[    0.4s]   sd_DEV[Fusión][tasa_feed_CaO_kg_min] = 9.435
+[    0.4s]   sd_DEV[Reducción][tasa_feed_Carbon_kg_min] = 21.98
+[    0.4s]   sd_DEV[Reducción][tasa_gn_nm3_min] = 5.031
+[    0.4s]   sd_DEV[Reducción][tasa_o2_nm3_min] = 8.804
+[    0.4s]   sd_DEV[Reducción][tasa_aire_nm3_min] = 11.22
+[    0.4s]   sd_DEV[Reducción][duracion_plan_min] = 6.199
+[    6.2s] por_batch guardado (357, 43)
+[    6.2s] === analisis estadistico ===
+[    6.3s]   correlaciones DEV: ok
+[    6.4s]   correlaciones LOCKBOX: ok
+[    6.6s]   correlaciones TOTAL: ok
+[    6.8s]   OLS controles DEV: ok
+[    7.0s]   OLS controles LOCKBOX: ok
+[    7.2s]   OLS controles TOTAL: ok
+[    7.2s]   traduccion: coef_dist_total=0.6098 sd_dist=0.2378 mediana=0.317 p10=0.155 ganancia_mediana_a_p10=-0.0989 pp
+[    7.2s]   dosis-respuesta DEV: pendiente=0.1819 p=0.3539
+[    7.2s]   dosis-respuesta LOCKBOX: pendiente=-0.4095 p=0.2803
+[    7.2s]   dosis-respuesta TOTAL: pendiente=0.1543 p=0.3740
+[    9.1s]   placebo DEV: ok
+[    9.2s]   placebo LOCKBOX: ok
+[    9.3s]   placebo TOTAL: ok
+[   33.3s]   permutacion DEV: coef_obs=1.06374 p_perm=0.3640
+[   62.3s]   permutacion LOCKBOX: coef_obs=-2.37228 p_perm=0.3660
+[   91.4s]   permutacion TOTAL: coef_obs=0.60976 p_perm=0.5220
+[   91.5s]   direccional Fusión_tasa_feed_Carbon_kg_min: signo_deseado=-1 media_dir=-0.130
+[   91.6s]   direccional Fusión_tasa_feed_CaO_kg_min: signo_deseado=+1 media_dir=0.198
+[   91.7s]   direccional Reducción_tasa_feed_Carbon_kg_min: signo_deseado=+1 media_dir=0.157
+[   91.8s]   direccional Reducción_tasa_gn_nm3_min: signo_deseado=+1 media_dir=0.200
+[   91.9s]   direccional Reducción_tasa_o2_nm3_min: signo_deseado=+1 media_dir=0.207
+[   92.1s]   direccional Reducción_tasa_aire_nm3_min: signo_deseado=-1 media_dir=-0.464
+[   92.1s]   direccional Reducción_duracion_plan_min: signo_deseado=+1 media_dir=0.130
+[   92.1s] regresiones guardadas (659, 11)
+[   92.1s] === figuras ===
+[   95.8s] figuras guardadas en C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\figs_13
+[   95.8s] LISTO. n_batches_con_reporte=357 n_errores=0
+[   95.8s] tiempo total: 95.8s

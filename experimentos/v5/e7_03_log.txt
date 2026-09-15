@@ -1,0 +1,61 @@
+[   0.0s] cargando dataset (cache v3 + v4 + b6 + v5)...
+[   0.1s] dR (1448, 255), dF (2172, 255)
+[   0.1s] 
+===== 2) cuadraticos cross-fitted =====
+[   0.1s]   Reducción / v5_ln_sn_dep: palancas base = ['v5_dosis_C_sn', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min']
+[  45.0s]     R2_oof lineal=0.7603 (lockbox 0.8022)  lineal+cuad=0.7586 (lockbox 0.8008)  n_dev=1039
+[  49.1s]     tasa_aire_nm3_min: cuadratico SIGNIFICATIVO (theta2=-3.91e-05 [-8.897e-05,-3.713e-06]) vertice=117 IC[87.76,260.3] P5-P95=(109.27002558203098, 125.48179608832464) dentro=True
+[  53.8s]   Reducción / v5_ln_feo_ret: palancas base = ['v5_exceso_C_pos', 'v5_C_x_avance', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min']
+[ 108.4s]     R2_oof lineal=0.2032 (lockbox 0.1512)  lineal+cuad=0.1907 (lockbox 0.1463)  n_dev=1039
+[ 111.7s]   Fusión / v5_d_lnirf: palancas base = ['relacion_C_Sn_carga', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min']
+[ 157.7s]     R2_oof lineal=0.2814 (lockbox 0.0389)  lineal+cuad=0.2752 (lockbox 0.0384)  n_dev=1470
+[ 157.8s]   Fusión / v5_ln_sn_dep: palancas base = ['relacion_C_Sn_carga', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min']
+[ 201.8s]     R2_oof lineal=0.1867 (lockbox -0.3858)  lineal+cuad=0.1738 (lockbox -0.4140)  n_dev=1407
+[ 201.8s]   Fusión / d_temperatura_horno_celsius: palancas base = ['relacion_C_Sn_carga', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min']
+[ 247.9s]     R2_oof lineal=0.4983 (lockbox 0.0464)  lineal+cuad=0.4936 (lockbox 0.0509)  n_dev=1477
+[ 247.9s] e7_03_cuadraticos.csv -> (21, 25); significativos: [{'fase': 'Reducción', 'target': 'v5_ln_sn_dep', 'palanca': 'tasa_aire_nm3_min'}]
+[ 247.9s] 
+===== 3) theta por tramo de avance / orden de escalon =====
+[1047.3s] e7_03_theta_por_tramo.csv -> (72, 20)
+[1047.3s] 
+  -- selectividad marginal (P3, en unidades por 1sd) por tramo --
+[1047.4s]         tipo_tramo      tramo  theta_1sd_carbon_sn_dep  theta_1sd_carbon_feo_ret  selectividad_feo_sn
+            avance      <0.84                 0.087067                 -0.008525             0.097913
+            avance  0.84-0.96                 0.035456                 -0.011942             0.336802
+            avance 0.96-0.975                 0.027967                  0.011991            -0.428744
+            avance     >0.975                 0.002951                  0.003123            -1.058256
+orden_escalon_fase          0                 0.026747                  0.001864            -0.069697
+orden_escalon_fase          1                -0.023108                  0.023537             1.018550
+orden_escalon_fase          2                 0.029812                 -0.001067             0.035780
+orden_escalon_fase          3                 0.027984                 -0.006275             0.224228
+[1047.4s]   v5_C_x_avance en el PLM global de ln_feo_ret: theta=[{'theta_lineal': 3.9035594413579774e-05, 'ci_lo_lineal': -1.3484406971945232e-05, 'ci_hi_lineal': 8.732180542606083e-05}]
+[1047.4s] 
+===== 4) PD / ALE / SHAP vs teoria =====
+[1047.4s]   HGB Reducción/v5_ln_sn_dep: n=1039, 31 features
+[1055.4s]   HGB Reducción/v5_ln_feo_ret: n=1039, 31 features
+[1063.0s]   HGB Fusión/v5_d_lnirf: n=1470, 30 features
+[1068.5s]   HGB Fusión/v5_ln_sn_dep: n=1407, 30 features
+[1073.4s]   HGB Fusión/d_temperatura_horno_celsius: n=1477, 30 features
+[1078.8s] e7_03_pd_curvas.csv -> (3074, 6); e7_03_formas_vs_teoria.csv -> (72, 17)
+[1078.8s] 
+ resumen concuerda por target:
+concuerda                    n/a  no  parcial  sí
+target                                           
+d_temperatura_horno_celsius    8   0        2   0
+v5_d_lnirf                     6   1        3   0
+v5_ln_feo_ret                  4   4        3   5
+v5_ln_sn_dep                   9  11        5  11
+[1078.8s] 
+===== 5) curva de J vs carbon / GN =====
+[1078.9s]   avance~0.749 control=carbon: argmax en x=66.2 (frac=1.00, frontera_alta), J_max=-0.7077 vs J_hist~-0.7087
+[1079.0s]   avance~0.749 control=gn: argmax en x=10.9 (frac=0.00, frontera_baja), J_max=-0.3720 vs J_hist~-0.7032
+[1079.1s]   avance~0.900 control=carbon: argmax en x=66.2 (frac=1.00, frontera_alta), J_max=0.7544 vs J_hist~0.7398
+[1079.2s]   avance~0.900 control=gn: argmax en x=10.9 (frac=0.00, frontera_baja), J_max=1.1221 vs J_hist~0.7394
+[1079.2s]   avance~0.965 control=carbon: argmax en x=66.2 (frac=1.00, frontera_alta), J_max=0.1958 vs J_hist~0.1658
+[1079.3s]   avance~0.965 control=gn: argmax en x=10.9 (frac=0.00, frontera_baja), J_max=0.3576 vs J_hist~0.1656
+[1079.4s]   avance~0.985 control=carbon: argmax en x=66.2 (frac=1.00, frontera_alta), J_max=-0.3011 vs J_hist~-0.3407
+[1079.5s]   avance~0.985 control=gn: argmax en x=10.9 (frac=0.00, frontera_baja), J_max=-0.1490 vs J_hist~-0.3410
+[1079.5s] e7_03_curva_J.csv -> (168, 8)
+[1080.3s] figs/e7_03_curva_J.png guardada
+[1080.3s] 
+FIN. tiempo total 1080.3s

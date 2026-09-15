@@ -1,0 +1,7 @@
+El objetivo de este análisis es optimizar el rendimiento del horno ausmelt en la refinería de Sn dando recomendaciones operacionales clave basado en analítica avanzada con soporte de los datos históricos en el dataset.
+
+Durante el batch existen dos procesos los cuales son fusión y reducción. Cada cierto tiempo durante el batch se muestrea las leyes de la escoria y las demás variables, a estas ventanas de tiempo se les llama escalón. Entre muestreos adyacentes siempre la fecha final del escalón coincide con la fecha_inicio del escalón siguiente.
+
+Se ha creado la variable "rendimiento_proxy_batch" la cual buscamos maximizar, pero solo se tiene dicha data por batch. Las variables "sn_en_metal_crudo_batch_t", "sn_en_dross_fe_batch_t", "sn_en_polvo_fundicion_batch_t" son únicas por batch y por tanto no se tiene su detalle a nivel escalón por tanto en el dataset simplemente está repetida los valores de estas columnas mencionadas en todos los escalones de su respectivo batch.
+
+El análisis a realizar debe tener coherencia y estar direccionado soportado por teoría y fundamentos de pirometalurgia de Sn aplicada a Hornos Ausmelt. Tanto las features a crear, como los enfoques analíticos a explorar, features a seleccionar, etc debe tener una coherencia fuerte y robusta tanto estadísticamente, pirometalúrgicamente y operacionalmente para lograr un modelamiento predictivo y prescriptivo robusto con sentido pirometalúrgico.

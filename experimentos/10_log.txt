@@ -1,0 +1,175 @@
+limpiar_dataset: 2 valor(es) marcados como NaN en 2 columna(s) (detalle en el reporte devuelto).
+dataset (3982, 222) 9s
+
+=== tabla de validacion v3 (OOF dev / lockbox) ===
+                                        columna  n_features  n_dev  n_lockbox  r2_oof   mae_oof  r2_lockbox  mae_lockbox  std_target_lockbox  r2_lockbox_equiv_dSn_pts
+fase      target                                                                                                                                                     
+Fusión    sn_kg             sn_extraido_est_kg          13   1749        374   0.722  1036.797       0.680     1113.094            2941.413                       NaN
+          sn_pts          d_ley_sn_escoria_pct           7   1779        375   0.517     1.953       0.450        2.143               3.691                       NaN
+          feo_pts        d_ley_feo_escoria_pct           9   1774        375   0.202     0.614       0.042        0.780               1.180                       NaN
+          dT       d_temperatura_horno_celsius          15   1794        378   0.385    10.137       0.097        7.481               9.848                       NaN
+Reducción sn_kg             sn_extraido_est_kg          10   1076        238   0.971   361.826       0.983      347.407            4386.336                     0.975
+          sn_pts          d_ley_sn_escoria_pct          11   1093        242   0.948     0.658       0.968        0.655               6.115                       NaN
+          feo_kg           feo_extraido_est_kg          11   1071        242   0.286   571.167       0.271      514.856             813.970                       NaN
+          feo_pts        d_ley_feo_escoria_pct          11   1087        242   0.465     0.635       0.570        0.582               1.179                       NaN
+          dT       d_temperatura_horno_celsius          14   1196        252   0.444     9.291       0.320        7.171              11.299                       NaN 
+76s
+sistema entrenado 136s
+
+=== cobertura CV+ en lockbox ===
+          fase   target  nominal  cobertura_empirica  ancho_medio    n
+0      Fusión    sn_kg      0.8               0.893     5063.386  374
+1      Fusión    sn_kg      0.9               0.971     7061.033  374
+2      Fusión   sn_pts      0.8               0.875        8.426  375
+3      Fusión   sn_pts      0.9               0.941       10.915  375
+4      Fusión  feo_pts      0.8               0.851        2.943  375
+5      Fusión  feo_pts      0.9               0.931        4.329  375
+6      Fusión       dT      0.8               0.981       47.488  378
+7      Fusión       dT      0.9               1.000       59.784  378
+8   Reducción    sn_kg      0.8               0.933     1693.271  238
+9   Reducción    sn_kg      0.9               0.962     2597.099  238
+10  Reducción   sn_pts      0.8               0.926        3.180  242
+11  Reducción   sn_pts      0.9               0.967        4.849  242
+12  Reducción   feo_kg      0.8               0.934     2575.187  242
+13  Reducción   feo_kg      0.9               0.963     3120.719  242
+14  Reducción  feo_pts      0.8               0.917        2.675  242
+15  Reducción  feo_pts      0.9               0.959        3.237  242
+16  Reducción       dT      0.8               0.988       41.991  252
+17  Reducción       dT      0.9               1.000       54.594  252 
+139s
+
+=== efectos conjuntos DML Fusión / sn_kg (sn_extraido_est_kg) ===
+                          theta_por_unidad   ci95_lo   ci95_hi  sd_palanca  efecto_por_1sd  efecto_1sd_ci95_lo  efecto_1sd_ci95_hi  significativo_ci95     n              target    fase  clave
+palanca                                                                                                                                                                                       
+tasa_feed_Carbon_kg_min           -2.5420  -22.9750   15.7402      8.5544        -21.7449           -196.5377            134.6482               False  1749  sn_extraido_est_kg  Fusión  sn_kg
+tasa_feed_CaO_kg_min             -42.6378  -73.3604  -11.4921      9.4513       -402.9822           -693.3506           -108.6154                True  1749  sn_extraido_est_kg  Fusión  sn_kg
+tasa_feed_total_kg_min             9.2445    5.7411   13.3963     39.5117        365.2659            226.8389            529.3106                True  1749  sn_extraido_est_kg  Fusión  sn_kg
+tasa_gn_nm3_min                   89.3359    0.4543  198.7639      1.4760        131.8636              0.6705            293.3839                True  1749  sn_extraido_est_kg  Fusión  sn_kg
+tasa_o2_nm3_min                   37.4137   -9.6118   88.3180      3.3468        125.2161            -32.1688            295.5821               False  1749  sn_extraido_est_kg  Fusión  sn_kg
+tasa_aire_nm3_min                  3.9728  -15.2204   31.4440      5.4905         21.8124            -83.5673            172.6429               False  1749  sn_extraido_est_kg  Fusión  sn_kg
+duracion_plan_min                 -3.3045 -113.2484  103.2092      9.8840        -32.6617          -1119.3460           1020.1190               False  1749  sn_extraido_est_kg  Fusión  sn_kg
+
+=== efectos conjuntos DML Fusión / sn_pts (d_ley_sn_escoria_pct) ===
+                          theta_por_unidad  ci95_lo  ci95_hi  sd_palanca  efecto_por_1sd  efecto_1sd_ci95_lo  efecto_1sd_ci95_hi  significativo_ci95     n                target    fase   clave
+palanca                                                                                                                                                                                        
+tasa_feed_Carbon_kg_min           -0.0181  -0.0488   0.0102      8.6592         -0.1571             -0.4227              0.0884               False  1778  d_ley_sn_escoria_pct  Fusión  sn_pts
+tasa_feed_CaO_kg_min               0.0352  -0.0139   0.0897      9.4658          0.3335             -0.1313              0.8491               False  1778  d_ley_sn_escoria_pct  Fusión  sn_pts
+tasa_feed_total_kg_min             0.0171   0.0124   0.0231     41.1244          0.7037              0.5119              0.9490                True  1778  d_ley_sn_escoria_pct  Fusión  sn_pts
+tasa_gn_nm3_min                    0.1050  -0.2603   0.3789      1.6132          0.1694             -0.4199              0.6112               False  1778  d_ley_sn_escoria_pct  Fusión  sn_pts
+tasa_o2_nm3_min                   -0.1294  -0.2751   0.0514      3.5338         -0.4573             -0.9721              0.1817               False  1778  d_ley_sn_escoria_pct  Fusión  sn_pts
+tasa_aire_nm3_min                 -0.0507  -0.1034  -0.0129      6.2173         -0.3152             -0.6429             -0.0804                True  1778  d_ley_sn_escoria_pct  Fusión  sn_pts
+duracion_plan_min                  0.0149  -0.1429   0.1277      9.9382          0.1479             -1.4202              1.2691               False  1778  d_ley_sn_escoria_pct  Fusión  sn_pts
+
+=== efectos conjuntos DML Fusión / dT (d_temperatura_horno_celsius) ===
+                          theta_por_unidad  ci95_lo  ci95_hi  sd_palanca  efecto_por_1sd  efecto_1sd_ci95_lo  efecto_1sd_ci95_hi  significativo_ci95     n                       target    fase clave
+palanca                                                                                                                                                                                             
+tasa_feed_Carbon_kg_min            0.0062  -0.1439   0.2038      8.6383          0.0538             -1.2434              1.7608               False  1793  d_temperatura_horno_celsius  Fusión    dT
+tasa_feed_CaO_kg_min               0.0414  -0.1496   0.2884      9.4353          0.3906             -1.4117              2.7210               False  1793  d_temperatura_horno_celsius  Fusión    dT
+tasa_feed_total_kg_min             0.0369   0.0037   0.0579     41.0173          1.5155              0.1505              2.3748                True  1793  d_temperatura_horno_celsius  Fusión    dT
+tasa_gn_nm3_min                   -0.1364  -1.2506   0.8904      1.6089         -0.2195             -2.0120              1.4325               False  1793  d_temperatura_horno_celsius  Fusión    dT
+tasa_o2_nm3_min                   -0.4600  -1.0842  -0.0513      3.5251         -1.6214             -3.8218             -0.1808                True  1793  d_temperatura_horno_celsius  Fusión    dT
+tasa_aire_nm3_min                 -0.0270  -0.2678   0.0928      6.1925         -0.1671             -1.6586              0.5748               False  1793  d_temperatura_horno_celsius  Fusión    dT
+duracion_plan_min                 -0.0156  -0.4756   0.3992      9.9437         -0.1556             -4.7293              3.9696               False  1793  d_temperatura_horno_celsius  Fusión    dT
+
+=== efectos conjuntos DML Reducción / sn_kg (sn_extraido_est_kg) ===
+                          theta_por_unidad   ci95_lo   ci95_hi  sd_palanca  efecto_por_1sd  efecto_1sd_ci95_lo  efecto_1sd_ci95_hi  significativo_ci95     n              target       fase  clave
+palanca                                                                                                                                                                                          
+tasa_feed_Carbon_kg_min            8.6042   -0.0113   16.4062     21.9294        188.6843             -0.2481            359.7792               False  1076  sn_extraido_est_kg  Reducción  sn_kg
+tasa_gn_nm3_min                   15.2037    1.9994   28.2594      4.9635         75.4630              9.9239            140.2648                True  1076  sn_extraido_est_kg  Reducción  sn_kg
+tasa_o2_nm3_min                    0.9876   -8.2855    9.8879      8.5733          8.4671            -71.0340             84.7715               False  1076  sn_extraido_est_kg  Reducción  sn_kg
+tasa_aire_nm3_min                 -0.0827   -2.8127    2.8604     10.4083         -0.8606            -29.2749             29.7724               False  1076  sn_extraido_est_kg  Reducción  sn_kg
+duracion_plan_min                 41.2075 -646.4615  225.9836      5.8840        242.4635          -3803.7542           1329.6788               False  1076  sn_extraido_est_kg  Reducción  sn_kg
+
+=== efectos conjuntos DML Reducción / feo_kg (feo_extraido_est_kg) ===
+                          theta_por_unidad    ci95_lo   ci95_hi  sd_palanca  efecto_por_1sd  efecto_1sd_ci95_lo  efecto_1sd_ci95_hi  significativo_ci95     n               target       fase   clave
+palanca                                                                                                                                                                                             
+tasa_feed_Carbon_kg_min           -0.6730    -7.9374    9.4556     21.9367        -14.7642           -174.1205            207.4235               False  1071  feo_extraido_est_kg  Reducción  feo_kg
+tasa_gn_nm3_min                   37.6633     9.7100   67.0443      4.9541        186.5862             48.1038            332.1411                True  1071  feo_extraido_est_kg  Reducción  feo_kg
+tasa_o2_nm3_min                  -12.3760   -28.5437    6.9534      8.5407       -105.7002           -243.7844             59.3873               False  1071  feo_extraido_est_kg  Reducción  feo_kg
+tasa_aire_nm3_min                 -5.3862   -10.6898   -0.1273     10.4398        -56.2312           -111.5994             -1.3287                True  1071  feo_extraido_est_kg  Reducción  feo_kg
+duracion_plan_min                 90.5514 -1891.0424  245.3246      5.8774        532.2036         -11114.3423           1441.8617               False  1071  feo_extraido_est_kg  Reducción  feo_kg
+
+=== efectos conjuntos DML Reducción / dT (d_temperatura_horno_celsius) ===
+                          theta_por_unidad  ci95_lo  ci95_hi  sd_palanca  efecto_por_1sd  efecto_1sd_ci95_lo  efecto_1sd_ci95_hi  significativo_ci95     n                       target       fase clave
+palanca                                                                                                                                                                                                
+tasa_feed_Carbon_kg_min            0.1409  -0.0093   0.3005     21.9716          3.0950             -0.2048              6.6028               False  1194  d_temperatura_horno_celsius  Reducción    dT
+tasa_gn_nm3_min                    0.2680  -0.0911   0.6214      5.0313          1.3484             -0.4585              3.1265               False  1194  d_temperatura_horno_celsius  Reducción    dT
+tasa_o2_nm3_min                   -0.3388  -0.6686  -0.0548      8.7821         -2.9755             -5.8713             -0.4816                True  1194  d_temperatura_horno_celsius  Reducción    dT
+tasa_aire_nm3_min                 -0.1039  -0.2015  -0.0168     10.1203         -1.0512             -2.0397             -0.1701                True  1194  d_temperatura_horno_celsius  Reducción    dT
+duracion_plan_min                 -2.1234 -36.1517   0.0655      6.2008        -13.1667           -224.1679              0.4059               False  1194  d_temperatura_horno_celsius  Reducción    dT
+290s
+
+=== politica recomendada vs historica, 8 batches del lockbox (kg Sn) ===
+         n_escalones_evaluados  fusion_sn_extraido_adicional_kg  reduccion_sn_extraido_adicional_kg  reduccion_feo_reducido_adicional_kg  metal_equivalente_kg  uplift_J_total_kgSn  pct_escalones_con_mejora  support_medio_historico  support_medio_recomendado  rendimiento_ha_batch
+Batch                                                                                                                                                                                                                                                                                 
+AP0300                     10                         -2238.00                              733.16                              -113.26               1058.08              3030.31                      90.0                     0.29                       0.38                  0.63
+AP0301                     10                         -1737.51                             1043.45                              -354.02               1375.54              2637.07                     100.0                     0.38                       0.44                  0.65
+AP0302                     10                         -1064.03                              822.43                               455.31                824.16              1717.69                      90.0                     0.33                       0.38                  0.70
+AP0303                     10                         -1451.48                              910.68                              1323.75                702.25              2643.93                     100.0                     0.31                       0.40                  0.69
+AP0304                     10                          -452.23                              359.02                               -92.29                445.49              2998.36                     100.0                     0.33                       0.45                  0.67
+AP0305                     10                          -517.60                              360.47                               379.54                313.90              1268.54                      80.0                     0.36                       0.41                  0.76
+AP0306                     10                         -1137.73                              541.50                               114.50                655.06              1665.76                     100.0                     0.39                       0.44                  0.72
+AP0307                     10                         -1229.83                              440.71                               124.37                563.28              1327.77                     100.0                     0.42                       0.46                  0.71 
+385s
+
+=== reporte batch AP0300 ===
+                                          0        1        2        3        4         5          6          7          8          9
+Batch                               AP0300   AP0300   AP0300   AP0300   AP0300    AP0300     AP0300     AP0300     AP0300     AP0300
+fase                                Fusión   Fusión   Fusión   Fusión   Fusión    Fusión  Reducción  Reducción  Reducción  Reducción
+orden_escalon_fase                       1        2        3        4        5         6          0          1          2          3
+ley_sn_escoria_pct_prev               7.71    24.14    25.16    23.69    21.31     22.59       21.2      10.26        2.7       2.06
+sn_inventario_escoria_est_kg_prev   351.34  3530.05  6249.19  8440.84  9807.39  13514.83   14917.73    6388.14    1374.02    1069.22
+sn_extraido_real_kg                2985.22   4287.6  5670.76  7193.62  5804.41   7641.71    9416.63    5014.51      304.8      77.03
+d_ley_sn_real_pts                    16.43     1.02    -1.47    -2.37     1.28     -1.39     -10.93      -7.57      -0.64      -0.18
+feo_extraido_real_kg               -1265.6 -1419.43 -1793.33 -2283.41 -2377.04  -1820.39     348.45    2514.32    -152.74     317.02
+temperatura_real                   1017.47   1031.2  1025.59  1026.18  1026.85   1017.81     989.22     971.33     952.84     953.25
+pred_sn_kg_historico               3500.39  4979.78  5201.19  5969.44  9024.34   9670.08   12349.67    5292.72     303.49     194.56
+pred_sn_kg_recomendado             3299.06  5018.93  5126.15  5707.77  8871.92   8660.25   12827.82    5292.72     317.56      283.6
+pred_feo_reducido_kg_historico         0.0      0.0      0.0      0.0      0.0       0.0    1633.66    1175.11        0.0     329.85
+pred_feo_reducido_kg_recomendado       0.0      0.0      0.0      0.0      0.0     31.98     1470.6    1175.11        0.0     537.62
+pred_T_historico                   1026.18  1022.99  1039.11  1022.89  1025.82   1029.85    1004.68     976.81     965.82     953.67
+pred_T_recomendado                 1030.86  1022.84  1040.34  1024.63  1027.72   1034.36     1009.1     976.81     959.57     956.51
+support_historico                     0.26     0.48     0.38     0.38      0.4      0.26       0.22       0.12       0.07       0.28
+support_recomendado                   0.41     0.51     0.43     0.44     0.45      0.35       0.28       0.12       0.43       0.43
+J_historico                       -3222.88 -2997.74 -3237.29  -3362.6 -3780.71  -4314.38    9781.72    2705.06   -1980.41   -1741.96
+J_recomendado                     -2921.59 -2937.99 -3129.54 -3199.82 -3725.17  -3792.27   10456.78    2705.06   -1259.73    -1429.6
+uplift_J_kgSn                       301.29    59.74   107.75   162.78    55.54    522.11     675.06        0.0     720.68     312.36
+hist__duracion_plan_min               35.0     40.0     45.0     50.0     55.0      47.0       30.0       25.0       20.0       13.0
+rec__duracion_plan_min                35.0     40.0     45.0     50.0     55.0      47.0      28.92       25.0      25.31       13.0
+hist__tasa_feed_conc_kg_min         171.59   171.65   171.43   171.53   171.34    171.61        NaN        NaN        NaN        NaN
+rec__tasa_feed_conc_kg_min          171.59   171.65   171.43   171.53   171.34    171.61        NaN        NaN        NaN        NaN
+hist__tasa_feed_reciclo_kg_min        47.0    46.99    47.02    47.01    46.97     39.59        NaN        NaN        NaN        NaN
+rec__tasa_feed_reciclo_kg_min         47.0    46.99    47.02    47.01    46.97     39.59        NaN        NaN        NaN        NaN
+hist__tasa_feed_Fe_kg_min            57.03    59.05    58.42    58.16    58.38     57.53        NaN        NaN        NaN        NaN
+rec__tasa_feed_Fe_kg_min             57.03    59.05    58.42    58.16    58.38     57.53        NaN        NaN        NaN        NaN
+hist__tasa_feed_dross_Fe_kg_min      69.33    73.57    68.32    61.71    68.27      64.9      17.32       0.01        0.0        0.0
+rec__tasa_feed_dross_Fe_kg_min       69.33    73.57    68.32    61.71    68.27      64.9      17.32       0.01        0.0        0.0
+hist__tasa_feed_pellets_kg_min      100.82    91.75    96.68    93.75    91.97    110.22      41.66       0.04        0.0        0.0
+rec__tasa_feed_pellets_kg_min       100.82    91.75    96.68    93.75    91.97    110.22      41.66       0.04        0.0        0.0
+hist__tasa_feed_CaO_kg_min           42.32    40.71    39.15    39.18    39.12     33.46        NaN        NaN        NaN        NaN
+rec__tasa_feed_CaO_kg_min            44.86    43.72    45.29    45.26    43.93     45.96        NaN        NaN        NaN        NaN
+hist__tasa_feed_Carbon_kg_min        22.43    38.19    41.72    44.62    53.27     56.27      62.96       32.4      10.78       5.77
+rec__tasa_feed_Carbon_kg_min         37.49    47.21    50.39    51.83    49.45     49.36      61.89       32.4      31.12      10.53
+hist__tasa_gn_nm3_min                31.37    31.42    31.87    31.42    32.11     32.11      27.55      20.38      13.15      17.33
+rec__tasa_gn_nm3_min                 31.37    31.42    31.87    31.42    32.11     32.11      28.81      20.38      25.48       20.1
+hist__tasa_o2_nm3_min                49.29    49.66    51.09    50.53    51.24     51.21      31.29      24.94      16.44      13.13
+rec__tasa_o2_nm3_min                 49.29    49.66    51.09    50.53    51.24     51.21      29.72      24.94      27.98      20.33
+hist__tasa_aire_nm3_min             119.79   119.54   119.92   119.69    120.7    119.66     121.11     125.15     124.01      120.5
+rec__tasa_aire_nm3_min              119.79   119.54   119.92   119.69    120.7    119.66     123.96     125.15     102.23      79.02
+
+=== sensibilidad local AP0300 R0 ===
+                          valor_actual    paso  d_sn_kg_por_unidad  d_feo_reducido_kg_por_unidad  d_T_por_unidad  d_sn_kg_en_el_paso  d_feo_reducido_kg_en_el_paso  d_T_en_el_paso
+palanca                                                                                                                                                                          
+tasa_feed_Carbon_kg_min        62.965   9.536              11.860                        47.696          -0.223             113.094                       454.827          -2.128
+tasa_gn_nm3_min                27.555   3.845              93.584                       -32.942           0.439             359.827                      -126.663           1.689
+tasa_o2_nm3_min                31.289   2.675              -1.007                       -23.752          -2.235              -2.693                       -63.539          -5.980
+tasa_aire_nm3_min             121.110  11.161               0.267                         7.213          -0.568               2.981                        80.502          -6.337
+duracion_plan_min              30.000   1.700               0.000                         0.000           0.000               0.000                         0.000           0.000
+
+=== sensibilidad local AP0300 F2 ===
+                          valor_actual   paso  d_sn_kg_por_unidad  d_feo_reducido_kg_por_unidad  d_T_por_unidad  d_sn_kg_en_el_paso  d_feo_reducido_kg_en_el_paso  d_T_en_el_paso
+palanca                                                                                                                                                                         
+tasa_feed_Carbon_kg_min        41.717  7.957               2.405                           0.0           0.148              19.133                           0.0           1.177
+tasa_feed_CaO_kg_min           39.150  9.914             -46.134                           0.0           0.069            -457.387                           0.0           0.687
+
+LISTO 392s

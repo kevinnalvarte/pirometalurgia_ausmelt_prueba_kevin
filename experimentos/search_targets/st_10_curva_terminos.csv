@@ -1,0 +1,9 @@
+n_terminos,variable_agregada,r2_oof_cv5,terminos
+1,heel_irf_F0,0.08954876247540744,heel_irf_F0
+2,st_R02_feo_ret,0.18664555124847693,heel_irf_F0;st_R02_feo_ret
+3,st_R22_sdi,0.20619805542359526,heel_irf_F0;st_R02_feo_ret;st_R22_sdi
+4,st_F11_log_sn_feo_next,0.2132381773838099,heel_irf_F0;st_R02_feo_ret;st_R22_sdi;st_F11_log_sn_feo_next
+5,st_F12_d_log_sn_feo,0.21838232351847298,heel_irf_F0;st_R02_feo_ret;st_R22_sdi;st_F11_log_sn_feo_next;st_F12_d_log_sn_feo
+6,st_F15_dT,0.2226496026189806,heel_irf_F0;st_R02_feo_ret;st_R22_sdi;st_F11_log_sn_feo_next;st_F12_d_log_sn_feo;st_F15_dT
+7,st_R17_dT,0.22857746893850328,heel_irf_F0;st_R02_feo_ret;st_R22_sdi;st_F11_log_sn_feo_next;st_F12_d_log_sn_feo;st_F15_dT;st_R17_dT
+8,heel_irf_R_prev,0.23241784434520563,heel_irf_F0;st_R02_feo_ret;st_R22_sdi;st_F11_log_sn_feo_next;st_F12_d_log_sn_feo;st_F15_dT;st_R17_dT;heel_irf_R_prev

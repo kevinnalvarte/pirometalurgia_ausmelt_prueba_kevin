@@ -1,0 +1,44 @@
+[08:32:21] Cargando dataset v3 y split DEV/lockbox...
+[08:32:21] df_base=3620 filas; DEV batches=299, lockbox batches=63
+[08:32:21] 
+===== Reduccion / sn_extraido_est_kg =====
+[08:32:21]   HGB_v3 baseline: r2_oof=0.9720 r2_lb=0.9834
+[08:32:21] Ajustando PLM Reduccion/sn_kg variante v1_Cx (S=7, palancas=['_Cx_sn', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'duracion_plan_min'])...
+[08:32:50]   v1_Cx: r2_oof=0.9732 r2_lb=0.9824 (28.5s)
+[08:32:50] Ajustando PLM Reduccion/sn_kg variante v2_Cx_y_Carbon (S=7, palancas=['_Cx_sn', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'duracion_plan_min', 'tasa_feed_Carbon_kg_min'])...
+[08:33:31]   v2_Cx_y_Carbon: r2_oof=0.9732 r2_lb=0.9826 (41.0s)
+[08:33:31] Ajustando PLM Reduccion/sn_kg variante v3_solo_Carbon (S=7, palancas=['tasa_feed_Carbon_kg_min', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'duracion_plan_min'])...
+[08:33:51]   v3_solo_Carbon: r2_oof=0.9732 r2_lb=0.9821 (20.4s)
+[08:33:51] 
+===== Reduccion / feo_extraido_est_kg =====
+[08:33:52]   HGB_v3 baseline: r2_oof=0.2917 r2_lb=0.3020
+[08:34:14]   PLM v1: r2_oof=0.2960 r2_lb=0.2990 (21.6s)
+[08:34:14] 
+===== Reduccion / d_temperatura_horno_celsius =====
+[08:34:47]   PLM v1: r2_oof=0.4297 r2_lb=0.4667 (33.6s)
+[08:34:47] 
+===== Fusion / sn (frac y kg) =====
+[08:34:49]   HGB_v3 baseline: r2_oof=0.7349 r2_lb=0.6932
+[08:34:51]   HGB_forma_E (fraccion->kg): r2_oof=0.7362 r2_lb=0.6861
+[08:35:39]   PLM A (frac->kg): r2_oof_frac=0.5688 r2_oof_kg=0.7265 r2_lb_kg=0.6882 (48.6s)
+[08:36:43]   PLM B (kg directo): r2_oof=0.7245 r2_lb=0.6850 (64.0s)
+[08:36:43] 
+Guardado 20_validacion_v4.csv (11 filas) y 20_theta_v4.csv (41 filas)
+[08:36:43] 
+===== Curva de parsimonia (Reduccion sn_kg y feo_kg) =====
+[08:38:47]   sn_kg: [{'n_estado': 7, 'r2_oof': 0.9732142870284854, 'variable_eliminada': nan}, {'n_estado': 6, 'r2_oof': 0.9732609759823255, 'variable_eliminada': 'orden_escalon_fase'}, {'n_estado': 5, 'r2_oof': 0.973927549622779, 'variable_eliminada': 'temperatura_horno_celsius_prev'}, {'n_estado': 4, 'r2_oof': 0.9738094336279756, 'variable_eliminada': 'ley_feo_escoria_pct_prev'}] (123.5s)
+[08:40:53]   feo_kg: [{'n_estado': 7, 'r2_oof': 0.29597472092760635, 'variable_eliminada': nan}, {'n_estado': 6, 'r2_oof': 0.299816685851117, 'variable_eliminada': 'ley_feo_escoria_pct_prev'}, {'n_estado': 5, 'r2_oof': 0.30639029151469155, 'variable_eliminada': 'avance_reduccion_sn_prev'}, {'n_estado': 4, 'r2_oof': 0.30056413083387745, 'variable_eliminada': 'temperatura_horno_celsius_prev'}] (125.7s)
+[08:40:53] Guardado 20_curva_parsimonia.csv (8 filas)
+[08:40:53] 
+===== Curvas de respuesta (Reduccion, 3 estados) =====
+[08:40:53] Guardado 20_curvas_respuesta.csv (135 filas) (0.3s)
+[08:40:53] Optimos de J por estado/variable:
+[08:40:53]   R0 / tasa_feed_Carbon_kg_min: optimo en 70.00 (J=9589.2 kg, borde_sup)
+[08:40:53]   R0 / tasa_gn_nm3_min: optimo en 29.60 (J=9491.1 kg, borde_sup)
+[08:40:53]   R1 / tasa_feed_Carbon_kg_min: optimo en 70.00 (J=1675.0 kg, borde_sup)
+[08:40:53]   R1 / tasa_gn_nm3_min: optimo en 29.60 (J=1600.4 kg, borde_sup)
+[08:40:53]   R3 / tasa_feed_Carbon_kg_min: optimo en 70.00 (J=225.8 kg, borde_sup)
+[08:40:53]   R3 / tasa_gn_nm3_min: optimo en 29.60 (J=312.9 kg, borde_sup)
+[08:40:54] Guardadas figuras en C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\figs_20
+[08:40:54] 
+Tiempo total: 513.1 s

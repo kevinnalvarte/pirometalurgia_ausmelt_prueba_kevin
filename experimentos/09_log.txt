@@ -1,0 +1,193 @@
+limpiar_dataset: 2 valor(es) marcados como NaN en 2 columna(s) (detalle en el reporte devuelto).
+
+===== Fusión | sn_extraido_est_kg | pool=118 | dev=1749 lb=374 =====
+                                                 perm_media  perm_frac_pos  boruta_frac   score
+feed_Sn_kgf                                          0.0927         1.0000         1.00  0.9852
+feed_total_kgh                                       0.0351         1.0000         1.00  0.9767
+delta_tiempo                                         0.0166         0.6000         1.00  0.9725
+volumen_o2_inyectado_lanza_escalon_nm3               0.0158         0.6000         1.00  0.9682
+volumen_gas_natural_inyectado_lanza_escalon_nm3      0.0104         0.6000         1.00  0.9597
+volumen_aire_inyectado_lanza_escalon_nm3             0.0097         1.0000         1.00  0.9555
+feo_inventario_escoria_est_kg_prev                   0.0399         1.0000         0.90  0.9492
+tiempo                                               0.0043         0.8000         1.00  0.9428
+cum_feed_Sn_kg_prev                                  0.0018         1.0000         1.00  0.8962
+masa_escoria_est_kg_prev                             0.0073         0.8000         0.50  0.8962
+margen_presion_gn                                    0.0041         0.8000         0.55  0.8877
+cum_feed_total_kg_prev                               0.0013         1.0000         0.95  0.8602
+basicidad_B4_prev                                    0.0020         0.8667         0.25  0.8305
+interaccion_C_x_Sn_prev                              0.0008         0.6667         0.65  0.8263
+cum_feed_reciclo_kg_prev                             0.0010         0.8000         0.50  0.8157
+feed_Carbon_kgh                                      0.0013         0.6667         0.40  0.8114
+posicion_vertical_lanza_mm_prev                      0.0014         0.8000         0.25  0.8093
+cum_feed_carga_secundaria_kg_prev                    0.0007         0.7333         0.60  0.8051
+tasa_gn_nm3_min                                      0.0042         0.6667         0.05  0.7924
+avance_reduccion_sn_prev                             0.0016         0.5333         0.10  0.7818
+carbon_sobre_inventario_sn_prev                      0.0030         0.8000         0.05  0.7797
+feed_reciclo_t3_kgh                                  0.0018         0.6000         0.05  0.7585
+cum_aire_nm3_prev                                    0.0002         0.8667         0.95  0.6992
+lanza_pos_x_gas_total                                0.0006         0.9333         0.05  0.6864
+cum_feed_pellets_kg_prev                             0.0006         0.7333         0.05  0.6737
+candidatas=38 -> decorrelacionadas=19: ['feed_Sn_kgf', 'margen_presion_gn', 'basicidad_B4_prev', 'interaccion_C_x_Sn_prev', 'cum_feed_reciclo_kg_prev', 'posicion_vertical_lanza_mm_prev', 'carbon_sobre_inventario_sn_prev', 'sn_inventario_escoria_est_kg_prev', 'relacion_CaO_carga', 'interaccion_Sn_x_FeO_prev', 'tasa_feed_CaO_kg_min', 'ratio_sn_sio2_prev', 'tasa_feed_dross_Fe_kg_min', 'oxidante_sobre_carga_total', 'ley_sn_carga_batch_pct', 'interaccion_B2_x_temp_prev', 'grad_presion_suministro_gn_lanza_kpa', 'ley_sio2_escoria_pct_prev', 'tasa_feed_total_kg_min']
+  k= 4: R2 oof=0.702 lb=0.669 mae_lb=1169.482
+  k= 6: R2 oof=0.722 lb=0.680 mae_lb=1135.942
+  k= 8: R2 oof=0.740 lb=0.701 mae_lb=1097.033
+  k=10: R2 oof=0.738 lb=0.708 mae_lb=1087.687
+  k=12: R2 oof=0.734 lb=0.707 mae_lb=1067.336
+  k=15: R2 oof=0.731 lb=0.710 mae_lb=1059.937
+  k=19: R2 oof=0.742 lb=0.713 mae_lb=1068.045
+  k=19: R2 oof=0.742 lb=0.713 mae_lb=1068.045
+  -> set final k=8: ['feed_Sn_kgf', 'margen_presion_gn', 'basicidad_B4_prev', 'interaccion_C_x_Sn_prev', 'cum_feed_reciclo_kg_prev', 'posicion_vertical_lanza_mm_prev', 'carbon_sobre_inventario_sn_prev', 'sn_inventario_escoria_est_kg_prev']
+
+===== Fusión | d_ley_sn_escoria_pct | pool=118 | dev=1779 lb=375 =====
+                                          perm_media  perm_frac_pos  boruta_frac   score
+ley_sn_escoria_pct_prev                       0.0838         1.0000         1.00  0.9725
+interaccion_C_x_Sn_prev                       0.0284         1.0000         1.00  0.9682
+interaccion_Sn_x_FeO_prev                     0.0235         1.0000         1.00  0.9640
+ratio_sn_sio2_prev                            0.0151         1.0000         1.00  0.9597
+sn_inventario_escoria_est_kg_prev             0.0136         0.8667         1.00  0.9555
+cum_gn_nm3_prev                               0.0060         0.8000         1.00  0.9428
+volumen_aire_inyectado_lanza_escalon_nm3      0.0050         1.0000         1.00  0.9386
+cum_feed_conc_kg_prev                         0.0043         0.6667         1.00  0.9301
+lanza_pos_x_gas_total                         0.0031         0.8000         1.00  0.9174
+ratio_sn_feo_prev                             0.0021         0.7333         1.00  0.9004
+cum_feed_reciclo_kg_prev                      0.0078         1.0000         0.75  0.8856
+cum_o2_nm3_prev                               0.0014         0.6667         1.00  0.8750
+avance_reduccion_sn_prev                      0.0013         0.6000         1.00  0.8708
+posicion_vertical_lanza_mm_prev               0.0025         0.8000         0.85  0.8623
+oxidante_sobre_carga_total                    0.0081         0.8667         0.45  0.8559
+cum_aire_nm3_prev                             0.0011         0.6000         0.90  0.8178
+cum_feed_dross_Fe_kg_prev                     0.0036         0.8000         0.25  0.8008
+carbon_sobre_inventario_sn_prev               0.0011         0.5333         0.65  0.7733
+cum_feed_Carbon_kg_prev                       0.0009         0.5333         0.90  0.7712
+tiro_horno_pct_prev                           0.0015         0.8000         0.15  0.7521
+duracion_plan_min                             0.0042         0.8667         0.05  0.7373
+ratio_feo_sio2_prev                           0.0014         0.7333         0.10  0.7288
+carga_termica_relativa                        0.0010         0.4667         0.25  0.7203
+cum_feed_CaO_kg_prev                          0.0012         0.5333         0.10  0.7161
+tasa_feed_total_kg_min                        0.0011         0.8000         0.10  0.7076
+candidatas=40 -> decorrelacionadas=13: ['ley_sn_escoria_pct_prev', 'interaccion_C_x_Sn_prev', 'interaccion_Sn_x_FeO_prev', 'sn_inventario_escoria_est_kg_prev', 'volumen_aire_inyectado_lanza_escalon_nm3', 'cum_feed_reciclo_kg_prev', 'avance_reduccion_sn_prev', 'oxidante_sobre_carga_total', 'carbon_sobre_inventario_sn_prev', 'tiro_horno_pct_prev', 'tasa_feed_total_kg_min', 'tasa_feed_reciclo_kg_min', 'total_process_gas_nm3_min']
+  k= 4: R2 oof=0.498 lb=0.510 mae_lb=2.000
+  k= 6: R2 oof=0.515 lb=0.388 mae_lb=2.242
+  k= 8: R2 oof=0.541 lb=0.394 mae_lb=2.274
+  k=10: R2 oof=0.543 lb=0.405 mae_lb=2.261
+  k=12: R2 oof=0.541 lb=0.377 mae_lb=2.274
+  k=13: R2 oof=0.546 lb=0.374 mae_lb=2.263
+  k=13: R2 oof=0.546 lb=0.374 mae_lb=2.263
+  k=13: R2 oof=0.546 lb=0.374 mae_lb=2.263
+  -> set final k=8: ['ley_sn_escoria_pct_prev', 'interaccion_C_x_Sn_prev', 'interaccion_Sn_x_FeO_prev', 'sn_inventario_escoria_est_kg_prev', 'volumen_aire_inyectado_lanza_escalon_nm3', 'cum_feed_reciclo_kg_prev', 'avance_reduccion_sn_prev', 'oxidante_sobre_carga_total']
+
+===== Fusión | d_ley_feo_escoria_pct | pool=118 | dev=1774 lb=375 =====
+                                                 perm_media  perm_frac_pos  boruta_frac   score
+ley_feo_escoria_pct_prev                             0.2886         1.0000         0.85  1.0000
+ratio_sn_feo_prev                                    0.0407         1.0000         0.40  0.9661
+ley_sn_conc_batch_pct                                0.0096         0.8000         0.70  0.9661
+basicidad_B4_prev                                    0.0078         0.8000         0.70  0.9576
+indice_irf_prev                                      0.0164         0.8000         0.10  0.9301
+basicidad_B2_prev                                    0.0056         0.8667         0.05  0.8581
+cum_feed_reciclo_kg_prev                             0.0029         0.7333         0.10  0.8326
+grad_posicion_vertical_lanza_mm                      0.0042         0.8667         0.05  0.8326
+interaccion_FeO_x_B2_prev                            0.0024         0.7333         0.15  0.8263
+carbon_sobre_inventario_sn_prev                      0.0013         0.7333         0.65  0.8178
+feed_Carbon_kgh                                      0.0011         0.6000         0.10  0.7521
+posicion_vertical_lanza_mm_prev                      0.0012         0.6000         0.05  0.7225
+volumen_gas_natural_inyectado_lanza_escalon_nm3      0.0008         0.6000         0.05  0.6928
+ley_fe_total_escoria_pct_prev                        0.0000         0.0000         0.70  0.6864
+ley_sio2_escoria_pct_prev                            0.0110         0.8667         0.00  0.6780
+interaccion_C_x_Sn_prev                              0.0107         0.6000         0.00  0.6737
+cum_feed_total_kg_prev                               0.0006         0.6667         0.05  0.6716
+interaccion_C_x_temp_prev                            0.0099         0.8000         0.00  0.6695
+tasa_feed_reciclo_kg_min                             0.0002         0.7333         0.10  0.6631
+interaccion_Sn_x_FeO_prev                            0.0096         0.7333         0.00  0.6610
+log_ratio_sn_feo_prev                                0.0000         0.0000         0.30  0.6568
+interaccion_lanza_x_gn                               0.0075         0.7333         0.00  0.6525
+log_ratio_sn_sio2_prev                               0.0000         0.0000         0.20  0.6504
+indice_severidad_reductora                           0.0056         0.6667         0.00  0.6483
+posicion_vertical_lanza_mm                           0.0053         0.8000         0.00  0.6398
+candidatas=28 -> decorrelacionadas=19: ['ley_feo_escoria_pct_prev', 'ratio_sn_feo_prev', 'ley_sn_conc_batch_pct', 'basicidad_B4_prev', 'indice_irf_prev', 'grad_posicion_vertical_lanza_mm', 'carbon_sobre_inventario_sn_prev', 'ley_sio2_escoria_pct_prev', 'interaccion_C_x_temp_prev', 'posicion_vertical_lanza_mm', 'relacion_C_cum_Sn_cum_prev', 'feed_Sn_kgf', 'relacion_C_carga', 'tasa_feed_pellets_kg_min', 'tiro_horno_pct_prev', 'feed_Fe_kgh', 'indice_estructural_molar_prev', 'carga_termica_relativa', 'presion_suministro_o2_lanza_kpa']
+  k= 4: R2 oof=0.187 lb=-0.008 mae_lb=0.807
+  k= 6: R2 oof=0.163 lb=-0.019 mae_lb=0.799
+  k= 8: R2 oof=0.186 lb=-0.019 mae_lb=0.796
+  k=10: R2 oof=0.197 lb=0.041 mae_lb=0.774
+  k=12: R2 oof=0.212 lb=0.024 mae_lb=0.757
+  k=15: R2 oof=0.215 lb=0.031 mae_lb=0.758
+  k=19: R2 oof=0.206 lb=0.040 mae_lb=0.762
+  k=19: R2 oof=0.206 lb=0.040 mae_lb=0.762
+  -> set final k=12: ['ley_feo_escoria_pct_prev', 'ratio_sn_feo_prev', 'ley_sn_conc_batch_pct', 'basicidad_B4_prev', 'indice_irf_prev', 'grad_posicion_vertical_lanza_mm', 'carbon_sobre_inventario_sn_prev', 'ley_sio2_escoria_pct_prev', 'interaccion_C_x_temp_prev', 'posicion_vertical_lanza_mm', 'relacion_C_cum_Sn_cum_prev', 'feed_Sn_kgf']
+
+===== Reducción | tasa_relativa_sn_escoria | pool=100 | dev=1093 lb=242 =====
+                                      perm_media  perm_frac_pos  boruta_frac   score
+ley_sn_escoria_pct_prev                   0.1624         1.0000         1.00  0.9925
+interaccion_Sn_x_FeO_prev                 0.1297         1.0000         1.00  0.9875
+interaccion_C_x_Sn_prev                   0.0347         1.0000         1.00  0.9825
+ratio_sn_sio2_prev                        0.0036         0.6667         1.00  0.9575
+ratio_sn_feo_prev                         0.0060         1.0000         0.50  0.9550
+tiro_horno_pct_prev                       0.0085         0.8000         0.25  0.9425
+grad_presion_suministro_o2_lanza_kpa      0.0035         0.8000         0.40  0.9300
+d_presion_suministro_o2_lanza_kpa         0.0038         0.8000         0.20  0.9175
+d_posicion_vertical_lanza_mm              0.0029         0.8000         0.30  0.9150
+sn_inventario_escoria_est_kg_prev         0.0028         0.8000         0.20  0.8925
+posicion_vertical_lanza_mm_prev           0.0055         0.8667         0.05  0.8650
+interaccion_C_x_exceso_o2                 0.0016         0.5333         0.15  0.8475
+avance_reduccion_sn_prev                  0.0015         0.8667         0.10  0.8250
+tasa_o2_nm3_min                           0.0010         0.8000         0.10  0.8050
+grad_posicion_vertical_lanza_mm           0.0015         0.7333         0.05  0.7850
+tasa_feed_pellets_kg_min                  0.0007         0.5333         0.05  0.7500
+cum_feed_pellets_kg_prev                  0.0005         0.7333         0.05  0.7200
+tasa_feed_Carbon_reduccion_kg_min         0.0005         0.2000         0.05  0.7150
+tasa_gn_nm3_min                           0.0002         0.6000         0.10  0.7150
+interaccion_C_x_temp_prev                 0.0004         0.6000         0.05  0.7100
+log_ratio_sn_sio2_prev                    0.0000         0.0000         0.60  0.7050
+log_ratio_sn_feo_prev                     0.0000         0.0000         0.25  0.6825
+posicion_vertical_lanza_mm                0.0030         0.6667         0.00  0.6375
+indice_severidad_reductora                0.0025         0.5333         0.00  0.6225
+presion_punta_lanza_kpa_prev              0.0024         0.8667         0.00  0.6175
+candidatas=19 -> decorrelacionadas=11: ['ley_sn_escoria_pct_prev', 'tiro_horno_pct_prev', 'grad_presion_suministro_o2_lanza_kpa', 'd_posicion_vertical_lanza_mm', 'posicion_vertical_lanza_mm_prev', 'tasa_o2_nm3_min', 'presion_punta_lanza_kpa_prev', 'ley_sn_conc_batch_pct', 'interaccion_FeO_x_B2_prev', 'termocupla_media_celsius_prev', 'cum_feed_dross_Fe_kg_prev']
+  k= 4: R2 oof=0.582 lb=0.541 mae_lb=0.133
+  k= 6: R2 oof=0.581 lb=0.574 mae_lb=0.129
+  k= 8: R2 oof=0.571 lb=0.543 mae_lb=0.132
+  k=10: R2 oof=0.568 lb=0.561 mae_lb=0.127
+  k=11: R2 oof=0.574 lb=0.546 mae_lb=0.129
+  k=11: R2 oof=0.574 lb=0.546 mae_lb=0.129
+  k=11: R2 oof=0.574 lb=0.546 mae_lb=0.129
+  k=11: R2 oof=0.574 lb=0.546 mae_lb=0.129
+  -> set final k=4: ['ley_sn_escoria_pct_prev', 'tiro_horno_pct_prev', 'grad_presion_suministro_o2_lanza_kpa', 'd_posicion_vertical_lanza_mm']
+
+===== Reducción | sn_extraido_est_kg | pool=100 | dev=1076 lb=238 =====
+                                        perm_media  perm_frac_pos  boruta_frac   score
+sn_inventario_escoria_est_kg_prev           0.7311         1.0000         1.00  0.9925
+avance_reduccion_sn_prev                    0.1689         1.0000         1.00  0.9875
+ratio_sn_sio2_prev                          0.0007         0.8000         0.85  0.9650
+interaccion_C_x_Sn_prev                     0.0005         1.0000         0.80  0.9425
+ley_sn_escoria_pct_prev                     0.0003         0.8000         0.95  0.9400
+interaccion_Sn_x_FeO_prev                   0.0002         0.6000         1.00  0.9275
+cum_aire_nm3_prev                           0.0006         0.8000         0.30  0.9225
+cum_feed_CaO_kg_prev                        0.0001         0.5333         1.00  0.9075
+relacion_C_cum_Sn_cum_prev                  0.0002         0.6667         0.05  0.8300
+feed_Carbon_fusion_kgh                      0.0001         0.6667         0.05  0.8100
+volumen_o2_inyectado_lanza_escalon_nm3      0.0000         0.4667         0.15  0.7950
+cum_feed_Sn_kg_prev                         0.0001         0.8667         0.05  0.7800
+masa_escoria_est_kg_prev                    0.0000         0.6000         0.70  0.7700
+lanza_pos_x_gas_total                       0.0001         0.6667         0.05  0.7700
+tasa_feed_total_kg_min                      0.0000         0.6000         0.05  0.7650
+tasa_feed_Carbon_fusion_kg_min              0.0000         0.4667         0.10  0.7550
+log_ratio_sn_sio2_prev                      0.0000         0.0000         0.50  0.7300
+log_ratio_sn_feo_prev                       0.0000         0.0000         0.35  0.7225
+indice_severidad_reductora                  0.0000         0.4667         0.05  0.7050
+escalon_idx                                 0.0000         0.0000         0.05  0.6600
+duracion_plan_min                           0.0000         0.0000         0.05  0.6600
+grad_temperatura_horno_celsius_prev         0.0006         0.8000         0.00  0.6600
+posicion_vertical_lanza_mm                  0.0005         0.7333         0.00  0.6500
+cum_o2_nm3_prev                             0.0003         0.8667         0.00  0.6450
+feed_Sn_kgf                                 0.0002         0.8667         0.00  0.6350
+candidatas=26 -> decorrelacionadas=16: ['sn_inventario_escoria_est_kg_prev', 'interaccion_C_x_Sn_prev', 'cum_feed_CaO_kg_prev', 'cum_feed_Sn_kg_prev', 'masa_escoria_est_kg_prev', 'grad_temperatura_horno_celsius_prev', 'cum_o2_nm3_prev', 'feed_Sn_kgf', 'tasa_feed_pellets_kg_min', 'cum_feed_Carbon_kg_prev', 'grad_posicion_vertical_lanza_mm', 'feo_inventario_escoria_est_kg_prev', 'grad_presion_suministro_o2_lanza_kpa', 'ley_sn_pellets_batch_pct', 'presion_suministro_o2_lanza_kpa', 'ley_sio2_escoria_pct_prev']
+  k= 4: R2 oof=0.972 lb=0.982 mae_lb=352.361
+  k= 6: R2 oof=0.971 lb=0.982 mae_lb=347.046
+  k= 8: R2 oof=0.972 lb=0.984 mae_lb=320.798
+  k=10: R2 oof=0.972 lb=0.985 mae_lb=313.848
+  k=12: R2 oof=0.972 lb=0.984 mae_lb=326.489
+  k=15: R2 oof=0.972 lb=0.984 mae_lb=326.125
+  k=16: R2 oof=0.973 lb=0.984 mae_lb=333.304
+  k=16: R2 oof=0.973 lb=0.984 mae_lb=333.304
+  -> set final k=4: ['sn_inventario_escoria_est_kg_prev', 'interaccion_C_x_Sn_prev', 'cum_feed_CaO_kg_prev', 'cum_feed_Sn_kg_prev']
+
+===== Reducción | d_ley_sn_escoria_pct | pool=100 | dev=1093 lb=242 =====

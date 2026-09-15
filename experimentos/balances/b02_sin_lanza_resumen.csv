@@ -1,0 +1,3 @@
+fase,target,n_estado,n_palancas,n_dev,n_lockbox,r2_oof_dev,r2_lockbox,mae_lockbox,std_target_lockbox,param,valor,es_baseline
+Reducción,feo_extraido_est_kg,37,4,1045,242,0.3673866590885996,0.3755145547447474,493.1723842776331,813.9698051758336,sin_lanza,,False
+Reducción,st_R22_sdi,37,4,1015,242,0.1311169595411681,0.1624997227830134,0.46110634920144505,0.6692777110269599,sin_lanza,,False

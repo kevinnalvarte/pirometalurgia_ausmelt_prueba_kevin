@@ -1,0 +1,377 @@
+limpiar_dataset: 2 valor(es) marcados como NaN en 2 columna(s) (detalle en el reporte devuelto).
+df (3982, 222); base (3620, 222); dev=299 lockbox=63
+Fusión     v2_actual              n_features=7
+Fusión     v3_carga               n_features=39
+Fusión     v3_carga+inventario    n_features=47
+Fusión     v3_pool_seguro         n_features=128
+Reducción  v2_actual              n_features=9
+Reducción  v3_carga               n_features=37
+Reducción  v3_carga+inventario    n_features=46
+Reducción  v3_pool_seguro         n_features=120
+
+=== Fusión: filas comunes dev=1747 lockbox=374 ===
+Fusión    | T1 d_ley_sn (pts %Sn)        | v2_actual            | HistGB+mono(C) | R2 oof=0.523 lb=0.441 | dSn lb=0.441
+Fusión    | T1 d_ley_sn (pts %Sn)        | v2_actual            | XGBoost        | R2 oof=0.538 lb=0.468 | dSn lb=0.468
+Fusión    | T1 d_ley_sn (pts %Sn)        | v3_carga             | HistGB+mono(C) | R2 oof=0.554 lb=0.354 | dSn lb=0.354
+Fusión    | T1 d_ley_sn (pts %Sn)        | v3_carga             | XGBoost        | R2 oof=0.569 lb=0.312 | dSn lb=0.312
+Fusión    | T1 d_ley_sn (pts %Sn)        | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.552 lb=0.327 | dSn lb=0.327
+Fusión    | T1 d_ley_sn (pts %Sn)        | v3_carga+inventario  | XGBoost        | R2 oof=0.562 lb=0.352 | dSn lb=0.352
+Fusión    | T1 d_ley_sn (pts %Sn)        | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.548 lb=0.282 | dSn lb=0.282
+Fusión    | T1 d_ley_sn (pts %Sn)        | v3_pool_seguro       | XGBoost        | R2 oof=0.564 lb=0.328 | dSn lb=0.328
+Fusión    | T3 tasa_relativa_sn          | v2_actual            | HistGB+mono(C) | R2 oof=0.670 lb=0.656 | dSn lb=0.429
+Fusión    | T3 tasa_relativa_sn          | v2_actual            | XGBoost        | R2 oof=0.693 lb=0.666 | dSn lb=0.474
+Fusión    | T3 tasa_relativa_sn          | v3_carga             | HistGB+mono(C) | R2 oof=0.699 lb=0.565 | dSn lb=0.269
+Fusión    | T3 tasa_relativa_sn          | v3_carga             | XGBoost        | R2 oof=0.703 lb=0.580 | dSn lb=0.309
+Fusión    | T3 tasa_relativa_sn          | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.691 lb=0.515 | dSn lb=0.192
+Fusión    | T3 tasa_relativa_sn          | v3_carga+inventario  | XGBoost        | R2 oof=0.704 lb=0.581 | dSn lb=0.322
+Fusión    | T3 tasa_relativa_sn          | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.686 lb=0.552 | dSn lb=0.277
+Fusión    | T3 tasa_relativa_sn          | v3_pool_seguro       | XGBoost        | R2 oof=0.710 lb=0.575 | dSn lb=0.321
+Fusión    | M1 sn_extraido_est_kg        | v2_actual            | HistGB+mono(C) | R2 oof=0.696 lb=0.697 | kgSn lb=0.697
+Fusión    | M1 sn_extraido_est_kg        | v2_actual            | XGBoost        | R2 oof=0.709 lb=0.703 | kgSn lb=0.703
+Fusión    | M1 sn_extraido_est_kg        | v3_carga             | HistGB+mono(C) | R2 oof=0.743 lb=0.622 | kgSn lb=0.622
+Fusión    | M1 sn_extraido_est_kg        | v3_carga             | XGBoost        | R2 oof=0.752 lb=0.667 | kgSn lb=0.667
+Fusión    | M1 sn_extraido_est_kg        | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.745 lb=0.656 | kgSn lb=0.656
+Fusión    | M1 sn_extraido_est_kg        | v3_carga+inventario  | XGBoost        | R2 oof=0.752 lb=0.711 | kgSn lb=0.711
+Fusión    | M1 sn_extraido_est_kg        | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.749 lb=0.716 | kgSn lb=0.716
+Fusión    | M1 sn_extraido_est_kg        | v3_pool_seguro       | XGBoost        | R2 oof=0.757 lb=0.714 | kgSn lb=0.714
+Fusión    | M2 frac_sn_extraido_escalon  | v2_actual            | HistGB+mono(C) | R2 oof=0.550 lb=0.019 | kgSn lb=0.709
+Fusión    | M2 frac_sn_extraido_escalon  | v2_actual            | XGBoost        | R2 oof=0.578 lb=0.037 | kgSn lb=0.726
+Fusión    | M2 frac_sn_extraido_escalon  | v3_carga             | HistGB+mono(C) | R2 oof=0.587 lb=-0.073 | kgSn lb=0.674
+Fusión    | M2 frac_sn_extraido_escalon  | v3_carga             | XGBoost        | R2 oof=0.612 lb=0.022 | kgSn lb=0.692
+Fusión    | M2 frac_sn_extraido_escalon  | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.596 lb=-0.030 | kgSn lb=0.672
+Fusión    | M2 frac_sn_extraido_escalon  | v3_carga+inventario  | XGBoost        | R2 oof=0.608 lb=0.032 | kgSn lb=0.696
+Fusión    | M2 frac_sn_extraido_escalon  | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.594 lb=0.003 | kgSn lb=0.693
+Fusión    | M2 frac_sn_extraido_escalon  | v3_pool_seguro       | XGBoost        | R2 oof=0.606 lb=0.055 | kgSn lb=0.715
+Fusión    | F1 d_ley_feo (pts %FeO)      | v2_actual            | HistGB+mono(C) | R2 oof=0.139 lb=0.102
+Fusión    | F1 d_ley_feo (pts %FeO)      | v2_actual            | XGBoost        | R2 oof=0.178 lb=0.101
+Fusión    | F1 d_ley_feo (pts %FeO)      | v3_carga             | HistGB+mono(C) | R2 oof=0.183 lb=0.039
+Fusión    | F1 d_ley_feo (pts %FeO)      | v3_carga             | XGBoost        | R2 oof=0.209 lb=0.104
+Fusión    | F1 d_ley_feo (pts %FeO)      | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.193 lb=0.111
+Fusión    | F1 d_ley_feo (pts %FeO)      | v3_carga+inventario  | XGBoost        | R2 oof=0.222 lb=0.141
+Fusión    | F1 d_ley_feo (pts %FeO)      | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.203 lb=0.083
+Fusión    | F1 d_ley_feo (pts %FeO)      | v3_pool_seguro       | XGBoost        | R2 oof=0.229 lb=0.123
+
+=== Reducción: filas comunes dev=1022 lockbox=238 ===
+Reducción | T1 d_ley_sn (pts %Sn)        | v2_actual            | HistGB+mono(C) | R2 oof=0.952 lb=0.977 | dSn lb=0.977
+Reducción | T1 d_ley_sn (pts %Sn)        | v2_actual            | XGBoost        | R2 oof=0.952 lb=0.970 | dSn lb=0.970
+Reducción | T1 d_ley_sn (pts %Sn)        | v3_carga             | HistGB+mono(C) | R2 oof=0.957 lb=0.972 | dSn lb=0.972
+Reducción | T1 d_ley_sn (pts %Sn)        | v3_carga             | XGBoost        | R2 oof=0.960 lb=0.971 | dSn lb=0.971
+Reducción | T1 d_ley_sn (pts %Sn)        | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.955 lb=0.974 | dSn lb=0.974
+Reducción | T1 d_ley_sn (pts %Sn)        | v3_carga+inventario  | XGBoost        | R2 oof=0.958 lb=0.975 | dSn lb=0.975
+Reducción | T1 d_ley_sn (pts %Sn)        | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.957 lb=0.979 | dSn lb=0.979
+Reducción | T1 d_ley_sn (pts %Sn)        | v3_pool_seguro       | XGBoost        | R2 oof=0.959 lb=0.980 | dSn lb=0.980
+Reducción | T3 tasa_relativa_sn          | v2_actual            | HistGB+mono(C) | R2 oof=0.605 lb=0.652 | dSn lb=0.979
+Reducción | T3 tasa_relativa_sn          | v2_actual            | XGBoost        | R2 oof=0.614 lb=0.656 | dSn lb=0.975
+Reducción | T3 tasa_relativa_sn          | v3_carga             | HistGB+mono(C) | R2 oof=0.606 lb=0.684 | dSn lb=0.978
+Reducción | T3 tasa_relativa_sn          | v3_carga             | XGBoost        | R2 oof=0.624 lb=0.691 | dSn lb=0.979
+Reducción | T3 tasa_relativa_sn          | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.607 lb=0.677 | dSn lb=0.981
+Reducción | T3 tasa_relativa_sn          | v3_carga+inventario  | XGBoost        | R2 oof=0.624 lb=0.670 | dSn lb=0.979
+Reducción | T3 tasa_relativa_sn          | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.614 lb=0.675 | dSn lb=0.980
+Reducción | T3 tasa_relativa_sn          | v3_pool_seguro       | XGBoost        | R2 oof=0.627 lb=0.678 | dSn lb=0.982
+Reducción | M1 sn_extraido_est_kg        | v2_actual            | HistGB+mono(C) | R2 oof=0.921 lb=0.969 | kgSn lb=0.969
+Reducción | M1 sn_extraido_est_kg        | v2_actual            | XGBoost        | R2 oof=0.927 lb=0.967 | kgSn lb=0.967
+Reducción | M1 sn_extraido_est_kg        | v3_carga             | HistGB+mono(C) | R2 oof=0.958 lb=0.976 | kgSn lb=0.976
+Reducción | M1 sn_extraido_est_kg        | v3_carga             | XGBoost        | R2 oof=0.960 lb=0.977 | kgSn lb=0.977
+Reducción | M1 sn_extraido_est_kg        | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.972 lb=0.985 | kgSn lb=0.985
+Reducción | M1 sn_extraido_est_kg        | v3_carga+inventario  | XGBoost        | R2 oof=0.973 lb=0.986 | kgSn lb=0.986
+Reducción | M1 sn_extraido_est_kg        | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.974 lb=0.985 | kgSn lb=0.985
+Reducción | M1 sn_extraido_est_kg        | v3_pool_seguro       | XGBoost        | R2 oof=0.973 lb=0.987 | kgSn lb=0.987
+Reducción | M2 frac_sn_extraido_escalon  | v2_actual            | HistGB+mono(C) | R2 oof=0.630 lb=0.682 | kgSn lb=0.987
+Reducción | M2 frac_sn_extraido_escalon  | v2_actual            | XGBoost        | R2 oof=0.643 lb=0.694 | kgSn lb=0.987
+Reducción | M2 frac_sn_extraido_escalon  | v3_carga             | HistGB+mono(C) | R2 oof=0.634 lb=0.701 | kgSn lb=0.986
+Reducción | M2 frac_sn_extraido_escalon  | v3_carga             | XGBoost        | R2 oof=0.654 lb=0.722 | kgSn lb=0.987
+Reducción | M2 frac_sn_extraido_escalon  | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.634 lb=0.701 | kgSn lb=0.986
+Reducción | M2 frac_sn_extraido_escalon  | v3_carga+inventario  | XGBoost        | R2 oof=0.655 lb=0.702 | kgSn lb=0.987
+Reducción | M2 frac_sn_extraido_escalon  | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.645 lb=0.701 | kgSn lb=0.986
+Reducción | M2 frac_sn_extraido_escalon  | v3_pool_seguro       | XGBoost        | R2 oof=0.658 lb=0.701 | kgSn lb=0.988
+Reducción | F1 d_ley_feo (pts %FeO)      | v2_actual            | HistGB+mono(C) | R2 oof=0.451 lb=0.528
+Reducción | F1 d_ley_feo (pts %FeO)      | v2_actual            | XGBoost        | R2 oof=0.471 lb=0.541
+Reducción | F1 d_ley_feo (pts %FeO)      | v3_carga             | HistGB+mono(C) | R2 oof=0.469 lb=0.523
+Reducción | F1 d_ley_feo (pts %FeO)      | v3_carga             | XGBoost        | R2 oof=0.496 lb=0.574
+Reducción | F1 d_ley_feo (pts %FeO)      | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.465 lb=0.533
+Reducción | F1 d_ley_feo (pts %FeO)      | v3_carga+inventario  | XGBoost        | R2 oof=0.486 lb=0.563
+Reducción | F1 d_ley_feo (pts %FeO)      | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.506 lb=0.443
+Reducción | F1 d_ley_feo (pts %FeO)      | v3_pool_seguro       | XGBoost        | R2 oof=0.521 lb=0.439
+Reducción | F2 feo_extraido_est_kg       | v2_actual            | HistGB+mono(C) | R2 oof=0.093 lb=0.153
+Reducción | F2 feo_extraido_est_kg       | v2_actual            | XGBoost        | R2 oof=0.151 lb=0.090
+Reducción | F2 feo_extraido_est_kg       | v3_carga             | HistGB+mono(C) | R2 oof=0.330 lb=0.288
+Reducción | F2 feo_extraido_est_kg       | v3_carga             | XGBoost        | R2 oof=0.349 lb=0.297
+Reducción | F2 feo_extraido_est_kg       | v3_carga+inventario  | HistGB+mono(C) | R2 oof=0.334 lb=0.205
+Reducción | F2 feo_extraido_est_kg       | v3_carga+inventario  | XGBoost        | R2 oof=0.352 lb=0.321
+Reducción | F2 feo_extraido_est_kg       | v3_pool_seguro       | HistGB+mono(C) | R2 oof=0.343 lb=0.249
+Reducción | F2 feo_extraido_est_kg       | v3_pool_seguro       | XGBoost        | R2 oof=0.364 lb=0.303
+
+
+===== RESUMEN (lockbox) =====
+feature_set                                v2_actual               v3_carga         v3_carga+inventario         v3_pool_seguro        
+algoritmo                             HistGB+mono(C) XGBoost HistGB+mono(C) XGBoost      HistGB+mono(C) XGBoost HistGB+mono(C) XGBoost
+fase      target                                                                                                                      
+Fusión    F1 d_ley_feo (pts %FeO)              0.102   0.101          0.039   0.104               0.111   0.141          0.083   0.123
+          M1 sn_extraido_est_kg                0.697   0.703          0.622   0.667               0.656   0.711          0.716   0.714
+          M2 frac_sn_extraido_escalon          0.019   0.037         -0.073   0.022              -0.030   0.032          0.003   0.055
+          T1 d_ley_sn (pts %Sn)                0.441   0.468          0.354   0.312               0.327   0.352          0.282   0.328
+          T3 tasa_relativa_sn                  0.656   0.666          0.565   0.580               0.515   0.581          0.552   0.575
+Reducción F1 d_ley_feo (pts %FeO)              0.528   0.541          0.523   0.574               0.533   0.563          0.443   0.439
+          F2 feo_extraido_est_kg               0.153   0.090          0.288   0.297               0.205   0.321          0.249   0.303
+          M1 sn_extraido_est_kg                0.969   0.967          0.976   0.977               0.985   0.986          0.985   0.987
+          M2 frac_sn_extraido_escalon          0.682   0.694          0.701   0.722               0.701   0.702          0.701   0.701
+          T1 d_ley_sn (pts %Sn)                0.977   0.970          0.972   0.971               0.974   0.975          0.979   0.980
+          T3 tasa_relativa_sn                  0.652   0.656          0.684   0.691               0.677   0.670          0.675   0.678
+
+===== RESUMEN (OOF) =====
+feature_set                                v2_actual               v3_carga         v3_carga+inventario         v3_pool_seguro        
+algoritmo                             HistGB+mono(C) XGBoost HistGB+mono(C) XGBoost      HistGB+mono(C) XGBoost HistGB+mono(C) XGBoost
+fase      target                                                                                                                      
+Fusión    F1 d_ley_feo (pts %FeO)              0.139   0.178          0.183   0.209               0.193   0.222          0.203   0.229
+          M1 sn_extraido_est_kg                0.696   0.709          0.743   0.752               0.745   0.752          0.749   0.757
+          M2 frac_sn_extraido_escalon          0.550   0.578          0.587   0.612               0.596   0.608          0.594   0.606
+          T1 d_ley_sn (pts %Sn)                0.523   0.538          0.554   0.569               0.552   0.562          0.548   0.564
+          T3 tasa_relativa_sn                  0.670   0.693          0.699   0.703               0.691   0.704          0.686   0.710
+Reducción F1 d_ley_feo (pts %FeO)              0.451   0.471          0.469   0.496               0.465   0.486          0.506   0.521
+          F2 feo_extraido_est_kg               0.093   0.151          0.330   0.349               0.334   0.352          0.343   0.364
+          M1 sn_extraido_est_kg                0.921   0.927          0.958   0.960               0.972   0.973          0.974   0.973
+          M2 frac_sn_extraido_escalon          0.630   0.643          0.634   0.654               0.634   0.655          0.645   0.658
+          T1 d_ley_sn (pts %Sn)                0.952   0.952          0.957   0.960               0.955   0.958          0.957   0.959
+          T3 tasa_relativa_sn                  0.605   0.614          0.606   0.624               0.607   0.624          0.614   0.627
+
+--- top 20 permutation importance (lockbox) ('Fusión', 'd_ley_sn_escoria_pct') ---
+ley_sn_escoria_pct_prev                     0.1560
+interaccion_Sn_x_FeO_prev                   0.0455
+interaccion_C_x_Sn_prev                     0.0202
+cum_feed_conc_kg_prev                       0.0167
+ratio_sn_feo_prev                           0.0160
+avance_reduccion_sn_prev                    0.0151
+ratio_sn_sio2_prev                          0.0143
+log_ratio_sn_sio2_prev                      0.0139
+d_presion_suministro_gn_lanza_kpa           0.0120
+volumen_aire_inyectado_lanza_escalon_nm3    0.0116
+d_presion_suministro_o2_lanza_kpa           0.0103
+grad_presion_suministro_o2_lanza_kpa        0.0085
+sn_inventario_escoria_est_kg_prev           0.0077
+posicion_vertical_lanza_mm_prev             0.0076
+cum_feed_reciclo_kg_prev                    0.0069
+d_posicion_vertical_lanza_mm                0.0058
+temperatura_gas_pre_bhf_celsius_prev        0.0051
+interaccion_FeO_x_B2_prev                   0.0050
+tasa_o2_nm3_min                             0.0048
+tiro_horno_pct_prev                         0.0044
+
+--- top 20 permutation importance (lockbox) ('Fusión', 'tasa_relativa_sn_escoria') ---
+ley_sn_escoria_pct_prev                            0.1698
+interaccion_Sn_x_FeO_prev                          0.0497
+ratio_sn_sio2_prev                                 0.0375
+interaccion_C_x_Sn_prev                            0.0283
+volumen_aire_inyectado_lanza_escalon_nm3           0.0257
+cum_feed_conc_kg_prev                              0.0204
+log_ratio_sn_sio2_prev                             0.0199
+posicion_vertical_lanza_mm_prev                    0.0134
+sn_inventario_escoria_est_kg_prev                  0.0105
+ratio_sn_feo_prev                                  0.0105
+avance_reduccion_sn_prev                           0.0101
+grad_presion_suministro_o2_lanza_kpa               0.0065
+temperatura_gas_pre_bhf_celsius_prev               0.0064
+interaccion_lanza_x_gn                             0.0059
+tiro_horno_pct_prev                                0.0050
+indice_estructural_molar_prev                      0.0039
+d_presion_suministro_o2_lanza_kpa                  0.0038
+volumen_gas_natural_inyectado_lanza_escalon_nm3    0.0037
+cum_feed_reciclo_kg_prev                           0.0037
+interaccion_FeO_x_B2_prev                          0.0034
+
+--- top 20 permutation importance (lockbox) ('Fusión', 'sn_extraido_est_kg') ---
+feed_Sn_kgf                           0.0562
+feo_inventario_escoria_est_kg_prev    0.0335
+posicion_vertical_lanza_mm            0.0097
+o2_disponible_nm3                     0.0071
+sn_inventario_escoria_est_kg_prev     0.0060
+interaccion_Sn_x_FeO_prev             0.0055
+masa_escoria_est_kg_prev              0.0054
+avance_reduccion_sn_prev              0.0052
+posicion_vertical_lanza_mm_prev       0.0050
+cum_aire_nm3_prev                     0.0037
+relacion_CaO_carga                    0.0033
+feed_carga_secundaria_kgh             0.0029
+interaccion_C_x_Sn_prev               0.0027
+cum_feed_dross_Fe_kg_prev             0.0025
+cum_feed_conc_kg_prev                 0.0023
+duracion_plan_min                     0.0018
+basicidad_B4_prev                     0.0016
+feed_Carbon_reduccion_kgh             0.0014
+carbon_sobre_inventario_sn_prev       0.0014
+feed_total_kgh                        0.0013
+
+--- top 20 permutation importance (lockbox) ('Fusión', 'frac_sn_extraido_escalon') ---
+interaccion_lanza_x_gn                  0.0158
+interaccion_Sn_x_FeO_prev               0.0113
+d_presion_suministro_gn_lanza_kpa       0.0110
+posicion_vertical_lanza_mm              0.0109
+oxidante_sobre_carga_total              0.0108
+relacion_CaO_carga                      0.0090
+temperatura_gas_pre_bhf_celsius_prev    0.0078
+feed_total_kgh                          0.0075
+carga_termica_relativa                  0.0063
+tasa_feed_conc_kg_min                   0.0063
+presion_suministro_o2_lanza_kpa         0.0052
+feed_Carbon_fusion_kgh                  0.0037
+tasa_feed_reciclo_kg_min                0.0035
+ley_sn_dross_batch_pct                  0.0031
+lanza_pos_x_gas_total                   0.0030
+tasa_feed_Carbon_reduccion_kg_min       0.0029
+posicion_vertical_lanza_mm_prev         0.0028
+interaccion_C_x_exceso_o2               0.0027
+feed_Sn_kgf                             0.0026
+feo_inventario_escoria_est_kg_prev      0.0025
+
+--- top 20 permutation importance (lockbox) ('Fusión', 'd_ley_feo_escoria_pct') ---
+ley_feo_escoria_pct_prev             0.1840
+ratio_sn_feo_prev                    0.0967
+ley_sio2_escoria_pct_prev            0.0224
+d_presion_suministro_gn_lanza_kpa    0.0140
+ley_fe_total_escoria_pct_prev        0.0137
+tasa_feed_CaO_kg_min                 0.0127
+cum_aire_nm3_prev                    0.0091
+termocupla_media_celsius_prev        0.0089
+cum_feed_Carbon_kg_prev              0.0088
+tiro_horno_pct_prev                  0.0083
+tasa_feed_Carbon_kg_min              0.0083
+interaccion_C_x_exceso_o2            0.0080
+interaccion_C_x_Sn_prev              0.0058
+estequiometria_lanza_planta_pct      0.0056
+exceso_C_estequiometrico_pct         0.0055
+log_ratio_sn_feo_prev                0.0054
+ley_sn_escoria_pct_prev              0.0043
+interaccion_Sn_x_FeO_prev            0.0041
+relacion_CaO_carga_Fe                0.0038
+sn_reciclo_t3_kgf                    0.0037
+
+--- top 20 permutation importance (lockbox) ('Reducción', 'd_ley_sn_escoria_pct') ---
+ley_sn_escoria_pct_prev                   0.1764
+ratio_sn_feo_prev                         0.1634
+interaccion_Sn_x_FeO_prev                 0.0329
+ratio_sn_sio2_prev                        0.0272
+interaccion_C_x_Sn_prev                   0.0067
+sn_inventario_escoria_est_kg_prev         0.0054
+log_ratio_sn_feo_prev                     0.0051
+avance_reduccion_sn_prev                  0.0050
+log_ratio_sn_sio2_prev                    0.0030
+grad_temperatura_horno_celsius_prev       0.0021
+feed_Carbon_fusion_kgh                    0.0013
+carbon_sobre_inventario_sn_prev           0.0008
+ley_sio2_escoria_pct_prev                 0.0006
+volumen_o2_inyectado_lanza_escalon_nm3    0.0006
+d_presion_suministro_gn_lanza_kpa         0.0005
+tasa_feed_Carbon_fusion_kg_min            0.0004
+frac_conc_carga                           0.0004
+posicion_vertical_lanza_mm_prev           0.0003
+grad_posicion_vertical_lanza_mm           0.0002
+interaccion_lanza_x_gn                    0.0002
+
+--- top 20 permutation importance (lockbox) ('Reducción', 'tasa_relativa_sn_escoria') ---
+interaccion_Sn_x_FeO_prev               0.1953
+ley_sn_escoria_pct_prev                 0.0609
+interaccion_C_x_Sn_prev                 0.0258
+avance_reduccion_sn_prev                0.0154
+carbon_sobre_inventario_sn_prev         0.0092
+posicion_vertical_lanza_mm_prev         0.0092
+ratio_sn_feo_prev                       0.0073
+interaccion_lanza_x_gn                  0.0058
+ratio_sn_sio2_prev                      0.0049
+tiro_horno_pct_prev                     0.0040
+sn_inventario_escoria_est_kg_prev       0.0035
+d_presion_suministro_o2_lanza_kpa       0.0034
+grad_presion_suministro_o2_lanza_kpa    0.0030
+enriquecimiento_o2_lanza_planta_pct     0.0029
+ley_sn_conc_batch_pct                   0.0029
+d_presion_suministro_gn_lanza_kpa       0.0026
+relacion_C_cum_Sn_cum_prev              0.0026
+grad_presion_suministro_gn_lanza_kpa    0.0024
+log_ratio_sn_sio2_prev                  0.0023
+feed_pellets_t7_kgh                     0.0023
+
+--- top 20 permutation importance (lockbox) ('Reducción', 'sn_extraido_est_kg') ---
+sn_inventario_escoria_est_kg_prev         0.7269
+avance_reduccion_sn_prev                  0.1145
+ley_sn_escoria_pct_prev                   0.0030
+interaccion_Sn_x_FeO_prev                 0.0016
+masa_escoria_est_kg_prev                  0.0007
+ratio_sn_feo_prev                         0.0006
+ratio_sn_sio2_prev                        0.0005
+cum_feed_reciclo_kg_prev                  0.0005
+temperatura_gas_pre_bhf_celsius_prev      0.0004
+feed_Carbon_fusion_kgh                    0.0004
+d_posicion_vertical_lanza_mm              0.0003
+enriquecimiento_o2_lanza_planta_pct       0.0003
+posicion_vertical_lanza_mm_prev           0.0003
+frac_Fe_carga                             0.0003
+interaccion_C_x_Sn_prev                   0.0002
+volumen_o2_inyectado_lanza_escalon_nm3    0.0002
+d_presion_suministro_gn_lanza_kpa         0.0002
+interaccion_FeO_x_B2_prev                 0.0002
+ley_sio2_escoria_pct_prev                 0.0002
+ley_cao_escoria_pct_prev                  0.0002
+
+--- top 20 permutation importance (lockbox) ('Reducción', 'frac_sn_extraido_escalon') ---
+interaccion_Sn_x_FeO_prev               0.2336
+ley_sn_escoria_pct_prev                 0.0440
+posicion_vertical_lanza_mm_prev         0.0099
+interaccion_C_x_Sn_prev                 0.0076
+ratio_sn_sio2_prev                      0.0068
+tiro_horno_pct_prev                     0.0057
+ratio_sn_feo_prev                       0.0050
+grad_presion_suministro_gn_lanza_kpa    0.0049
+ley_sn_conc_batch_pct                   0.0038
+carbon_sobre_inventario_sn_prev         0.0033
+avance_reduccion_sn_prev                0.0028
+margen_presion_gn                       0.0026
+tiempo                                  0.0024
+grad_presion_suministro_o2_lanza_kpa    0.0023
+presion_punta_lanza_kpa_prev            0.0023
+tasa_feed_pellets_kg_min                0.0023
+sn_inventario_escoria_est_kg_prev       0.0022
+feed_total_kgh                          0.0021
+feed_CaO_kgh                            0.0019
+feed_pellets_t7_kgh                     0.0016
+
+--- top 20 permutation importance (lockbox) ('Reducción', 'd_ley_feo_escoria_pct') ---
+interaccion_Sn_x_FeO_prev              0.1765
+ley_sn_escoria_pct_prev                0.0590
+ratio_sn_sio2_prev                     0.0572
+ratio_sn_feo_prev                      0.0337
+cum_feed_Carbon_kg_prev                0.0186
+ley_feo_escoria_pct_prev               0.0141
+grad_temperatura_horno_celsius_prev    0.0115
+ley_cao_escoria_pct_prev               0.0113
+posicion_vertical_lanza_mm_prev        0.0110
+relacion_C_cum_Sn_cum_prev             0.0102
+feed_Sn_kgf                            0.0097
+log_ratio_sn_feo_prev                  0.0086
+lanza_pos_x_gas_total                  0.0084
+tasa_feed_dross_Fe_kg_min              0.0060
+carbon_sobre_inventario_sn_prev        0.0058
+log_ratio_sn_sio2_prev                 0.0054
+tasa_feed_Sn_kg_min                    0.0049
+interaccion_FeO_x_B2_prev              0.0042
+feed_dross_Fe_kgh                      0.0040
+tasa_aire_nm3_min                      0.0038
+
+--- top 20 permutation importance (lockbox) ('Reducción', 'feo_extraido_est_kg') ---
+ley_cao_escoria_pct_prev                0.1408
+grad_temperatura_horno_celsius_prev     0.0350
+masa_escoria_est_kg_prev                0.0197
+margen_presion_gn                       0.0139
+ley_sn_carga_batch_pct                  0.0111
+relacion_CaO_carga_Fe                   0.0107
+cum_feed_Carbon_kg_prev                 0.0105
+tasa_aire_nm3_min                       0.0103
+posicion_vertical_lanza_mm_prev         0.0092
+interaccion_Sn_x_FeO_prev               0.0083
+presion_suministro_gn_lanza_kpa         0.0063
+feed_Sn_kgf                             0.0057
+indice_irf_prev                         0.0051
+lanza_pos_x_gas_total                   0.0046
+grad_presion_suministro_o2_lanza_kpa    0.0039
+relacion_C_cum_Sn_cum_prev              0.0037
+ratio_feo_sio2_prev                     0.0032
+presion_suministro_o2_lanza_kpa         0.0031
+carbon_sobre_inventario_sn_prev         0.0030
+sn_pellets_t7_kgf                       0.0028

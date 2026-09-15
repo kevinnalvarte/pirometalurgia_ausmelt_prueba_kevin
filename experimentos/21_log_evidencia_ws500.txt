@@ -1,0 +1,159 @@
+[    0.2s] escalones (3577, 57) batches 362
+[    2.7s] 
+        uplift_fisico_total_kg  uplift_fisico_fusion_kg  uplift_fisico_reduccion_kg  dist_total   dist_F   dist_R  support_medio_historico  support_medio_recomendado
+count                 362.000                  362.000                     362.000     362.000  360.000  362.000                  362.000                    362.000
+mean                 1464.897                 1310.425                     154.473       0.446    0.620    0.275                    0.397                      0.355
+std                   537.898                  493.775                     142.908       0.158    0.219    0.201                    0.072                      0.052
+min                     0.000                    0.000                     -45.758       0.000    0.000    0.000                    0.072                      0.072
+25%                  1147.513                 1027.806                      59.225       0.364    0.498    0.177                    0.359                      0.334
+50%                  1543.275                 1387.377                     112.403       0.451    0.643    0.236                    0.412                      0.366
+75%                  1835.535                 1628.918                     203.526       0.524    0.770    0.318                    0.452                      0.390
+max                  2684.005                 2440.046                     969.259       1.585    1.199    2.392                    0.517                      0.449
+[    2.7s] 
+                                        count   mean    std    min    25%    50%    75%    max
+dir_Fusión_tasa_feed_Carbon_kg_min     360.0  1.322  0.474  0.000  1.044  1.395  1.634  2.279
+dir_Fusión_tasa_gn_nm3_min             360.0 -0.328  0.397 -1.331 -0.601 -0.335 -0.085  1.357
+dir_Fusión_tasa_o2_nm3_min             360.0  0.049  0.360 -0.792 -0.184  0.009  0.230  1.211
+dir_Fusión_tasa_aire_nm3_min           360.0 -0.141  0.206 -0.901 -0.215 -0.101  0.000  0.321
+dir_Reducción_tasa_feed_Carbon_kg_min  362.0  0.010  0.165 -0.629 -0.083  0.000  0.102  0.854
+dir_Reducción_tasa_gn_nm3_min          362.0 -0.023  0.315 -0.719 -0.205 -0.033  0.124  1.422
+dir_Reducción_tasa_o2_nm3_min          362.0  0.137  0.230 -0.954  0.020  0.137  0.263  0.890
+dir_Reducción_tasa_aire_nm3_min        362.0  0.121  0.523 -0.514 -0.062  0.025  0.115  5.795
+[   29.9s] 
+       subset                      kpi                               variable    n  coef_por_sd   ci_lo   ci_hi   p_hc3  p_perm  spearman  p_spearman  r2_adj
+0        DEV  rendimiento_proxy_batch                             dist_total  298      -0.0644 -0.6875  0.5587  0.8394   0.822   -0.0505      0.3852 -0.0034
+1        DEV  rendimiento_proxy_batch                                 dist_F  297      -0.4554 -1.0079  0.0972  0.1063   0.088   -0.0892      0.1253  0.0054
+2        DEV  rendimiento_proxy_batch                                 dist_R  298       0.2508 -0.1815  0.6832  0.2555   0.364   -0.0145      0.8033 -0.0007
+3        DEV  rendimiento_proxy_batch                 uplift_fisico_total_kg  298      -0.1286 -0.7543  0.4970  0.6869   0.638   -0.0103      0.8597 -0.0029
+4        DEV  rendimiento_proxy_batch     dir_Fusión_tasa_feed_Carbon_kg_min  297      -0.1910 -0.7929  0.4108  0.5339   0.494   -0.0221      0.7040 -0.0018
+5        DEV  rendimiento_proxy_batch             dir_Fusión_tasa_gn_nm3_min  297       0.1856 -0.4054  0.7766  0.5382   0.494    0.0533      0.3602 -0.0018
+6        DEV  rendimiento_proxy_batch             dir_Fusión_tasa_o2_nm3_min  297       0.1621 -0.3437  0.6679  0.5299   0.544    0.0402      0.4905 -0.0022
+7        DEV  rendimiento_proxy_batch           dir_Fusión_tasa_aire_nm3_min  297       0.5389 -0.0406  1.1184  0.0683   0.048    0.1666      0.0040  0.0068
+8        DEV  rendimiento_proxy_batch  dir_Reducción_tasa_feed_Carbon_kg_min  298       0.2088 -0.2671  0.6848  0.3898   0.422    0.0005      0.9929 -0.0016
+9        DEV  rendimiento_proxy_batch          dir_Reducción_tasa_gn_nm3_min  298       0.5902  0.1184  1.0619  0.0142   0.034    0.1143      0.0487  0.0129
+10       DEV  rendimiento_proxy_batch          dir_Reducción_tasa_o2_nm3_min  298       0.5055  0.0660  0.9450  0.0242   0.054    0.1021      0.0784  0.0084
+11       DEV  rendimiento_proxy_batch        dir_Reducción_tasa_aire_nm3_min  298       0.3307 -0.0172  0.6785  0.0624   0.218    0.0286      0.6226  0.0015
+12       DEV                  f_dross                             dist_total  298      -0.0011 -0.0060  0.0037  0.6501   0.560    0.0933      0.1080  0.0811
+13       DEV                  f_dross                                 dist_F  297       0.0031 -0.0013  0.0075  0.1671   0.120    0.1536      0.0080  0.0899
+14       DEV                  f_dross                                 dist_R  298      -0.0037 -0.0071 -0.0003  0.0326   0.074   -0.0127      0.8275  0.0904
+15       DEV                  f_dross                 uplift_fisico_total_kg  298       0.0010 -0.0040  0.0059  0.6950   0.614    0.0500      0.3898  0.0809
+16       DEV                  f_dross     dir_Fusión_tasa_feed_Carbon_kg_min  297       0.0024 -0.0024  0.0072  0.3354   0.234    0.0997      0.0864  0.0870
+17       DEV                  f_dross             dir_Fusión_tasa_gn_nm3_min  297      -0.0013 -0.0061  0.0034  0.5851   0.508   -0.1144      0.0489  0.0846
+18       DEV                  f_dross             dir_Fusión_tasa_o2_nm3_min  297      -0.0024 -0.0069  0.0022  0.3064   0.250   -0.0491      0.3994  0.0870
+19       DEV                  f_dross           dir_Fusión_tasa_aire_nm3_min  297      -0.0025 -0.0071  0.0021  0.2831   0.258   -0.1685      0.0036  0.0868
+20       DEV                  f_dross  dir_Reducción_tasa_feed_Carbon_kg_min  298       0.0001 -0.0036  0.0039  0.9397   0.932    0.0734      0.2066  0.0803
+21       DEV                  f_dross          dir_Reducción_tasa_gn_nm3_min  298      -0.0045 -0.0081 -0.0008  0.0165   0.038   -0.0605      0.2978  0.0953
+22       DEV                  f_dross          dir_Reducción_tasa_o2_nm3_min  298      -0.0043 -0.0081 -0.0005  0.0264   0.032   -0.0809      0.1639  0.0941
+23       DEV                  f_dross        dir_Reducción_tasa_aire_nm3_min  298      -0.0041 -0.0083  0.0000  0.0511   0.046   -0.0267      0.6463  0.0930
+24       DEV                  f_polvo                             dist_total  298       0.0018 -0.0014  0.0049  0.2723   0.310    0.0234      0.6877  0.0480
+25       DEV                  f_polvo                                 dist_F  297       0.0014 -0.0021  0.0049  0.4181   0.452    0.0030      0.9595  0.0468
+26       DEV                  f_polvo                                 dist_R  298       0.0012 -0.0019  0.0043  0.4523   0.504    0.0570      0.3269  0.0467
+27       DEV                  f_polvo                 uplift_fisico_total_kg  298       0.0003 -0.0035  0.0041  0.8779   0.884    0.0019      0.9740  0.0454
+28       DEV                  f_polvo     dir_Fusión_tasa_feed_Carbon_kg_min  297      -0.0004 -0.0043  0.0034  0.8188   0.808   -0.0389      0.5040  0.0453
+29       DEV                  f_polvo             dir_Fusión_tasa_gn_nm3_min  297      -0.0005 -0.0045  0.0034  0.7914   0.788    0.0365      0.5311  0.0454
+30       DEV                  f_polvo             dir_Fusión_tasa_o2_nm3_min  297       0.0007 -0.0032  0.0047  0.7151   0.712    0.0496      0.3947  0.0456
+31       DEV                  f_polvo           dir_Fusión_tasa_aire_nm3_min  297      -0.0029 -0.0069  0.0011  0.1603   0.104   -0.0913      0.1163  0.0508
+32       DEV                  f_polvo  dir_Reducción_tasa_feed_Carbon_kg_min  298      -0.0022 -0.0060  0.0015  0.2473   0.198   -0.0825      0.1553  0.0498
+33       DEV                  f_polvo          dir_Reducción_tasa_gn_nm3_min  298      -0.0014 -0.0049  0.0021  0.4222   0.486   -0.0506      0.3839  0.0473
+34       DEV                  f_polvo          dir_Reducción_tasa_o2_nm3_min  298      -0.0007 -0.0042  0.0028  0.6827   0.674   -0.0535      0.3573  0.0459
+35       DEV                  f_polvo        dir_Reducción_tasa_aire_nm3_min  298       0.0008 -0.0026  0.0042  0.6328   0.628   -0.0010      0.9859  0.0460
+36   LOCKBOX  rendimiento_proxy_batch                             dist_total   63      -0.8465 -1.8237  0.1308  0.0896     NaN   -0.1959      0.1238  0.0987
+37   LOCKBOX  rendimiento_proxy_batch                                 dist_F   63      -0.2486 -1.5359  1.0388  0.7051     NaN   -0.1173      0.3598  0.0605
+38   LOCKBOX  rendimiento_proxy_batch                                 dist_R   63      -1.1702 -2.6431  0.3026  0.1194     NaN   -0.3523      0.0046  0.1359
+39   LOCKBOX  rendimiento_proxy_batch                 uplift_fisico_total_kg   63      -0.0850 -1.3362  1.1661  0.8940     NaN   -0.1023      0.4248  0.0572
+40   LOCKBOX  rendimiento_proxy_batch     dir_Fusión_tasa_feed_Carbon_kg_min   63       0.1350 -1.1828  1.4528  0.8409     NaN   -0.0653      0.6109  0.0579
+41   LOCKBOX  rendimiento_proxy_batch             dir_Fusión_tasa_gn_nm3_min   63      -1.2108 -2.4743  0.0527  0.0603     NaN   -0.1599      0.2105  0.1460
+42   LOCKBOX  rendimiento_proxy_batch             dir_Fusión_tasa_o2_nm3_min   63      -0.6637 -2.6973  1.3700  0.5224     NaN    0.0141      0.9126  0.0835
+43   LOCKBOX  rendimiento_proxy_batch           dir_Fusión_tasa_aire_nm3_min   63       0.6609 -1.7966  3.1184  0.5981     NaN   -0.0017      0.9896  0.0844
+44   LOCKBOX  rendimiento_proxy_batch  dir_Reducción_tasa_feed_Carbon_kg_min   63      -0.5203 -1.5154  0.4748  0.3055     NaN   -0.0657      0.6091  0.0724
+45   LOCKBOX  rendimiento_proxy_batch          dir_Reducción_tasa_gn_nm3_min   63      -1.7134 -2.5290 -0.8978  0.0000     NaN   -0.3639      0.0034  0.2329
+46   LOCKBOX  rendimiento_proxy_batch          dir_Reducción_tasa_o2_nm3_min   63      -1.3763 -2.4247 -0.3279  0.0101     NaN   -0.2713      0.0315  0.1631
+47   LOCKBOX  rendimiento_proxy_batch        dir_Reducción_tasa_aire_nm3_min   63      -0.6755 -1.5772  0.2262  0.1420     NaN   -0.0147      0.9087  0.0852
+48   LOCKBOX                  f_dross                             dist_total   63       0.0051 -0.0033  0.0136  0.2334     NaN    0.1849      0.1469  0.0485
+49   LOCKBOX                  f_dross                                 dist_F   63       0.0021 -0.0079  0.0121  0.6787     NaN    0.1253      0.3279  0.0331
+50   LOCKBOX                  f_dross                                 dist_R   63       0.0064 -0.0128  0.0256  0.5162     NaN    0.3128      0.0126  0.0580
+51   LOCKBOX                  f_dross                 uplift_fisico_total_kg   63       0.0039 -0.0047  0.0125  0.3791     NaN    0.1251      0.3286  0.0405
+52   LOCKBOX                  f_dross     dir_Fusión_tasa_feed_Carbon_kg_min   63       0.0021 -0.0066  0.0108  0.6355     NaN    0.0999      0.4358  0.0331
+53   LOCKBOX                  f_dross             dir_Fusión_tasa_gn_nm3_min   63       0.0090 -0.0005  0.0184  0.0626     NaN    0.1252      0.3281  0.0887
+54   LOCKBOX                  f_dross             dir_Fusión_tasa_o2_nm3_min   63       0.0050 -0.0123  0.0223  0.5695     NaN   -0.0915      0.4757  0.0482
+55   LOCKBOX                  f_dross           dir_Fusión_tasa_aire_nm3_min   63      -0.0094 -0.0213  0.0024  0.1185     NaN   -0.1318      0.3031  0.0974
+56   LOCKBOX                  f_dross  dir_Reducción_tasa_feed_Carbon_kg_min   63       0.0051 -0.0022  0.0123  0.1722     NaN    0.1277      0.3184  0.0478
+57   LOCKBOX                  f_dross          dir_Reducción_tasa_gn_nm3_min   63       0.0070 -0.0020  0.0160  0.1271     NaN    0.2048      0.1073  0.0654
+58   LOCKBOX                  f_dross          dir_Reducción_tasa_o2_nm3_min   63       0.0055 -0.0050  0.0160  0.3061     NaN    0.1533      0.2303  0.0503
+59   LOCKBOX                  f_dross        dir_Reducción_tasa_aire_nm3_min   63      -0.0007 -0.0115  0.0102  0.9054     NaN   -0.0309      0.8099  0.0303
+60   LOCKBOX                  f_polvo                             dist_total   63       0.0033 -0.0063  0.0130  0.4994     NaN   -0.0011      0.9934  0.0153
+61   LOCKBOX                  f_polvo                                 dist_F   63       0.0004 -0.0094  0.0102  0.9406     NaN   -0.0037      0.9768  0.0026
+62   LOCKBOX                  f_polvo                                 dist_R   63       0.0053 -0.0011  0.0118  0.1021     NaN    0.0183      0.8866  0.0351
+63   LOCKBOX                  f_polvo                 uplift_fisico_total_kg   63      -0.0030 -0.0142  0.0082  0.5989     NaN   -0.0509      0.6918  0.0130
+64   LOCKBOX                  f_polvo     dir_Fusión_tasa_feed_Carbon_kg_min   63      -0.0035 -0.0144  0.0075  0.5364     NaN   -0.0704      0.5834  0.0166
+65   LOCKBOX                  f_polvo             dir_Fusión_tasa_gn_nm3_min   63       0.0031 -0.0060  0.0122  0.4985     NaN    0.0908      0.4790  0.0144
+66   LOCKBOX                  f_polvo             dir_Fusión_tasa_o2_nm3_min   63       0.0016 -0.0054  0.0086  0.6498     NaN    0.0597      0.6423  0.0056
+67   LOCKBOX                  f_polvo           dir_Fusión_tasa_aire_nm3_min   63       0.0028 -0.0117  0.0173  0.7037     NaN    0.1650      0.1963  0.0124
+68   LOCKBOX                  f_polvo  dir_Reducción_tasa_feed_Carbon_kg_min   63       0.0001 -0.0106  0.0109  0.9805     NaN   -0.0458      0.7213  0.0025
+69   LOCKBOX                  f_polvo          dir_Reducción_tasa_gn_nm3_min   63       0.0101  0.0036  0.0167  0.0024     NaN    0.2501      0.0481  0.1242
+70   LOCKBOX                  f_polvo          dir_Reducción_tasa_o2_nm3_min   63       0.0083  0.0022  0.0144  0.0078     NaN    0.1861      0.1443  0.0786
+71   LOCKBOX                  f_polvo        dir_Reducción_tasa_aire_nm3_min   63       0.0074  0.0026  0.0122  0.0025     NaN    0.0572      0.6560  0.0702
+72     TOTAL  rendimiento_proxy_batch                             dist_total  361      -0.2519 -0.8287  0.3250  0.3921   0.342   -0.0912      0.0835  0.0027
+73     TOTAL  rendimiento_proxy_batch                                 dist_F  360      -0.5088 -0.9918 -0.0259  0.0389   0.058   -0.1122      0.0333  0.0116
+74     TOTAL  rendimiento_proxy_batch                                 dist_R  361       0.0515 -0.4832  0.5861  0.8504   0.816   -0.0504      0.3395 -0.0000
+75     TOTAL  rendimiento_proxy_batch                 uplift_fisico_total_kg  361      -0.2438 -0.8047  0.3172  0.3944   0.348   -0.0660      0.2106  0.0022
+76     TOTAL  rendimiento_proxy_batch     dir_Fusión_tasa_feed_Carbon_kg_min  360      -0.2557 -0.7810  0.2695  0.3400   0.286   -0.0601      0.2551  0.0030
+77     TOTAL  rendimiento_proxy_batch             dir_Fusión_tasa_gn_nm3_min  360       0.0262 -0.5026  0.5550  0.9227   0.912   -0.0074      0.8887  0.0003
+78     TOTAL  rendimiento_proxy_batch             dir_Fusión_tasa_o2_nm3_min  360       0.0569 -0.4834  0.5971  0.8365   0.802   -0.0078      0.8833  0.0004
+79     TOTAL  rendimiento_proxy_batch           dir_Fusión_tasa_aire_nm3_min  360       0.6277  0.0872  1.1683  0.0228   0.010    0.1671      0.0015  0.0144
+80     TOTAL  rendimiento_proxy_batch  dir_Reducción_tasa_feed_Carbon_kg_min  361       0.0806 -0.3558  0.5171  0.7173   0.760   -0.0133      0.8005  0.0002
+81     TOTAL  rendimiento_proxy_batch          dir_Reducción_tasa_gn_nm3_min  361       0.2866 -0.1792  0.7524  0.2279   0.226    0.0643      0.2232  0.0037
+82     TOTAL  rendimiento_proxy_batch          dir_Reducción_tasa_o2_nm3_min  361       0.2263 -0.1985  0.6511  0.2965   0.308    0.0292      0.5798  0.0023
+83     TOTAL  rendimiento_proxy_batch        dir_Reducción_tasa_aire_nm3_min  361       0.1414 -0.2941  0.5770  0.5246   0.592   -0.0266      0.6148  0.0008
+84     TOTAL                  f_dross                             dist_total  361       0.0005 -0.0041  0.0051  0.8298   0.782    0.1219      0.0205  0.0466
+85     TOTAL                  f_dross                                 dist_F  360       0.0038 -0.0003  0.0080  0.0695   0.056    0.1641      0.0018  0.0592
+86     TOTAL                  f_dross                                 dist_R  361      -0.0023 -0.0059  0.0014  0.2284   0.248    0.0217      0.6818  0.0502
+87     TOTAL                  f_dross                 uplift_fisico_total_kg  361       0.0027 -0.0020  0.0073  0.2594   0.168    0.1131      0.0317  0.0508
+88     TOTAL                  f_dross     dir_Fusión_tasa_feed_Carbon_kg_min  360       0.0035 -0.0009  0.0079  0.1154   0.058    0.1369      0.0093  0.0572
+89     TOTAL                  f_dross             dir_Fusión_tasa_gn_nm3_min  360      -0.0002 -0.0046  0.0041  0.9235   0.902   -0.0382      0.4702  0.0495
+90     TOTAL                  f_dross             dir_Fusión_tasa_o2_nm3_min  360      -0.0011 -0.0060  0.0038  0.6556   0.560    0.0159      0.7638  0.0502
+91     TOTAL                  f_dross           dir_Fusión_tasa_aire_nm3_min  360      -0.0045 -0.0090 -0.0001  0.0441   0.016   -0.1857      0.0004  0.0607
+92     TOTAL                  f_dross  dir_Reducción_tasa_feed_Carbon_kg_min  361       0.0012 -0.0022  0.0047  0.4885   0.522    0.0852      0.1063  0.0475
+93     TOTAL                  f_dross          dir_Reducción_tasa_gn_nm3_min  361      -0.0032 -0.0067  0.0003  0.0760   0.084   -0.0527      0.3180  0.0537
+94     TOTAL                  f_dross          dir_Reducción_tasa_o2_nm3_min  361      -0.0030 -0.0066  0.0007  0.1114   0.126   -0.0278      0.5984  0.0529
+95     TOTAL                  f_dross        dir_Reducción_tasa_aire_nm3_min  361      -0.0028 -0.0066  0.0010  0.1540   0.168    0.0276      0.6009  0.0520
+96     TOTAL                  f_polvo                             dist_total  361       0.0020 -0.0009  0.0050  0.1830   0.212    0.0292      0.5807  0.0453
+97     TOTAL                  f_polvo                                 dist_F  360       0.0013 -0.0019  0.0045  0.4391   0.446    0.0093      0.8611  0.0428
+98     TOTAL                  f_polvo                                 dist_R  361       0.0017 -0.0014  0.0049  0.2827   0.338    0.0523      0.3219  0.0446
+99     TOTAL                  f_polvo                 uplift_fisico_total_kg  361      -0.0002 -0.0038  0.0033  0.8962   0.864   -0.0036      0.9462  0.0417
+100    TOTAL                  f_polvo     dir_Fusión_tasa_feed_Carbon_kg_min  360      -0.0010 -0.0044  0.0025  0.5841   0.548   -0.0425      0.4213  0.0422
+101    TOTAL                  f_polvo             dir_Fusión_tasa_gn_nm3_min  360      -0.0000 -0.0036  0.0035  0.9791   0.980    0.0483      0.3607  0.0414
+102    TOTAL                  f_polvo             dir_Fusión_tasa_o2_nm3_min  360       0.0005 -0.0033  0.0044  0.7787   0.734    0.0353      0.5048  0.0417
+103    TOTAL                  f_polvo           dir_Fusión_tasa_aire_nm3_min  360      -0.0017 -0.0053  0.0019  0.3461   0.300   -0.0598      0.2575  0.0436
+104    TOTAL                  f_polvo  dir_Reducción_tasa_feed_Carbon_kg_min  361      -0.0020 -0.0054  0.0014  0.2399   0.232   -0.0754      0.1527  0.0456
+105    TOTAL                  f_polvo          dir_Reducción_tasa_gn_nm3_min  361       0.0003 -0.0028  0.0034  0.8386   0.870    0.0007      0.9902  0.0418
+106    TOTAL                  f_polvo          dir_Reducción_tasa_o2_nm3_min  361       0.0007 -0.0023  0.0037  0.6471   0.668   -0.0154      0.7706  0.0422
+107    TOTAL                  f_polvo        dir_Reducción_tasa_aire_nm3_min  361       0.0013 -0.0021  0.0048  0.4452   0.396    0.0077      0.8847  0.0434
+108      DEV  rendimiento_proxy_batch                     dist_total_placebo  298       0.0854 -0.4387  0.6095  0.7494     NaN   -0.0108      0.8529 -0.0033
+109      DEV  rendimiento_proxy_batch                         dist_F_placebo  297       0.0643 -0.4506  0.5791  0.8066     NaN   -0.0048      0.9350 -0.0031
+110      DEV  rendimiento_proxy_batch                         dist_R_placebo  298       0.0699 -0.4520  0.5918  0.7931     NaN    0.0075      0.8974 -0.0034
+111      DEV                  f_dross                     dist_total_placebo  298       0.0015 -0.0026  0.0055  0.4790     NaN    0.0564      0.3323  0.0817
+112      DEV                  f_dross                         dist_F_placebo  297       0.0014 -0.0024  0.0052  0.4598     NaN    0.0427      0.4636  0.0848
+113      DEV                  f_dross                         dist_R_placebo  298       0.0003 -0.0039  0.0045  0.8997     NaN    0.0154      0.7913  0.0803
+114      DEV                  f_polvo                     dist_total_placebo  298      -0.0023 -0.0060  0.0014  0.2199     NaN   -0.1054      0.0692  0.0500
+115      DEV                  f_polvo                         dist_F_placebo  297      -0.0021 -0.0058  0.0017  0.2807     NaN   -0.0750      0.1972  0.0488
+116      DEV                  f_polvo                         dist_R_placebo  298      -0.0010 -0.0046  0.0027  0.6029     NaN   -0.0674      0.2460  0.0462
+117  LOCKBOX  rendimiento_proxy_batch                     dist_total_placebo   63      -0.2703 -1.4783  0.9377  0.6609     NaN   -0.0773      0.5469  0.0611
+118  LOCKBOX  rendimiento_proxy_batch                         dist_F_placebo   63      -0.1172 -1.3077  1.0732  0.8470     NaN   -0.0480      0.7090  0.0576
+119  LOCKBOX  rendimiento_proxy_batch                         dist_R_placebo   63      -0.2919 -1.4665  0.8827  0.6262     NaN   -0.1202      0.3481  0.0622
+120  LOCKBOX                  f_dross                     dist_total_placebo   63       0.0058 -0.0039  0.0155  0.2424     NaN    0.1090      0.3953  0.0537
+121  LOCKBOX                  f_dross                         dist_F_placebo   63       0.0063 -0.0037  0.0163  0.2164     NaN    0.1891      0.1377  0.0567
+122  LOCKBOX                  f_dross                         dist_R_placebo   63       0.0024 -0.0083  0.0131  0.6606     NaN    0.0379      0.7682  0.0343
+123  LOCKBOX                  f_polvo                     dist_total_placebo   63      -0.0031 -0.0118  0.0056  0.4829     NaN   -0.0281      0.8268  0.0136
+124  LOCKBOX                  f_polvo                         dist_F_placebo   63      -0.0051 -0.0137  0.0035  0.2439     NaN   -0.1242      0.3320  0.0316
+125  LOCKBOX                  f_polvo                         dist_R_placebo   63       0.0005 -0.0075  0.0086  0.8995     NaN    0.0529      0.6805  0.0028
+126    TOTAL  rendimiento_proxy_batch                     dist_total_placebo  361      -0.0178 -0.5140  0.4783  0.9438     NaN    0.0024      0.9632 -0.0001
+127    TOTAL  rendimiento_proxy_batch                         dist_F_placebo  360       0.0173 -0.4696  0.5042  0.9446     NaN    0.0143      0.7875  0.0003
+128    TOTAL  rendimiento_proxy_batch                         dist_R_placebo  361      -0.0246 -0.4968  0.4475  0.9185     NaN   -0.0051      0.9229 -0.0001
+129    TOTAL                  f_dross                     dist_total_placebo  361       0.0021 -0.0019  0.0062  0.2946     NaN    0.0256      0.6278  0.0493
+130    TOTAL                  f_dross                         dist_F_placebo  360       0.0020 -0.0019  0.0058  0.3145     NaN    0.0237      0.6543  0.0519
+131    TOTAL                  f_dross                         dist_R_placebo  361       0.0007 -0.0032  0.0047  0.7201     NaN    0.0089      0.8661  0.0468
+132    TOTAL                  f_polvo                     dist_total_placebo  361      -0.0020 -0.0054  0.0015  0.2597     NaN   -0.0824      0.1181  0.0449
+133    TOTAL                  f_polvo                         dist_F_placebo  360      -0.0021 -0.0056  0.0014  0.2326     NaN   -0.0732      0.1657  0.0452
+134    TOTAL                  f_polvo                         dist_R_placebo  361      -0.0005 -0.0037  0.0028  0.7727     NaN   -0.0500      0.3435  0.0419
+[   29.9s] LISTO evidencia

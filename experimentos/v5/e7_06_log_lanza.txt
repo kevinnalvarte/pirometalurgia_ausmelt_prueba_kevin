@@ -1,0 +1,31 @@
+[    2.5s] 
+           dist                        kpi  n_pares  dif_media_pp  ci_lo  ci_hi  p_pareado  smd_medio_post  dist_media_cerca  dist_media_lejos   subset
+0   dist_total  recuperacion_refinada_pct       99         0.871 -0.328  2.071      0.163           0.052             0.122             0.345      DEV
+4       dist_R  recuperacion_refinada_pct       99         0.233 -1.061  1.474      0.714           0.024             0.114             0.454      DEV
+8       dist_F  recuperacion_refinada_pct       99        -0.658 -1.870  0.535      0.282           0.071             0.085             0.296      DEV
+12  dist_total  recuperacion_refinada_pct       21        -1.399 -3.131  0.315      0.118           0.125             0.202             0.383  LOCKBOX
+16      dist_R  recuperacion_refinada_pct       21        -0.361 -2.261  1.534      0.725           0.130             0.149             0.452  LOCKBOX
+20      dist_F  recuperacion_refinada_pct       21         0.206 -2.038  2.732      0.871           0.053             0.199             0.397  LOCKBOX
+24  dist_total  recuperacion_refinada_pct      120         0.010 -1.066  1.115      0.985           0.065             0.129             0.356    TOTAL
+28      dist_R  recuperacion_refinada_pct      120        -0.040 -1.167  1.103      0.945           0.038             0.120             0.454    TOTAL
+32      dist_F  recuperacion_refinada_pct      120         0.572 -0.474  1.530      0.280           0.045             0.093             0.328    TOTAL
+[    2.6s] 
+     subset        dist    n  kpi_cerca  kpi_medio  kpi_lejos  d_cerca_lejos_pp  proxy_cerca  proxy_lejos  ols_pp_por_sd  ols_p
+0      DEV  dist_total  297     68.734     67.696     67.933             0.801       69.741       69.021         -0.089  0.760
+1      DEV      dist_R  297     68.100     68.023     68.240            -0.140       69.080       69.332          0.100  0.718
+2      DEV      dist_F  297     68.966     67.551     67.846             1.120       70.060       68.866         -0.466  0.099
+3  LOCKBOX  dist_total   63     68.117     70.043     69.799            -1.682       69.404       70.760         -0.218  0.669
+4  LOCKBOX      dist_R   63     69.392     68.817     69.750            -0.358       70.569       70.698          0.055  0.927
+5  LOCKBOX      dist_F   63     68.599     69.381     69.977            -1.378       69.614       70.862         -0.590  0.200
+6    TOTAL  dist_total  360     68.398     68.195     68.399            -0.001       69.427       69.441          0.053  0.834
+7    TOTAL      dist_R  360     68.328     68.061     68.604            -0.275       69.347       69.673          0.127  0.610
+8    TOTAL      dist_F  360     68.655     68.039     68.299             0.355       69.743       69.316         -0.137  0.561
+[   33.0s] 
+    pendientes_de                        kpi politica_en  n_batches  b_sn_dep_pp_por_unidad  b_sn_lo  b_sn_hi  b_feo_ret_pp_por_unidad  b_feo_lo  b_feo_hi  w_implicito  d_sn_dep_medio  d_feo_ret_medio  uplift_kpi_pp_medio  uplift_kpi_pp_mediana  uplift_ci_lo  uplift_ci_hi  uplift_kg_sn_medio  pct_batches_uplift_pos
+0            DEV  recuperacion_refinada_pct         DEV        299                   1.892    0.758    3.110                   12.021     8.443    17.331        6.353          -0.015            0.033                0.363                  0.293         0.253         0.531             186.188                  97.993
+1            DEV  recuperacion_refinada_pct     LOCKBOX         63                   1.892    0.758    3.110                   12.021     8.443    17.331        6.353          -0.042            0.033                0.316                  0.271         0.208         0.478             161.782                 100.000
+2            DEV  recuperacion_refinada_pct       TOTAL        362                   1.892    0.758    3.110                   12.021     8.443    17.331        6.353          -0.019            0.033                0.355                  0.289         0.246         0.521             181.940                  98.343
+9          TOTAL  recuperacion_refinada_pct         DEV        299                   2.323    1.315    3.264                   11.202     7.924    16.174        4.821          -0.015            0.033                0.330                  0.268         0.230         0.484             169.306                  97.659
+10         TOTAL  recuperacion_refinada_pct     LOCKBOX         63                   2.323    1.315    3.264                   11.202     7.924    16.174        4.821          -0.042            0.033                0.271                  0.215         0.170         0.410             138.714                 100.000
+11         TOTAL  recuperacion_refinada_pct       TOTAL        362                   2.323    1.315    3.264                   11.202     7.924    16.174        4.821          -0.019            0.033                0.320                  0.260         0.221         0.469             163.982                  98.066
+[   33.0s] LISTO

@@ -1,0 +1,256 @@
+ST-03 identificacion de control -- inicio 2026-09-14 10:23:19
+N_SPLITS=5 N_BOOT=200 SEED=42
+
+Cargando datos (cache_df_st.pkl) y agregando columnas cineticas v4 (Cx_sn_v4, Cx_av_v4)...
+df (3982, 282), batches DEV=299, LOCKBOX=63
+Candidatos en st.REGISTRO: 38; con columna st_<id> en cache_df_st.pkl: 36
+EXCLUIDOS (anadidos a st_targets.py despues de generar cache_df_st.pkl, sin columna disponible): ['R21_ln_feo_ret', 'R22_sdi']
+
+Tabla de signo teorico declarada (grupo mecanistico -> carbon, gn, o2, aire):
+                      id      fase  familia_registro grupo_mecanistico  carbon  gn  o2  aire
+              F01_sn_ext    Fusión      conservacion      conservacion      -1  -1   1     1
+         F02_frac_sn_ext    Fusión      conservacion      conservacion      -1  -1   1     1
+         F03_feo_formado    Fusión            matriz            matriz      -1  -1   1     1
+      F04_feo_ret_por_fe    Fusión            matriz            matriz      -1  -1   1     1
+        F05_ley_feo_next    Fusión            matriz            matriz      -1  -1   1     1
+          F06_B2_ventana    Fusión            matriz   termico_ventana       0   0   0     0
+             F07_T_media    Fusión           termico     termico_nivel       0  -1  -1     1
+           F08_T_ventana    Fusión           termico   termico_ventana       0   0   0     0
+           F09_T_gas_bhf    Fusión             polvo             polvo       0  -1  -1     0
+            F10_irf_next    Fusión            matriz            matriz      -1  -1   1     1
+     F11_log_sn_feo_next    Fusión      conservacion      conservacion      -1  -1   1     1
+        F12_d_log_sn_feo    Fusión      conservacion      conservacion      -1  -1   1     1
+      F13_masa_por_carga    Fusión            matriz            explor       0   0   0     0
+        F14_sn_ret_por_c    Fusión      conservacion      conservacion      -1  -1   1     1
+                  F15_dT    Fusión           termico            explor       0   0   0     0
+         F16_sn_ret_frac    Fusión      conservacion      conservacion      -1  -1   1     1
+              R01_sn_ext Reducción        extraccion        extraccion       1   1  -1    -1
+             R02_feo_ret Reducción   sobre-reduccion   sobre-reduccion      -1  -1   1     1
+          R03_sn_net_l03 Reducción metal-equivalente metal-equivalente       0   0   0     0
+          R04_sn_net_l06 Reducción metal-equivalente metal-equivalente       0   0   0     0
+          R05_sn_net_l10 Reducción metal-equivalente metal-equivalente       0   0   0     0
+             R06_frac_sn Reducción        extraccion        extraccion       1   1  -1    -1
+             R07_kapp_sn Reducción        extraccion        extraccion       1   1  -1    -1
+        R08_feo_ret_frac Reducción   sobre-reduccion   sobre-reduccion      -1  -1   1     1
+        R09_selectividad Reducción      selectividad      selectividad       1  -1   0     0
+    R10_log_selectividad Reducción      selectividad      selectividad       1  -1   0     0
+         R11_util_carbon Reducción      selectividad      selectividad       1  -1   0     0
+            R12_d_avance Reducción        extraccion        extraccion       1   1  -1    -1
+         R13_sn_residual Reducción        extraccion        extraccion       1   1  -1    -1
+     R14_log_sn_feo_next Reducción      selectividad      selectividad       1  -1   0     0
+        R15_d_log_sn_feo Reducción      selectividad      selectividad       1  -1   0     0
+     R16_feo_por_sn_disp Reducción   sobre-reduccion   sobre-reduccion      -1  -1   1     1
+                  R17_dT Reducción           termico            explor       0   0   0     0
+           R18_T_ventana Reducción           termico   termico_ventana       0   0   0     0
+           R19_T_gas_bhf Reducción             polvo             polvo       0  -1  -1     0
+R20_fe_metalizado_por_sn Reducción   sobre-reduccion   sobre-reduccion      -1  -1   1     1
+
+Cargando st_batch.csv (agregados de batch) para rho(target, rendimiento) en DEV...
+st_batch DEV n=299
+Cargando experimentos/19_regresiones_kpi.csv (coef exp19, kpi=rendimiento_proxy_batch, muestra=dev)...
+Coeficientes exp19 usados (modelo, variable) -> coef_por_sd [ci_lo, ci_hi] p:
+  Reducción  carbon carbon_total_R       coef=+0.4065 [-4.6265,+5.4395] p=0.874 sig=False
+  Reducción  gn     gn_total_R           coef=-1.0425 [-1.9909,-0.0941] p=0.031 sig=True
+  Reducción  o2     exceso_o2_R          coef=-0.4977 [-1.2449,+0.2494] p=0.192 sig=False
+  Reducción  aire   exceso_o2_R          coef=-0.4977 [-1.2449,+0.2494] p=0.192 sig=False
+  Fusión     carbon C_por_Sn_F           coef=+0.3719 [-0.4545,+1.1983] p=0.378 sig=False
+  Fusión     gn     gn_por_t_carga_F     coef=-0.0670 [-0.9925,+0.8585] p=0.887 sig=False
+  Fusión     o2     exceso_o2_F          coef=-0.2074 [-0.8846,+0.4698] p=0.548 sig=False
+  Fusión     aire   exceso_o2_F          coef=-0.2074 [-0.8846,+0.4698] p=0.548 sig=False
+
+rho de Spearman (st_<id> batch, rendimiento_proxy_batch) en DEV -- primeras filas:
+                             rho       p      n
+F01_sn_ext                0.0632  0.2768  298.0
+F02_frac_sn_ext           0.0143  0.8064  298.0
+F03_feo_formado           0.0581  0.3178  298.0
+F04_feo_ret_por_fe        0.1088  0.0608  298.0
+F05_ley_feo_next          0.1207  0.0373  298.0
+F06_B2_ventana            0.0893  0.1239  298.0
+F07_T_media               0.0109  0.8517  299.0
+F08_T_ventana            -0.0366  0.5289  299.0
+F09_T_gas_bhf             0.0768  0.1853  299.0
+F10_irf_next              0.1946  0.0007  298.0
+F11_log_sn_feo_next       0.0413  0.4776  298.0
+F12_d_log_sn_feo          0.0548  0.3461  298.0
+F13_masa_por_carga        0.0380  0.5133  298.0
+F14_sn_ret_por_c         -0.0038  0.9480  298.0
+F15_dT                   -0.0654  0.2599  299.0
+F16_sn_ret_frac           0.0625  0.2819  298.0
+R01_sn_ext                0.0214  0.7136  298.0
+R02_feo_ret               0.2740  0.0000  297.0
+R03_sn_net_l03            0.0163  0.7801  297.0
+R04_sn_net_l06            0.0350  0.5484  297.0
+R05_sn_net_l10            0.0572  0.3262  297.0
+R06_frac_sn              -0.0318  0.5882  292.0
+R07_kapp_sn              -0.1105  0.0620  286.0
+R08_feo_ret_frac          0.3116  0.0000  286.0
+R09_selectividad          0.0194  0.7445  284.0
+R10_log_selectividad      0.0194  0.7445  284.0
+R11_util_carbon           0.0118  0.8394  297.0
+R12_d_avance              0.0315  0.5884  298.0
+R13_sn_residual          -0.1048  0.0704  299.0
+R14_log_sn_feo_next       0.0489  0.3992  299.0
+R15_d_log_sn_feo          0.0741  0.2019  298.0
+R16_feo_por_sn_disp       0.0915  0.1212  288.0
+R17_dT                   -0.0414  0.4760  299.0
+R18_T_ventana            -0.0776  0.1808  299.0
+R19_T_gas_bhf             0.1111  0.0549  299.0
+R20_fe_metalizado_por_sn  0.2161  0.0002  297.0
+
+[OK]   R01_sn_ext                 primitiva  n= 1050 batches=290 r2_oof=+0.976 t= 10.2s (1/72)
+[OK]   R01_sn_ext                 cinetica   n= 1049 batches=290 r2_oof=+0.976 t=  8.1s (2/72)
+[OK]   R02_feo_ret                primitiva  n= 1046 batches=289 r2_oof=+0.378 t= 10.1s (3/72)
+[OK]   R02_feo_ret                cinetica   n= 1045 batches=289 r2_oof=+0.368 t= 11.1s (4/72)
+[OK]   R03_sn_net_l03             primitiva  n= 1037 batches=289 r2_oof=+0.977 t=  8.6s (5/72)
+[OK]   R03_sn_net_l03             cinetica   n= 1036 batches=289 r2_oof=+0.976 t=  9.0s (6/72)
+[OK]   R04_sn_net_l06             primitiva  n= 1037 batches=289 r2_oof=+0.974 t= 11.6s (7/72)
+[OK]   R04_sn_net_l06             cinetica   n= 1036 batches=289 r2_oof=+0.973 t=  9.3s (8/72)
+[OK]   R05_sn_net_l10             primitiva  n= 1037 batches=289 r2_oof=+0.958 t=  9.1s (9/72)
+[OK]   R05_sn_net_l10             cinetica   n= 1036 batches=289 r2_oof=+0.958 t= 11.5s (10/72)
+[OK]   R06_frac_sn                primitiva  n= 1017 batches=284 r2_oof=+0.651 t=  8.3s (11/72)
+[OK]   R06_frac_sn                cinetica   n= 1016 batches=284 r2_oof=+0.636 t=  7.8s (12/72)
+[OK]   R07_kapp_sn                primitiva  n= 1016 batches=278 r2_oof=+0.524 t= 12.4s (13/72)
+[OK]   R07_kapp_sn                cinetica   n= 1015 batches=278 r2_oof=+0.513 t=  7.9s (14/72)
+[OK]   R08_feo_ret_frac           primitiva  n= 1016 batches=278 r2_oof=+0.287 t=  8.4s (15/72)
+[OK]   R08_feo_ret_frac           cinetica   n= 1015 batches=278 r2_oof=+0.275 t= 11.3s (16/72)
+[OK]   R09_selectividad           primitiva  n=  769 batches=276 r2_oof=+0.183 t=  8.2s (17/72)
+[OK]   R09_selectividad           cinetica   n=  769 batches=276 r2_oof=+0.183 t=  7.6s (18/72)
+[OK]   R10_log_selectividad       primitiva  n=  769 batches=276 r2_oof=+0.621 t= 11.5s (19/72)
+[OK]   R10_log_selectividad       cinetica   n=  769 batches=276 r2_oof=+0.621 t=  7.8s (20/72)
+[OK]   R11_util_carbon            primitiva  n=  983 batches=289 r2_oof=+0.650 t=  8.1s (21/72)
+[OK]   R11_util_carbon            cinetica   n=  983 batches=289 r2_oof=+0.634 t= 13.5s (22/72)
+[OK]   R12_d_avance               primitiva  n= 1050 batches=290 r2_oof=+0.975 t=  8.4s (23/72)
+[OK]   R12_d_avance               cinetica   n= 1049 batches=290 r2_oof=+0.976 t=  8.1s (24/72)
+[OK]   R13_sn_residual            primitiva  n= 1060 batches=290 r2_oof=+0.568 t= 10.7s (25/72)
+[OK]   R13_sn_residual            cinetica   n= 1059 batches=290 r2_oof=+0.562 t=  8.5s (26/72)
+[OK]   R14_log_sn_feo_next        primitiva  n= 1060 batches=290 r2_oof=+0.671 t=  8.3s (27/72)
+[OK]   R14_log_sn_feo_next        cinetica   n= 1059 batches=290 r2_oof=+0.665 t=  9.2s (28/72)
+[OK]   R15_d_log_sn_feo           primitiva  n= 1060 batches=290 r2_oof=+0.763 t= 10.6s (29/72)
+[OK]   R15_d_log_sn_feo           cinetica   n= 1059 batches=290 r2_oof=+0.766 t=  8.0s (30/72)
+[OK]   R16_feo_por_sn_disp        primitiva  n=  804 batches=280 r2_oof=+0.320 t=  7.7s (31/72)
+[OK]   R16_feo_por_sn_disp        cinetica   n=  803 batches=280 r2_oof=+0.339 t=  7.7s (32/72)
+[OK]   R17_dT                     primitiva  n= 1153 batches=291 r2_oof=+0.534 t=  9.3s (33/72)
+[OK]   R17_dT                     cinetica   n= 1152 batches=291 r2_oof=+0.534 t= 10.7s (34/72)
+[OK]   R18_T_ventana              primitiva  n= 1153 batches=291 r2_oof=+0.873 t= 10.0s (35/72)
+[OK]   R18_T_ventana              cinetica   n= 1152 batches=291 r2_oof=+0.877 t=  8.1s (36/72)
+[OK]   R19_T_gas_bhf              primitiva  n= 1153 batches=291 r2_oof=+0.548 t= 10.5s (37/72)
+[OK]   R19_T_gas_bhf              cinetica   n= 1152 batches=291 r2_oof=+0.528 t=  8.0s (38/72)
+[OK]   R20_fe_metalizado_por_sn   primitiva  n= 1046 batches=289 r2_oof=+0.370 t=  8.2s (39/72)
+[OK]   R20_fe_metalizado_por_sn   cinetica   n= 1045 batches=289 r2_oof=+0.379 t= 11.6s (40/72)
+[OK]   F01_sn_ext                 primitiva  n= 1749 batches=298 r2_oof=+0.731 t=  7.1s (41/72)
+[OK]   F01_sn_ext                 cinetica   n= 1749 batches=298 r2_oof=+0.731 t=  6.4s (42/72)
+[OK]   F02_frac_sn_ext            primitiva  n= 1746 batches=298 r2_oof=+0.318 t=  6.6s (43/72)
+[OK]   F02_frac_sn_ext            cinetica   n= 1746 batches=298 r2_oof=+0.317 t=  9.5s (44/72)
+[OK]   F03_feo_formado            primitiva  n= 1770 batches=298 r2_oof=+0.353 t=  5.8s (45/72)
+[OK]   F03_feo_formado            cinetica   n= 1770 batches=298 r2_oof=+0.352 t=  5.8s (46/72)
+[OK]   F04_feo_ret_por_fe         primitiva  n= 1744 batches=298 r2_oof=+0.244 t=  6.1s (47/72)
+[OK]   F04_feo_ret_por_fe         cinetica   n= 1744 batches=298 r2_oof=+0.239 t=  8.4s (48/72)
+[OK]   F05_ley_feo_next           primitiva  n= 1770 batches=298 r2_oof=+0.723 t=  6.4s (49/72)
+[OK]   F05_ley_feo_next           cinetica   n= 1770 batches=298 r2_oof=+0.722 t=  6.6s (50/72)
+[OK]   F06_B2_ventana             primitiva  n= 1771 batches=298 r2_oof=+0.261 t=  8.2s (51/72)
+[OK]   F06_B2_ventana             cinetica   n= 1771 batches=298 r2_oof=+0.260 t=  7.6s (52/72)
+[OK]   F07_T_media                primitiva  n= 1777 batches=298 r2_oof=+0.953 t=  6.8s (53/72)
+[OK]   F07_T_media                cinetica   n= 1777 batches=298 r2_oof=+0.953 t=  6.0s (54/72)
+[OK]   F08_T_ventana              primitiva  n= 1777 batches=298 r2_oof=+0.890 t=  6.7s (55/72)
+[OK]   F08_T_ventana              cinetica   n= 1777 batches=298 r2_oof=+0.890 t=  7.8s (56/72)
+[OK]   F09_T_gas_bhf              primitiva  n= 1777 batches=298 r2_oof=+0.410 t=  5.9s (57/72)
+[OK]   F09_T_gas_bhf              cinetica   n= 1777 batches=298 r2_oof=+0.408 t=  6.2s (58/72)
+[OK]   F10_irf_next               primitiva  n= 1769 batches=298 r2_oof=+0.710 t=  7.1s (59/72)
+[OK]   F10_irf_next               cinetica   n= 1769 batches=298 r2_oof=+0.710 t=  7.7s (60/72)
+[OK]   F11_log_sn_feo_next        primitiva  n= 1769 batches=298 r2_oof=+0.558 t=  6.6s (61/72)
+[OK]   F11_log_sn_feo_next        cinetica   n= 1769 batches=298 r2_oof=+0.560 t=  6.0s (62/72)
+[OK]   F12_d_log_sn_feo           primitiva  n= 1769 batches=298 r2_oof=+0.482 t=  7.3s (63/72)
+[OK]   F12_d_log_sn_feo           cinetica   n= 1769 batches=298 r2_oof=+0.484 t=  7.4s (64/72)
+[OK]   F13_masa_por_carga         primitiva  n= 1740 batches=298 r2_oof=+0.348 t=  5.7s (65/72)
+[OK]   F13_masa_por_carga         cinetica   n= 1740 batches=298 r2_oof=+0.348 t=  5.9s (66/72)
+[OK]   F14_sn_ret_por_c           primitiva  n= 1749 batches=298 r2_oof=+0.449 t=  6.7s (67/72)
+[OK]   F14_sn_ret_por_c           cinetica   n= 1749 batches=298 r2_oof=+0.448 t=  7.1s (68/72)
+[OK]   F15_dT                     primitiva  n= 1777 batches=298 r2_oof=+0.175 t=  7.4s (69/72)
+[OK]   F15_dT                     cinetica   n= 1777 batches=298 r2_oof=+0.172 t=  5.7s (70/72)
+[OK]   F16_sn_ret_frac            primitiva  n= 1770 batches=298 r2_oof=+0.541 t=  7.6s (71/72)
+[OK]   F16_sn_ret_frac            cinetica   n= 1770 batches=298 r2_oof=+0.542 t=  6.8s (72/72)
+
+st_03_theta.csv escrito: (288, 19), fits OK=72 FAIL=0
+Tiempo total ajustes: 9.9 min
+
+Construyendo cadena de signos (sign(theta) x sign(rho) vs sign(coef exp19))...
+st_03_cadena_signos.csv escrito: (288, 19)
+st_03_resumen_cadena.csv escrito: (72, 8)
+
+Generando figuras...
+  st_03_forest_Reduccion.png guardado
+  st_03_forest_Fusion.png guardado
+  st_03_heatmap_Reduccion.png guardado
+  st_03_heatmap_Fusion.png guardado
+
+==========================================================================================
+RESUMEN FINAL POR FASE (variante primitiva salvo que se indique)
+==========================================================================================
+
+--- Reducción ---
+(a) Nro de palancas significativas Y con signo teorico correcto, por candidato:
+id
+R02_feo_ret                 2
+R01_sn_ext                  1
+R07_kapp_sn                 1
+R08_feo_ret_frac            1
+R12_d_avance                1
+R14_log_sn_feo_next         1
+R16_feo_por_sn_disp         1
+R19_T_gas_bhf               1
+R20_fe_metalizado_por_sn    1
+
+(b) Candidatos con cadena de signos COHERENTE en carbon Y gn (las 2 palancas con evidencia de batch mas fuerte):
+  (ninguno)
+
+(c) Candidatos con AL MENOS UNA palanca INCOHERENTE (maximizar el target empuja esa palanca en contra del KPI):
+  R19_T_gas_bhf:
+    carbon theta_1sd_rel=-0.324 IC1sd=[-5.0,-0.9] rho_target_rend=+0.111  exp19(carbon_total_R)=+0.4065(p=0.874)
+    o2     theta_1sd_rel=+0.472 IC1sd=[+2.4,+5.0] rho_target_rend=+0.111  exp19(exceso_o2_R)=-0.4977(p=0.192)
+  R02_feo_ret:
+    o2     theta_1sd_rel=+0.186 IC1sd=[+53.9,+308.8] rho_target_rend=+0.274  exp19(exceso_o2_R)=-0.4977(p=0.192)
+  R14_log_sn_feo_next:
+    gn     theta_1sd_rel=+0.103 IC1sd=[+0.0,+0.1] rho_target_rend=+0.049  exp19(gn_total_R)=-1.0425(p=0.031)
+  R01_sn_ext:
+    gn     theta_1sd_rel=+0.017 IC1sd=[+11.3,+110.9] rho_target_rend=+0.021  exp19(gn_total_R)=-1.0425(p=0.031)
+  R09_selectividad:
+    aire   theta_1sd_rel=+0.053 IC1sd=[+0.0,+1.1] rho_target_rend=+0.019  exp19(exceso_o2_R)=-0.4977(p=0.192)
+  R11_util_carbon:
+    carbon theta_1sd_rel=-1.092 IC1sd=[-0.6,-0.4] rho_target_rend=+0.012  exp19(carbon_total_R)=+0.4065(p=0.874)
+    gn     theta_1sd_rel=+0.170 IC1sd=[+0.0,+0.1] rho_target_rend=+0.012  exp19(gn_total_R)=-1.0425(p=0.031)
+  R12_d_avance:
+    gn     theta_1sd_rel=+0.015 IC1sd=[+0.0,+0.0] rho_target_rend=+0.031  exp19(gn_total_R)=-1.0425(p=0.031)
+  R15_d_log_sn_feo:
+    gn     theta_1sd_rel=+0.071 IC1sd=[+0.0,+0.1] rho_target_rend=+0.074  exp19(gn_total_R)=-1.0425(p=0.031)
+  R17_dT:
+    aire   theta_1sd_rel=-0.052 IC1sd=[-1.8,-0.2] rho_target_rend=-0.041  exp19(exceso_o2_R)=-0.4977(p=0.192)
+
+--- Fusión ---
+(a) Nro de palancas significativas Y con signo teorico correcto, por candidato:
+id
+F09_T_gas_bhf          1
+F11_log_sn_feo_next    1
+F12_d_log_sn_feo       1
+F14_sn_ret_por_c       1
+
+(b) Candidatos con cadena de signos COHERENTE en carbon Y gn (las 2 palancas con evidencia de batch mas fuerte):
+  (ninguno)
+
+(c) Candidatos con AL MENOS UNA palanca INCOHERENTE (maximizar el target empuja esa palanca en contra del KPI):
+  F09_T_gas_bhf:
+    carbon theta_1sd_rel=-0.157 IC1sd=[-1.1,-0.3] rho_target_rend=+0.077  exp19(C_por_Sn_F)=+0.3719(p=0.378)
+  F06_B2_ventana:
+    carbon theta_1sd_rel=-0.092 IC1sd=[-0.0,-0.0] rho_target_rend=+0.089  exp19(C_por_Sn_F)=+0.3719(p=0.378)
+  F07_T_media:
+    carbon theta_1sd_rel=-0.019 IC1sd=[-2.8,-0.1] rho_target_rend=+0.011  exp19(C_por_Sn_F)=+0.3719(p=0.378)
+    o2     theta_1sd_rel=+0.045 IC1sd=[+1.6,+5.4] rho_target_rend=+0.011  exp19(exceso_o2_F)=-0.2074(p=0.548)
+  F11_log_sn_feo_next:
+    carbon theta_1sd_rel=-0.060 IC1sd=[-0.0,-0.0] rho_target_rend=+0.041  exp19(C_por_Sn_F)=+0.3719(p=0.378)
+  F12_d_log_sn_feo:
+    carbon theta_1sd_rel=-0.080 IC1sd=[-0.0,-0.0] rho_target_rend=+0.055  exp19(C_por_Sn_F)=+0.3719(p=0.378)
+  F15_dT:
+    carbon theta_1sd_rel=+0.080 IC1sd=[+0.1,+2.7] rho_target_rend=-0.065  exp19(C_por_Sn_F)=+0.3719(p=0.378)
+    o2     theta_1sd_rel=-0.225 IC1sd=[-6.1,-1.7] rho_target_rend=-0.065  exp19(exceso_o2_F)=-0.2074(p=0.548)
+
+Tiempo total script: 10.0 min
+ST-03 terminado.

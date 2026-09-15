@@ -1,0 +1,271 @@
+[0] df (3982, 270), batch_bal (362, 35), batch_st (362, 95)  (13.3s)
+[0] b04_batch_balance.csv escrito ((362, 122))
+[0] DEV n=299, lockbox n=63
+
+==============================================================================
+1) BALANCE GLOBAL DE MASA
+==============================================================================
+
+[1.1] Distribuciones (todas las columnas del balance, n=362):
+                     columna   n    mediana         p5        p25        p75        p95      media        sd
+             carga_solida_kg 362 141754.165 124859.749 137851.982 144662.834 148369.302 140096.630  7628.609
+                  feed_sn_kg 362  51246.885  45126.166  49654.911  53128.261  55388.187  51061.026  3088.864
+                   carbon_kg 362  16520.884  15404.722  16071.100  17161.639  18254.452  16655.411   860.404
+                      cal_kg 362  12298.128  10230.304  11658.574  12834.877  13538.260  11894.300  2405.338
+              dross_fe_in_kg 362  19613.900  16354.694  18435.283  22702.266  25602.228  19935.685  4469.043
+               mineral_fe_kg 362  14421.779      7.181  12404.755  16892.146  21551.587  13943.736  5235.526
+                  pellets_kg 362  30202.966  23409.050  25491.223  32945.597  37148.829  29265.102  6279.542
+                 sn_metal_kg 362  35458.360  30470.944  33349.890  37398.270  40471.452  35460.832  3101.322
+                 sn_dross_kg 362   6301.560   3426.248   5007.180   7891.740  10022.112   6475.608  2055.091
+                 sn_polvo_kg 362   9048.545   6550.219   7942.491  10361.908  13066.525   9309.533  2003.564
+     masa_escoria_balance_kg 362  57917.393  46338.625  53538.882  62583.474  67727.962  57740.832  7285.434
+    masa_escoria_trazador_kg 362  53494.620  44167.152  51566.996  56019.984  60680.849  52726.015 13406.754
+      factor_escala_trazador 350      1.083      0.852      1.005      1.149      1.273      1.073     0.140
+    ley_sn_escoria_final_pct 362      1.189      0.639      0.949      1.513      2.219      1.321     0.738
+   ley_feo_escoria_final_pct 362     17.653     15.322     16.414     18.682     20.221     17.644     1.711
+ sn_escoria_final_balance_kg 362    688.677    355.554    536.043    884.560   1380.721    761.878   418.660
+sn_escoria_final_trazador_kg 362    637.820    273.514    505.188    812.334   1250.616    701.052   444.912
+                cierre_sn_kg 362   -645.553  -6433.054  -3039.497   1267.404   3760.523   -946.824  3370.976
+              cierre_sn_frac 362     -0.013     -0.133     -0.056      0.025      0.078     -0.019     0.066
+     rendimiento_proxy_batch 362     69.594     61.287     66.706     72.342     76.924     69.302     4.585
+                     f_metal 362      0.696      0.613      0.667      0.723      0.769      0.693     0.046
+                     f_dross 362      0.123      0.070      0.099      0.151      0.191      0.126     0.037
+                     f_polvo 362      0.178      0.134      0.159      0.200      0.239      0.181     0.032
+       recuperacion_real_pct 362     69.596     60.799     66.574     72.661     77.561     69.504     5.187
+   recuperacion_refinada_pct 362     68.398     60.211     65.713     71.312     75.576     68.280     4.498
+     sn_perdido_escoria_frac 362      0.013      0.007      0.010      0.017      0.028      0.015     0.008
+      duracion_reduccion_min 362     86.000     85.000     85.000     90.000     98.000     88.627     8.084
+
+[1.2] factor_escala_trazador vs dependencias (Spearman + OLS univariado, total n=362):
+               variable   n     rho  p_rho  ci_low  ci_high  ols_coef  ols_ci_low  ols_ci_high  ols_p  ols_r2
+        ratio_cal_carga 350 -0.3535 0.0000 -0.4405  -0.2575   -7.2320     -8.9328      -5.5312 0.0000  0.1928
+frac_carga_secundaria_F 349 -0.0102 0.8498 -0.1246   0.1109    0.2328      0.0240       0.4416 0.0288  0.0178
+             pellets_kg 350  0.0506 0.3450 -0.0543   0.1554    0.0000      0.0000       0.0000 0.0003  0.0332
+        idx_cronologico 350  0.1908 0.0003  0.0900   0.2938    0.0002      0.0001       0.0003 0.0012  0.0246
+
+[1.3] cierre_sn_frac: media=-0.01942, sd=0.06599, n=362, t=-5.600, p=4.245e-08 (H0: media=0)
+             variable   n    rho  p_rho  ci_low  ci_high
+ley_sn_conc_batch_pct 362 0.0482 0.3603 -0.0550   0.1486
+feed_dross_Fe_total_t 362 0.0153 0.7716 -0.0901   0.1210
+
+[1.4] Tornado de sensibilidad de masa_escoria_balance_kg y sn_escoria_final_balance_kg:
+    parametro  valor  es_base  mediana_masa_escoria_kg  mediana_sn_escoria_final_kg  mediana_recuperacion_refinada_pct
+ LEY_SN_METAL   0.94    False                57072.567                      679.900                             68.415
+ LEY_SN_METAL   0.96     True                57917.393                      688.677                             68.398
+ LEY_SN_METAL   0.98    False                58712.439                      697.096                             68.384
+ LEY_SN_DROSS   0.55    False                57122.035                      680.684                             68.410
+ LEY_SN_DROSS   0.65     True                57917.393                      688.677                             68.398
+ LEY_SN_DROSS   0.75    False                58392.923                      694.354                             68.390
+ LEY_SN_POLVO   0.45    False                54217.991                      647.276                             68.482
+ LEY_SN_POLVO   0.55     True                57917.393                      688.677                             68.398
+ LEY_SN_POLVO   0.65    False                60497.838                      719.805                             68.344
+HUMEDAD_CARGA   0.03    False                61871.516                      732.003                             68.326
+HUMEDAD_CARGA   0.06     True                57917.393                      688.677                             68.398
+HUMEDAD_CARGA   0.09    False                53998.569                      645.307                             68.477
+ FE_MET_DROSS   0.20    False                58782.838                      696.028                             68.389
+ FE_MET_DROSS   0.30     True                57917.393                      688.677                             68.398
+ FE_MET_DROSS   0.40    False                57126.241                      682.174                             68.414
+CENIZA_CARBON   0.05    False                57040.734                      679.687                             68.415
+CENIZA_CARBON   0.10     True                57917.393                      688.677                             68.398
+CENIZA_CARBON   0.15    False                58731.318                      697.667                             68.383
+
+  Rango (max-min de la mediana) por parametro, ordenado por impacto en masa_escoria_balance_kg:
+               rango_masa_escoria_kg  rango_sn_escoria_kg  rango_recuperacion_refinada_pp
+parametro                                                                                
+HUMEDAD_CARGA               7872.947               86.696                           0.151
+LEY_SN_POLVO                6279.847               72.529                           0.138
+CENIZA_CARBON               1690.584               17.980                           0.032
+FE_MET_DROSS                1656.597               13.855                           0.025
+LEY_SN_METAL                1639.871               17.195                           0.031
+LEY_SN_DROSS                1270.888               13.671                           0.021
+
+==============================================================================
+2) KPI REFINADO
+==============================================================================
+
+[2.1] Correlaciones entre KPIs (Pearson/Spearman) y sd:
+                    kpi_a                   kpi_b   n    rho  p_rho      r  p_r
+recuperacion_refinada_pct rendimiento_proxy_batch 362 0.9927    0.0 0.9936  0.0
+recuperacion_refinada_pct   recuperacion_real_pct 362 0.5746    0.0 0.5883  0.0
+recuperacion_refinada_pct                 f_metal 362 0.9927    0.0 0.9936  0.0
+  rendimiento_proxy_batch   recuperacion_real_pct 362 0.5521    0.0 0.5663  0.0
+  rendimiento_proxy_batch                 f_metal 362 1.0000    0.0 1.0000  0.0
+    recuperacion_real_pct                 f_metal 362 0.5521    0.0 0.5663  0.0
+                      kpi     sd   media
+recuperacion_refinada_pct 4.4977 68.2799
+  rendimiento_proxy_batch 4.5846 69.3017
+    recuperacion_real_pct 5.1868 69.5039
+                  f_metal 0.0458  0.6930
+
+[2.2] sn_perdido_escoria_frac (%% del Sn de salida): {'n': 362, 'mediana': np.float64(1.3416658461220878), 'p5': np.float64(0.6873234935893782), 'p25': np.float64(1.0276782381465204), 'p75': np.float64(1.7317205959047843), 'p95': np.float64(2.766866095717893), 'media': np.float64(1.4697710885082462), 'sd': np.float64(0.7501184408464863)}
+[2.2b] Sn escoria final balance vs trazador: n=362, r=0.9121, rho=0.8884, ratio balance/trazador mediana=1.087 (IQR 1.009-1.162)
+
+[2.3] Sn en escoria final (balance, kg) vs:
+                variable   n    rho  p_rho  ci_low  ci_high
+ley_sn_escoria_final_pct 362 0.9423 0.0000  0.9262   0.9548
+              st_R22_sdi 349 0.0472 0.3792 -0.0446   0.1584
+          st_R23_lnirf_R 362 0.2141 0.0000  0.1162   0.3086
+  duracion_reduccion_min 362 0.1065 0.0429 -0.0022   0.2102
+
+[2.4] Spearman(proxy, refinado) = 0.9927 (p=0, n=362); batches que cambian de cuartil: 34/362 (9.4%)
+
+==============================================================================
+3) TARGETS GANADORES vs KPI REFINADO (ST-01)
+==============================================================================
+
+[3.1] b04_targets_vs_kpi.csv escrito (120 filas). Resumen DEV vs recuperacion_refinada_pct:
+                   target   n    rho  p_rho   p_bh significativo_bh  ci_low  ci_high
+               st_R22_sdi 286 0.3167 0.0000 0.0000             True  0.2055   0.4270
+           st_R23_lnirf_R 299 0.2972 0.0000 0.0000             True  0.1816   0.4115
+        st_R21_ln_feo_ret 286 0.2858 0.0000 0.0000             True  0.1727   0.3884
+           st_R02_feo_ret 297 0.2556 0.0000 0.0000             True  0.1450   0.3508
+       b6_sdi_multi_batch 299 0.2296 0.0001 0.0001             True  0.1210   0.3345
+          st_F10_irf_next 298 0.2070 0.0003 0.0005             True  0.0994   0.3130
+      st_F05_ley_feo_next 298 0.1442 0.0127 0.0181             True  0.0344   0.2530
+b6_feo_extraido_multi_neg 299 0.1303 0.0242 0.0302             True  0.0207   0.2407
+            st_F01_sn_ext 298 0.0390 0.5023 0.5582            False -0.0776   0.1664
+       st_F16_sn_ret_frac 298 0.0273 0.6389 0.6389            False -0.0842   0.1406
+
+[3.2] Comparacion rho_dev: recuperacion_refinada_pct vs rendimiento_proxy_batch, por target:
+                   target  rho_dev_refinado  rho_dev_proxy   delta
+               st_R22_sdi            0.3167         0.3190 -0.0024
+           st_R23_lnirf_R            0.2972         0.3042 -0.0070
+          st_F10_irf_next            0.2070         0.1946  0.0124
+            st_F01_sn_ext            0.0390         0.0632 -0.0242
+        st_R21_ln_feo_ret            0.2858         0.3154 -0.0296
+           st_R02_feo_ret            0.2556         0.2740 -0.0184
+       st_F16_sn_ret_frac            0.0273         0.0625 -0.0352
+      st_F05_ley_feo_next            0.1442         0.1207  0.0235
+       b6_sdi_multi_batch            0.2296         0.2341 -0.0045
+b6_feo_extraido_multi_neg            0.1303         0.1510 -0.0206
+  media(delta) = -0.0106  (positivo = el refinado esta MAS correlacionado con los targets)
+
+[3.3] b04_targets_ols.csv escrito (360 filas).
+[3.4] b04_targets_quintiles.csv escrito (50 filas).
+
+==============================================================================
+4) TECHO DE PREDICTIBILIDAD (HGB / Ridge)
+==============================================================================
+FEATURES = 44 (39 st_ + 5 controles); factor_escala_trazador excluido (usa masa_escoria_trazador y masa_escoria_balance, ambas derivadas del batch).
+recuperacion_refinada_pct    HGB    n_dev=299  R2_OOF +0.087(+-0.032)  rho_OOF +0.355(+-0.019)  ||  lockbox R2 +0.029  rho +0.227 (n=63)
+recuperacion_refinada_pct    Ridge  n_dev=299  R2_OOF +0.158(+-0.013)  rho_OOF +0.405(+-0.007)  ||  lockbox R2 +0.089  rho +0.248 (n=63)
+sn_perdido_escoria_frac      HGB    n_dev=299  R2_OOF +0.791(+-0.017)  rho_OOF +0.888(+-0.005)  ||  lockbox R2 +0.533  rho +0.857 (n=63)
+sn_perdido_escoria_frac      Ridge  n_dev=299  R2_OOF +0.726(+-0.054)  rho_OOF +0.869(+-0.010)  ||  lockbox R2 +0.946  rho +0.886 (n=63)
+rendimiento_proxy_batch      HGB    n_dev=299  R2_OOF +0.103(+-0.026)  rho_OOF +0.374(+-0.021)  ||  lockbox R2 -0.024  rho +0.297 (n=63)
+rendimiento_proxy_batch      Ridge  n_dev=299  R2_OOF +0.152(+-0.012)  rho_OOF +0.403(+-0.009)  ||  lockbox R2 +0.002  rho +0.222 (n=63)
+recuperacion_real_pct        HGB    n_dev=299  R2_OOF +0.098(+-0.019)  rho_OOF +0.397(+-0.027)  ||  lockbox R2 -0.018  rho +0.422 (n=63)
+recuperacion_real_pct        Ridge  n_dev=299  R2_OOF +0.145(+-0.013)  rho_OOF +0.392(+-0.009)  ||  lockbox R2 -0.128  rho +0.479 (n=63)
+
+[4] b04_techo.csv escrito. Referencia ST-15 (proxy, HGB): R2 OOF 0.148 / rho 0.43 DEV; lockbox R2 0.122 / rho 0.48.
+
+[4b] Robustez: techo SIN columnas terminales que comparten ensayo con el KPI (R13_sn_residual, R14_log_sn_feo_next, F05_ley_feo_next, F11_log_sn_feo_next):
+recuperacion_refinada_pct    HGB    n_dev=299  R2_OOF +0.079(+-0.023)  rho_OOF +0.336(+-0.020)  ||  lockbox R2 -0.093  rho +0.179 (n=63)
+recuperacion_refinada_pct    Ridge  n_dev=299  R2_OOF +0.150(+-0.015)  rho_OOF +0.403(+-0.011)  ||  lockbox R2 +0.080  rho +0.250 (n=63)
+sn_perdido_escoria_frac      HGB    n_dev=299  R2_OOF +0.538(+-0.029)  rho_OOF +0.767(+-0.012)  ||  lockbox R2 +0.314  rho +0.843 (n=63)
+sn_perdido_escoria_frac      Ridge  n_dev=299  R2_OOF +0.125(+-0.155)  rho_OOF +0.765(+-0.015)  ||  lockbox R2 +0.416  rho +0.824 (n=63)
+[4b] b04_techo_sin_terminales.csv escrito.
+
+==============================================================================
+5) MODELO MULTI-OXIDO (talon + ganga por tolva)
+==============================================================================
+[5.0] parametros libres: 23 coeficientes a_(oxido,tolva) + 4 talones H_X = 27 total.
+      supuesto fisico: t6_cal (cal) solo aporta CaO; carbon (ceniza) solo aporta SiO2/Al2O3.
+[5.1] escalones con ensayo simultaneo de CaO/SiO2/Al2O3/MgO: 3850 de 3982.
+[5.2] ajuste completo (n=3850): cost=146.947, exito=True, nfev=25  (6.5s)
+
+[5.3] Multi-start (5 semillas) -- estabilidad de parametros:
+                         media      sd         min         max  lower_bound  upper_bound  en_cota_inf  en_cota_sup
+a_cao_t1_conc           0.4715  0.0000      0.4715      0.4715          0.0          1.0        False        False
+a_sio2_t1_conc          1.0000  0.0000      1.0000      1.0000          0.0          1.0        False         True
+a_al2o3_t1_conc         0.2793  0.0000      0.2793      0.2793          0.0          1.0        False        False
+a_mgo_t1_conc           0.0563  0.0000      0.0563      0.0563          0.0          1.0        False        False
+a_cao_t3_reciclo        0.6669  0.0000      0.6669      0.6669          0.0          1.0        False        False
+a_sio2_t3_reciclo       1.0000  0.0000      1.0000      1.0000          0.0          1.0        False         True
+a_al2o3_t3_reciclo      0.4404  0.0000      0.4404      0.4404          0.0          1.0        False        False
+a_mgo_t3_reciclo        0.0520  0.0000      0.0520      0.0520          0.0          1.0        False        False
+a_cao_t4_fe             0.0000  0.0000      0.0000      0.0000          0.0          1.0         True        False
+a_sio2_t4_fe            0.5720  0.0000      0.5720      0.5720          0.0          1.0        False        False
+a_al2o3_t4_fe           0.2285  0.0000      0.2285      0.2285          0.0          1.0        False        False
+a_mgo_t4_fe             0.0202  0.0000      0.0202      0.0202          0.0          1.0        False        False
+a_cao_t5_dross          0.6562  0.0000      0.6562      0.6562          0.0          1.0        False        False
+a_sio2_t5_dross         1.0000  0.0000      1.0000      1.0000          0.0          1.0        False         True
+a_al2o3_t5_dross        0.3930  0.0000      0.3930      0.3930          0.0          1.0        False        False
+a_mgo_t5_dross          0.1027  0.0000      0.1027      0.1027          0.0          1.0        False        False
+a_cao_t7_pellets        0.3901  0.0000      0.3901      0.3901          0.0          1.0        False        False
+a_sio2_t7_pellets       1.0000  0.0000      1.0000      1.0000          0.0          1.0        False         True
+a_al2o3_t7_pellets      0.3008  0.0000      0.3008      0.3008          0.0          1.0        False        False
+a_mgo_t7_pellets        0.0262  0.0000      0.0262      0.0262          0.0          1.0        False        False
+a_cao_t6_cal            0.7000  0.0000      0.7000      0.7000          0.7          1.0         True        False
+a_sio2_carbon           0.0000  0.0000      0.0000      0.0000          0.0          1.0         True        False
+a_al2o3_carbon          0.0000  0.0000      0.0000      0.0000          0.0          1.0         True        False
+H_cao                5524.4369  0.0001   5524.4367   5524.4370          0.0      10000.0        False        False
+H_sio2              10000.0000  0.0000  10000.0000  10000.0000          0.0      10000.0        False         True
+H_al2o3              3303.8647  0.0003   3303.8642   3303.8650          0.0      10000.0        False        False
+H_mgo                 456.7885  0.0000    456.7885    456.7885          0.0      10000.0        False        False
+
+[5.4] GroupKFold(5) por batch -- R2 de log-cocientes en hold-out:
+ fold       par   n  r2_modelo  r2_trivial     rho      p
+    0  sio2/cao 776    -0.0333         0.0  0.0610 0.0894
+    0 al2o3/cao 776     0.0150         0.0  0.1645 0.0000
+    0   mgo/cao 776    -0.0014         0.0  0.3578 0.0000
+    1  sio2/cao 770    -0.0288         0.0  0.0468 0.1947
+    1 al2o3/cao 770     0.0330         0.0  0.1974 0.0000
+    1   mgo/cao 770    -0.0033         0.0  0.3754 0.0000
+    2  sio2/cao 768    -0.0766         0.0 -0.0798 0.0270
+    2 al2o3/cao 768    -0.1034         0.0  0.0114 0.7516
+    2   mgo/cao 768    -0.0024         0.0  0.2544 0.0000
+    3  sio2/cao 768    -0.0549         0.0  0.0505 0.1621
+    3 al2o3/cao 768    -0.0190         0.0  0.1726 0.0000
+    3   mgo/cao 768     0.0271         0.0  0.2871 0.0000
+    4  sio2/cao 768    -0.0332         0.0 -0.0019 0.9575
+    4 al2o3/cao 768     0.0092         0.0  0.1354 0.0002
+    4   mgo/cao 768     0.0050         0.0  0.2608 0.0000
+
+  Promedio por par (5 folds):
+           r2_modelo  r2_trivial     rho
+par                                     
+al2o3/cao    -0.0130         0.0  0.1363
+mgo/cao       0.0050         0.0  0.3071
+sio2/cao     -0.0454         0.0  0.0153
+
+[5.5] Coeficientes de ganga por tolva (kg oxido / kg tolva), ajuste completo:
+oxido      tolva       columna_tolva  a_kg_por_kg  en_cota_inf  en_cota_sup
+  cao    t1_conc    feed_conc_t1_kgh      0.47150        False        False
+ sio2    t1_conc    feed_conc_t1_kgh      1.00000        False         True
+al2o3    t1_conc    feed_conc_t1_kgh      0.27930        False        False
+  mgo    t1_conc    feed_conc_t1_kgh      0.05634        False        False
+  cao t3_reciclo feed_reciclo_t3_kgh      0.66690        False        False
+ sio2 t3_reciclo feed_reciclo_t3_kgh      1.00000        False         True
+al2o3 t3_reciclo feed_reciclo_t3_kgh      0.44039        False        False
+  mgo t3_reciclo feed_reciclo_t3_kgh      0.05200        False        False
+  cao      t4_fe         feed_Fe_kgh      0.00000         True        False
+ sio2      t4_fe         feed_Fe_kgh      0.57202        False        False
+al2o3      t4_fe         feed_Fe_kgh      0.22849        False        False
+  mgo      t4_fe         feed_Fe_kgh      0.02016        False        False
+  cao   t5_dross   feed_dross_Fe_kgh      0.65617        False        False
+ sio2   t5_dross   feed_dross_Fe_kgh      1.00000        False         True
+al2o3   t5_dross   feed_dross_Fe_kgh      0.39300        False        False
+  mgo   t5_dross   feed_dross_Fe_kgh      0.10274        False        False
+  cao t7_pellets feed_pellets_t7_kgh      0.39007        False        False
+ sio2 t7_pellets feed_pellets_t7_kgh      1.00000        False         True
+al2o3 t7_pellets feed_pellets_t7_kgh      0.30085        False        False
+  mgo t7_pellets feed_pellets_t7_kgh      0.02621        False        False
+  cao     t6_cal        feed_CaO_kgh      0.70000         True        False
+ sio2     carbon     feed_Carbon_kgh      0.00000         True        False
+al2o3     carbon     feed_Carbon_kgh      0.00000         True        False
+
+  Talon H_X (kg de oxido, constante por batch):
+oxido    H_kg
+  cao  5524.4
+ sio2 10000.0
+al2o3  3303.9
+  mgo   456.8
+
+[5.6] b04_masa_multioxido_escalon.csv escrito ((3982, 9)); 3851 escalones con masa multi-oxido estimada.
+
+[5.7] masa final multi-oxido vs balance global: n=362, rho=0.3304, factor mediana=5.394 (IQR 5.002-5.861)
+      masa final multi-oxido vs trazador v3 (CaO solo): n=362, rho=0.2216, factor mediana=5.834 (IQR 5.513-6.178)
+
+[5.8] Talon (suma H_X de los 4 oxidos inertes) = 19285 kg; mediana masa final multi-oxido = 314179 kg -> fraccion = 0.061. Referencia modelo Rust: ~15 t a 600 mm de espesor y 2.32 t/m3 (nota: H_X aqui es solo la masa de los 4 oxidos inertes del talon, no el talon fisico completo que tambien lleva FeO/SnO/otros).
+
+Tiempo total: 180.9s

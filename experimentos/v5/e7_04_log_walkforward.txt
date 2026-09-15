@@ -1,0 +1,58 @@
+[00:51:56] === walkforward Reducción/v5_ln_sn_dep/P2 ===
+[00:52:03]   bloque 1: n_train= 137 n_test= 181 r2=0.663 (6.4s)
+[00:52:18]   bloque 2: n_train= 318 n_test= 175 r2=0.782 (14.8s)
+[00:52:34]   bloque 3: n_train= 493 n_test= 184 r2=0.761 (16.7s)
+[00:52:52]   bloque 4: n_train= 677 n_test= 178 r2=0.665 (17.7s)
+[00:53:11]   bloque 5: n_train= 855 n_test= 184 r2=0.827 (19.3s)
+[00:54:56]   GLOBAL v5_ln_sn_dep/P2: oof_aleatorio r2=0.762 | walkforward r2=0.744 | brecha=+0.018 (104.8s)
+[00:54:56] === walkforward Reducción/v5_ln_sn_dep/P3 ===
+[00:55:06]   bloque 1: n_train= 137 n_test= 181 r2=0.657 (10.2s)
+[00:55:21]   bloque 2: n_train= 318 n_test= 175 r2=0.782 (15.2s)
+[00:55:38]   bloque 3: n_train= 493 n_test= 184 r2=0.760 (17.0s)
+[00:55:57]   bloque 4: n_train= 677 n_test= 178 r2=0.659 (18.0s)
+[00:56:15]   bloque 5: n_train= 855 n_test= 184 r2=0.822 (18.7s)
+[00:58:05]   GLOBAL v5_ln_sn_dep/P3: oof_aleatorio r2=0.760 | walkforward r2=0.741 | brecha=+0.020 (109.8s)
+[00:58:05] === walkforward Reducción/v5_ln_feo_ret/P2 ===
+[00:58:16]   bloque 1: n_train= 137 n_test= 181 r2=0.140 (11.2s)
+[00:58:33]   bloque 2: n_train= 318 n_test= 175 r2=-0.059 (16.8s)
+[00:58:53]   bloque 3: n_train= 493 n_test= 184 r2=0.337 (20.0s)
+[00:59:14]   bloque 4: n_train= 677 n_test= 178 r2=0.036 (20.9s)
+[00:59:36]   bloque 5: n_train= 855 n_test= 184 r2=0.334 (22.0s)
+[01:02:30]   GLOBAL v5_ln_feo_ret/P2: oof_aleatorio r2=0.206 | walkforward r2=0.144 | brecha=+0.062 (174.2s)
+[01:02:30] === walkforward Reducción/v5_ln_feo_ret/P3 ===
+[01:02:51]   bloque 1: n_train= 137 n_test= 181 r2=0.103 (20.8s)
+[01:03:23]   bloque 2: n_train= 318 n_test= 175 r2=-0.055 (32.6s)
+[01:04:01]   bloque 3: n_train= 493 n_test= 184 r2=0.340 (37.7s)
+[01:04:36]   bloque 4: n_train= 677 n_test= 178 r2=0.035 (35.2s)
+[01:05:10]   bloque 5: n_train= 855 n_test= 184 r2=0.335 (33.6s)
+[01:08:57]   GLOBAL v5_ln_feo_ret/P3: oof_aleatorio r2=0.203 | walkforward r2=0.140 | brecha=+0.063 (227.2s)
+[01:08:57] === walkforward Reducción/v5_sdi_w10/P2 ===
+[01:09:18]   bloque 1: n_train= 137 n_test= 181 r2=0.039 (20.8s)
+[01:09:51]   bloque 2: n_train= 318 n_test= 175 r2=0.265 (32.6s)
+[01:10:28]   bloque 3: n_train= 493 n_test= 184 r2=0.195 (37.1s)
+[01:11:06]   bloque 4: n_train= 677 n_test= 178 r2=0.035 (38.1s)
+[01:11:45]   bloque 5: n_train= 855 n_test= 184 r2=0.106 (38.7s)
+[01:15:36]   GLOBAL v5_sdi_w10/P2: oof_aleatorio r2=0.156 | walkforward r2=0.090 | brecha=+0.065 (231.2s)
+[01:15:36] === walkforward Reducción/v5_sdi_w10/P3 ===
+[01:15:55]   bloque 1: n_train= 137 n_test= 181 r2=0.025 (19.5s)
+[01:16:25]   bloque 2: n_train= 318 n_test= 175 r2=0.291 (30.2s)
+[01:17:00]   bloque 3: n_train= 493 n_test= 184 r2=0.186 (34.4s)
+[01:17:35]   bloque 4: n_train= 677 n_test= 178 r2=0.036 (35.6s)
+[01:18:14]   bloque 5: n_train= 855 n_test= 184 r2=0.106 (38.8s)
+[01:21:53]   GLOBAL v5_sdi_w10/P3: oof_aleatorio r2=0.156 | walkforward r2=0.091 | brecha=+0.065 (218.8s)
+[01:21:53] === walkforward Fusión/v5_d_lnirf/P2P3 ===
+[01:22:17]   bloque 1: n_train= 246 n_test= 250 r2=0.232 (23.7s)
+[01:22:41]   bloque 2: n_train= 496 n_test= 249 r2=0.097 (24.6s)
+[01:23:08]   bloque 3: n_train= 745 n_test= 245 r2=0.305 (27.1s)
+[01:23:39]   bloque 4: n_train= 990 n_test= 239 r2=0.269 (30.7s)
+[01:24:10]   bloque 5: n_train=1229 n_test= 241 r2=0.103 (30.9s)
+[01:25:19]   GLOBAL v5_d_lnirf/P2P3: oof_aleatorio r2=0.281 | walkforward r2=0.231 | brecha=+0.051 (69.0s)
+[01:25:19] === walkforward Fusión/sn_extraido_est_kg/P2P3 ===
+[01:25:26]   bloque 1: n_train= 246 n_test= 248 r2=0.568 (7.2s)
+[01:25:35]   bloque 2: n_train= 494 n_test= 248 r2=0.741 (8.4s)
+[01:25:44]   bloque 3: n_train= 742 n_test= 242 r2=0.603 (9.5s)
+[01:25:54]   bloque 4: n_train= 984 n_test= 232 r2=0.647 (10.3s)
+[01:26:05]   bloque 5: n_train=1216 n_test= 236 r2=0.607 (10.9s)
+[01:28:50]   GLOBAL sn_extraido_est_kg/P2P3: oof_aleatorio r2=0.692 | walkforward r2=0.633 | brecha=+0.058 (165.1s)
+[01:28:50] Guardado e7_04_walkforward.csv
+[01:28:50] listo en 2214.2s

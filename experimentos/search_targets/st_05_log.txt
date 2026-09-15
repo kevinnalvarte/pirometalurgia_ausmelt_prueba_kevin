@@ -1,0 +1,70 @@
+=== H1: SDI_w = ln(Sn_ini/Sn_fin) + w*ln(FeO_fin/FeO_ini) (Reduccion, suma telescopica) ===
+w= 0.00  T1 -0.223  T2 -0.008  T3 +0.043  lockbox +0.353  | DEV -0.062 (p=0.29)  total +0.022
+w= 0.25  T1 -0.214  T2 +0.003  T3 +0.100  lockbox +0.353  | DEV -0.034 (p=0.56)  total +0.046
+w= 0.50  T1 -0.200  T2 +0.017  T3 +0.156  lockbox +0.342  | DEV -0.005 (p=0.93)  total +0.070
+w= 0.75  T1 -0.178  T2 +0.032  T3 +0.202  lockbox +0.329  | DEV +0.023 (p=0.7)  total +0.092
+w= 1.00  T1 -0.164  T2 +0.046  T3 +0.245  lockbox +0.326  | DEV +0.045 (p=0.45)  total +0.109
+w= 1.50  T1 -0.116  T2 +0.081  T3 +0.303  lockbox +0.303  | DEV +0.088 (p=0.14)  total +0.144
+w= 2.00  T1 -0.063  T2 +0.118  T3 +0.344  lockbox +0.303  | DEV +0.126 (p=0.033)  total +0.173
+w= 3.00  T1 +0.004  T2 +0.172  T3 +0.389  lockbox +0.257  | DEV +0.185 (p=0.0017)  total +0.213
+w= 4.00  T1 +0.057  T2 +0.214  T3 +0.423  lockbox +0.240  | DEV +0.227 (p=0.00011)  total +0.238
+w= 6.00  T1 +0.137  T2 +0.307  T3 +0.465  lockbox +0.155  | DEV +0.281 (p=1.4e-06)  total +0.266
+w= 8.00  T1 +0.165  T2 +0.344  T3 +0.479  lockbox +0.113  | DEV +0.309 (p=9.6e-08)  total +0.277
+w=12.00  T1 +0.211  T2 +0.356  T3 +0.469  lockbox +0.069  | DEV +0.326 (p=1.7e-08)  total +0.279
+w=20.00  T1 +0.236  T2 +0.353  T3 +0.425  lockbox +0.012  | DEV +0.326 (p=1.6e-08)  total +0.270
+w=50.00  T1 +0.279  T2 +0.329  T3 +0.402  lockbox -0.018  | DEV +0.322 (p=2.6e-08)  total +0.256
+componentes: ln_sn_dep {'rho_dev_T1': np.float64(-0.223), 'rho_dev_T2': np.float64(-0.008), 'rho_dev_T3': np.float64(0.043), 'rho_lockbox': np.float64(0.353), 'rho_dev': np.float64(-0.062), 'rho_total': np.float64(0.022)}
+componentes: ln_feo_ret {'rho_dev_T1': np.float64(0.285), 'rho_dev_T2': np.float64(0.316), 'rho_dev_T3': np.float64(0.388), 'rho_lockbox': np.float64(-0.061), 'rho_dev': np.float64(0.315), 'rho_total': np.float64(0.244)}
+=== H1b: (Sn_ext - lam*FeO_ext)/Sn_cargado (Reduccion) ===
+lam= 0.00  T1 -0.043  T2 +0.010  T3 +0.109  lockbox +0.031  | DEV +0.027 (p=0.64)
+lam= 0.30  T1 -0.021  T2 +0.028  T3 +0.156  lockbox +0.009  | DEV +0.055 (p=0.34)
+lam= 0.60  T1 +0.001  T2 +0.052  T3 +0.188  lockbox +0.017  | DEV +0.083 (p=0.15)
+lam= 1.00  T1 +0.031  T2 +0.095  T3 +0.232  lockbox +0.017  | DEV +0.113 (p=0.051)
+lam= 1.50  T1 +0.072  T2 +0.132  T3 +0.269  lockbox +0.007  | DEV +0.146 (p=0.012)
+lam= 2.00  T1 +0.104  T2 +0.166  T3 +0.281  lockbox +0.005  | DEV +0.173 (p=0.0028)
+lam= 3.00  T1 +0.157  T2 +0.222  T3 +0.306  lockbox -0.026  | DEV +0.221 (p=0.00012)
+lam= 5.00  T1 +0.284  T2 +0.272  T3 +0.314  lockbox -0.042  | DEV +0.270 (p=2.4e-06)
+lam=10.00  T1 +0.322  T2 +0.303  T3 +0.325  lockbox -0.089  | DEV +0.286 (p=5.5e-07)
+=== H2: IRF fin Fusion vs controles del plan de carga ===
+A_solo_irf             dev      n=298 R2adj=0.034 irf_fin_st=+0.89 (p=0.001)
+A_solo_irf             lockbox  n= 63 R2adj=0.102 irf_fin_st=+1.39 (p=0.021)
+A_solo_irf             total    n=361 R2adj=0.049 irf_fin_st=+1.04 (p=0.000)
+B_irf+controles        dev      n=297 R2adj=0.050 irf_fin_st=+1.11 (p=0.000)
+B_irf+controles        lockbox  n= 63 R2adj=0.121 irf_fin_st=+1.37 (p=0.044)
+B_irf+controles        total    n=360 R2adj=0.053 irf_fin_st=+1.11 (p=0.000)
+C_irf+controles+plan   dev      n=297 R2adj=0.060 irf_fin_st=+1.27 (p=0.000)
+C_irf+controles+plan   lockbox  n= 63 R2adj=0.163 irf_fin_st=+1.30 (p=0.074)
+C_irf+controles+plan   total    n=360 R2adj=0.087 irf_fin_st=+1.31 (p=0.000)
+D_plan_sin_irf         dev      n=298 R2adj=0.011 
+D_plan_sin_irf         lockbox  n= 63 R2adj=0.104 
+D_plan_sin_irf         total    n=361 R2adj=0.034 
+E_irf_F0_y_dIRF        dev      n=297 R2adj=0.128 irf_F0=+1.45 (p=0.027)  d_irf=-0.34 (p=0.604)
+E_irf_F0_y_dIRF        lockbox  n= 63 R2adj=0.284 irf_F0=+2.66 (p=0.004)  d_irf=+0.75 (p=0.448)
+E_irf_F0_y_dIRF        total    n=360 R2adj=0.154 irf_F0=+1.76 (p=0.003)  d_irf=-0.02 (p=0.976)
+Determinantes del IRF fin Fusion (OLS z, total): R2adj=0.279
+                          coef_sd      p
+gn_por_carga               -0.006  0.000
+T_F                        -0.011  0.000
+feed_dross_Fe_total_t      -0.012  0.000
+frac_carga_secundaria_F     0.011  0.000
+fe_por_carga                0.006  0.001
+exceso_o2_F                -0.003  0.026
+ley_sn_conc_batch_pct       0.003  0.034
+feed_sn_total_t            -0.004  0.043
+espesor_ladrillo_norm_mm   -0.003  0.283
+c_por_sn                   -0.001  0.554
+cal_por_carga               0.001  0.655
+rho vs rendimiento (DEV) de componentes del IRF fin: feo_fin=+0.121  sio2_fin=-0.200  cao_fin=-0.052  al2o3_fin=-0.250  irf_F0=+0.320  d_irf=-0.318
+rho vs rendimiento (lockbox): feo_fin=+0.183  sio2_fin=-0.303  cao_fin=-0.209  al2o3_fin=-0.287  irf_F0=+0.569  d_irf=-0.412
+H3 dev: rho(IRF fin F, FeO retenido R08) = -0.096; rho(IRF fin F, FeO reducido kg) = +0.232; rho(IRF fin F, f_polvo) = -0.211; rho(IRF fin F, f_dross) = -0.053
+H3 lockbox: rho(IRF fin F, FeO retenido R08) = +0.007; rho(IRF fin F, FeO reducido kg) = +0.155; rho(IRF fin F, f_polvo) = +0.071; rho(IRF fin F, f_dross) = -0.465
+H3 total: rho(IRF fin F, FeO retenido R08) = -0.093; rho(IRF fin F, FeO reducido kg) = +0.232; rho(IRF fin F, f_polvo) = -0.161; rho(IRF fin F, f_dross) = -0.141
+IRF al cierre de cada escalon de Fusion vs rendimiento (DEV / lockbox):
+  F0: dev +0.320 (p=0.000)  lockbox +0.570 (p=0.000)
+  F1: dev +0.379 (p=0.000)  lockbox +0.542 (p=0.000)
+  F2: dev +0.357 (p=0.000)  lockbox +0.520 (p=0.000)
+  F3: dev +0.328 (p=0.000)  lockbox +0.419 (p=0.001)
+  F4: dev +0.307 (p=0.000)  lockbox +0.445 (p=0.000)
+  F5: dev +0.249 (p=0.000)  lockbox +0.401 (p=0.001)
+  F6: dev +0.194 (p=0.001)  lockbox +0.331 (p=0.008)
+tiempo 1.7s

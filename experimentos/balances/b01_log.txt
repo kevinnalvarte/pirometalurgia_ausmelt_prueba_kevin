@@ -1,0 +1,230 @@
+B-01 multitrazador -- inicio 2026-09-14 19:53:01
+df (3982, 333), batch (362, 95), DEV batches=299, lockbox batches=63 (10.4s)
+
+==============================================================================
+TAREA 1 -- consistencia entre los 4 inertes
+==============================================================================
+escalones validos de Reduccion (sin carga, no R0): 1070 / 3982
+
+Sesgo/sd de cada inerte respecto al consenso multi-trazador (DEV+lockbox, Reduccion valida):
+inerte   n  sesgo_medio  sd_vs_consenso  sd_rel_asumida  peso_asumido  peso_empirico  peso_asumido_norm  peso_empirico_norm
+   cao 957       0.0100          0.0850           0.020     2500.0000       138.2674             0.2957              0.2453
+  sio2 957      -0.0058          0.0709           0.015     4444.4444       199.1146             0.5256              0.3532
+ al2o3 957       0.0071          0.0745           0.030     1111.1111       180.2376             0.1314              0.3197
+   mgo 952      -0.0178          0.1472           0.050      400.0000        46.1361             0.0473              0.0818
+
+Correlacion (Spearman) entre pares de inertes (ln-ratio crudo):
+         cao   sio2  al2o3    mgo
+cao    1.000  0.247  0.132  0.472
+sio2   0.247  1.000  0.588  0.741
+al2o3  0.132  0.588  1.000  0.455
+mgo    0.472  0.741  0.455  1.000
+
+Dispersion ponderada entre trazadores (b6_dispersion_trazadores) por orden de escalon:
+ orden_escalon_fase   n  media     sd     p5    p50    p95
+                  1 348 0.0373 0.0854 0.0072 0.0241 0.0910
+                  2 353 0.0258 0.0838 0.0032 0.0166 0.0530
+                  3 256 0.0227 0.0441 0.0039 0.0133 0.0718
+
+Sesgo medio de cada inerte vs consenso, por orden de escalon (posible cal residual en escalones tempranos):
+inerte  orden_escalon_fase   n  sesgo_medio
+   cao                   1 348       0.0128
+   cao                   2 353       0.0104
+   cao                   3 256       0.0055
+  sio2                   1 348      -0.0056
+  sio2                   2 353      -0.0079
+  sio2                   3 256      -0.0031
+ al2o3                   1 348       0.0054
+ al2o3                   2 353       0.0116
+ al2o3                   3 256       0.0030
+   mgo                   1 347      -0.0326
+   mgo                   2 351      -0.0099
+   mgo                   3 254      -0.0084
+
+==============================================================================
+TAREA 2a -- Monte Carlo del ensayo (200 replicas): sd de ruido single vs multi
+==============================================================================
+filas DEV validas (multi-trazador): 778
+  MC: 50/200 replicas (14.4s)
+  MC: 100/200 replicas (28.8s)
+  MC: 150/200 replicas (45.0s)
+  MC: 200/200 replicas (60.4s)
+MC terminado: 200 replicas en 60.4s
+  feo_extraido_est_kg         : sd_ruido=     374.4  sd_target=       719  R2_max=+0.7289
+  b6_feo_extraido_multi_kg    : sd_ruido=     281.4  sd_target=      2170  R2_max=+0.9832
+  sn_extraido_est_kg          : sd_ruido=     55.89  sd_target=     757.1  R2_max=+0.9946
+  b6_sn_extraido_multi_kg     : sd_ruido=      47.1  sd_target=     785.2  R2_max=+0.9964
+
+==============================================================================
+TAREA 2b -- huella empirica: autocorrelacion lag-1 de FeO_ext dentro del batch
+==============================================================================
+  single_v3 : n_pares= 953  autocorr_lag1=-0.3130  p=4.137e-23
+  multi     : n_pares= 597  autocorr_lag1=-0.6541  p=3.509e-74
+
+==============================================================================
+TAREA 3 -- targets de batch: multi-trazador vs single (CaO)
+==============================================================================
+batch total=362, dev=299, lockbox=63
+
+Spearman vs rendimiento_proxy_batch (DEV), multi vs single:
+    target version   n    rho  p_rho   p_bh  ci_low  ci_high
+   feo_ext   multi 297 0.1502 0.0095 0.0127  0.0432   0.2512
+   feo_ext  single 297 0.2740 0.0000 0.0000  0.1494   0.3833
+ln_feo_ret   multi 285 0.1936 0.0010 0.0016  0.0890   0.3009
+ln_feo_ret  single 286 0.3154 0.0000 0.0000  0.2062   0.4093
+       sdi   multi 285 0.2296 0.0001 0.0002  0.1169   0.3291
+       sdi  single 286 0.3190 0.0000 0.0000  0.2010   0.4093
+    sn_ext   multi 297 0.0523 0.3691 0.4218 -0.0561   0.1578
+    sn_ext  single 298 0.0214 0.7136 0.7136 -0.0961   0.1326
+
+Spearman vs rendimiento_proxy_batch por tercio cronologico de DEV:
+    target version  tercio   n     rho  p_rho  ci_low  ci_high
+       sdi   multi       1  88  0.2244 0.0356  0.0088   0.4292
+       sdi   multi       2  99  0.1321 0.1925 -0.0619   0.3222
+       sdi   multi       3  98  0.3250 0.0011  0.1547   0.4949
+       sdi  single       1  88  0.1912 0.0744 -0.0104   0.3618
+       sdi  single       2  99  0.3481 0.0004  0.1617   0.5217
+       sdi  single       3  99  0.4809 0.0000  0.3081   0.6387
+ln_feo_ret   multi       1  88  0.1996 0.0623  0.0118   0.3769
+ln_feo_ret   multi       2  99  0.0691 0.4965 -0.0827   0.2497
+ln_feo_ret   multi       3  98  0.2878 0.0041  0.0962   0.4445
+ln_feo_ret  single       1  88  0.2852 0.0071  0.1058   0.4648
+ln_feo_ret  single       2  99  0.3126 0.0016  0.1296   0.4721
+ln_feo_ret  single       3  99  0.3876 0.0001  0.1997   0.5684
+   feo_ext   multi       1 100  0.1712 0.0885 -0.0119   0.3417
+   feo_ext   multi       2  99  0.0284 0.7800 -0.1386   0.1929
+   feo_ext   multi       3  98  0.2226 0.0276  0.0225   0.4067
+   feo_ext  single       1 100  0.2744 0.0057  0.0774   0.4522
+   feo_ext  single       2  99  0.2840 0.0044  0.1103   0.4749
+   feo_ext  single       3  98  0.3198 0.0013  0.1240   0.4930
+    sn_ext   multi       1 100  0.0474 0.6394 -0.1571   0.2223
+    sn_ext   multi       2  99  0.1788 0.0766 -0.0382   0.3758
+    sn_ext   multi       3  98 -0.0626 0.5403 -0.2365   0.1317
+    sn_ext  single       1 100 -0.0651 0.5202 -0.2258   0.1187
+    sn_ext  single       2  99 -0.0207 0.8389 -0.2122   0.1740
+    sn_ext  single       3  99  0.1410 0.1638 -0.0426   0.3355
+
+OLS HC3 (variante controles_tendencia, DEV):
+    target version   n   coef  ci_low  ci_high      p  r2_adj
+       sdi   multi 284 1.1027  0.6369   1.5685 0.0000  0.0734
+       sdi  single 285 1.5150  0.9060   2.1239 0.0000  0.1230
+ln_feo_ret   multi 284 0.8802  0.4158   1.3446 0.0002  0.0503
+ln_feo_ret  single 285 1.3698  0.7922   1.9475 0.0000  0.1046
+   feo_ext   multi 296 0.7028  0.2217   1.1838 0.0042  0.0254
+   feo_ext  single 296 1.5150  0.8984   2.1315 0.0000  0.0913
+    sn_ext   multi 296 0.4628 -0.0400   0.9656 0.0712  0.0101
+    sn_ext  single 297 0.0100 -0.5971   0.6171 0.9743  0.0009
+
+Barrido de w (SDI multi, DEV): rho_max=0.2315 en w=11; w* (menor w con rho>=0.95*max) = 6 (rho=0.2243); w=10 (v3): rho=0.2296
+ w   n  rho_dev  p_dev  cumple_95pct_max
+ 2 285   0.1338 0.0239             False
+ 3 285   0.1698 0.0040             False
+ 4 285   0.1947 0.0010             False
+ 5 285   0.2088 0.0004             False
+ 6 285   0.2243 0.0001              True
+ 7 285   0.2275 0.0001              True
+ 8 285   0.2274 0.0001              True
+ 9 285   0.2295 0.0001              True
+10 285   0.2296 0.0001              True
+11 285   0.2315 0.0001              True
+12 285   0.2303 0.0001              True
+13 285   0.2303 0.0001              True
+14 285   0.2293 0.0001              True
+15 285   0.2301 0.0001              True
+16 285   0.2294 0.0001              True
+  single vs multi -- sdi       : n= 348 rho=+0.5802 IC[0.502,0.647]
+  single vs multi -- ln_feo_ret: n= 348 rho=+0.5988 IC[0.526,0.663]
+  single vs multi -- feo_ext   : n= 360 rho=+0.5504 IC[0.461,0.628]
+  single vs multi -- sn_ext    : n= 360 rho=+0.4059 IC[0.313,0.489]
+
+==============================================================================
+TAREA 4 -- predictibilidad por escalon (HGB OOF) y PLM v4 (palancas feo_kg)
+==============================================================================
+Set A (37 features seguras STATE+CONTEXT V3 Reduccion)
+Set B (44 = A + CONTROL)
+
+-- feo_ext: n_dev=769, n_lockbox=179 (filas donde AMBAS versiones son validas) --
+  v3_single  setA: n_dev= 769 r2_oof=+0.2210 r2_lockbox=+0.0177 mae_oof=483
+  v3_single  setB: n_dev= 769 r2_oof=+0.2387 r2_lockbox=+0.0185 mae_oof=471
+  multi      setA: n_dev= 769 r2_oof=+0.0738 r2_lockbox=-0.0310 mae_oof=499
+  multi      setB: n_dev= 769 r2_oof=+0.1100 r2_lockbox=-0.0378 mae_oof=488
+
+-- sdi: n_dev=745, n_lockbox=179 (filas donde AMBAS versiones son validas) --
+  v3_single  setA: n_dev= 745 r2_oof=+0.2415 r2_lockbox=-0.1980 mae_oof=0.423
+  v3_single  setB: n_dev= 745 r2_oof=+0.2497 r2_lockbox=-0.2396 mae_oof=0.414
+  multi      setA: n_dev= 745 r2_oof=+0.0558 r2_lockbox=-0.1050 mae_oof=0.462
+  multi      setB: n_dev= 745 r2_oof=+0.0725 r2_lockbox=-0.1353 mae_oof=0.451
+
+-- PLM v4 (estado/palancas de feo_kg) --
+estado (37): ['ley_sn_escoria_pct_prev', 'ley_feo_escoria_pct_prev', 'ley_sio2_escoria_pct_prev', 'ley_cao_escoria_pct_prev', 'basicidad_B2_prev', 'basicidad_B4_prev', 'indice_estructural_molar_prev', 'indice_irf_prev', 'ratio_sn_feo_prev', 'ratio_sn_sio2_prev', 'log_ratio_sn_feo_prev', 'interaccion_Sn_x_FeO_prev', 'interaccion_FeO_x_B2_prev', 'temperatura_horno_celsius_prev', 'grad_temperatura_horno_celsius_prev', 'termocupla_media_celsius_prev', 'tiro_horno_pct_prev', 'posicion_vertical_lanza_mm_prev', 'temperatura_gas_pre_bhf_celsius_prev', 'cum_feed_Sn_kg_prev', 'cum_feed_total_kg_prev', 'cum_feed_CaO_kg_prev', 'cum_feed_Carbon_kg_prev', 'cum_gn_nm3_prev', 'cum_o2_nm3_prev', 'cum_aire_nm3_prev', 'relacion_C_cum_Sn_cum_prev', 'masa_escoria_est_kg_prev', 'sn_inventario_escoria_est_kg_prev', 'feo_inventario_escoria_est_kg_prev', 'avance_reduccion_sn_prev', 'orden_escalon_fase', 'tiempo_fase', 'espesor_ladrillo_norm_mm', 'ley_sn_carga_batch_pct', 'ley_sn_dross_batch_pct', 'ley_sn_pellets_batch_pct']
+palancas: ['tasa_feed_Carbon_kg_min', 'Cx_av_v4', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min']
+
+  feo_ext/v3_single (n_dev=1045, n_lockbox=242): R2_oof_interno=+0.3671  R2_lockbox=+0.3783
+                          theta_unidad     ci_lo     ci_hi  significativo  signo_teorico  concuerda
+palanca                                                                                            
+tasa_feed_Carbon_kg_min       18.81051 -13.26044  59.26913          False              1       True
+Cx_av_v4                     -17.28843 -58.62951  19.20178          False              1      False
+tasa_gn_nm3_min               11.53304  -9.03635  33.05815          False              1       True
+exceso_o2_combustion_pct      -4.65842  -9.18484  -0.46451           True             -1       True
+tasa_aire_nm3_min              0.85879  -4.28775   5.64793          False             -1      False
+
+  feo_ext/multi (n_dev=758, n_lockbox=179): R2_oof_interno=-0.0340  R2_lockbox=-1.0435
+                          theta_unidad      ci_lo      ci_hi  significativo  signo_teorico  concuerda
+palanca                                                                                              
+tasa_feed_Carbon_kg_min      113.38499  -54.59505  391.03565          False              1       True
+Cx_av_v4                    -103.16278 -375.07951   66.36917          False              1      False
+tasa_gn_nm3_min              -16.48158 -132.66140   44.72882          False              1      False
+exceso_o2_combustion_pct      -6.79202  -23.79716    2.58781          False             -1       True
+tasa_aire_nm3_min              5.87015   -4.99154   17.25657          False             -1      False
+
+  sdi/v3_single (n_dev=1015, n_lockbox=242): R2_oof_interno=+0.1314  R2_lockbox=+0.1431
+                          theta_unidad    ci_lo    ci_hi  significativo  signo_teorico  concuerda
+palanca                                                                                          
+tasa_feed_Carbon_kg_min        0.01225 -0.04025  0.04601          False              1       True
+Cx_av_v4                      -0.00745 -0.05194  0.05546          False              1      False
+tasa_gn_nm3_min               -0.03059 -0.05768 -0.00039           True              1      False
+exceso_o2_combustion_pct       0.00054 -0.00496  0.00567          False             -1      False
+tasa_aire_nm3_min              0.00391 -0.00216  0.01141          False             -1      False
+
+  sdi/multi (n_dev=727, n_lockbox=179): R2_oof_interno=+0.0216  R2_lockbox=-0.3979
+                          theta_unidad    ci_lo    ci_hi  significativo  signo_teorico  concuerda
+palanca                                                                                          
+tasa_feed_Carbon_kg_min        0.04255 -0.08771  0.18446          False              1       True
+Cx_av_v4                      -0.04268 -0.18833  0.08442          False              1      False
+tasa_gn_nm3_min               -0.00516 -0.03536  0.03556          False              1      False
+exceso_o2_combustion_pct       0.00087 -0.00459  0.00738          False             -1      False
+tasa_aire_nm3_min             -0.00187 -0.00937  0.00575          False             -1       True
+
+Ancho de IC (ci_hi - ci_lo) de las palancas de carbon, v3 vs multi:
+  feo_ext    / tasa_feed_Carbon_kg_min : v3_single=72.53, multi=445.63
+  sdi        / tasa_feed_Carbon_kg_min : v3_single=0.086253, multi=0.27217
+  feo_ext    / Cx_av_v4                : v3_single=77.831, multi=441.45
+  sdi        / Cx_av_v4                : v3_single=0.1074, multi=0.27274
+
+==============================================================================
+TAREA 5 -- residuo de masa (b6_residuo_masa_kg): senal vs ruido
+==============================================================================
+n escalones con residuo valido: 957
+
+b6_residuo_masa_kg por orden de escalon de Reduccion:
+ orden_escalon_fase   n   media       sd       p5    p50     p95
+                  1 348 1080.28 11241.16 -1694.98 367.10 2621.20
+                  2 353 -384.19  9215.35 -1851.75   0.00 1958.06
+                  3 256  -11.17  2417.03 -1682.27  -6.68 1571.65
+
+Spearman de b6_residuo_masa_kg con controles del proceso (DEV):
+                      variable muestra   n     rho  p_rho  ci_low  ci_high
+                tiro_horno_pct     dev 775 -0.0137 0.7032 -0.0819   0.0502
+     total_process_gas_nm3_min     dev 776  0.1327 0.0002  0.0554   0.2042
+               tasa_gn_nm3_min     dev 776  0.1572 0.0000  0.0819   0.2230
+    posicion_vertical_lanza_mm     dev 776  0.0421 0.2418 -0.0264   0.1073
+temperatura_horno_celsius_prev     dev 778  0.0468 0.1926 -0.0255   0.1164
+      b6_dispersion_trazadores     dev 778  0.0002 0.9955 -0.0736   0.0654
+
+Spearman de la suma por batch de b6_residuo_masa_kg con KPIs (DEV):
+                    kpi muestra   n     rho  p_rho  ci_low  ci_high
+                f_polvo     dev 297 -0.0617 0.2894 -0.1786   0.0675
+             sn_polvo_t     dev 297 -0.0659 0.2573 -0.1761   0.0535
+rendimiento_proxy_batch     dev 297  0.0535 0.3583 -0.0593   0.1644
+
+Tiempo total: 198.4s

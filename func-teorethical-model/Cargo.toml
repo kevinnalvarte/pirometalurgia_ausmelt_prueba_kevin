@@ -1,0 +1,42 @@
+[package]
+name = "theoretical_model"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = ["use_f64"]
+use_f32 = []
+use_f64 = []
+with_openssl = ["openssl"]  # Añadimos la característica opcional
+
+
+[dependencies]
+warp = "0.3"
+tokio = { version = "1", features = ["rt", "macros", "rt-multi-thread"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+polars = {version = "0.39.2", features = ["json", "lazy", "is_in"]}
+serde_with = "3.8.0"
+regex = "1.10.4"
+reqwest = { version = "0.12.4" , features = ["json"] }
+dotenv = "0.15.0"
+lazy_static = "1.4.0"
+log = "0.4.21"
+env_logger = "0.11.3"
+openssl = { version = "0.10", features = ["vendored"], optional = true }  # Hacemos openssl opcional
+
+[profile.dev]
+incremental = true
+
+[target.'cfg(target_os = "linux")'.dependencies]
+openssl = { version = "0.10", features = ["vendored"], optional = false }  # Forzamos openssl para Linux
+
+[target.x86_64-unknown-linux-musl]
+[profile.release]
+opt-level = "z"            # Optimiza para tamaño
+lto = true                 # Habilita Link Time Optimization
+codegen-units = 1          # Reduce el número de unidades de generación de código para maximizar las optimizaciones
+panic = "abort"            # Usa el modo 'abort' para panics en lugar de 'unwind'
+strip = "symbols"          # Quita símbolos de depuración del binario final

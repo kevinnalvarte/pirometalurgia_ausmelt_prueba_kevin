@@ -1,0 +1,119 @@
+df (3982, 282), batch (362, 93)  (11.0s)
+heel: irf_F0 no-NaN=359/362, irf_R_prev no-NaN=361/362 (NaN esperado en el primer batch cronologico: no hay Reduccion anterior)
+familia2 (st_09_batch.csv) NO existe todavia -> se continua SIN ella (ST-09 no habia terminado al arrancar ST-10).
+kpi_dos_batches: 361/362 no-NaN (NaN esperado en el ultimo batch cronologico)
+FEATURES totales: 45 (= 38 st_ + 2 heel + 5 controles + 0 familia2)
+DEV n=299, lockbox n=63
+candidatos elegibles para el compuesto (agg in sum/product/last, o heel terminal): 24
+['heel_irf_F0', 'heel_irf_R_prev', 'st_F01_sn_ext', 'st_F03_feo_formado', 'st_F05_ley_feo_next', 'st_F06_B2_ventana', 'st_F10_irf_next', 'st_F11_log_sn_feo_next', 'st_F12_d_log_sn_feo', 'st_F15_dT', 'st_R01_sn_ext', 'st_R02_feo_ret', 'st_R03_sn_net_l03', 'st_R04_sn_net_l06', 'st_R05_sn_net_l10', 'st_R08_feo_ret_frac', 'st_R12_d_avance', 'st_R13_sn_residual', 'st_R14_log_sn_feo_next', 'st_R15_d_log_sn_feo', 'st_R17_dT', 'st_R20_fe_metalizado_por_sn', 'st_R21_ln_feo_ret', 'st_R22_sdi']
+
+=== Modelos x KPI (KFold5 x5 repeticiones, DEV) + DEV->lockbox ===
+rendimiento_proxy_batch    Ridge          n_dev=299  R2_OOF +0.197(±0.021)  rho_OOF +0.464(±0.014)  MAE 3.152  ||  lockbox R2 +0.089 rho +0.336 (p=0.00701, n=63)
+rendimiento_proxy_batch    Lasso          n_dev=299  R2_OOF +0.188(±0.005)  rho_OOF +0.450(±0.009)  MAE 3.213  ||  lockbox R2 +0.028 rho +0.305 (p=0.0149, n=63)
+rendimiento_proxy_batch    ElasticNet     n_dev=299  R2_OOF +0.189(±0.008)  rho_OOF +0.450(±0.006)  MAE 3.212  ||  lockbox R2 +0.032 rho +0.315 (p=0.0121, n=63)
+rendimiento_proxy_batch    HGB            n_dev=299  R2_OOF +0.113(±0.029)  rho_OOF +0.394(±0.028)  MAE 3.403  ||  lockbox R2 +0.126 rho +0.488 (p=4.9e-05, n=63)
+rendimiento_proxy_batch    OLS_ganadores  n_dev=299  R2_OOF +0.170(±0.010)  rho_OOF +0.416(±0.011)  MAE 3.259  ||  lockbox R2 +0.080 rho +0.444 (p=0.000267, n=63)
+f_dross                    Ridge          n_dev=299  R2_OOF +0.161(±0.027)  rho_OOF +0.416(±0.021)  MAE 0.027  ||  lockbox R2 -0.241 rho +0.291 (p=0.0208, n=63)
+f_dross                    Lasso          n_dev=299  R2_OOF +0.161(±0.024)  rho_OOF +0.405(±0.021)  MAE 0.027  ||  lockbox R2 -0.567 rho +0.270 (p=0.0323, n=63)
+f_dross                    ElasticNet     n_dev=299  R2_OOF +0.161(±0.026)  rho_OOF +0.406(±0.024)  MAE 0.027  ||  lockbox R2 -0.548 rho +0.262 (p=0.0384, n=63)
+f_dross                    HGB            n_dev=299  R2_OOF +0.139(±0.017)  rho_OOF +0.411(±0.027)  MAE 0.027  ||  lockbox R2 +0.145 rho +0.589 (p=3.91e-07, n=63)
+f_dross                    OLS_ganadores  n_dev=299  R2_OOF +0.059(±0.006)  rho_OOF +0.203(±0.012)  MAE 0.029  ||  lockbox R2 -0.154 rho +0.229 (p=0.0707, n=63)
+f_polvo                    Ridge          n_dev=299  R2_OOF +0.086(±0.014)  rho_OOF +0.314(±0.022)  MAE 0.024  ||  lockbox R2 -0.022 rho +0.094 (p=0.466, n=63)
+f_polvo                    Lasso          n_dev=299  R2_OOF +0.052(±0.027)  rho_OOF +0.259(±0.065)  MAE 0.025  ||  lockbox R2 +0.047 rho +0.181 (p=0.157, n=63)
+f_polvo                    ElasticNet     n_dev=299  R2_OOF +0.052(±0.027)  rho_OOF +0.259(±0.065)  MAE 0.025  ||  lockbox R2 +0.041 rho +0.156 (p=0.224, n=63)
+f_polvo                    HGB            n_dev=299  R2_OOF -0.047(±0.048)  rho_OOF +0.218(±0.042)  MAE 0.026  ||  lockbox R2 -0.193 rho -0.017 (p=0.892, n=63)
+f_polvo                    OLS_ganadores  n_dev=299  R2_OOF +0.058(±0.015)  rho_OOF +0.283(±0.029)  MAE 0.025  ||  lockbox R2 +0.014 rho +0.136 (p=0.289, n=63)
+recuperacion_real_pct      Ridge          n_dev=299  R2_OOF +0.133(±0.024)  rho_OOF +0.403(±0.013)  MAE 3.744  ||  lockbox R2 -0.113 rho +0.500 (p=3.07e-05, n=63)
+recuperacion_real_pct      Lasso          n_dev=299  R2_OOF +0.119(±0.016)  rho_OOF +0.351(±0.009)  MAE 3.746  ||  lockbox R2 -0.277 rho +0.483 (p=6.1e-05, n=63)
+recuperacion_real_pct      ElasticNet     n_dev=299  R2_OOF +0.120(±0.020)  rho_OOF +0.361(±0.020)  MAE 3.753  ||  lockbox R2 -0.192 rho +0.516 (p=1.48e-05, n=63)
+recuperacion_real_pct      HGB            n_dev=299  R2_OOF +0.108(±0.022)  rho_OOF +0.395(±0.023)  MAE 3.805  ||  lockbox R2 -0.075 rho +0.365 (p=0.00327, n=63)
+recuperacion_real_pct      OLS_ganadores  n_dev=299  R2_OOF +0.057(±0.005)  rho_OOF +0.272(±0.005)  MAE 3.854  ||  lockbox R2 +0.123 rho +0.491 (p=4.45e-05, n=63)
+kpi_dos_batches            Ridge          n_dev=299  R2_OOF +0.069(±0.059)  rho_OOF +0.343(±0.036)  MAE 2.641  ||  lockbox R2 +0.026 rho +0.401 (p=0.00125, n=62)
+kpi_dos_batches            Lasso          n_dev=299  R2_OOF +0.089(±0.015)  rho_OOF +0.308(±0.033)  MAE 2.675  ||  lockbox R2 -0.117 rho +0.370 (p=0.00309, n=62)
+kpi_dos_batches            ElasticNet     n_dev=299  R2_OOF +0.085(±0.014)  rho_OOF +0.302(±0.031)  MAE 2.682  ||  lockbox R2 -0.117 rho +0.376 (p=0.00259, n=62)
+kpi_dos_batches            HGB            n_dev=299  R2_OOF +0.170(±0.057)  rho_OOF +0.426(±0.052)  MAE 2.541  ||  lockbox R2 -0.115 rho +0.416 (p=0.00077, n=62)
+kpi_dos_batches            OLS_ganadores  n_dev=299  R2_OOF +0.078(±0.012)  rho_OOF +0.299(±0.025)  MAE 2.683  ||  lockbox R2 +0.020 rho +0.512 (p=2.08e-05, n=62)
+
+=== Walk-forward cronologico por bloques (5 bloques, forward-chaining), rendimiento_proxy_batch ===
+walk-forward  Ridge          n=239  R2 +0.058  rho +0.267 (p=2.95e-05)  MAE 3.565
+walk-forward  Lasso          n=239  R2 -0.091  rho +0.088 (p=0.177)  MAE 3.864
+walk-forward  ElasticNet     n=239  R2 -0.085  rho +0.098 (p=0.132)  MAE 3.856
+walk-forward  HGB            n=239  R2 -0.123  rho +0.197 (p=0.00216)  MAE 3.899
+walk-forward  OLS_ganadores  n=239  R2 +0.086  rho +0.307 (p=1.3e-06)  MAE 3.449
+
+*** TECHO (HGB, todas las 45 columnas, rendimiento_proxy_batch): R2_OOF = +0.113 (±0.029), rho_OOF = +0.394, R2_lockbox = +0.126 ***
+
+=== Seleccion parsimoniosa (target = rendimiento_proxy_batch) ===
+Orden de entrada al Lasso path (variable, alpha de entrada), primeras 10:
+  st_R01_sn_ext                alpha=0.0003
+  st_R02_feo_ret               alpha=0.0003
+  st_R03_sn_net_l03            alpha=0.0003
+  st_R05_sn_net_l10            alpha=0.0003
+  st_R08_feo_ret_frac          alpha=0.0003
+  st_R12_d_avance              alpha=0.0003
+  st_R13_sn_residual           alpha=0.0003
+  st_R14_log_sn_feo_next       alpha=0.0003
+  st_R15_d_log_sn_feo          alpha=0.0003
+  st_R17_dT                    alpha=0.0003
+
+Estabilidad (frecuencia de seleccion en 100 bootstraps LassoCV), top 12:
+heel_irf_F0               1.00
+st_R02_feo_ret            0.99
+st_F15_dT                 0.91
+st_R17_dT                 0.83
+st_R15_d_log_sn_feo       0.81
+st_F01_sn_ext             0.80
+heel_irf_R_prev           0.78
+st_F12_d_log_sn_feo       0.75
+st_R22_sdi                0.72
+st_F06_B2_ventana         0.62
+st_F11_log_sn_feo_next    0.47
+st_R13_sn_residual        0.45
+stepwise k=1: +heel_irf_F0                  R2_OOF(CV5) = +0.090  |  set = ['heel_irf_F0']
+stepwise k=2: +st_R02_feo_ret               R2_OOF(CV5) = +0.187  |  set = ['heel_irf_F0', 'st_R02_feo_ret']
+stepwise k=3: +st_R22_sdi                   R2_OOF(CV5) = +0.206  |  set = ['heel_irf_F0', 'st_R02_feo_ret', 'st_R22_sdi']
+stepwise k=4: +st_F11_log_sn_feo_next       R2_OOF(CV5) = +0.213  |  set = ['heel_irf_F0', 'st_R02_feo_ret', 'st_R22_sdi', 'st_F11_log_sn_feo_next']
+stepwise k=5: +st_F12_d_log_sn_feo          R2_OOF(CV5) = +0.218  |  set = ['heel_irf_F0', 'st_R02_feo_ret', 'st_R22_sdi', 'st_F11_log_sn_feo_next', 'st_F12_d_log_sn_feo']
+stepwise k=6: +st_F15_dT                    R2_OOF(CV5) = +0.223  |  set = ['heel_irf_F0', 'st_R02_feo_ret', 'st_R22_sdi', 'st_F11_log_sn_feo_next', 'st_F12_d_log_sn_feo', 'st_F15_dT']
+stepwise k=7: +st_R17_dT                    R2_OOF(CV5) = +0.229  |  set = ['heel_irf_F0', 'st_R02_feo_ret', 'st_R22_sdi', 'st_F11_log_sn_feo_next', 'st_F12_d_log_sn_feo', 'st_F15_dT', 'st_R17_dT']
+stepwise k=8: +heel_irf_R_prev              R2_OOF(CV5) = +0.232  |  set = ['heel_irf_F0', 'st_R02_feo_ret', 'st_R22_sdi', 'st_F11_log_sn_feo_next', 'st_F12_d_log_sn_feo', 'st_F15_dT', 'st_R17_dT', 'heel_irf_R_prev']
+
+*** COMPUESTO ELEGIDO (<=6 terminos, mejor R2_OOF CV5): ['heel_irf_F0', 'st_R02_feo_ret', 'st_R22_sdi', 'st_F11_log_sn_feo_next', 'st_F12_d_log_sn_feo', 'st_F15_dT'] R2_OOF(CV5)=+0.223 ***
+Compuesto (protocolo completo, 5x5): R2_OOF=+0.208(±0.011) rho_OOF=+0.460(±0.013) MAE=3.183  ||  lockbox R2=+0.111 rho=+0.346 (p=0.00552, n=63)
+
+Coeficientes estandarizados del compuesto (OLS, DEV, IC bootstrap 100):
+               termino  coef_std   ic_lo   ic_hi  p_full           agg         familia
+                 const   69.0801 68.5370 69.6437  0.0000         const             NaN
+           heel_irf_F0    2.0032  1.4507  2.5824  0.0000 heel_terminal            heel
+        st_R02_feo_ret    0.9285  0.5109  1.6256  0.0012           sum sobre-reduccion
+            st_R22_sdi    0.8225  0.3434  1.2207  0.0034           sum    selectividad
+st_F11_log_sn_feo_next    0.7150  0.1600  1.3156  0.0191          last    conservacion
+   st_F12_d_log_sn_feo   -0.5688 -1.1159  0.1416  0.0730           sum    conservacion
+             st_F15_dT   -0.4057 -0.7954  0.1136  0.1025           sum         termico
+
+Formula por escalon del compuesto elegido (cada termino ya viene orientado mayor=mejor):
+  score_batch = +2.003*z(heel_irf_F0)  +0.929*z(st_R02_feo_ret)  +0.822*z(st_R22_sdi)  +0.715*z(st_F11_log_sn_feo_next)  -0.569*z(st_F12_d_log_sn_feo)  -0.406*z(st_F15_dT)
+  (z = estandarizado con media/sd de DEV; cada st_<id> con agg='sum' o 'product' es una suma/producto
+   telescopico de un termino por escalon -> el recomendador puede maximizar el termino de escalon
+   correspondiente en cada paso; los terminos 'last'/heel son estados terminales de la fase/heel,
+   validos como target del ULTIMO escalon o como covariable de estado inicial, no como suma por paso.)
+
+=== Permutation importance HGB (rendimiento_proxy_batch, todas las columnas) ===
+                    feature  importance_mean  importance_sd
+                heel_irf_F0           0.1630         0.0875
+             st_F07_T_media           0.0623         0.0295
+         st_F03_feo_formado           0.0478         0.0435
+                 st_R22_sdi           0.0417         0.0457
+            feed_sn_total_t           0.0396         0.0235
+        st_F05_ley_feo_next           0.0267         0.0111
+      ley_sn_conc_batch_pct           0.0233         0.0143
+   espesor_ladrillo_norm_mm           0.0233         0.0094
+                  st_R17_dT           0.0171         0.0135
+st_R20_fe_metalizado_por_sn           0.0157         0.0155
+             st_R02_feo_ret           0.0153         0.0169
+           st_F09_T_gas_bhf           0.0118         0.0165
+           st_R18_T_ventana           0.0114         0.0095
+     st_R14_log_sn_feo_next           0.0100         0.0149
+        st_R09_selectividad           0.0096         0.0031
+
+tiempo total 461.1s

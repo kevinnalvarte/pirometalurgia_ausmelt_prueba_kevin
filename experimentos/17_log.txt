@@ -1,0 +1,224 @@
+====================================================================================================
+Experimento 17 -- estabilidad temporal y deriva de campana
+====================================================================================================
+Batches: 362 total, 299 DEV, 63 lockbox (primer lockbox=AP0300, ultimo=AP0362)
+
+----------------------------------------------------------------------------------------------------
+1) Walk-forward cronologico (TimeSeriesSplit sobre batches DEV) vs OOF GroupKFold aleatorio
+----------------------------------------------------------------------------------------------------
+  Fusión    sn_kg  bloque 0: n_train= 315 n_test= 292 R2=+0.671 MAE=1099.4
+  Fusión    sn_kg  bloque 1: n_train= 607 n_test= 293 R2=+0.734 MAE=989.5
+  Fusión    sn_kg  bloque 2: n_train= 900 n_test= 287 R2=+0.697 MAE=1085.3
+  Fusión    sn_kg  bloque 3: n_train=1187 n_test= 277 R2=+0.708 MAE=1191.5
+  Fusión    sn_kg  bloque 4: n_train=1464 n_test= 285 R2=+0.631 MAE=1354.5
+  Fusión    sn_kg  GLOBAL: OOF aleatorio R2=+0.722 MAE=1036.8 | walk-forward R2=+0.688 MAE=1142.6 | brecha R2=+0.034
+  Reducción sn_kg  bloque 0: n_train= 191 n_test= 178 R2=+0.953 MAE=535.8
+  Reducción sn_kg  bloque 1: n_train= 369 n_test= 171 R2=+0.982 MAE=316.1
+  Reducción sn_kg  bloque 2: n_train= 540 n_test= 177 R2=+0.974 MAE=402.5
+  Reducción sn_kg  bloque 3: n_train= 717 n_test= 172 R2=+0.959 MAE=420.3
+  Reducción sn_kg  bloque 4: n_train= 889 n_test= 187 R2=+0.982 MAE=340.8
+  Reducción sn_kg  GLOBAL: OOF aleatorio R2=+0.971 MAE=361.8 | walk-forward R2=+0.970 MAE=403.0 | brecha R2=+0.002
+  Reducción feo_kg bloque 0: n_train= 189 n_test= 178 R2=+0.012 MAE=603.4
+  Reducción feo_kg bloque 1: n_train= 367 n_test= 171 R2=+0.194 MAE=557.5
+  Reducción feo_kg bloque 2: n_train= 538 n_test= 180 R2=+0.429 MAE=559.9
+  Reducción feo_kg bloque 3: n_train= 718 n_test= 171 R2=+0.030 MAE=585.5
+  Reducción feo_kg bloque 4: n_train= 889 n_test= 182 R2=+0.284 MAE=719.4
+  Reducción feo_kg GLOBAL: OOF aleatorio R2=+0.286 MAE=571.2 | walk-forward R2=+0.227 MAE=606.1 | brecha R2=+0.059
+  Reducción dT     bloque 0: n_train= 216 n_test= 196 R2=+0.085 MAE=10.7
+  Reducción dT     bloque 1: n_train= 412 n_test= 196 R2=-0.178 MAE=17.8
+  Reducción dT     bloque 2: n_train= 608 n_test= 196 R2=+0.047 MAE=16.3
+  Reducción dT     bloque 3: n_train= 804 n_test= 196 R2=-0.190 MAE=10.6
+  Reducción dT     bloque 4: n_train=1000 n_test= 196 R2=-0.031 MAE=8.3
+  Reducción dT     GLOBAL: OOF aleatorio R2=+0.444 MAE=9.3 | walk-forward R2=+0.092 MAE=12.8 | brecha R2=+0.352
+
+Guardado 17_walkforward.csv
+
+----------------------------------------------------------------------------------------------------
+2) Reentrenamiento por ventana (evaluado SOLO en lockbox; no se selecciona nada con el lockbox)
+----------------------------------------------------------------------------------------------------
+  Fusión    sn_kg  politica=todo_dev     n_train=1749 R2_lockbox=+0.680 MAE_lockbox=1113.1
+  Fusión    sn_kg  politica=ultimos_150  n_train= 861 R2_lockbox=+0.659 MAE_lockbox=1189.2
+  Fusión    sn_kg  politica=ultimos_100  n_train= 568 R2_lockbox=+0.577 MAE_lockbox=1285.6
+  Fusión    sn_kg  politica=ultimos_60   n_train= 348 R2_lockbox=+0.628 MAE_lockbox=1229.7
+  Fusión    sn_kg  progresivo bloque 0 (batches AP0300..AP0309): n_train=1749 R2_bloque=+0.779 R2_acumulado=+0.779
+  Fusión    sn_kg  progresivo bloque 1 (batches AP0310..AP0319): n_train=1809 R2_bloque=+0.406 R2_acumulado=+0.633
+  Fusión    sn_kg  progresivo bloque 2 (batches AP0320..AP0329): n_train=1869 R2_bloque=+0.673 R2_acumulado=+0.646
+  Fusión    sn_kg  progresivo bloque 3 (batches AP0330..AP0339): n_train=1929 R2_bloque=+0.826 R2_acumulado=+0.699
+  Fusión    sn_kg  progresivo bloque 4 (batches AP0340..AP0349): n_train=1987 R2_bloque=+0.736 R2_acumulado=+0.706
+  Fusión    sn_kg  progresivo bloque 5 (batches AP0350..AP0359): n_train=2046 R2_bloque=+0.712 R2_acumulado=+0.707
+  Fusión    sn_kg  progresivo bloque 6 (batches AP0360..AP0362): n_train=2105 R2_bloque=+0.885 R2_acumulado=+0.718
+  Fusión    sn_kg  progresivo TOTAL: R2=+0.718 MAE=1023.0
+  Reducción sn_kg  politica=todo_dev     n_train=1076 R2_lockbox=+0.983 MAE_lockbox=347.4
+  Reducción sn_kg  politica=ultimos_150  n_train= 543 R2_lockbox=+0.977 MAE_lockbox=396.9
+  Reducción sn_kg  politica=ultimos_100  n_train= 363 R2_lockbox=+0.973 MAE_lockbox=407.8
+  Reducción sn_kg  politica=ultimos_60   n_train= 224 R2_lockbox=+0.970 MAE_lockbox=417.8
+  Reducción sn_kg  progresivo bloque 0 (batches AP0300..AP0309): n_train=1076 R2_bloque=+0.976 R2_acumulado=+0.976
+  Reducción sn_kg  progresivo bloque 1 (batches AP0310..AP0319): n_train=1114 R2_bloque=+0.977 R2_acumulado=+0.977
+  Reducción sn_kg  progresivo bloque 2 (batches AP0320..AP0329): n_train=1150 R2_bloque=+0.991 R2_acumulado=+0.982
+  Reducción sn_kg  progresivo bloque 3 (batches AP0330..AP0339): n_train=1190 R2_bloque=+0.985 R2_acumulado=+0.983
+  Reducción sn_kg  progresivo bloque 4 (batches AP0340..AP0349): n_train=1228 R2_bloque=+0.986 R2_acumulado=+0.984
+  Reducción sn_kg  progresivo bloque 5 (batches AP0350..AP0359): n_train=1266 R2_bloque=+0.971 R2_acumulado=+0.982
+  Reducción sn_kg  progresivo bloque 6 (batches AP0360..AP0362): n_train=1305 R2_bloque=+0.987 R2_acumulado=+0.982
+  Reducción sn_kg  progresivo TOTAL: R2=+0.982 MAE=360.9
+  Reducción feo_kg politica=todo_dev     n_train=1071 R2_lockbox=+0.271 MAE_lockbox=514.9
+  Reducción feo_kg politica=ultimos_150  n_train= 536 R2_lockbox=+0.210 MAE_lockbox=548.4
+  Reducción feo_kg politica=ultimos_100  n_train= 353 R2_lockbox=+0.153 MAE_lockbox=572.5
+  Reducción feo_kg politica=ultimos_60   n_train= 219 R2_lockbox=+0.003 MAE_lockbox=640.0
+  Reducción feo_kg progresivo bloque 0 (batches AP0300..AP0309): n_train=1071 R2_bloque=+0.225 R2_acumulado=+0.225
+  Reducción feo_kg progresivo bloque 1 (batches AP0310..AP0319): n_train=1109 R2_bloque=+0.398 R2_acumulado=+0.319
+  Reducción feo_kg progresivo bloque 2 (batches AP0320..AP0329): n_train=1147 R2_bloque=+0.330 R2_acumulado=+0.322
+  Reducción feo_kg progresivo bloque 3 (batches AP0330..AP0339): n_train=1187 R2_bloque=+0.463 R2_acumulado=+0.368
+  Reducción feo_kg progresivo bloque 4 (batches AP0340..AP0349): n_train=1225 R2_bloque=+0.036 R2_acumulado=+0.337
+  Reducción feo_kg progresivo bloque 5 (batches AP0350..AP0359): n_train=1263 R2_bloque=+0.167 R2_acumulado=+0.318
+  Reducción feo_kg progresivo bloque 6 (batches AP0360..AP0362): n_train=1302 R2_bloque=+0.362 R2_acumulado=+0.325
+  Reducción feo_kg progresivo TOTAL: R2=+0.325 MAE=491.2
+  Reducción dT     politica=todo_dev     n_train=1196 R2_lockbox=+0.320 MAE_lockbox=7.2
+  Reducción dT     politica=ultimos_150  n_train= 600 R2_lockbox=+0.318 MAE_lockbox=7.2
+  Reducción dT     politica=ultimos_100  n_train= 400 R2_lockbox=+0.306 MAE_lockbox=7.3
+  Reducción dT     politica=ultimos_60   n_train= 240 R2_lockbox=+0.213 MAE_lockbox=7.7
+  Reducción dT     progresivo bloque 0 (batches AP0300..AP0309): n_train=1196 R2_bloque=+0.177 R2_acumulado=+0.177
+  Reducción dT     progresivo bloque 1 (batches AP0310..AP0319): n_train=1236 R2_bloque=+0.410 R2_acumulado=+0.302
+  Reducción dT     progresivo bloque 2 (batches AP0320..AP0329): n_train=1276 R2_bloque=+0.471 R2_acumulado=+0.362
+  Reducción dT     progresivo bloque 3 (batches AP0330..AP0339): n_train=1316 R2_bloque=+0.383 R2_acumulado=+0.377
+  Reducción dT     progresivo bloque 4 (batches AP0340..AP0349): n_train=1356 R2_bloque=+0.639 R2_acumulado=+0.422
+  Reducción dT     progresivo bloque 5 (batches AP0350..AP0359): n_train=1396 R2_bloque=+0.575 R2_acumulado=+0.444
+  Reducción dT     progresivo bloque 6 (batches AP0360..AP0362): n_train=1436 R2_bloque=+0.370 R2_acumulado=+0.453
+  Reducción dT     progresivo TOTAL: R2=+0.453 MAE=6.2
+
+Guardado 17_reentrenamiento_ventana.csv
+
+----------------------------------------------------------------------------------------------------
+3) Sets con/sin contexto de campana + temperatura como desviacion de mediana movil de 20 batches previos
+----------------------------------------------------------------------------------------------------
+  temp_desv_movil20_prev: 3570/3620 filas validas (NaN en los primeros ~20 batches cronologicos, sin historia previa suficiente)
+  Fusión sn_kg: campana presente en default=ninguna -> sin_campana =default (nada que quitar), con_campana agrega ['espesor_ladrillo_norm_mm', 'termocupla_media_celsius_prev']
+    set=default            k=13 R2_oof=+0.722 R2_lockbox=+0.680 MAE_lockbox=1113.1
+    set=sin_campana        k=13 R2_oof=+0.722 R2_lockbox=+0.680 MAE_lockbox=1113.1
+    set=con_campana        k=15 R2_oof=+0.725 R2_lockbox=+0.683 MAE_lockbox=1126.9
+    set=temp_desv_movil20  k=13 R2_oof=+0.718 R2_lockbox=+0.688 MAE_lockbox=1087.9
+  Reducción sn_kg: campana presente en default=ninguna -> sin_campana =default (nada que quitar), con_campana agrega ['espesor_ladrillo_norm_mm', 'termocupla_media_celsius_prev']
+    set=default            k=10 R2_oof=+0.971 R2_lockbox=+0.983 MAE_lockbox=347.4
+    set=sin_campana        k=10 R2_oof=+0.971 R2_lockbox=+0.983 MAE_lockbox=347.4
+    set=con_campana        k=12 R2_oof=+0.971 R2_lockbox=+0.984 MAE_lockbox=348.1
+    set=temp_desv_movil20  k=10 R2_oof=+0.972 R2_lockbox=+0.983 MAE_lockbox=345.3
+
+Guardado 17_sets_campana.csv
+
+----------------------------------------------------------------------------------------------------
+4) Estabilidad de efectos_marginales_palancas_v3 por mitades cronologicas de DEV y lockbox
+----------------------------------------------------------------------------------------------------
+  dev_primera_mitad: 149 batches (AP0001..AP0149)
+  dev_segunda_mitad: 150 batches (AP0150..AP0299)
+  lockbox: 63 batches (AP0300..AP0362)
+  Fusión    sn_kg  dev_primera_mitad  tasa_feed_Carbon_kg_min    theta_1sd=   -60.78 [  -249.19,  +171.61] n=888
+  Fusión    sn_kg  dev_primera_mitad  tasa_feed_CaO_kg_min       theta_1sd=  -222.09 [  -620.29,  +276.99] n=888
+  Fusión    sn_kg  dev_primera_mitad  tasa_feed_total_kg_min     theta_1sd=  +291.63 [   +47.95,  +453.51] n=888
+  Fusión    sn_kg  dev_primera_mitad  tasa_gn_nm3_min            theta_1sd=  +115.74 [  -196.03,  +446.16] n=888
+  Fusión    sn_kg  dev_primera_mitad  tasa_o2_nm3_min            theta_1sd=   -10.84 [  -369.89,  +369.38] n=888
+  Fusión    sn_kg  dev_primera_mitad  tasa_aire_nm3_min          theta_1sd=   +36.83 [  -102.89,  +220.82] n=888
+  Fusión    sn_kg  dev_primera_mitad  duracion_plan_min          theta_1sd=   -23.69 [  -917.27, +1082.56] n=888
+  Fusión    sn_kg  dev_segunda_mitad  tasa_feed_Carbon_kg_min    theta_1sd=  +210.07 [   -21.19,  +501.08] n=861
+  Fusión    sn_kg  dev_segunda_mitad  tasa_feed_CaO_kg_min       theta_1sd=  -412.61 [  -680.21,  -157.64] n=861
+  Fusión    sn_kg  dev_segunda_mitad  tasa_feed_total_kg_min     theta_1sd=  +391.18 [  +169.35,  +727.40] n=861
+  Fusión    sn_kg  dev_segunda_mitad  tasa_gn_nm3_min            theta_1sd=  +154.18 [    -0.28,  +327.25] n=861
+  Fusión    sn_kg  dev_segunda_mitad  tasa_o2_nm3_min            theta_1sd=  +187.37 [   +43.08,  +360.97] n=861
+  Fusión    sn_kg  dev_segunda_mitad  tasa_aire_nm3_min          theta_1sd=    +3.84 [  -158.03,  +153.36] n=861
+  Fusión    sn_kg  dev_segunda_mitad  duracion_plan_min          theta_1sd=  +155.06 [ -1569.15, +1662.16] n=861
+  Fusión    sn_kg  lockbox            tasa_feed_Carbon_kg_min    theta_1sd=   +73.60 [  -234.51,  +385.79] n=374
+  Fusión    sn_kg  lockbox            tasa_feed_CaO_kg_min       theta_1sd=  -309.56 [  -617.31,   +28.31] n=374
+  Fusión    sn_kg  lockbox            tasa_feed_total_kg_min     theta_1sd=  +658.47 [  +362.09,  +966.99] n=374
+  Fusión    sn_kg  lockbox            tasa_gn_nm3_min            theta_1sd=  -360.66 [  -702.48,  -151.06] n=374
+  Fusión    sn_kg  lockbox            tasa_o2_nm3_min            theta_1sd=  +446.74 [  +148.58,  +751.55] n=374
+  Fusión    sn_kg  lockbox            tasa_aire_nm3_min          theta_1sd=   +75.01 [  -213.80,  +324.95] n=374
+  Fusión    sn_kg  lockbox            duracion_plan_min          theta_1sd= +1432.71 [  +133.44, +3163.76] n=374
+  Reducción sn_kg  dev_primera_mitad  tasa_feed_Carbon_kg_min    theta_1sd=    +2.07 [  -250.64,  +196.04] n=533
+  Reducción sn_kg  dev_primera_mitad  tasa_gn_nm3_min            theta_1sd=  +177.15 [   +38.27,  +314.70] n=533
+  Reducción sn_kg  dev_primera_mitad  tasa_o2_nm3_min            theta_1sd=    +1.86 [  -117.85,  +174.56] n=533
+  Reducción sn_kg  dev_primera_mitad  tasa_aire_nm3_min          theta_1sd=    +1.74 [   -46.45,   +76.60] n=533
+  Reducción sn_kg  dev_primera_mitad  duracion_plan_min          theta_1sd=  +470.35 [ -4291.20, +2498.69] n=533
+  Reducción sn_kg  dev_segunda_mitad  tasa_feed_Carbon_kg_min    theta_1sd=  +437.00 [   -65.21,  +775.93] n=543
+  Reducción sn_kg  dev_segunda_mitad  tasa_gn_nm3_min            theta_1sd=  +114.54 [   +36.62,  +213.28] n=543
+  Reducción sn_kg  dev_segunda_mitad  tasa_o2_nm3_min            theta_1sd=    -3.09 [  -112.38,   +90.72] n=543
+  Reducción sn_kg  dev_segunda_mitad  tasa_aire_nm3_min          theta_1sd=   -30.22 [   -91.58,    +7.47] n=543
+  Reducción sn_kg  dev_segunda_mitad  duracion_plan_min          theta_1sd= -4657.62 [-131024.74,+101228.90] n=543
+  Reducción sn_kg  lockbox            tasa_feed_Carbon_kg_min    theta_1sd=  -155.29 [  -403.18,  +133.04] n=238
+  Reducción sn_kg  lockbox            tasa_gn_nm3_min            theta_1sd=  +183.39 [   +33.08,  +396.52] n=238
+  Reducción sn_kg  lockbox            tasa_o2_nm3_min            theta_1sd=   -75.32 [  -252.42,   +95.33] n=238
+  Reducción sn_kg  lockbox            tasa_aire_nm3_min          theta_1sd=   -11.09 [   -62.74,   +58.23] n=238
+  Reducción sn_kg  lockbox            duracion_plan_min          theta_1sd= -1810.25 [ -4596.95, -1029.42] n=238
+  Reducción feo_kg dev_primera_mitad  tasa_feed_Carbon_kg_min    theta_1sd=   +27.71 [  -115.79,  +179.23] n=535
+  Reducción feo_kg dev_primera_mitad  tasa_gn_nm3_min            theta_1sd=    -2.36 [  -133.76,  +149.50] n=535
+  Reducción feo_kg dev_primera_mitad  tasa_o2_nm3_min            theta_1sd=    -3.10 [  -155.62,  +140.09] n=535
+  Reducción feo_kg dev_primera_mitad  tasa_aire_nm3_min          theta_1sd=   -34.92 [  -104.49,   +59.37] n=535
+  Reducción feo_kg dev_primera_mitad  duracion_plan_min          theta_1sd=  +373.40 [ -3024.86, +3727.40] n=535
+  Reducción feo_kg dev_segunda_mitad  tasa_feed_Carbon_kg_min    theta_1sd=   +48.45 [  -344.85,  +302.48] n=536
+  Reducción feo_kg dev_segunda_mitad  tasa_gn_nm3_min            theta_1sd=  +220.68 [   +58.57,  +382.86] n=536
+  Reducción feo_kg dev_segunda_mitad  tasa_o2_nm3_min            theta_1sd=   -71.33 [  -253.19,   +81.53] n=536
+  Reducción feo_kg dev_segunda_mitad  tasa_aire_nm3_min          theta_1sd=   +11.28 [   -91.62,   +62.02] n=536
+  Reducción feo_kg dev_segunda_mitad  duracion_plan_min          theta_1sd= +4636.13 [-161281.45,+112607.09] n=536
+  Reducción feo_kg lockbox            tasa_feed_Carbon_kg_min    theta_1sd=  +238.56 [   -59.93,  +607.48] n=242
+  Reducción feo_kg lockbox            tasa_gn_nm3_min            theta_1sd=   +99.05 [  -107.33,  +410.30] n=242
+  Reducción feo_kg lockbox            tasa_o2_nm3_min            theta_1sd=  -244.10 [  -579.54,    +6.78] n=242
+  Reducción feo_kg lockbox            tasa_aire_nm3_min          theta_1sd=   +56.03 [   -54.45,  +121.05] n=242
+  Reducción feo_kg lockbox            duracion_plan_min          theta_1sd= -1500.55 [-44184.07,+54756.97] n=242
+
+Guardado 17_efectos_por_periodo.csv
+
+Resumen de estabilidad (signo igual en los 3 periodos AND IC se solapan en las 3 comparaciones):
+     fase clave_target                 palanca  mismo_signo_3_periodos  estable
+   Fusión        sn_kg       duracion_plan_min                   False    False
+   Fusión        sn_kg       tasa_aire_nm3_min                    True     True
+   Fusión        sn_kg    tasa_feed_CaO_kg_min                    True     True
+   Fusión        sn_kg tasa_feed_Carbon_kg_min                   False    False
+   Fusión        sn_kg  tasa_feed_total_kg_min                    True     True
+   Fusión        sn_kg         tasa_gn_nm3_min                   False    False
+   Fusión        sn_kg         tasa_o2_nm3_min                   False    False
+Reducción       feo_kg       duracion_plan_min                   False    False
+Reducción       feo_kg       tasa_aire_nm3_min                   False    False
+Reducción       feo_kg tasa_feed_Carbon_kg_min                    True     True
+Reducción       feo_kg         tasa_gn_nm3_min                   False    False
+Reducción       feo_kg         tasa_o2_nm3_min                    True     True
+Reducción        sn_kg       duracion_plan_min                   False    False
+Reducción        sn_kg       tasa_aire_nm3_min                   False    False
+Reducción        sn_kg tasa_feed_Carbon_kg_min                   False    False
+Reducción        sn_kg         tasa_gn_nm3_min                    True     True
+Reducción        sn_kg         tasa_o2_nm3_min                   False    False
+
+----------------------------------------------------------------------------------------------------
+5) Deriva de features de estado/contexto: DEV por tercios cronologicos vs lockbox
+----------------------------------------------------------------------------------------------------
+  Fusión: features de estado/contexto diagnosticadas (8): ['basicidad_B2_prev', 'espesor_ladrillo_norm_mm', 'feo_inventario_escoria_est_kg_prev', 'ley_sn_escoria_pct_prev', 'masa_escoria_est_kg_prev', 'sn_inventario_escoria_est_kg_prev', 'temperatura_horno_celsius_prev', 'termocupla_media_celsius_prev']
+    basicidad_B2_prev                dev[tercio1..3] med=0.5/0.5/0.5 | lockbox med=0.5 | %fuera[P1,P99]_dev=1.9%
+    espesor_ladrillo_norm_mm         dev[tercio1..3] med=294.0/270.9/244.2 | lockbox med=221.6 | %fuera[P1,P99]_dev=100.0%
+    feo_inventario_escoria_est_kg_prev dev[tercio1..3] med=3723.2/5026.0/5205.5 | lockbox med=4592.8 | %fuera[P1,P99]_dev=0.0%
+    ley_sn_escoria_pct_prev          dev[tercio1..3] med=20.5/19.2/20.0 | lockbox med=22.5 | %fuera[P1,P99]_dev=6.4%
+    masa_escoria_est_kg_prev         dev[tercio1..3] med=22145.7/27174.4/30181.8 | lockbox med=27411.9 | %fuera[P1,P99]_dev=0.0%
+    sn_inventario_escoria_est_kg_prev dev[tercio1..3] med=4731.7/5541.3/6018.5 | lockbox med=6391.0 | %fuera[P1,P99]_dev=0.5%
+    temperatura_horno_celsius_prev   dev[tercio1..3] med=1163.0/1078.5/1001.2 | lockbox med=995.1 | %fuera[P1,P99]_dev=0.0%
+    termocupla_media_celsius_prev    dev[tercio1..3] med=301.5/331.8/364.7 | lockbox med=395.9 | %fuera[P1,P99]_dev=51.3%
+  Reducción: features de estado/contexto diagnosticadas (12): ['espesor_ladrillo_norm_mm', 'feo_inventario_escoria_est_kg_prev', 'grad_temperatura_horno_celsius_prev', 'ley_cao_escoria_pct_prev', 'ley_feo_escoria_pct_prev', 'ley_sn_escoria_pct_prev', 'masa_escoria_est_kg_prev', 'orden_escalon_fase', 'sn_inventario_escoria_est_kg_prev', 'temperatura_horno_celsius_prev', 'termocupla_media_celsius_prev', 'tiro_horno_pct_prev']
+    espesor_ladrillo_norm_mm         dev[tercio1..3] med=294.0/270.9/244.2 | lockbox med=221.6 | %fuera[P1,P99]_dev=100.0%
+    feo_inventario_escoria_est_kg_prev dev[tercio1..3] med=9490.9/10879.9/11319.1 | lockbox med=10138.8 | %fuera[P1,P99]_dev=0.0%
+    grad_temperatura_horno_celsius_prev dev[tercio1..3] med=-0.1/-0.4/-0.2 | lockbox med=-0.2 | %fuera[P1,P99]_dev=0.4%
+    ley_cao_escoria_pct_prev         dev[tercio1..3] med=22.8/22.1/21.5 | lockbox med=21.0 | %fuera[P1,P99]_dev=1.2%
+    ley_feo_escoria_pct_prev         dev[tercio1..3] med=17.7/19.0/18.8 | lockbox med=18.6 | %fuera[P1,P99]_dev=2.0%
+    ley_sn_escoria_pct_prev          dev[tercio1..3] med=2.8/2.5/2.5 | lockbox med=2.8 | %fuera[P1,P99]_dev=3.6%
+    masa_escoria_est_kg_prev         dev[tercio1..3] med=53456.7/56121.4/59284.5 | lockbox med=53704.0 | %fuera[P1,P99]_dev=0.0%
+    orden_escalon_fase               dev[tercio1..3] med=1.5/1.5/1.5 | lockbox med=1.5 | %fuera[P1,P99]_dev=0.0%
+    sn_inventario_escoria_est_kg_prev dev[tercio1..3] med=1337.0/1381.4/1501.8 | lockbox med=1467.9 | %fuera[P1,P99]_dev=2.4%
+    temperatura_horno_celsius_prev   dev[tercio1..3] med=1121.5/1082.9/993.1 | lockbox med=975.4 | %fuera[P1,P99]_dev=0.0%
+    termocupla_media_celsius_prev    dev[tercio1..3] med=291.2/319.1/351.6 | lockbox med=378.8 | %fuera[P1,P99]_dev=50.4%
+    tiro_horno_pct_prev              dev[tercio1..3] med=83.0/88.4/89.4 | lockbox med=91.9 | %fuera[P1,P99]_dev=4.4%
+
+Guardado 17_deriva_features.csv
+
+----------------------------------------------------------------------------------------------------
+6) Figuras
+----------------------------------------------------------------------------------------------------
+  Guardada figs_17/r2_walkforward_por_bloque.png
+  Guardada figs_17/r2_lockbox_vs_ventana.png
+  Guardada figs_17/theta_por_periodo_Fusion_sn_kg.png
+  Guardada figs_17/theta_por_periodo_Reduccion_feo_kg.png
+  Guardada figs_17/theta_por_periodo_Reduccion_sn_kg.png
+
+Experimento 17 terminado.

@@ -1,0 +1,4 @@
+corr(tasa_feed_Carbon_kg_min, tasa_feed_total_kg_min) en Fusion = 0.3373
+corr(tasa_feed_Carbon_kg_min, feed_Sn_kgf) en Fusion = 0.2000
+PLM con relacion_C_Sn_carga (en vez de tasa absoluta): theta=-9869.3866 unidades kg Sn extra por kg-C/kg-Sn, IC95%=[-19807.1289,-1476.0981], significativo=True
+r2_oof PLM con relacion_C_Sn_carga = 0.6587 vs PLM con tasa absoluta = 0.6571

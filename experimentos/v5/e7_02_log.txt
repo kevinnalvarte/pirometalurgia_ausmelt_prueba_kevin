@@ -1,0 +1,40 @@
+[    0.0s] cargando df de escalones (cache v3+v4+b6+v5)...
+[    1.5s] batch v5 (362, 38) dF (Fusion) (2172, 255)
+[    1.5s] batch + exp19 (362, 50) NaN en decisiones F: 0
+[    1.5s] === paso 2: regresiones de batch (M0/M1/M2/M3) ===
+[    2.3s] e7_02_batch_regresiones.csv (465, 14) vertices: 0
+[    2.3s] === paso 3: matriz de Fusion (IRF) vs KPI, controlando F_lnirf_F0 ===
+[    2.4s] e7_02_matriz_fusion.csv (18, 11)
+[    2.4s] === paso 4: PLM por escalon en Fusion ===
+[    2.4s]   PLM target=v5_d_lnirf palancas=a_primitivas (4)
+[   41.0s]     r2_oof=0.282 r2_lockbox=0.045 n_dev=1470
+[   41.0s]   PLM target=v5_d_lnirf palancas=b_derivadas (4)
+[   81.5s]     r2_oof=0.281 r2_lockbox=0.039 n_dev=1470
+[   81.5s]   PLM target=v5_d_lnirf palancas=c_termicas (3)
+[  100.6s]     r2_oof=0.306 r2_lockbox=0.080 n_dev=1408
+[  100.6s]   PLM target=v5_ln_sn_dep palancas=a_primitivas (4)
+[  123.1s]     r2_oof=0.186 r2_lockbox=-0.368 n_dev=1407
+[  123.1s]   PLM target=v5_ln_sn_dep palancas=b_derivadas (4)
+[  145.2s]     r2_oof=0.187 r2_lockbox=-0.386 n_dev=1407
+[  145.2s]   PLM target=v5_ln_sn_dep palancas=c_termicas (3)
+[  163.5s]     r2_oof=0.175 r2_lockbox=-0.240 n_dev=1407
+[  163.5s]   PLM target=sn_extraido_est_kg palancas=a_primitivas (4)
+[  186.4s]     r2_oof=0.693 r2_lockbox=0.618 n_dev=1452
+[  186.4s]   PLM target=sn_extraido_est_kg palancas=b_derivadas (4)
+[  228.2s]     r2_oof=0.692 r2_lockbox=0.618 n_dev=1452
+[  228.2s]   PLM target=sn_extraido_est_kg palancas=c_termicas (3)
+[  281.5s]     r2_oof=0.683 r2_lockbox=0.635 n_dev=1390
+[  281.5s]   PLM target=d_temperatura_horno_celsius palancas=a_primitivas (4)
+[  343.6s]     r2_oof=0.496 r2_lockbox=0.050 n_dev=1477
+[  343.6s]   PLM target=d_temperatura_horno_celsius palancas=b_derivadas (4)
+[  395.9s]     r2_oof=0.498 r2_lockbox=0.046 n_dev=1477
+[  395.9s]   PLM target=d_temperatura_horno_celsius palancas=c_termicas (3)
+[  431.1s]     r2_oof=0.482 r2_lockbox=0.046 n_dev=1415
+[  431.1s]   PLM target=d_temperatura_horno_celsius palancas=c_termicas+b6 (5)
+[  458.9s]     r2_oof=0.487 r2_lockbox=0.047 n_dev=1415
+[  458.9s] e7_02_plm_fusion.csv (13, 11) e7_02_theta_fusion.csv (49, 16)
+[  458.9s] === paso 5: cadena de signos ===
+[  459.0s] e7_02_cadena_signos.csv (28, 9)
+[  459.0s] clasificacion
+indeterminada    28
+[  459.0s] TOTAL 459.0s -- listo

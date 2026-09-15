@@ -1,0 +1,33 @@
+fase,target,bloque,tipo,n_train,n_test,batch_ini_test,batch_fin_test,r2,mae
+Fusión,sn_kg,0,walkforward_bloque,315.0,292.0,AP0054,AP0102,0.6712891514124725,1099.370854482463
+Fusión,sn_kg,1,walkforward_bloque,607.0,293.0,AP0103,AP0151,0.7336605361381485,989.4548956671289
+Fusión,sn_kg,2,walkforward_bloque,900.0,287.0,AP0152,AP0200,0.6969263864691729,1085.3013210434715
+Fusión,sn_kg,3,walkforward_bloque,1187.0,277.0,AP0201,AP0250,0.7077585605038961,1191.4944959798634
+Fusión,sn_kg,4,walkforward_bloque,1464.0,285.0,AP0251,AP0299,0.631193794103384,1354.4866712765254
+Fusión,sn_kg,global_walkforward,walkforward_global,,1434.0,,,0.6880333807631752,1142.5946511708898
+Fusión,sn_kg,global_oof_aleatorio,oof_aleatorio,,1749.0,,,0.7220772975809956,1036.7970475099935
+Fusión,sn_kg,brecha (aleatorio - walkforward),brecha,,,,,0.034043916817820374,105.79760366089636
+Reducción,sn_kg,0,walkforward_bloque,191.0,178.0,AP0054,AP0102,0.9534755901824994,535.822343477085
+Reducción,sn_kg,1,walkforward_bloque,369.0,171.0,AP0103,AP0151,0.9819823609915159,316.0975371886364
+Reducción,sn_kg,2,walkforward_bloque,540.0,177.0,AP0152,AP0200,0.973915550841806,402.45641460804035
+Reducción,sn_kg,3,walkforward_bloque,717.0,172.0,AP0201,AP0249,0.9588640532497329,420.33058424126455
+Reducción,sn_kg,4,walkforward_bloque,889.0,187.0,AP0250,AP0299,0.9824617618295228,340.84242642212604
+Reducción,sn_kg,global_walkforward,walkforward_global,,885.0,,,0.9697655448696368,403.0488538013968
+Reducción,sn_kg,global_oof_aleatorio,oof_aleatorio,,1076.0,,,0.971498308217752,361.8258390605074
+Reducción,sn_kg,brecha (aleatorio - walkforward),brecha,,,,,0.0017327633481151183,41.22301474088937
+Reducción,feo_kg,0,walkforward_bloque,189.0,178.0,AP0053,AP0101,0.011604710503234639,603.4295247511789
+Reducción,feo_kg,1,walkforward_bloque,367.0,171.0,AP0102,AP0150,0.19370874682902373,557.4789340115501
+Reducción,feo_kg,2,walkforward_bloque,538.0,180.0,AP0151,AP0199,0.42931430955613403,559.9485659825888
+Reducción,feo_kg,3,walkforward_bloque,718.0,171.0,AP0200,AP0249,0.02969244063314902,585.4838976581669
+Reducción,feo_kg,4,walkforward_bloque,889.0,182.0,AP0250,AP0299,0.2843535644758939,719.4221028271244
+Reducción,feo_kg,global_walkforward,walkforward_global,,882.0,,,0.2271153154885267,606.1027938918754
+Reducción,feo_kg,global_oof_aleatorio,oof_aleatorio,,1071.0,,,0.28591798126480517,571.1671674014838
+Reducción,feo_kg,brecha (aleatorio - walkforward),brecha,,,,,0.05880266577627846,34.935626490391655
+Reducción,dT,0,walkforward_bloque,216.0,196.0,AP0055,AP0103,0.08544021584395789,10.728109276813285
+Reducción,dT,1,walkforward_bloque,412.0,196.0,AP0104,AP0152,-0.17794415740041458,17.84625755102632
+Reducción,dT,2,walkforward_bloque,608.0,196.0,AP0153,AP0201,0.04729219804766971,16.30300738649611
+Reducción,dT,3,walkforward_bloque,804.0,196.0,AP0202,AP0250,-0.18997821825161432,10.584992031613274
+Reducción,dT,4,walkforward_bloque,1000.0,196.0,AP0251,AP0299,-0.030532722217504027,8.31332721814191
+Reducción,dT,global_walkforward,walkforward_global,,980.0,,,0.09150750862269752,12.755138692818178
+Reducción,dT,global_oof_aleatorio,oof_aleatorio,,1196.0,,,0.4436833102225247,9.291152182029743
+Reducción,dT,brecha (aleatorio - walkforward),brecha,,,,,0.3521758015998272,3.463986510788436

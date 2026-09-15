@@ -1,0 +1,3 @@
+fase,target,n_estado,n_palancas,n_dev,n_lockbox,r2_oof_dev,r2_lockbox,mae_lockbox,std_target_lockbox,variante
+Fusión,sn_extraido_est_kg,9,4,1749,374,0.7318705648121846,0.7234529848986047,1046.5778429056984,2941.4128489334917,a
+Fusión,sn_extraido_est_kg,9,5,1749,374,0.7318618121449603,0.7231153397207548,1048.0245398257246,2941.4128489334917,b

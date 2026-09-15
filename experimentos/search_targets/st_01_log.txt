@@ -1,0 +1,99 @@
+ST-01 correlacion batch -- carga 0.0s | batch (362, 89), dev n=299, lockbox n=63, candidatos=36
+
+[1-2] st_01_correlaciones.csv escrito (540 filas).
+[3] st_01_ols_controles.csv escrito (324 filas).
+[4] st_01_dosis_respuesta.csv escrito (180 filas, 36 candidatos).
+[5] st_01_lambda_sweep.csv escrito. lambda* (R, Sn-lambda*FeO) = 2.0 -> rho_dev=0.1678, rho_lockbox=0.0108
+    w* (F, z(F16)+w*z(F07)) = 0.0 -> rho_dev=0.0624, rho_lockbox=0.1750
+
+[6] mejor R = R08_feo_ret_frac (top3 R = ['R08_feo_ret_frac', 'R02_feo_ret', 'R20_fe_metalizado_por_sn']); mejor F = F10_irf_next (top3 F = ['F10_irf_next', 'F05_ley_feo_next', 'F04_feo_ret_por_fe'])
+    VIF dev (top3_R_top3_F): todos < 10 -> {'z_st_R08_feo_ret_frac': np.float64(2.4424265896210646), 'z_st_R02_feo_ret': np.float64(6.548379865684137), 'z_st_R20_fe_metalizado_por_sn': np.float64(5.381027958552209), 'z_st_F10_irf_next': np.float64(3.935198791513171), 'z_st_F05_ley_feo_next': np.float64(3.6719944069634005), 'z_st_F04_feo_ret_por_fe': np.float64(1.8133291760094046), 'z_feed_sn_total_t': np.float64(1.8791436468869671), 'z_ley_sn_conc_batch_pct': np.float64(1.630013958777809), 'z_espesor_ladrillo_norm_mm': np.float64(1.9931391739747009), 'z_frac_carga_secundaria_F': np.float64(4.643730386935412), 'z_feed_dross_Fe_total_t': np.float64(5.868279081722605)}
+[6] st_01_combinacion_FR.csv escrito (54 filas).
+
+[7] st_01_redundancia.csv escrito. Pares |rho|>0.8 (total, n=30):
+    R09_selectividad <-> R10_log_selectividad: rho=1.000
+    R03_sn_net_l03 <-> R04_sn_net_l06: rho=0.995
+    R04_sn_net_l06 <-> R05_sn_net_l10: rho=0.992
+    F02_frac_sn_ext <-> F14_sn_ret_por_c: rho=0.978
+    R01_sn_ext <-> R12_d_avance: rho=0.978
+    R03_sn_net_l03 <-> R05_sn_net_l10: rho=0.975
+    R01_sn_ext <-> R03_sn_net_l03: rho=0.936
+    R01_sn_ext <-> R11_util_carbon: rho=0.924
+    R01_sn_ext <-> R04_sn_net_l06: rho=0.921
+    R03_sn_net_l03 <-> R12_d_avance: rho=0.912
+    R09_selectividad <-> R16_feo_por_sn_disp: rho=0.909
+    R10_log_selectividad <-> R16_feo_por_sn_disp: rho=0.909
+    R11_util_carbon <-> R12_d_avance: rho=0.898
+    R04_sn_net_l06 <-> R12_d_avance: rho=0.898
+    R06_frac_sn <-> R15_d_log_sn_feo: rho=0.891
+    R01_sn_ext <-> R05_sn_net_l10: rho=0.889
+    R02_feo_ret <-> R08_feo_ret_frac: rho=0.887
+    R12_d_avance <-> F16_sn_ret_frac: rho=0.881
+    R02_feo_ret <-> R20_fe_metalizado_por_sn: rho=0.880
+    R05_sn_net_l10 <-> R12_d_avance: rho=0.866
+    R03_sn_net_l03 <-> R11_util_carbon: rho=0.856
+    R01_sn_ext <-> F16_sn_ret_frac: rho=0.854
+    F02_frac_sn_ext <-> F16_sn_ret_frac: rho=0.854
+    R13_sn_residual <-> R14_log_sn_feo_next: rho=0.848
+    F14_sn_ret_por_c <-> F16_sn_ret_frac: rho=0.843
+    R04_sn_net_l06 <-> R11_util_carbon: rho=0.838
+    R11_util_carbon <-> F16_sn_ret_frac: rho=0.829
+    R05_sn_net_l10 <-> R11_util_carbon: rho=0.804
+    F01_sn_ext <-> F02_frac_sn_ext: rho=0.803
+    F11_log_sn_feo_next <-> F16_sn_ret_frac: rho=0.800
+
+[9] st_01_ranking.csv escrito (36 filas).
+
+==============================================================================
+RESUMEN FINAL
+==============================================================================
+
+(i) top-5 por fase (rho dev, Spearman vs rendimiento_proxy_batch):
+  -- Fusión --
+    F10_irf_next             rho_dev=0.1946  p_bh_dev=0.01169  rho_lockbox=0.3309  coef_ols_dev=1.1098  monotonia=3  familia=matriz
+    F05_ley_feo_next         rho_dev=0.1207  p_bh_dev=0.2985  rho_lockbox=0.1828  coef_ols_dev=0.7488  monotonia=4  familia=matriz
+    F04_feo_ret_por_fe       rho_dev=0.1088  p_bh_dev=0.3242  rho_lockbox=0.2461  coef_ols_dev=-0.2018  monotonia=3  familia=matriz
+    F06_B2_ventana           rho_dev=0.0893  p_bh_dev=0.4957  rho_lockbox=-0.0016  coef_ols_dev=0.3640  monotonia=3  familia=matriz
+    F09_T_gas_bhf            rho_dev=0.0768  p_bh_dev=0.5537  rho_lockbox=0.1385  coef_ols_dev=0.2767  monotonia=2  familia=polvo
+  -- Reducción --
+    R08_feo_ret_frac         rho_dev=0.3116  p_bh_dev=1.478e-06  rho_lockbox=-0.0610  coef_ols_dev=1.2145  monotonia=3  familia=sobre-reduccion
+    R02_feo_ret              rho_dev=0.2740  p_bh_dev=1.631e-05  rho_lockbox=-0.1363  coef_ols_dev=1.4533  monotonia=4  familia=sobre-reduccion
+    R20_fe_metalizado_por_sn rho_dev=0.2161  p_bh_dev=0.001165  rho_lockbox=-0.0532  coef_ols_dev=1.2833  monotonia=3  familia=sobre-reduccion
+    R19_T_gas_bhf            rho_dev=0.1111  p_bh_dev=0.2347  rho_lockbox=-0.0021  coef_ols_dev=0.6323  monotonia=4  familia=polvo
+    R16_feo_por_sn_disp      rho_dev=0.0915  p_bh_dev=0.3464  rho_lockbox=0.0448  coef_ols_dev=0.1491  monotonia=3  familia=sobre-reduccion
+
+(ii) significativos tras BH en DEV que conservan signo en lockbox:
+    Fusión     F10_irf_next             rho_dev=0.1946 p_bh_dev=0.01169 rho_lockbox=0.3309
+
+(iii) familias dominantes (promedio |rho_dev| entre sus candidatos, por fase):
+                               mean  count
+fase      familia                         
+Fusión    matriz             0.1016      6
+          polvo              0.0768      1
+          conservacion       0.0387      6
+          termico           -0.0304      3
+Reducción sobre-reduccion    0.2233      4
+          polvo              0.1111      1
+          metal-equivalente  0.0361      3
+          selectividad       0.0347      5
+          extraccion        -0.0389      5
+          termico           -0.0595      2
+
+(iv) candidatos con signo contrario a la teoria (rho_dev < 0, dir_ok=False) e hipotesis:
+    Reducción  R07_kapp_sn              rho_dev=-0.1105 (n=286) familia=extraccion
+    Reducción  R13_sn_residual          rho_dev=-0.1048 (n=299) familia=extraccion
+    Reducción  R18_T_ventana            rho_dev=-0.0776 (n=299) familia=termico
+    Fusión     F15_dT                   rho_dev=-0.0654 (n=299) familia=termico
+    Reducción  R17_dT                   rho_dev=-0.0414 (n=299) familia=termico
+    Fusión     F08_T_ventana            rho_dev=-0.0366 (n=299) familia=termico
+    Reducción  R06_frac_sn              rho_dev=-0.0318 (n=292) familia=extraccion
+    Fusión     F14_sn_ret_por_c         rho_dev=-0.0038 (n=298) familia=conservacion
+    Hipotesis general: candidatos exploratorios (direccion=0, ej. dT) sin signo a priori pueden salir en cualquier sentido; candidatos de escala pequena o con pocos escalones validos (n bajo) son ruidosos; y algunos 'estado terminal' (ultimo valor) dependen de cuanto avanzo la fase en ESE batch, lo que puede confundirse con el tamano/duracion del batch mas que con la eficiencia.
+
+(v) barrido lambda/w -- familia metal-equivalente:
+    lambda* (Reduccion, Sn_ext - lambda*FeO_ext) = 2.0 -> rho_dev=0.1678, rho_lockbox=0.0108  [rho_dev en lambda=0 (=R01 puro): 0.0171]
+    w* (Fusion, z(F16_sn_ret_frac) + w*z(F07_T_media)) = 0.0 -> rho_dev=0.0624, rho_lockbox=0.1750  [rho_dev en w=0 (=F16 puro): 0.0624]
+
+Honestidad: 33/36 candidatos tienen |rho_dev| < 0.2 (correlacion debil). Maximo |rho_dev| observado: 0.3116 (R08_feo_ret_frac).
+
+Tiempo total: 15.6s
