@@ -1,5 +1,7 @@
 # Dictamen del comité de pirometalurgistas analíticos sobre el enfoque ganador v7 (2026-09-16)
 
+Artefacto: https://claude.ai/artifact/UyEetgRSM2JjfRnNauLmV8 (fuente `experimentos/v7/figs/dictamen_v7.html`).
+
 Comité: cuatro auditores independientes (A fundamento físico-químico Ausmelt/TSL, B inferencia estadística y causal, C operación y seguridad
 del horno, D integridad de datos y validación) con acceso completo al repositorio y comprobaciones numéricas propias, más la presidencia
 (síntesis, potencia del piloto, tasa de cambio implícita del objetivo). Informes: `experimentos/v7/auditoria_A_pirometalurgia.md`,

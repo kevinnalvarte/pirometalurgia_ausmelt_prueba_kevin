@@ -1477,6 +1477,8 @@ si ya existen (eliminarlas antes de perturbar); un `exit` dentro de un bucle de 
 
 ## 21. Dictamen del comité de pirometalurgistas analíticos sobre v7 (2026-09-16)
 
+Artefacto: https://claude.ai/artifact/UyEetgRSM2JjfRnNauLmV8.
+
 Cuatro auditores independientes (A fundamento físico-químico, B estadística e identificación, C operación y seguridad, D datos y validación;
 informes `experimentos/v7/auditoria_[A-D]_*.md`) y síntesis en `dictamen_comite_v7.md`. Veredicto: **no desplegar en línea; piloto restringido
 tras correcciones**.
