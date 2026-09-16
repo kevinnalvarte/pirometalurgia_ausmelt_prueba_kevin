@@ -1,0 +1,125 @@
+[    0.0s] CONFIG: {'w_sdi': 7.86, 'pp_kpi_por_unidad_sdi': 3.522, 'beta_fusion': {'C_por_Sn': {'pp_por_sd': 0.0, 'sd_batch': 0.018, 'media_batch': 0.272}, 'T_media': {'pp_por_sd': 0.0, 'sd_batch': 75.1, 'media_batch': 1068.0}}, 'pp_kpi_por_unidad_sn_dep_F': -0.58, 'pp_kpi_por_unidad_d_lnirf_F': 0.0, 'n_escalones_fusion': 7} ESTADO_R: 16
+[    0.3s] escalones (3577, 66) batches 362
+[   44.8s] 
+      subset                               kpi                variable    n  coef_por_sd   ci_lo   ci_hi   p_hc3  p_perm  spearman  p_spearman  r2_adj
+0       DEV         recuperacion_refinada_pct              dist_total  298      -0.1347 -0.6506  0.3812  0.6088   0.602   -0.0597      0.3042 -0.0029
+1       DEV         recuperacion_refinada_pct                  dist_F  297      -0.4853 -1.1132  0.1426  0.1298   0.060   -0.0934      0.1081  0.0067
+2       DEV         recuperacion_refinada_pct                  dist_R  298       0.1300 -0.2842  0.5441  0.5385   0.634   -0.0385      0.5085 -0.0029
+3       DEV         recuperacion_refinada_pct  uplift_fisico_total_kg  298      -0.0033 -0.5649  0.5582  0.9907   0.992   -0.0688      0.2364 -0.0037
+4       DEV         recuperacion_refinada_pct         uplift_batch_pp  298       0.1224 -0.3876  0.6325  0.6380   0.645   -0.0518      0.3732 -0.0030
+5       DEV           rendimiento_proxy_batch              dist_total  298      -0.0724 -0.6049  0.4602  0.7900   0.794   -0.0567      0.3289 -0.0031
+6       DEV           rendimiento_proxy_batch                  dist_F  297      -0.4802 -1.1301  0.1696  0.1475   0.078   -0.1015      0.0807  0.0064
+7       DEV           rendimiento_proxy_batch                  dist_R  298       0.2045 -0.2056  0.6146  0.3283   0.441   -0.0307      0.5981 -0.0014
+8       DEV           rendimiento_proxy_batch  uplift_fisico_total_kg  298       0.0424 -0.5082  0.5931  0.8799   0.892   -0.0645      0.2668 -0.0033
+9       DEV           rendimiento_proxy_batch         uplift_batch_pp  298       0.1722 -0.3082  0.6527  0.4823   0.552   -0.0471      0.4181 -0.0020
+10      DEV    recuperacion_refinada_pct_next              dist_total  298       0.0601 -0.5539  0.6742  0.8478   0.830    0.0006      0.9917 -0.0022
+11      DEV    recuperacion_refinada_pct_next                  dist_F  297      -0.2170 -0.8515  0.4175  0.5026   0.380   -0.0605      0.2987 -0.0013
+12      DEV    recuperacion_refinada_pct_next                  dist_R  298       0.2756 -0.3031  0.8544  0.3506   0.276   -0.0088      0.8793  0.0015
+13      DEV    recuperacion_refinada_pct_next  uplift_fisico_total_kg  298       0.1714 -0.5157  0.8584  0.6249   0.499   -0.0351      0.5457 -0.0009
+14      DEV    recuperacion_refinada_pct_next         uplift_batch_pp  298       0.2627 -0.3743  0.8998  0.4189   0.315   -0.0305      0.5994  0.0011
+15      DEV  recuperacion_refinada_pct_media2              dist_total  298      -0.0373 -0.4416  0.3670  0.8566   0.837   -0.0384      0.5086  0.0139
+16      DEV  recuperacion_refinada_pct_media2                  dist_F  297      -0.3512 -0.8455  0.1431  0.1638   0.070   -0.1123      0.0532  0.0223
+17      DEV  recuperacion_refinada_pct_media2                  dist_R  298       0.2028 -0.1351  0.5407  0.2395   0.273   -0.0250      0.6669  0.0174
+18      DEV  recuperacion_refinada_pct_media2  uplift_fisico_total_kg  298       0.0840 -0.4236  0.5916  0.7457   0.674   -0.0589      0.3107  0.0144
+19      DEV  recuperacion_refinada_pct_media2         uplift_batch_pp  298       0.1926 -0.2592  0.6444  0.4034   0.339   -0.0400      0.4918  0.0170
+20      DEV                           f_dross              dist_total  298      -0.0036 -0.0081  0.0008  0.1113   0.077   -0.0323      0.5789  0.0835
+21      DEV                           f_dross                  dist_F  297      -0.0011 -0.0058  0.0036  0.6562   0.599   -0.0078      0.8939  0.0785
+22      DEV                           f_dross                  dist_R  298      -0.0034 -0.0076  0.0008  0.1092   0.106   -0.0045      0.9390  0.0831
+23      DEV                           f_dross  uplift_fisico_total_kg  298      -0.0036 -0.0078  0.0005  0.0886   0.071   -0.0751      0.1961  0.0839
+24      DEV                           f_dross         uplift_batch_pp  298      -0.0035 -0.0075  0.0006  0.0909   0.085   -0.0558      0.3373  0.0833
+25      DEV                           f_polvo              dist_total  298       0.0044  0.0002  0.0085  0.0396   0.027    0.1556      0.0071  0.0648
+26      DEV                           f_polvo                  dist_F  297       0.0059  0.0012  0.0105  0.0134   0.001    0.1634      0.0048  0.0738
+27      DEV                           f_polvo                  dist_R  298       0.0014 -0.0019  0.0047  0.4146   0.470    0.0940      0.1053  0.0502
+28      DEV                           f_polvo  uplift_fisico_total_kg  298       0.0032 -0.0017  0.0081  0.2043   0.094    0.2043      0.0004  0.0577
+29      DEV                           f_polvo         uplift_batch_pp  298       0.0018 -0.0022  0.0057  0.3809   0.371    0.1654      0.0042  0.0513
+30  LOCKBOX         recuperacion_refinada_pct              dist_total   63      -0.1298 -1.3196  1.0600  0.8307     NaN    0.0628      0.6249  0.0487
+31  LOCKBOX         recuperacion_refinada_pct                  dist_F   63      -0.0328 -1.2190  1.1534  0.9568     NaN    0.1292      0.3130  0.0479
+32  LOCKBOX         recuperacion_refinada_pct                  dist_R   63      -0.1483 -1.6754  1.3787  0.8490     NaN    0.0108      0.9327  0.0491
+33  LOCKBOX         recuperacion_refinada_pct  uplift_fisico_total_kg   63       0.1478 -1.1080  1.4036  0.8176     NaN    0.0553      0.6669  0.0491
+34  LOCKBOX         recuperacion_refinada_pct         uplift_batch_pp   63       0.2143 -1.3638  1.7923  0.7901     NaN    0.0442      0.7308  0.0504
+35  LOCKBOX           rendimiento_proxy_batch              dist_total   63      -0.2267 -1.3914  0.9381  0.7029     NaN    0.0418      0.7449  0.0437
+36  LOCKBOX           rendimiento_proxy_batch                  dist_F   63      -0.0936 -1.2393  1.0521  0.8727     NaN    0.1261      0.3247  0.0412
+37  LOCKBOX           rendimiento_proxy_batch                  dist_R   63      -0.2265 -1.7668  1.3137  0.7731     NaN   -0.0102      0.9366  0.0439
+38  LOCKBOX           rendimiento_proxy_batch  uplift_fisico_total_kg   63       0.0440 -1.1859  1.2738  0.9442     NaN    0.0314      0.8067  0.0409
+39  LOCKBOX           rendimiento_proxy_batch         uplift_batch_pp   63       0.0944 -1.4265  1.6154  0.9031     NaN    0.0214      0.8680  0.0413
+40  LOCKBOX    recuperacion_refinada_pct_next              dist_total   62      -1.1216 -2.5605  0.3174  0.1266     NaN   -0.1088      0.4001  0.0197
+41  LOCKBOX    recuperacion_refinada_pct_next                  dist_F   62      -1.3331 -2.7588  0.0926  0.0669     NaN    0.0023      0.9856  0.0396
+42  LOCKBOX    recuperacion_refinada_pct_next                  dist_R   62      -0.3407 -1.8106  1.1293  0.6497     NaN   -0.2232      0.0812 -0.0464
+43  LOCKBOX    recuperacion_refinada_pct_next  uplift_fisico_total_kg   62      -0.7785 -2.1251  0.5681  0.2572     NaN   -0.1780      0.1664 -0.0173
+44  LOCKBOX    recuperacion_refinada_pct_next         uplift_batch_pp   62      -0.1892 -1.5182  1.1398  0.7802     NaN   -0.1748      0.1742 -0.0514
+45  LOCKBOX  recuperacion_refinada_pct_media2              dist_total   62      -0.6650 -1.4198  0.0897  0.0842     NaN   -0.0549      0.6719  0.1377
+46  LOCKBOX  recuperacion_refinada_pct_media2                  dist_F   62      -0.6701 -1.5628  0.2225  0.1412     NaN    0.0360      0.7810  0.1334
+47  LOCKBOX  recuperacion_refinada_pct_media2                  dist_R   62      -0.3107 -1.1093  0.4879  0.4458     NaN   -0.1086      0.4008  0.0988
+48  LOCKBOX  recuperacion_refinada_pct_media2  uplift_fisico_total_kg   62      -0.3771 -1.1584  0.4042  0.3442     NaN   -0.0814      0.5293  0.1039
+49  LOCKBOX  recuperacion_refinada_pct_media2         uplift_batch_pp   62      -0.0969 -1.0288  0.8350  0.8385     NaN   -0.0785      0.5440  0.0883
+50  LOCKBOX                           f_dross              dist_total   63       0.0017 -0.0082  0.0116  0.7351     NaN   -0.0532      0.6789  0.0421
+51  LOCKBOX                           f_dross                  dist_F   63      -0.0012 -0.0128  0.0105  0.8451     NaN   -0.1810      0.1558  0.0409
+52  LOCKBOX                           f_dross                  dist_R   63       0.0034 -0.0052  0.0119  0.4381     NaN    0.1401      0.2734  0.0484
+53  LOCKBOX                           f_dross  uplift_fisico_total_kg   63       0.0021 -0.0066  0.0107  0.6422     NaN    0.0596      0.6428  0.0431
+54  LOCKBOX                           f_dross         uplift_batch_pp   63       0.0015 -0.0071  0.0101  0.7313     NaN    0.1228      0.3377  0.0417
+55  LOCKBOX                           f_polvo              dist_total   63       0.0006 -0.0089  0.0100  0.9087     NaN    0.0287      0.8233  0.0131
+56  LOCKBOX                           f_polvo                  dist_F   63       0.0021 -0.0065  0.0107  0.6330     NaN    0.0913      0.4764  0.0173
+57  LOCKBOX                           f_polvo                  dist_R   63      -0.0011 -0.0189  0.0166  0.9018     NaN   -0.2047      0.1075  0.0143
+58  LOCKBOX                           f_polvo  uplift_fisico_total_kg   63      -0.0025 -0.0130  0.0080  0.6430     NaN   -0.1280      0.3175  0.0201
+59  LOCKBOX                           f_polvo         uplift_batch_pp   63      -0.0025 -0.0161  0.0112  0.7245     NaN   -0.2248      0.0765  0.0200
+60    TOTAL         recuperacion_refinada_pct              dist_total  361      -0.0236 -0.4946  0.4474  0.9218   0.923   -0.0097      0.8536  0.0054
+61    TOTAL         recuperacion_refinada_pct                  dist_F  360      -0.1770 -0.7063  0.3523  0.5122   0.471   -0.0204      0.7003  0.0074
+62    TOTAL         recuperacion_refinada_pct                  dist_R  361       0.0611 -0.3393  0.4615  0.7649   0.811   -0.0185      0.7265  0.0056
+63    TOTAL         recuperacion_refinada_pct  uplift_fisico_total_kg  361       0.0631 -0.4145  0.5408  0.7956   0.771   -0.0227      0.6674  0.0056
+64    TOTAL         recuperacion_refinada_pct         uplift_batch_pp  361       0.1235 -0.3334  0.5804  0.5963   0.576   -0.0220      0.6769  0.0062
+65    TOTAL           rendimiento_proxy_batch              dist_total  361       0.0164 -0.4680  0.5007  0.9472   0.948   -0.0113      0.8312  0.0028
+66    TOTAL           rendimiento_proxy_batch                  dist_F  360      -0.1848 -0.7290  0.3595  0.5059   0.450   -0.0309      0.5593  0.0049
+67    TOTAL           rendimiento_proxy_batch                  dist_R  361       0.1177 -0.2884  0.5239  0.5699   0.616   -0.0140      0.7910  0.0035
+68    TOTAL           rendimiento_proxy_batch  uplift_fisico_total_kg  361       0.0946 -0.3747  0.5640  0.6927   0.697   -0.0228      0.6658  0.0032
+69    TOTAL           rendimiento_proxy_batch         uplift_batch_pp  361       0.1585 -0.2780  0.5950  0.4766   0.503   -0.0210      0.6915  0.0040
+70    TOTAL    recuperacion_refinada_pct_next              dist_total  360       0.0100 -0.5374  0.5574  0.9714   0.964    0.0159      0.7637  0.0108
+71    TOTAL    recuperacion_refinada_pct_next                  dist_F  359      -0.1655 -0.7345  0.4036  0.5688   0.490   -0.0090      0.8648  0.0112
+72    TOTAL    recuperacion_refinada_pct_next                  dist_R  360       0.1816 -0.3332  0.6964  0.4893   0.422   -0.0109      0.8374  0.0125
+73    TOTAL    recuperacion_refinada_pct_next  uplift_fisico_total_kg  360       0.1323 -0.4790  0.7436  0.6714   0.593   -0.0119      0.8222  0.0117
+74    TOTAL    recuperacion_refinada_pct_next         uplift_batch_pp  360       0.2230 -0.3470  0.7929  0.4432   0.362   -0.0184      0.7283  0.0133
+75    TOTAL  recuperacion_refinada_pct_media2              dist_total  360      -0.0141 -0.3768  0.3487  0.9395   0.950    0.0090      0.8651  0.0287
+76    TOTAL  recuperacion_refinada_pct_media2                  dist_F  359      -0.1784 -0.5927  0.2359  0.3987   0.301   -0.0251      0.6355  0.0308
+77    TOTAL  recuperacion_refinada_pct_media2                  dist_R  360       0.1175 -0.2092  0.4441  0.4809   0.468   -0.0077      0.8839  0.0299
+78    TOTAL  recuperacion_refinada_pct_media2  uplift_fisico_total_kg  360       0.0927 -0.3420  0.5274  0.6761   0.587   -0.0107      0.8402  0.0294
+79    TOTAL  recuperacion_refinada_pct_media2         uplift_batch_pp  360       0.1668 -0.2407  0.5743  0.4225   0.346   -0.0126      0.8119  0.0311
+80    TOTAL                           f_dross              dist_total  361      -0.0045 -0.0088 -0.0003  0.0379   0.018   -0.0758      0.1508  0.0588
+81    TOTAL                           f_dross                  dist_F  360      -0.0040 -0.0084  0.0004  0.0776   0.042   -0.0748      0.1565  0.0575
+82    TOTAL                           f_dross                  dist_R  361      -0.0024 -0.0062  0.0015  0.2265   0.233    0.0042      0.9366  0.0492
+83    TOTAL                           f_dross  uplift_fisico_total_kg  361      -0.0038 -0.0078  0.0002  0.0624   0.046   -0.0835      0.1133  0.0556
+84    TOTAL                           f_dross         uplift_batch_pp  361      -0.0031 -0.0069  0.0008  0.1154   0.126   -0.0448      0.3962  0.0520
+85    TOTAL                           f_polvo              dist_total  361       0.0044  0.0007  0.0080  0.0192   0.014    0.1328      0.0116  0.0574
+86    TOTAL                           f_polvo                  dist_F  360       0.0058  0.0019  0.0098  0.0040   0.000    0.1400      0.0078  0.0662
+87    TOTAL                           f_polvo                  dist_R  361       0.0012 -0.0018  0.0042  0.4382   0.487    0.0447      0.3968  0.0421
+88    TOTAL                           f_polvo  uplift_fisico_total_kg  361       0.0029 -0.0013  0.0071  0.1802   0.092    0.1497      0.0044  0.0485
+89    TOTAL                           f_polvo         uplift_batch_pp  361       0.0015 -0.0019  0.0049  0.3915   0.380    0.1026      0.0514  0.0428
+[   45.1s] placebo
+      subset                        kpi    variable    n  coef_por_sd   ci_lo   ci_hi   p_hc3  p_perm  spearman  p_spearman  r2_adj
+0       DEV  recuperacion_refinada_pct  dist_total  298       0.0245 -0.5398  0.5888  0.9321     NaN   -0.0200      0.7305 -0.0037
+1       DEV  recuperacion_refinada_pct      dist_F  297       0.1484 -0.3584  0.6552  0.5660     NaN    0.0033      0.9542 -0.0006
+2       DEV  recuperacion_refinada_pct      dist_R  298      -0.2499 -0.8564  0.3566  0.4194     NaN   -0.0543      0.3500 -0.0006
+18  LOCKBOX  recuperacion_refinada_pct  dist_total   63      -0.2848 -1.5319  0.9623  0.6545     NaN   -0.0522      0.6846  0.0527
+19  LOCKBOX  recuperacion_refinada_pct      dist_F   62      -0.1027 -1.3384  1.1329  0.8705     NaN    0.0509      0.6942  0.0459
+20  LOCKBOX  recuperacion_refinada_pct      dist_R   63      -0.4097 -1.5912  0.7717  0.4967     NaN   -0.1623      0.2036  0.0561
+36    TOTAL  recuperacion_refinada_pct  dist_total  361      -0.0378 -0.5323  0.4567  0.8810     NaN   -0.0181      0.7316  0.0055
+37    TOTAL  recuperacion_refinada_pct      dist_F  359       0.1709 -0.2900  0.6319  0.4674     NaN    0.0193      0.7153  0.0071
+38    TOTAL  recuperacion_refinada_pct      dist_R  361      -0.3045 -0.8529  0.2438  0.2763     NaN   -0.0667      0.2061  0.0101
+[   45.1s] uplift por batch (pp, dos batches): mediana 0.28536637815036525 media 0.35174307548546135 kg mediana 146.25026880206218
+[   45.1s] 
+             uplift_batch_pp  J_R_temprano_hist_pp  J_R_temprano_rec_pp  J_R_tardio_hist_pp  J_R_tardio_rec_pp  J_F_hist_pp  J_F_rec_pp
+es_lockbox                                                                                                                            
+False                 0.346                 1.872                2.021              -0.992             -0.833       -1.915      -1.878
+True                  0.379                 1.726                1.890              -0.592             -0.453       -2.010      -1.933
+[   45.1s] 
+                               hist__duracion_plan_min  rec__duracion_plan_min  hist__tasa_feed_conc_kg_min  rec__tasa_feed_conc_kg_min  hist__tasa_feed_reciclo_kg_min  rec__tasa_feed_reciclo_kg_min  hist__tasa_feed_Fe_kg_min  rec__tasa_feed_Fe_kg_min  hist__tasa_feed_dross_Fe_kg_min  rec__tasa_feed_dross_Fe_kg_min  hist__tasa_feed_pellets_kg_min  rec__tasa_feed_pellets_kg_min  hist__tasa_feed_CaO_kg_min  rec__tasa_feed_CaO_kg_min  hist__tasa_feed_Carbon_kg_min  rec__tasa_feed_Carbon_kg_min  hist__tasa_gn_nm3_min  rec__tasa_gn_nm3_min  hist__tasa_o2_nm3_min  rec__tasa_o2_nm3_min  hist__tasa_aire_nm3_min  rec__tasa_aire_nm3_min
+fase      orden_escalon_fase                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+Fusión    1                                     31.96                   31.96                       189.25                      189.25                           23.48                          23.48                      45.68                     45.68                            65.77                           65.77                           97.76                          97.76                       40.36                      40.36                          34.98                         31.63                  30.21                 29.94                  46.40                 45.99                   120.03                  119.86
+          2                                     36.97                   36.97                       188.97                      188.97                           23.52                          23.52                      45.47                     45.47                            64.90                           64.90                           95.62                          95.62                       40.03                      40.03                          48.30                         42.68                  30.32                 30.09                  46.78                 46.59                   119.93                  119.83
+          3                                     41.96                   41.96                       189.06                      189.06                           23.53                          23.53                      45.22                     45.22                            63.31                           63.31                           92.47                          92.47                       39.81                      39.81                          51.98                         47.20                  30.44                 30.23                  47.36                 47.09                   120.01                  120.03
+          4                                     46.97                   46.97                       187.08                      187.08                           23.04                          23.04                      44.36                     44.36                            60.29                           60.29                           89.26                          89.26                       39.25                      39.25                          52.03                         47.67                  30.59                 30.39                  47.65                 47.42                   120.48                  120.33
+          5                                     51.97                   51.97                       187.12                      187.12                           23.05                          23.05                      44.30                     44.30                            61.08                           61.08                           89.54                          89.54                       39.24                      39.24                          48.96                         44.76                  30.61                 30.43                  47.78                 47.47                   120.60                  120.67
+          6                                     61.07                   61.07                       182.52                      182.52                           22.08                          22.08                      42.66                     42.66                            62.35                           62.35                           96.65                          96.65                       34.49                      34.49                          44.01                         39.70                  30.51                 30.38                  47.60                 47.41                   120.24                  119.92
+Reducción 0                                     30.00                   30.00                          NaN                         NaN                             NaN                            NaN                        NaN                       NaN                            20.43                           20.43                           18.08                          18.08                         NaN                        NaN                          60.92                         63.64                  27.90                 27.65                  28.38                 28.63                   119.59                  121.40
+          1                                     25.00                   25.00                          NaN                         NaN                             NaN                            NaN                        NaN                       NaN                             0.35                            0.35                            0.23                           0.23                         NaN                        NaN                          31.52                         28.96                  24.41                 24.03                  23.17                 23.61                   118.35                  121.54
+          2                                     20.00                   20.00                          NaN                         NaN                             NaN                            NaN                        NaN                       NaN                             0.01                            0.01                            0.06                           0.06                         NaN                        NaN                          12.04                         10.32                  18.82                 18.10                  12.17                 12.20                   119.43                  123.62
+          3                                     13.22                   13.22                          NaN                         NaN                             NaN                            NaN                        NaN                       NaN                             0.06                            0.06                            0.20                           0.20                         NaN                        NaN                           6.96                          5.68                  16.70                 16.24                   7.78                  8.42                   119.67                  121.49
+[   45.1s] FIN

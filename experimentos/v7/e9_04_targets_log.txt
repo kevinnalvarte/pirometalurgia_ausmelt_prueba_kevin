@@ -1,0 +1,10 @@
+[   49.6s] a_ln_sn_dep          r2_oof=+0.161 r2_lockbox=-0.466 rho_kpi_dev=-0.0369552633923804  (46.0s)
+[   88.2s] b_frac_retenida      r2_oof=+0.167 r2_lockbox=-0.294 rho_kpi_dev=0.0369552633923804  (38.5s)
+[  119.9s] c_sn_ext_norm        r2_oof=+0.219 r2_lockbox=-0.147 rho_kpi_dev=-0.05139337529182874  (31.7s)
+[  143.3s] d_dley_sn            r2_oof=+0.259 r2_lockbox=-0.266 rho_kpi_dev=-0.07731498731790531  (23.4s)
+[  173.1s] e1_lnirf_nivel       r2_oof=+0.773 r2_lockbox=+0.838 rho_kpi_dev=0.20701935291955717  (29.9s)
+[  219.8s] e2_d_lnirf           r2_oof=+0.278 r2_lockbox=+0.079 rho_kpi_dev=-0.321160699042228  (46.6s)
+[  279.2s] f_dley_feo           r2_oof=+0.177 r2_lockbox=+0.174 rho_kpi_dev=-0.29741444885886087  (59.4s)
+[  347.0s] g_tasa_sn_dep        r2_oof=+0.168 r2_lockbox=-0.294 rho_kpi_dev=-0.04138464395248754  (67.7s)
+[  347.0s] FIN targets
+[  347.0s] TOTAL 347.0s

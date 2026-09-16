@@ -1,0 +1,152 @@
+cargando datos...
+df=(3982, 222), dev=299, lockbox=63 (1s)
+coefs sin carbon: {'pG': 0.7032, 'gG': 0.3013, 'aC': 0.0, 'pCaO': 0.2559, 'cCaO': 0.0794, 'aC_cao': 0.0}
+coefs con carbon: {'pG': 1.0397, 'gG': 0.3414, 'aC': -0.5648, 'pCaO': 0.3732, 'cCaO': 0.0934, 'aC_cao': -0.1968}
+== grid ==
+  [1/66] nuevo ('G', 'cierre', 0.0, 0.0, False) -> R2_feo=0.290 sd_dlnM_R=0.0254 (19s)
+  [2/66] nuevo ('G', 'cierre', 0.01, 0.0, False) -> R2_feo=0.282 sd_dlnM_R=0.0254 (29s)
+  [3/66] nuevo ('G', 'cierre', 0.02, 0.0, False) -> R2_feo=0.281 sd_dlnM_R=0.0254 (34s)
+  [4/66] nuevo ('G', 'cierre', 0.0, 0.0, True) -> R2_feo=0.355 sd_dlnM_R=0.0276 (39s)
+  [5/66] nuevo ('G', 'cierre', 0.01, 0.0, True) -> R2_feo=0.355 sd_dlnM_R=0.0277 (43s)
+  [6/66] nuevo ('G', 'cierre', 0.02, 0.0, True) -> R2_feo=0.350 sd_dlnM_R=0.0277 (48s)
+  [7/66] nuevo ('G', 'G', 0.0, 0.0, False) -> R2_feo=-0.001 sd_dlnM_R=0.0340 (53s)
+  [8/66] nuevo ('G', 'G', 0.0, 0.0, True) -> R2_feo=-0.002 sd_dlnM_R=0.0348 (58s)
+  [9/66] nuevo ('G', 'CaO', 0.0, 0.0, False) -> R2_feo=0.068 sd_dlnM_R=0.0394 (63s)
+  [10/66] nuevo ('G', 'CaO', 0.0, 0.0, True) -> R2_feo=0.304 sd_dlnM_R=0.0394 (67s)
+  [11/66] nuevo ('G', 'cierre+obs', 0.0, 0.15, False) -> R2_feo=0.257 sd_dlnM_R=0.0248 (72s)
+  [12/66] nuevo ('G', 'cierre+obs', 0.0, 0.3, False) -> R2_feo=0.225 sd_dlnM_R=0.0251 (77s)
+  [13/66] nuevo ('G', 'cierre+obs', 0.01, 0.15, False) -> R2_feo=0.270 sd_dlnM_R=0.0251 (82s)
+  [14/66] nuevo ('G', 'cierre+obs', 0.01, 0.3, False) -> R2_feo=0.240 sd_dlnM_R=0.0253 (87s)
+  [15/66] nuevo ('G', 'cierre+obs', 0.02, 0.15, False) -> R2_feo=0.270 sd_dlnM_R=0.0254 (93s)
+  [16/66] nuevo ('G', 'cierre+obs', 0.02, 0.3, False) -> R2_feo=0.240 sd_dlnM_R=0.0256 (98s)
+  [17/66] nuevo ('G', 'cierre+obs', 0.0, 0.15, True) -> R2_feo=0.331 sd_dlnM_R=0.0267 (104s)
+  [18/66] nuevo ('G', 'cierre+obs', 0.0, 0.3, True) -> R2_feo=0.305 sd_dlnM_R=0.0265 (114s)
+  [19/66] nuevo ('G', 'cierre+obs', 0.01, 0.15, True) -> R2_feo=0.351 sd_dlnM_R=0.0271 (126s)
+  [20/66] nuevo ('G', 'cierre+obs', 0.01, 0.3, True) -> R2_feo=0.317 sd_dlnM_R=0.0268 (139s)
+  [21/66] nuevo ('G', 'cierre+obs', 0.02, 0.15, True) -> R2_feo=0.351 sd_dlnM_R=0.0275 (151s)
+  [22/66] nuevo ('G', 'cierre+obs', 0.02, 0.3, True) -> R2_feo=0.325 sd_dlnM_R=0.0272 (163s)
+  [23/66] nuevo ('CaO', 'cierre', 0.0, 0.0, False) -> R2_feo=0.274 sd_dlnM_R=0.0254 (176s)
+  [24/66] nuevo ('CaO', 'cierre', 0.01, 0.0, False) -> R2_feo=0.271 sd_dlnM_R=0.0254 (189s)
+  [25/66] nuevo ('CaO', 'cierre', 0.02, 0.0, False) -> R2_feo=0.272 sd_dlnM_R=0.0254 (203s)
+  [26/66] nuevo ('CaO', 'cierre', 0.0, 0.0, True) -> R2_feo=0.339 sd_dlnM_R=0.0271 (216s)
+  [27/66] nuevo ('CaO', 'cierre', 0.01, 0.0, True) -> R2_feo=0.338 sd_dlnM_R=0.0272 (229s)
+  [28/66] nuevo ('CaO', 'cierre', 0.02, 0.0, True) -> R2_feo=0.330 sd_dlnM_R=0.0272 (243s)
+  [29/66] nuevo ('CaO', 'G', 0.0, 0.0, False) -> R2_feo=0.120 sd_dlnM_R=0.0340 (255s)
+  [30/66] nuevo ('CaO', 'G', 0.0, 0.0, True) -> R2_feo=0.656 sd_dlnM_R=0.0348 (268s)
+  [31/66] nuevo ('CaO', 'CaO', 0.0, 0.0, False) -> R2_feo=0.135 sd_dlnM_R=0.0394 (285s)
+  [32/66] cache hit ('CaO', 'CaO', 0.0, 0.0, False)
+  [33/66] nuevo ('CaO', 'cierre+obs', 0.0, 0.15, False) -> R2_feo=0.258 sd_dlnM_R=0.0256 (299s)
+  [34/66] nuevo ('CaO', 'cierre+obs', 0.0, 0.3, False) -> R2_feo=0.254 sd_dlnM_R=0.0268 (313s)
+  [35/66] nuevo ('CaO', 'cierre+obs', 0.01, 0.15, False) -> R2_feo=0.268 sd_dlnM_R=0.0259 (327s)
+  [36/66] nuevo ('CaO', 'cierre+obs', 0.01, 0.3, False) -> R2_feo=0.262 sd_dlnM_R=0.0270 (345s)
+  [37/66] nuevo ('CaO', 'cierre+obs', 0.02, 0.15, False) -> R2_feo=0.286 sd_dlnM_R=0.0261 (368s)
+  [38/66] nuevo ('CaO', 'cierre+obs', 0.02, 0.3, False) -> R2_feo=0.277 sd_dlnM_R=0.0272 (390s)
+  [39/66] nuevo ('CaO', 'cierre+obs', 0.0, 0.15, True) -> R2_feo=0.362 sd_dlnM_R=0.0284 (401s)
+  [40/66] nuevo ('CaO', 'cierre+obs', 0.0, 0.3, True) -> R2_feo=0.425 sd_dlnM_R=0.0314 (413s)
+  [41/66] nuevo ('CaO', 'cierre+obs', 0.01, 0.15, True) -> R2_feo=0.374 sd_dlnM_R=0.0288 (435s)
+  [42/66] nuevo ('CaO', 'cierre+obs', 0.01, 0.3, True) -> R2_feo=0.434 sd_dlnM_R=0.0319 (457s)
+  [43/66] nuevo ('CaO', 'cierre+obs', 0.02, 0.15, True) -> R2_feo=0.383 sd_dlnM_R=0.0293 (471s)
+  [44/66] nuevo ('CaO', 'cierre+obs', 0.02, 0.3, True) -> R2_feo=0.446 sd_dlnM_R=0.0324 (485s)
+  [45/66] nuevo ('cierre', 'cierre', 0.0, 0.0, False) -> R2_feo=0.300 sd_dlnM_R=0.0254 (499s)
+  [46/66] nuevo ('cierre', 'cierre', 0.01, 0.0, False) -> R2_feo=0.304 sd_dlnM_R=0.0254 (512s)
+  [47/66] nuevo ('cierre', 'cierre', 0.02, 0.0, False) -> R2_feo=0.300 sd_dlnM_R=0.0254 (526s)
+  [48/66] nuevo ('cierre', 'cierre', 0.0, 0.0, True) -> R2_feo=0.370 sd_dlnM_R=0.0272 (542s)
+  [49/66] nuevo ('cierre', 'cierre', 0.01, 0.0, True) -> R2_feo=0.369 sd_dlnM_R=0.0273 (556s)
+  [50/66] nuevo ('cierre', 'cierre', 0.02, 0.0, True) -> R2_feo=0.361 sd_dlnM_R=0.0273 (572s)
+  [51/66] nuevo ('cierre', 'G', 0.0, 0.0, False) -> R2_feo=0.323 sd_dlnM_R=0.0340 (585s)
+  [52/66] nuevo ('cierre', 'G', 0.0, 0.0, True) -> R2_feo=0.366 sd_dlnM_R=0.0348 (599s)
+  [53/66] nuevo ('cierre', 'CaO', 0.0, 0.0, False) -> R2_feo=0.323 sd_dlnM_R=0.0394 (613s)
+  [54/66] nuevo ('cierre', 'CaO', 0.0, 0.0, True) -> R2_feo=0.024 sd_dlnM_R=0.0394 (626s)
+  [55/66] nuevo ('cierre', 'cierre+obs', 0.0, 0.15, False) -> R2_feo=0.294 sd_dlnM_R=0.0262 (639s)
+  [56/66] nuevo ('cierre', 'cierre+obs', 0.0, 0.3, False) -> R2_feo=0.308 sd_dlnM_R=0.0274 (653s)
+  [57/66] nuevo ('cierre', 'cierre+obs', 0.01, 0.15, False) -> R2_feo=0.302 sd_dlnM_R=0.0265 (667s)
+  [58/66] nuevo ('cierre', 'cierre+obs', 0.01, 0.3, False) -> R2_feo=0.332 sd_dlnM_R=0.0278 (681s)
+  [59/66] nuevo ('cierre', 'cierre+obs', 0.02, 0.15, False) -> R2_feo=0.318 sd_dlnM_R=0.0268 (694s)
+  [60/66] nuevo ('cierre', 'cierre+obs', 0.02, 0.3, False) -> R2_feo=0.340 sd_dlnM_R=0.0281 (708s)
+  [61/66] nuevo ('cierre', 'cierre+obs', 0.0, 0.15, True) -> R2_feo=0.367 sd_dlnM_R=0.0281 (722s)
+  [62/66] nuevo ('cierre', 'cierre+obs', 0.0, 0.3, True) -> R2_feo=0.382 sd_dlnM_R=0.0292 (739s)
+  [63/66] nuevo ('cierre', 'cierre+obs', 0.01, 0.15, True) -> R2_feo=0.376 sd_dlnM_R=0.0285 (750s)
+  [64/66] nuevo ('cierre', 'cierre+obs', 0.01, 0.3, True) -> R2_feo=0.387 sd_dlnM_R=0.0297 (755s)
+  [65/66] nuevo ('cierre', 'cierre+obs', 0.02, 0.15, True) -> R2_feo=0.384 sd_dlnM_R=0.0289 (759s)
+  [66/66] nuevo ('cierre', 'cierre+obs', 0.02, 0.3, True) -> R2_feo=0.407 sd_dlnM_R=0.0302 (764s)
+grid: 66 variantes, 65 firmas unicas -> e8_01_grilla.csv (768s)
+== calib ==
+  kfold G con_carbon=False: cal mean=0.7000 sd=0.1791 | carga mean=0.3016 sd=0.0178
+  kfold G con_carbon=True: cal mean=1.0359 sd=0.1427 | carga mean=0.3404 sd=0.0231
+  kfold CaO con_carbon=False: cal mean=0.2540 sd=0.0663 | carga mean=0.0796 sd=0.0066
+  kfold CaO con_carbon=True: cal mean=0.3704 sd=0.0610 | carga mean=0.0932 sd=0.0077
+calib -> e8_01_calibracion.csv
+== sensib ==
+  base: R2_feo=0.290 R2_sn=0.695 ratio_bal_dev=1.114 sd_dlnM_R=0.0254
+  pG*0.7: R2_feo=0.278 R2_sn=0.702 ratio_bal_dev=1.180 sd_dlnM_R=0.0254
+  pG*1.3: R2_feo=0.289 R2_sn=0.691 ratio_bal_dev=1.055 sd_dlnM_R=0.0254
+  gG*0.7: R2_feo=0.284 R2_sn=0.708 ratio_bal_dev=1.473 sd_dlnM_R=0.0254
+  gG*1.3: R2_feo=0.277 R2_sn=0.692 ratio_bal_dev=0.896 sd_dlnM_R=0.0254
+  ambos*0.7: R2_feo=0.290 R2_sn=0.708 ratio_bal_dev=1.591 sd_dlnM_R=0.0254
+  ambos*1.3: R2_feo=0.290 R2_sn=0.697 ratio_bal_dev=0.857 sd_dlnM_R=0.0254
+sensib -> e8_01_sensibilidad.csv
+== ruido ==
+  replica 50/200 (34s)
+  replica 100/200 (67s)
+  replica 150/200 (90s)
+  replica 200/200 (105s)
+ orden_R  n_nofeed  senal_sd_dlnM  ruido_sd_dlnM_cierre  snr_dlnM_cierre  ruido_sd_dlnM_cierre_allR  senal_sd_ln_feo  ruido_sd_ln_feo  snr_ln_feo  ruido_sd_dlnM_CaO  snr_dlnM_CaO
+       0         0            NaN                   NaN              NaN                   0.013060         0.065779         0.050957    1.290880           0.027888           NaN
+       1       155       0.038382              0.012961         2.961446                   0.012736         0.072838         0.049524    1.470743           0.027977      1.371908
+       2       264       0.015354              0.012659         1.212909                   0.012561         0.062156         0.049157    1.264441           0.028031      0.547745
+       3       219       0.015507              0.012810         1.210513                   0.012722         0.052904         0.049126    1.076899           0.027991      0.553993
+ruido -> e8_01_ruido.csv (105s)
+== bordes ==
+F0 m6_masa_kg/(cal+carga) descr:
+ count    358.000000
+mean       0.493239
+std        0.049145
+min        0.385994
+25%        0.460760
+50%        0.486383
+75%        0.518294
+max        0.715598
+dtype: float64
+F0 masa_v3/(cal+carga) descr:
+ count    3.580000e+02
+mean     4.438390e-01
+std      1.065669e-01
+min      2.103594e-26
+25%      4.127337e-01
+50%      4.515269e-01
+75%      4.908095e-01
+max      7.222085e-01
+dtype: float64
+ensayos faltantes Sn: 121 (3.04%) -- por fase: F=10 R=111
+ensayos faltantes FeO: 132 (3.31%) -- por fase: F=17 R=115
+ensayos faltantes CaO: 131 (3.29%) -- por fase: F=16 R=115
+filas con Sn/FeO faltante Y m6_masa_kg NaN: 131 de 133 faltantes
+escalones inmediatamente siguientes a un faltante (mismo batch): 28
+batches con cal ~0: 12 de 362
+  ratio_bal (mfin/mbal) para esos batches -- ver e8_01 grid col ratio_bal; masa mediana escalon: 37701.07466090939 vs global: 47501.46668440743
+escalones con resto_frac<0.4: 0 (0.00%) -- por fase F=0 R=0
+m6_masa_kg NaN/0: 134 -- por fase F=18 R=116 otras=0
+bordes: sin CSV, ver log
+== anclaje ==
+m6_k_anclaje: n=362 media=1.100 sd=0.133 mediana=1.103 IQR=[1.012,1.190]
+  spearman(k_anclaje, cal_sobre_carga) = 0.108 (p=0.0392, n=362)
+  spearman(k_anclaje, frac_carga_secundaria) = 0.237 (p=5.3e-06, n=362)
+  spearman(k_anclaje, ley_sn_carga_batch_pct) = -0.216 (p=3.36e-05, n=362)
+  spearman(k_anclaje, feed_dross_Fe_kg) = 0.259 (p=5.92e-07, n=362)
+  spearman(k_anclaje, T_media_C) = 0.239 (p=4.24e-06, n=362)
+  spearman(k_anclaje, espesor_ladrillo_mm) = 0.273 (p=1.28e-07, n=362)
+  spearman(k_anclaje, orden_cronologico) = -0.272 (p=1.45e-07, n=362)
+anclaje -> e8_01_anclaje.csv
+== qc ==
+residuo ln(M_cierre/M_G) en Reduccion: n=1332 media=-0.1025 sd=0.0555 frac_flag(|.|>2sd)=0.035
+                    count      mean       std       min       25%       50%       75%       max
+orden_escalon_fase                                                                             
+0                   359.0 -0.091857  0.047944 -0.248305 -0.122764 -0.092648 -0.061313  0.087614
+1                   358.0 -0.106486  0.057532 -0.614709 -0.138266 -0.104981 -0.071865  0.167067
+2                   358.0 -0.105330  0.057827 -0.477751 -0.137448 -0.109008 -0.073552  0.178749
+3                   257.0 -0.107948  0.057653 -0.392716 -0.140255 -0.112598 -0.070720  0.182393
+spearman(residuo_abs_medio_batch, polvo_Sn_batch_t) = 0.080 (p=0.129, n=362)
+spearman(residuo_abs_medio_batch, KPI recuperacion_refinada_pct) = 0.036 (p=0.494)
+spearman(frac_flag_batch, KPI recuperacion_refinada_pct) = 0.006 (p=0.907)
+qc -> e8_01_qc.csv (+ e8_01_qc_batch.csv auxiliar)
+TOTAL 925s

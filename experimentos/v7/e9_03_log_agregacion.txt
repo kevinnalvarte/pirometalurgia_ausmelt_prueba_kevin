@@ -1,0 +1,16 @@
+[03:22:46] telescopia: 362/362 batches con 4 escalones R completos; de esos, 254 con los 4 targets validos (m6_valido=True en todos)
+[03:22:46] error |suma_ln_sn_dep - directo|: mediana 4.81e-04, max 2.22e-01
+[03:22:46] error |suma_ln_feo_ret - directo|: mediana 5.55e-17, max 3.33e-16
+[03:23:06] Spearman J vs KPI refinado:
+    variable conjunto   n       rho            p     ci_lo    ci_hi
+J_batch_real      DEV 298  0.318699 1.845912e-08  0.213391 0.416456
+J_batch_real  lockbox  63  0.198205 1.194252e-01 -0.050991 0.441259
+J_batch_real    total 361  0.297862 7.867883e-09  0.196183 0.389847
+  J_temprano      DEV 299  0.347442 6.568599e-10  0.242873 0.444434
+  J_temprano  lockbox  63  0.306980 1.439761e-02  0.064486 0.527294
+  J_temprano    total 362  0.328618 1.458738e-10  0.237509 0.415121
+    J_tardio      DEV 299  0.088783 1.255727e-01 -0.017353 0.198633
+    J_tardio  lockbox  63 -0.065284 6.112125e-01 -0.338703 0.216577
+    J_tardio    total 362  0.069819 1.850329e-01 -0.036104 0.173377
+[03:23:06] FIN agregacion
+[03:23:06] tiempo total: 20s

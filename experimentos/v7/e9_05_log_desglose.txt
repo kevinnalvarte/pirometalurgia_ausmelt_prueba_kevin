@@ -1,0 +1,5 @@
+[   59.7s] R_sn_dep: r2_oof=0.765 r2_lockbox=0.800
+[  141.6s] R_feo_ret: r2_oof=0.329 r2_lockbox=0.486
+[  191.9s] F_sn_dep: r2_oof=0.161 r2_lockbox=-0.466
+[  191.9s] guardado C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\v7\e9_05_desglose.csv (66 filas)
+FIN desglose

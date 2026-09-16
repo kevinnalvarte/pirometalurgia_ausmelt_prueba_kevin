@@ -1,0 +1,331 @@
+<title>Prescriptor v7 Lingo Smelter</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#f5f4f0; --panel:#fbfaf8; --ink:#171b1f; --ink2:#525a63; --ink3:#8a919a; --line:#d9d7d0; --line2:#ebe9e3;
+  --sn:#2a78d6; --feo:#eb6834; --lb:#1baf7a; --neutral:#8a919a; --warn:#eda100; --bad:#e34948;
+  --accent:#1c5cab; --accent-bg:#e4eefb; --mark:#fff3d6;
+  --font-d:"Fraunces",Georgia,"Times New Roman",serif; --font-b:"Source Sans 3","Segoe UI",Arial,sans-serif; --font-m:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#191a1b; --panel:#212325; --ink:#f1efe9; --ink2:#c3c2b7; --ink3:#8f9399; --line:#3a3d41; --line2:#2c2f33;
+  --sn:#3987e5; --feo:#d95926; --lb:#199e70; --neutral:#8f9399; --warn:#c98500; --bad:#e66767; --accent:#6ea6ef; --accent-bg:#1d2b3f; --mark:#3a2f14; } }
+:root[data-theme="dark"]{
+  --bg:#191a1b; --panel:#212325; --ink:#f1efe9; --ink2:#c3c2b7; --ink3:#8f9399; --line:#3a3d41; --line2:#2c2f33;
+  --sn:#3987e5; --feo:#d95926; --lb:#199e70; --neutral:#8f9399; --warn:#c98500; --bad:#e66767; --accent:#6ea6ef; --accent-bg:#1d2b3f; --mark:#3a2f14; }
+body{background:var(--bg); color:var(--ink); font-family:var(--font-b); font-size:16px; line-height:1.55; padding-inline:clamp(16px,4vw,48px); padding-block:32px 80px;}
+main{max-width:1040px; margin:0 auto;}
+h1,h2,h3{font-family:var(--font-d); font-weight:500; text-wrap:balance; line-height:1.15; margin:0;}
+h1{font-size:clamp(30px,4.5vw,46px); letter-spacing:-0.01em;}
+h2{font-size:clamp(23px,3vw,30px); margin-top:64px; padding-top:22px; border-top:1px solid var(--line);}
+h3{font-size:19px; margin-top:30px; font-weight:700;}
+p{max-width:68ch; margin:12px 0;}
+.eyebrow{font-family:var(--font-m); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3);}
+.lead{font-size:18px; color:var(--ink2); max-width:70ch;}
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:14px; margin:28px 0 8px;}
+.tile{background:var(--panel); border:1px solid var(--line2); padding:14px 16px; border-radius:6px;}
+.tile .v{font-family:var(--font-m); font-size:26px; font-weight:600; font-variant-numeric:tabular-nums; margin:4px 0 2px;}
+.tile .l{font-size:13px; color:var(--ink2);}
+.tile .s{font-size:12px; color:var(--ink3); font-family:var(--font-m);}
+.fig{margin:22px 0 6px;}
+.fig .plot{width:100%; min-height:320px;}
+.cap{font-size:13.5px; color:var(--ink2); max-width:80ch; margin:6px 0 0;}
+.cap b{color:var(--ink);}
+table{border-collapse:collapse; width:100%; font-size:14px; margin:14px 0; font-variant-numeric:tabular-nums;}
+.tw{overflow-x:auto;}
+th,td{padding:7px 10px; border-bottom:1px solid var(--line2); text-align:left; vertical-align:top;}
+th{font-size:12.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink3); font-weight:600;}
+td.n,th.n{text-align:right; font-family:var(--font-m); font-size:13px;}
+tr.hl td{background:var(--accent-bg);}
+.formula{font-family:var(--font-m); font-size:13.5px; background:var(--panel); border:1px solid var(--line2); border-left:3px solid var(--accent); padding:12px 16px; overflow-x:auto; margin:14px 0; white-space:pre;}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:22px; align-items:start;}
+.verdict{display:grid; grid-template-columns:auto 1fr; gap:10px 14px; align-items:baseline; margin:16px 0;}
+.pill{font-family:var(--font-m); font-size:11.5px; letter-spacing:.05em; padding:3px 9px; border-radius:99px; border:1px solid var(--line); white-space:nowrap;}
+.pill.ok{background:var(--accent-bg); color:var(--accent); border-color:transparent;}
+.pill.no{background:var(--mark); color:var(--ink); border-color:transparent;}
+.flow{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin:20px 0;}
+.step{background:var(--panel); border:1px solid var(--line2); border-radius:6px; padding:12px 14px; font-size:14px;}
+.step .k{font-family:var(--font-m); font-size:11.5px; color:var(--accent); letter-spacing:.06em; text-transform:uppercase;}
+.step .t{font-weight:600; margin:4px 0 2px;}
+.step .d{color:var(--ink2); font-size:13px;}
+.note{border-left:3px solid var(--warn); padding:8px 14px; background:var(--panel); margin:16px 0; font-size:14.5px; max-width:80ch;}
+ul{max-width:76ch; padding-left:20px;} li{margin:5px 0;}
+code{font-family:var(--font-m); font-size:13px; background:var(--panel); padding:1px 5px; border-radius:3px;}
+.legend{display:flex; gap:16px; flex-wrap:wrap; font-size:13px; color:var(--ink2); margin-top:4px;}
+.sw{display:inline-block; width:12px; height:12px; border-radius:2px; vertical-align:-1px; margin-right:5px;}
+</style>
+<main>
+<div class="eyebrow">Lingo Smelter · Horno Ausmelt de Sn · Iteración 9 · 16 de septiembre de 2026</div>
+<h1>Prescriptor v7: el enfoque que quedó en pie</h1>
+<p class="lead">Nueve iteraciones buscaron el mejor modelo predictivo y prescriptivo por escalón para Fusión y Reducción. Esta página muestra el enfoque ganador, cómo se agrega la eficiencia de un escalón al batch, qué efecto tiene cada variable de control, qué recomienda la política y qué evidencia la sostiene. También muestra lo que se probó y no superó al ganador, que es la otra mitad de la demostración.</p>
+
+<div class="tiles" id="tiles"></div>
+<p class="cap">Métricas fuera de muestra (OOF GroupKFold por batch en 299 batches de desarrollo; lockbox = últimos 63 batches, sólo reporte). El uplift es el cambio predicho del KPI de recuperación al seguir las recomendaciones, en puntos porcentuales sumados sobre el batch actual y el siguiente.</p>
+
+<h2>1. El enfoque en una línea</h2>
+<p>Masa de escoria por cierre físico → inventarios de Sn y FeO por escalón → targets logarítmicos que suman exactamente sobre el batch → un modelo parcialmente lineal por fase (estado no lineal, palancas lineales con el signo que dicta la química) → una función objetivo anclada en el KPI real → una política por escalón que sólo se mueve dentro del envolvente histórico.</p>
+<div class="flow">
+  <div class="step"><div class="k">Masa</div><div class="t">Cierre físico</div><div class="d">Sólo SnO₂ y FeO salen de la escoria; el resto se conserva. Sin trazador de CaO.</div></div>
+  <div class="step"><div class="k">Targets</div><div class="t">ln agotamiento Sn · ln retención FeO</div><div class="d">Adimensionales, telescópicos: la suma de los escalones es el cociente inicio/fin de la fase.</div></div>
+  <div class="step"><div class="k">Modelo</div><div class="t">PLM con signos</div><div class="d">y = g(S) + Σθ·(a − E[a|S]); g y E por HGB cross-fitted; θ acotado por teoría; 16 features de estado.</div></div>
+  <div class="step"><div class="k">Objetivo</div><div class="t">J = K·(Sn + w·FeO)</div><div class="d">K y w anclados en el KPI del batch actual y del siguiente (legado por el talón de escoria).</div></div>
+  <div class="step"><div class="k">Política</div><div class="t">Miope por escalón</div><div class="d">Búsqueda en P1-P99 con soporte relativo, ventana térmica, costos e incertidumbre.</div></div>
+</div>
+<div class="formula">r_t = 1 − 1.270·s_t − f_t        M_t·r_t = M_{t−1}·r_{t−1}·e^{−0.01·[Reducción]} + 0.703·cal_t + 0.301·carga_t
+ln_sn_dep_t  = ln( (Sn_inv_{t−1} + Sn alimentado_t) / Sn_inv_t )          ln_feo_ret_t = ln( FeO_inv_t / FeO_inv_{t−1} )
+J_t = K·( ln_sn_dep_t + w·ln_feo_ret_t ) − costos − ventana T − 0.25·K·ancho IC − soporte        K = 3.52 pp · w = 7.86</div>
+
+<h2>2. La eficiencia se agrega sin aproximaciones</h2>
+<p>Como los targets son logaritmos de cocientes de inventarios, la suma sobre los cuatro escalones de Reducción es exactamente ln(Sn inicial/Sn final) y ln(FeO final/FeO inicial). En 254 batches con los cuatro escalones válidos el error de la identidad es 0.005 ± 0.018 para el Sn y cero para el FeO. Por eso el objetivo de un escalón, de un grupo de escalones, de la fase y del batch es la misma fórmula, y por eso un único par (K, w) por fase es defendible.</p>
+<div class="grid2">
+  <div class="fig"><div class="plot" id="f_anclaje"></div><p class="cap"><b>Anclaje del KPI por grupo de escalones.</b> Puntos porcentuales de recuperación por unidad de cada target, OLS robusta con controles, 298 batches. El cociente FeO/Sn (w) es estable entre grupos; los coeficientes del grupo tardío se atenúan porque sus targets son más ruidosos (relación señal/ruido 1.2 frente a 3.0), no porque la química cambie.</p></div>
+  <div class="fig"><div class="plot" id="f_legado"></div><p class="cap"><b>Legado al batch siguiente.</b> Retener FeO en este batch sube también el KPI del siguiente. El placebo temporal (KPI del batch anterior) es nulo; el efecto viaja por el índice de matriz al cierre de la Reducción, el talón químico que hereda la Fusión siguiente. Anclar sobre los dos batches da K = 3.52 y w = 7.86 [5.14, 13.04].</p></div>
+</div>
+<div class="fig"><div class="plot" id="f_grupos_kpi"></div><p class="cap"><b>Qué grupo sigue al KPI.</b> Correlación de Spearman entre el objetivo realizado por grupo y la recuperación del batch. El grupo temprano (R0-R1, Sn abundante y reducción selectiva) sigue al KPI en desarrollo y en lockbox; el grupo tardío no, porque lo domina el ruido de ensayo.</p></div>
+
+<h2>3. Predictivo: dónde está el modelo y dónde está el techo</h2>
+<div class="fig"><div class="plot" id="f_validacion"></div><p class="cap"><b>R² fuera de muestra por versión.</b> v7 conserva la precisión de v6 con 16 features de estado en vez de 38 y duplica a v5 en retención de FeO (que aún usaba el trazador de CaO). Fusión sigue sin generalizar al lockbox de fin de campaña; su valor prescriptivo viene de los costos, la ventana térmica y el canal polvo, no de este R².</p></div>
+<div class="grid2">
+  <div class="fig"><div class="plot" id="f_pred_sn"></div><p class="cap"><b>Agotamiento de Sn en Reducción, real frente a predicho.</b> Muestra aleatoria de escalones; el modelo es más fuerte en R1 y con avance medio, y más ruidoso en los extremos, donde el inventario restante es pequeño.</p></div>
+  <div class="fig"><div class="plot" id="f_pred_feo"></div><p class="cap"><b>Retención de FeO, real frente a predicho.</b> Valores negativos = FeO metalizado. Lockbox 0.48 con el sistema congelado en desarrollo.</p></div>
+</div>
+<div class="fig"><div class="plot" id="f_techo"></div><p class="cap"><b>Techo de ruido de ensayo.</b> Monte Carlo de 200 réplicas perturbando las leyes de laboratorio (2 % en %Sn, 2.8 % en %FeO). El agotamiento de Sn casi no lo ata el laboratorio; la retención de FeO sí: su techo es 0.57 y el modelo captura el 58 % en desarrollo y el 85 % en lockbox. Con 4 % de ruido el techo caería a 0.13, por debajo de lo observado, así que el ruido real de %FeO no supera 2.8 %.</p></div>
+<div class="grid2">
+  <div class="fig"><div class="plot" id="f_curva"></div><p class="cap"><b>Curva de aprendizaje.</b> R² OOF frente al número de batches de entrenamiento. Saturada desde unos 150 batches: más datos del mismo tipo no cierran la brecha.</p></div>
+  <div class="fig"><div class="plot" id="f_bakeoff"></div><p class="cap"><b>Catorce algoritmos sobre las mismas filas.</b> Nada supera al PLM de forma significativa (stacking +0.005 [−0.003, +0.014] en Sn; ninguno en FeO). En Fusión el stacking gana en desarrollo y pierde en lockbox: sobreajuste a la campaña.</p></div>
+</div>
+
+<h2>4. Efecto de las variables de control</h2>
+<div class="fig"><div class="plot" id="f_theta"></div><p class="cap"><b>Efecto θ por +1 desviación estándar de cada palanca, con IC 95 % por bootstrap por batch.</b> Las cotas de signo impiden efectos químicamente imposibles (un reductor no puede aumentar la retención de FeO); cuando el dato contradice la teoría, el efecto colapsa a cero. El carbón, escalado por el Sn disponible, agota Sn de forma selectiva; el gas natural agota Sn y metaliza Fe (no selectivo); el oxígeno y el aire actúan sobre la temperatura.</p></div>
+<div class="fig"><div class="plot" id="f_parsimonia"></div><p class="cap"><b>Parsimonia.</b> Eliminación hacia atrás guiada por importancia de permutación: de 38 a 6 features el R² apenas cambia y el carbón sigue identificado. Se adoptan 16 (marcadas) porque es el único tamaño que identifica el carbón en dos de tres tercios cronológicos y generaliza mejor en walk-forward que el estado completo.</p></div>
+
+<h2>5. Lo que recomienda la política</h2>
+<div class="fig"><div class="plot" id="f_perfil"></div><p class="cap"><b>Cambio medio recomendado frente a la acción histórica</b>, por tramo de avance de la Reducción y por escalón de Fusión, en 362 batches recomendados por sistemas que no los vieron (cross-fitting). En Reducción: más carbón mientras el Sn es abundante y menos después, algo menos de gas natural, más aire; en Fusión: menos carbón y menos gas dentro de la ventana térmica.</p></div>
+<div class="fig"><div class="plot" id="f_curvas"></div><p class="cap"><b>Curvas de respuesta del objetivo</b> para un escalón real de Reducción con avance ≈ 0.75 (izquierda) y ≈ 0.985 (derecha): J en kg de Sn equivalente al variar una palanca con las demás fijas en su valor histórico. Los óptimos interiores nacen del trade-off Sn/FeO, la ventana térmica y el soporte, no de curvaturas impuestas.</p></div>
+<div class="fig"><div class="plot" id="f_ejemplo"></div><p class="cap"><b>Un batch del lockbox, escalón a escalón.</b> Leyes de la escoria reales y carbón histórico frente al recomendado por un sistema entrenado sin este batch.</p></div>
+
+<h2>6. Evidencia de que seguir la política mejora el batch</h2>
+<div class="grid2">
+  <div class="fig"><div class="plot" id="f_uplift"></div><p class="cap"><b>Uplift modelado por batch</b> (cadena θ → J → KPI): distribución del cambio predicho del KPI de dos batches al sustituir las acciones históricas por las recomendadas. Mediana +0.27 pp [0.25, 0.29] en desarrollo y +0.35 pp [0.32, 0.39] en lockbox; más del 99 % de los batches positivos. Un punto porcentual son unos 512 kg de Sn a metal.</p></div>
+  <div class="fig"><div class="plot" id="f_adherencia"></div><p class="cap"><b>Evidencia off-policy.</b> Coeficiente de la distancia a la política (por +1 sd) sobre el KPI y sobre la fracción de Sn a polvo, OLS robusta con controles. Alejarse de la política de Fusión sube el polvo (p 0.013; permutación 0.001) y baja el KPI en la dirección esperada sin alcanzar significación. Un placebo con recomendaciones permutadas entre batches da cero.</p></div>
+</div>
+<div class="note"><b>Por qué la evidencia de Reducción es nula.</b> El error estándar del coeficiente de adherencia en Reducción es 0.21 pp/sd, así que el efecto mínimo detectable al 80 % de potencia es 0.59 pp/sd. El efecto que la propia cadena predice es 0.32 pp/sd: potencia del 32 %. Harían falta unos 1 000 batches para verlo en datos observacionales. La prueba definitiva es un piloto A/B por batches; el diseño observacional ya dio todo lo que puede dar.</div>
+
+<h2>7. Lo que se probó y no superó al ganador</h2>
+<div class="verdict">
+  <span class="pill no">refutada</span><div><b>Forma estructural.</b> Un modelo cinético de reducción competitiva SnO₂/FeO con 7 parámetros (reductor efectivo, reparto por afinidad, Arrhenius) llega a R² 0.34 frente a 0.77 del PLM; sus eficiencias saturan la cota y el reparto sale anti-teórico. Los híbridos no mejoran.</div>
+  <span class="pill no">refutada</span><div><b>La cal como palanca.</b> Con la masa corregida, la cal por tonelada de carga no mueve el KPI (p 0.145), no tiene dosis-respuesta ni óptimo de basicidad, y ni siquiera mueve la basicidad del escalón de forma identificable. El efecto que apareció en la iteración 7 era el artefacto contable del trazador de CaO.</div>
+  <span class="pill no">no adoptada</span><div><b>Política con horizonte.</b> Planificar la secuencia de los cuatro escalones de Reducción mejora el objetivo de batch simulado una mediana del 0 % sobre la política miope y sólo gana en el 12 % de las réplicas al perturbar θ. La secuencia importa, pero la miope ya la captura al condicionar cada decisión en el estado que hereda.</div>
+  <span class="pill no">a medias</span><div><b>Fusión robusta a la campaña.</b> El agotamiento de Sn de Fusión no generaliza al lockbox con ninguna de ocho formulaciones ni con reentrenamiento; la temperatura sí (0.04 → 0.16-0.32 con reentrenamiento progresivo). Se corrigió que el primer escalón útil de Fusión nunca se modelaba.</div>
+  <span class="pill ok">confirmada</span><div><b>Techo de ruido y bake-off.</b> No hay algoritmo mejor; el margen de FeO es laboratorio, el de Sn en Reducción está agotado por estado y forma, el de Fusión es deriva de campaña.</div>
+  <span class="pill ok">confirmada</span><div><b>Estado parsimonioso.</b> Dieciséis features con el mismo R², carbón identificado y mejor walk-forward.</div>
+</div>
+<div class="fig"><div class="plot" id="f_formas"></div><p class="cap"><b>Formas del modelo de Reducción.</b> R² OOF en desarrollo por forma y target.</p></div>
+
+<h2>8. Límites y siguientes pasos</h2>
+<ul>
+  <li><b>Laboratorio:</b> la retención de FeO tiene techo 0.57 por el ruido del ensayo de %FeO; mejorar la precisión analítica es la única vía para subirlo.</li>
+  <li><b>Campaña:</b> el lockbox es fin de campaña de refractario; en producción conviene reentrenar cada 10 batches (la temperatura de Fusión pasa de 0.04 a 0.16-0.32; la retención de FeO subió de 0.12 a 0.29 en v5).</li>
+  <li><b>Evidencia:</b> el efecto de Reducción sobre el KPI exige un piloto A/B por batches (gas natural de Reducción; carbón de Fusión y de Reducción temprana).</li>
+  <li><b>Datos de planta pendientes:</b> análisis de CaO y humedad de la cal y de la ganga, pesaje de polvo por batch, convención de la posición de lanza.</li>
+  <li><b>Sensibilidad:</b> con el objetivo del batch actual solo (w 6.09, K 2.89) las recomendaciones cambian de intensidad, no de signo.</li>
+</ul>
+<p class="cap">Fuentes: <code>modelo_predictivo_v7.py</code>, <code>candidate_win_model_v7.md</code>, <code>hallazgos.md</code> §20, <code>experimentos/v7/e9_00..e9_09</code>. Validación: OOF GroupKFold(5) por batch en DEV como criterio; lockbox y walk-forward como reporte; nunca se usó el lockbox para elegir.</p>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js"></script>
+<script src="datos_v7.js"></script>
+<script>
+(function(){
+const D = window.DATOS_V7;
+const css = () => getComputedStyle(document.documentElement);
+const tok = k => css().getPropertyValue(k).trim();
+function base(extra){
+  const ink=tok('--ink'), ink2=tok('--ink2'), line=tok('--line2'), panel=tok('--panel');
+  return Object.assign({paper_bgcolor:panel, plot_bgcolor:panel, font:{family:'Source Sans 3, Segoe UI, Arial, sans-serif', size:13, color:ink},
+    margin:{l:56,r:20,t:56,b:52}, xaxis:{gridcolor:line, zerolinecolor:line, linecolor:line, tickfont:{color:ink2}, titlefont:{color:ink2}},
+    yaxis:{gridcolor:line, zerolinecolor:line, linecolor:line, tickfont:{color:ink2}, titlefont:{color:ink2}},
+    legend:{orientation:'h', y:1.02, yanchor:'bottom', x:0, font:{color:ink2}}, hoverlabel:{font:{family:'JetBrains Mono, monospace', size:12}},
+    title:{font:{family:'Source Sans 3, sans-serif', size:14, color:ink}, x:0, xref:'paper', xanchor:'left', y:0.98}}, extra||{});
+}
+const CFG={displayModeBar:false, responsive:true};
+const C = () => ({sn:tok('--sn'), feo:tok('--feo'), lb:tok('--lb'), neu:tok('--neutral'), warn:tok('--warn'), bad:tok('--bad'), acc:tok('--accent')});
+function tiles(){
+  const v = D.validacion.filter(r=>r.forma==='PLM_v6');
+  const g=(f,t)=>v.find(r=>r.fase===f&&r.target===t);
+  const rS=g('Reducción','sn_dep'), rF=g('Reducción','feo_ret');
+  const med=a=>{const s=[...a].sort((x,y)=>x-y); return s[Math.floor(s.length/2)];};
+  const items=[
+    {v:`${rS.r2_oof.toFixed(3)} / ${rS.r2_lockbox.toFixed(3)}`, l:'R² agotamiento Sn, Reducción', s:'OOF / lockbox · 16 features'},
+    {v:`${rF.r2_oof.toFixed(3)} / ${rF.r2_lockbox.toFixed(3)}`, l:'R² retención FeO, Reducción', s:'techo por ruido de ensayo 0.571'},
+    {v:`+${med(D.uplift_batch.dev).toFixed(2)} / +${med(D.uplift_batch.lockbox).toFixed(2)} pp`, l:'uplift modelado por batch (mediana)', s:'≈ 137 / 179 kg Sn · 99 % de batches > 0'},
+    {v:`w ${D.config.w} · K ${D.config.K}`, l:'peso FeO/Sn y pp de KPI por unidad', s:'anclado en KPI actual + siguiente'},
+    {v:'16 → 4', l:'features de estado → palancas', s:'carbón · gas natural · O₂ · aire'},
+  ];
+  document.getElementById('tiles').innerHTML = items.map(i=>`<div class="tile"><div class="l">${i.l}</div><div class="v">${i.v}</div><div class="s">${i.s}</div></div>`).join('');
+}
+function fAnclaje(){
+  const c=C(); const d=D.anclaje_grupos.filter(r=>r.muestra==='dev'&&r.spec==='grupos_R');
+  const grp=['R0','R1','R2-R3']; const key={R0:'__R0',R1:'__R1','R2-R3':'__R23'};
+  const tr=[];
+  for(const [comp,name,col,ax] of [['m6_ln_sn_dep','agotamiento Sn',c.sn,'y'],['m6_ln_feo_ret','retención FeO',c.feo,'y2']]){
+    const rows=grp.map(g=>d.find(r=>r.variable===comp+key[g]));
+    tr.push({type:'bar', name, x:grp, y:rows.map(r=>r.coef), marker:{color:col}, yaxis:ax,
+      error_y:{type:'data', symmetric:false, array:rows.map(r=>r.hi-r.coef), arrayminus:rows.map(r=>r.coef-r.lo), color:tok('--ink3'), thickness:1.2, width:4},
+      hovertemplate:'%{x} · '+name+': %{y:.1f} pp/unidad<extra></extra>'});
+  }
+  const lay=base({title:{text:'pp de KPI por unidad de target, por grupo de escalones (DEV, IC 95 %)'}, barmode:'group', grid:{rows:1, columns:2, pattern:'independent'},
+    xaxis:{title:'agotamiento Sn'}, xaxis2:{title:'retención FeO'}, yaxis:{title:'pp / unidad'}, yaxis2:{title:''}});
+  lay.xaxis2=Object.assign({}, lay.xaxis, {title:'retención FeO', domain:[0.55,1]}); lay.xaxis.domain=[0,0.45];
+  lay.yaxis2=Object.assign({}, lay.yaxis, {title:''}); lay.yaxis.title='pp / unidad';
+  tr[0].xaxis='x'; tr[1].xaxis='x2';
+  Plotly.newPlot('f_anclaje', tr, lay, CFG);
+}
+function fLegado(){
+  const c=C(); const d=D.legado;
+  const pick=(spec,v)=>d.find(r=>r.spec===spec&&r.variable===v);
+  const items=[['KPI de este batch','actual_base','R_sum_m6_ln_feo_ret'],['KPI del batch siguiente','next_base','R_sum_m6_ln_feo_ret'],['placebo: KPI del batch anterior','placebo_prev','R_sum_m6_ln_feo_ret'],['KPI siguiente, controlando el IRF terminal','next_con_heel_fin','R_sum_m6_ln_feo_ret']];
+  const rows=items.map(i=>Object.assign({label:i[0]}, pick(i[1],i[2])));
+  const tr=[{type:'scatter', mode:'markers', x:rows.map(r=>r.coef), y:rows.map(r=>r.label), marker:{color:c.feo, size:10},
+    error_x:{type:'data', symmetric:false, array:rows.map(r=>r.hi-r.coef), arrayminus:rows.map(r=>r.coef-r.lo), color:tok('--ink3'), thickness:1.4, width:5},
+    hovertemplate:'%{y}: %{x:.1f} pp/unidad<extra></extra>', name:'Σ ln retención FeO'}];
+  const lay=base({title:{text:'Efecto de Σ ln retención FeO (Reducción) sobre el KPI, pp por unidad (DEV)'}, margin:{l:250,r:20,t:56,b:52}, showlegend:false,
+    xaxis:{title:'pp de KPI por unidad', zeroline:true}, yaxis:{autorange:'reversed'}, shapes:[{type:'line', x0:0,x1:0,y0:-0.5,y1:3.5, line:{color:tok('--ink3'), width:1, dash:'dot'}}]});
+  Plotly.newPlot('f_legado', tr, lay, CFG);
+}
+function fGruposKpi(){
+  const c=C(); const d=D.agregacion_grupos;
+  const vars=[['J_temprano','J temprano (R0-R1)',c.sn],['J_tardio','J tardío (R2-R3)',c.feo],['J_batch_real','J batch',c.neu]];
+  const sets=['DEV','lockbox','total'];
+  const tr=vars.map(([v,name,col])=>{const rows=sets.map(s=>d.find(r=>r.variable===v&&r.conjunto===s));
+    return {type:'bar', name, x:sets, y:rows.map(r=>r.rho), marker:{color:col}, error_y:{type:'data', symmetric:false, array:rows.map(r=>r.ci_hi-r.rho), arrayminus:rows.map(r=>r.rho-r.ci_lo), color:tok('--ink3'), thickness:1.2, width:4}, hovertemplate:name+' · %{x}: ρ %{y:.2f}<extra></extra>'};});
+  Plotly.newPlot('f_grupos_kpi', tr, base({title:{text:'Spearman entre el objetivo realizado por grupo y el KPI del batch'}, barmode:'group', yaxis:{title:'ρ', zeroline:true}}), CFG);
+}
+function fValidacion(){
+  const c=C(); const v=D.validacion;
+  const items=[['Reducción','sn_dep','R · agotamiento Sn'],['Reducción','feo_ret','R · retención FeO'],['Reducción','dT','R · ΔT'],['Fusión','sn_dep','F · agotamiento Sn'],['Fusión','dT','F · ΔT']];
+  const forms=[['PLM_v5_ref','v5 (37 features, trazador CaO)',c.neu],['HGB_estado+palancas_ref','HGB con el estado v7',c.lb],['PLM_v6','v7 (PLM, 16 features en R)',c.sn]];
+  const mk=(metric)=>forms.map(([f,name,col])=>({type:'bar', name, x:items.map(i=>i[2]), y:items.map(i=>{const r=v.find(x=>x.fase===i[0]&&x.target===i[1]&&x.forma===f); return r?r[metric]:null;}), marker:{color:col}, hovertemplate:name+' · %{x}: %{y:.3f}<extra></extra>'}));
+  const trO=mk('r2_oof').map(t=>Object.assign(t,{xaxis:'x',yaxis:'y'})); const trL=mk('r2_lockbox').map(t=>Object.assign(t,{xaxis:'x2',yaxis:'y2', showlegend:false}));
+  const lay=base({title:{text:'R² OOF en desarrollo (izquierda) y lockbox (derecha) por versión'}, barmode:'group', height:400});
+  lay.xaxis.domain=[0,0.47]; lay.xaxis2=Object.assign({}, lay.xaxis, {domain:[0.53,1]}); lay.yaxis2=Object.assign({}, lay.yaxis, {anchor:'x2'}); lay.yaxis.title='R²'; lay.yaxis.range=[-0.8,1]; lay.yaxis2.range=[-0.8,1];
+  Plotly.newPlot('f_validacion', trO.concat(trL), lay, CFG);
+}
+function fPred(id, key, title, col){
+  const c=C(); const p=D.pred[key]; const tr=[];
+  for(const [conj,name,color,sym] of [['OOF_dev','OOF desarrollo',col,'circle'],['lockbox','lockbox',c.lb,'diamond']]){
+    const g=p[conj]; if(!g) continue;
+    tr.push({type:'scatter', mode:'markers', name, x:g.real, y:g.pred, marker:{color, size:5, opacity:0.55, symbol:sym}, text:g.orden.map(o=>'orden '+o), hovertemplate:'real %{x:.2f} · pred %{y:.2f} · %{text}<extra></extra>'});
+  }
+  const all=[].concat(...Object.values(p).map(g=>g.real)); const lo=Math.min(...all), hi=Math.max(...all);
+  const lay=base({title:{text:title}, xaxis:{title:'real'}, yaxis:{title:'predicho', scaleanchor:'x'}, shapes:[{type:'line', x0:lo,x1:hi,y0:lo,y1:hi, line:{color:tok('--ink3'), width:1, dash:'dot'}}], height:380});
+  Plotly.newPlot(id, tr, lay, CFG);
+}
+function fTecho(){
+  const c=C(); const t=D.techo; const names={R_sn_dep:'R · agotamiento Sn', R_feo_ret:'R · retención FeO', F_sn_dep:'F · agotamiento Sn'};
+  const x=t.map(r=>names[r.target]);
+  const tr=[{type:'bar', name:'techo R²máx (ruido de ensayo)', x, y:t.map(r=>r.r2_max), marker:{color:tok('--line')}, hovertemplate:'%{x}: techo %{y:.3f}<extra></extra>'},
+            {type:'bar', name:'PLM v7 OOF', x, y:t.map(r=>r.r2_oof_plm), marker:{color:c.sn}, hovertemplate:'%{x}: OOF %{y:.3f}<extra></extra>'},
+            {type:'bar', name:'PLM v7 lockbox', x, y:t.map(r=>r.r2_lockbox_plm), marker:{color:c.lb}, hovertemplate:'%{x}: lockbox %{y:.3f}<extra></extra>'}];
+  const s=D.techo_sens_feo.filter(r=>r.sigma_sn===0.02).sort((a,b)=>a.sigma_feo-b.sigma_feo);
+  tr.push({type:'scatter', mode:'lines+markers', name:'techo FeO según ruido de %FeO', x:s.map(r=>(r.sigma_feo*100).toFixed(1)+' %'), y:s.map(r=>r.r2_max), xaxis:'x2', yaxis:'y2', marker:{color:c.feo, size:8}, line:{color:c.feo, width:2}, hovertemplate:'ruido %{x}: techo %{y:.2f}<extra></extra>'});
+  const lay=base({title:{text:'R² alcanzado frente al techo impuesto por el ruido de laboratorio'}, barmode:'group', height:380});
+  lay.xaxis.domain=[0,0.6]; lay.xaxis2=Object.assign({}, lay.xaxis, {domain:[0.68,1], title:'ruido relativo asumido en %FeO'}); lay.yaxis2=Object.assign({}, lay.yaxis, {anchor:'x2', range:[0,1]}); lay.yaxis.range=[-0.75,1.05]; lay.yaxis.title='R²';
+  Plotly.newPlot('f_techo', tr, lay, CFG);
+}
+function fCurva(){
+  const c=C(); const d=D.curva.filter(r=>r.modelo==='PLM_v6'); const tr=[];
+  for(const [t,name,col] of [['R_sn_dep','agotamiento Sn',c.sn],['R_feo_ret','retención FeO',c.feo]]){
+    const g=d.filter(r=>r.target===t); const ns=[...new Set(g.map(r=>r.n_batches))].sort((a,b)=>a-b);
+    tr.push({type:'scatter', mode:'lines+markers', name, x:ns, y:ns.map(n=>{const v=g.filter(r=>r.n_batches===n).map(r=>r.r2_oof); return v.reduce((a,b)=>a+b,0)/v.length;}), marker:{color:col, size:8}, line:{color:col, width:2}, hovertemplate:name+' · n %{x}: R² %{y:.3f}<extra></extra>'});
+  }
+  Plotly.newPlot('f_curva', tr, base({title:{text:'R² OOF del PLM frente al número de batches (media de 3 repeticiones)'}, xaxis:{title:'batches de entrenamiento'}, yaxis:{title:'R² OOF', range:[0,0.9]}}), CFG);
+}
+function fBakeoff(){
+  const c=C(); const b=D.bakeoff; const keep=['PLM_v6','HGB_ref','XGBoost_cfg1','RandomForest','ExtraTrees','Ridge','Lasso','kNN','MLP','Stacking_promedio'];
+  const names={PLM_v6:'PLM v7', HGB_ref:'HGB', XGBoost_cfg1:'XGBoost', RandomForest:'Random forest', ExtraTrees:'Extra trees', Ridge:'Ridge', Lasso:'Lasso', kNN:'kNN', MLP:'MLP', Stacking_promedio:'Stacking'};
+  const agg=(t,a)=>{const v=b.filter(r=>r.target===t&&r.algoritmo.startsWith(a)).map(r=>r.r2_oof); return v.length?v.reduce((x,y)=>x+y,0)/v.length:null;};
+  const algs=keep.filter(a=>b.some(r=>r.algoritmo.startsWith(a)));
+  const tr=[['R_sn_dep','agotamiento Sn',c.sn],['R_feo_ret','retención FeO',c.feo]].map(([t,name,col])=>({type:'bar', name, x:algs.map(a=>names[a]||a), y:algs.map(a=>agg(t,a)), marker:{color:col}, hovertemplate:name+' · %{x}: R² %{y:.3f}<extra></extra>'}));
+  Plotly.newPlot('f_bakeoff', tr, base({title:{text:'R² OOF por algoritmo, Reducción (mismas filas y features)'}, barmode:'group', yaxis:{title:'R² OOF', range:[0,0.9]}, xaxis:{tickangle:-30}, margin:{l:56,r:20,t:56,b:90}}), CFG);
+}
+function fTheta(){
+  const c=C(); const th=D.theta; const lab={Cx_sn_v6:'carbón × Sn disponible', tasa_gn_nm3_min:'gas natural', exceso_o2_combustion_pct:'exceso de O₂ (lanza)', tasa_aire_nm3_min:'aire', tasa_feed_Carbon_kg_min:'carbón', Cx_av_v6:'carbón × avance', tasa_o2_nm3_min:'O₂', relacion_C_Sn_carga:'carbón / Sn cargado'};
+  const panels=[['Reducción','sn_dep','R · agotamiento Sn (sd 0.68)',c.sn],['Reducción','feo_ret','R · retención FeO (sd 0.075)',c.feo],['Fusión','sn_dep','F · agotamiento Sn (sd 0.22)',c.sn],['Reducción','dT','R · ΔT (°C)',c.neu]];
+  const tr=[]; const lay=base({title:{text:'θ por +1 sd de la palanca (unidades del target), IC 95 % bootstrap por batch'}, height:520, showlegend:false, grid:{rows:2, columns:2, pattern:'independent', roworder:'top to bottom'}, margin:{l:150,r:20,t:56,b:40}});
+  panels.forEach(([f,k,title,col],i)=>{
+    const rows=th.filter(r=>r.fase===f&&r.clave===k); const ax=i===0?'':String(i+1);
+    tr.push({type:'scatter', mode:'markers', x:rows.map(r=>r.theta_1sd), y:rows.map(r=>lab[r.palanca]||r.palanca), xaxis:'x'+ax, yaxis:'y'+ax,
+      marker:{color:rows.map(r=>r.significativo?col:tok('--ink3')), size:9, symbol:rows.map(r=>r.en_cota?'x':'circle')},
+      error_x:{type:'data', symmetric:false, array:rows.map(r=>r.ci_hi_1sd-r.theta_1sd), arrayminus:rows.map(r=>r.theta_1sd-r.ci_lo_1sd), color:tok('--ink3'), thickness:1.3, width:4},
+      hovertemplate:'%{y}: θ %{x:.3f}<extra>'+title+'</extra>'});
+    lay['xaxis'+ax]=Object.assign({}, lay.xaxis, {title:{text:title, font:{size:12}}, zeroline:true, zerolinecolor:tok('--ink3')}); lay['yaxis'+ax]=Object.assign({}, lay.yaxis, {autorange:'reversed', automargin:true});
+  });
+  Plotly.newPlot('f_theta', tr, lay, CFG);
+  document.getElementById('f_theta').insertAdjacentHTML('afterend', `<div class="legend"><span><span class="sw" style="background:${c.sn}"></span>IC excluye 0</span><span><span class="sw" style="background:${tok('--ink3')}"></span>no significativo</span><span>✕ = colapsó a 0 en la cota de signo</span></div>`);
+}
+function fParsimonia(){
+  const c=C(); const d=D.parsimonia.filter(r=>r.ruta==='libre').sort((a,b)=>a.k-b.k);
+  const tr=[{type:'scatter', mode:'lines+markers', name:'R² OOF agotamiento Sn', x:d.map(r=>r.k), y:d.map(r=>r.sn_dep_r2_oof), marker:{color:c.sn, size:d.map(r=>r.k===16?13:7), symbol:d.map(r=>r.k===16?'diamond':'circle')}, line:{color:c.sn, width:2}, hovertemplate:'k %{x}: %{y:.3f}<extra>Sn OOF</extra>'},
+            {type:'scatter', mode:'lines+markers', name:'R² OOF retención FeO', x:d.map(r=>r.k), y:d.map(r=>r.feo_ret_r2_oof), marker:{color:c.feo, size:d.map(r=>r.k===16?13:7), symbol:d.map(r=>r.k===16?'diamond':'circle')}, line:{color:c.feo, width:2}, hovertemplate:'k %{x}: %{y:.3f}<extra>FeO OOF</extra>'},
+            {type:'scatter', mode:'markers', name:'θ carbón×Sn (+1 sd) con IC', x:d.map(r=>r.k), y:d.map(r=>r.Cx_sn_theta1sd), yaxis:'y2', marker:{color:c.acc, size:8, symbol:'square'}, error_y:{type:'data', symmetric:false, array:d.map(r=>r.Cx_sn_hi-r.Cx_sn_theta1sd), arrayminus:d.map(r=>r.Cx_sn_theta1sd-r.Cx_sn_lo), color:tok('--ink3'), thickness:1.2, width:3}, hovertemplate:'k %{x}: θ %{y:.3f}<extra>carbón</extra>'}];
+  const lay=base({title:{text:'Eliminación hacia atrás del estado de Reducción (ruta libre): R² OOF y efecto del carbón'}, height:380});
+  lay.xaxis.domain=[0,0.55]; lay.xaxis.title='features de estado (k)'; lay.xaxis2=Object.assign({}, lay.xaxis, {domain:[0.63,1], title:'features de estado (k)'}); lay.yaxis.title='R² OOF'; lay.yaxis.range=[0.2,0.85]; lay.yaxis2=Object.assign({}, lay.yaxis, {anchor:'x2', title:'θ (sd)', range:[0,0.4]});
+  tr[2].xaxis='x2';
+  Plotly.newPlot('f_parsimonia', tr, lay, CFG);
+}
+function fPerfil(){
+  const c=C(); const p=D.perfil_politica; const pal=[['tasa_feed_Carbon_kg_min','Δ carbón [kg/min]',c.sn],['tasa_gn_nm3_min','Δ gas natural [Nm³/min]',c.feo],['tasa_o2_nm3_min','Δ O₂ [Nm³/min]',c.lb],['tasa_aire_nm3_min','Δ aire [Nm³/min]',c.neu]];
+  const x=p.map(r=>r.tramo.startsWith('F')?r.tramo:'R avance '+r.tramo);
+  const tr=pal.map(([a,name,col])=>({type:'bar', name, x, y:p.map(r=>r['delta_'+a]), marker:{color:col}, text:p.map(r=>{const h=r['hist_'+a]; return 'hist '+h;}), hovertemplate:'%{x}<br>'+name+': %{y:+.2f} (%{text})<extra></extra>'}));
+  Plotly.newPlot('f_perfil', tr, base({title:{text:'Cambio medio recomendado frente a la acción histórica (362 batches, cross-fitted)'}, barmode:'group', yaxis:{title:'Δ recomendado − histórico', zeroline:true}, xaxis:{tickangle:-20}, margin:{l:56,r:20,t:56,b:80}, height:380}), CFG);
+}
+function fCurvas(){
+  const c=C(); const cu=D.curvas.filter(r=>r.fase==='Reducción'); const av=[...new Set(cu.map(r=>r.avance_prev))].sort((a,b)=>a-b);
+  const pick=[av[0], av[av.length-1]]; const lab={tasa_feed_Carbon_kg_min:'carbón [kg/min]', tasa_gn_nm3_min:'gas natural [Nm³/min]', tasa_o2_nm3_min:'O₂ [Nm³/min]', tasa_aire_nm3_min:'aire [Nm³/min]'};
+  const cols={tasa_feed_Carbon_kg_min:c.sn, tasa_gn_nm3_min:c.feo, tasa_o2_nm3_min:c.lb, tasa_aire_nm3_min:c.neu};
+  const tr=[]; const lay=base({title:{text:'J [kg Sn eq.] al variar cada palanca, escalón real con avance 0.75 (izq.) y 0.985 (der.)'}, height:400, grid:{rows:1, columns:2, pattern:'independent'}, showlegend:true});
+  pick.forEach((a,i)=>{const ax=i?'2':''; const g=cu.filter(r=>r.avance_prev===a);
+    for(const pal of Object.keys(lab)){const s=g.filter(r=>r.palanca===pal); if(!s.length) continue; const x0=s[0].valor, x1=s[s.length-1].valor;
+      tr.push({type:'scatter', mode:'lines', name:lab[pal], x:s.map(r=>(r.valor-x0)/(x1-x0)), y:s.map(r=>r.J), xaxis:'x'+ax, yaxis:'y'+ax, line:{color:cols[pal], width:2}, showlegend:!i, text:s.map(r=>r.valor.toFixed(1)), hovertemplate:lab[pal]+' = %{text}: J %{y:.0f} kg<extra>avance '+a.toFixed(3)+'</extra>'});}
+    lay['xaxis'+ax]=Object.assign({}, lay.xaxis, {title:'posición en el rango histórico P1-P99 (0 = mínimo, 1 = máximo)'}); lay['yaxis'+ax]=Object.assign({}, lay.yaxis, {title:i?'':'J [kg Sn eq.]'});
+  });
+  Plotly.newPlot('f_curvas', tr, lay, CFG);
+}
+function fEjemplo(){
+  const c=C(); const e=D.ejemplo; const rec=e.rec; const idx=rec.map(r=>e.orden.indexOf((r.fase==='Fusión'?'F':'R')+r.orden_escalon_fase));
+  const tr=[{type:'scatter', mode:'lines+markers', name:'%Sn escoria', x:e.orden, y:e.sn, line:{color:c.sn, width:2}, marker:{size:7, color:c.sn}, hovertemplate:'%{x}: %Sn %{y:.2f}<extra></extra>'},
+            {type:'scatter', mode:'lines+markers', name:'%FeO escoria', x:e.orden, y:e.feo, line:{color:c.feo, width:2}, marker:{size:7, color:c.feo}, hovertemplate:'%{x}: %FeO %{y:.2f}<extra></extra>'},
+            {type:'bar', name:'carbón histórico [kg/min]', x:rec.map((r,i)=>e.orden[idx[i]]), y:rec.map(r=>r.hist__tasa_feed_Carbon_kg_min), xaxis:'x2', yaxis:'y2', marker:{color:tok('--line')}, hovertemplate:'%{x}: hist %{y:.1f}<extra></extra>'},
+            {type:'bar', name:'carbón recomendado [kg/min]', x:rec.map((r,i)=>e.orden[idx[i]]), y:rec.map(r=>r.rec__tasa_feed_Carbon_kg_min), xaxis:'x2', yaxis:'y2', marker:{color:c.acc}, text:rec.map(r=>'uplift '+r.uplift_J_kgSn.toFixed(0)+' kg'), hovertemplate:'%{x}: rec %{y:.1f} · %{text}<extra></extra>'}];
+  const lay=base({title:{text:'Batch '+e.batch+' (lockbox): leyes reales y carbón histórico frente al recomendado'}, height:420, grid:{rows:2, columns:1, pattern:'independent', roworder:'top to bottom'}, barmode:'group'});
+  lay.yaxis.title='% en escoria'; lay.xaxis2=Object.assign({}, lay.xaxis, {title:'escalón', categoryorder:'array', categoryarray:e.orden}); lay.yaxis2=Object.assign({}, lay.yaxis, {title:'kg/min'}); lay.xaxis.categoryorder='array'; lay.xaxis.categoryarray=e.orden;
+  Plotly.newPlot('f_ejemplo', tr, lay, CFG);
+}
+function fUplift(){
+  const c=C(); const u=D.uplift_batch;
+  const tr=[{type:'histogram', name:'desarrollo (n 299)', x:u.dev, marker:{color:c.sn}, opacity:0.75, xbins:{size:0.05}, hovertemplate:'%{x}: %{y} batches<extra>DEV</extra>'},
+            {type:'histogram', name:'lockbox (n 63)', x:u.lockbox, marker:{color:c.lb}, opacity:0.75, xbins:{size:0.05}, hovertemplate:'%{x}: %{y} batches<extra>lockbox</extra>'}];
+  Plotly.newPlot('f_uplift', tr, base({title:{text:'Uplift predicho del KPI (dos batches) al seguir la política, por batch'}, barmode:'overlay', xaxis:{title:'pp de KPI'}, yaxis:{title:'batches'}, shapes:[{type:'line', x0:0,x1:0,y0:0,y1:1,yref:'paper', line:{color:tok('--ink3'), width:1, dash:'dot'}}], height:360}), CFG);
+}
+function fAdherencia(){
+  const c=C(); const ev=D.evidencia; const rows=[];
+  for(const [kpi,kl,mult,unit] of [['recuperacion_refinada_pct','KPI (pp/sd)',1,'pp'],['f_polvo','Sn a polvo (fracción × 100 / sd)',100,'%']]){
+    for(const [v,vl] of [['dist_F','Fusión'],['dist_R','Reducción'],['dist_total','total']]){
+      for(const s of ['DEV','TOTAL']){const r=ev.find(x=>x.kpi===kpi&&x.variable===v&&x.subset===s); if(r) rows.push({label:`${kl} · ${vl} · ${s}`, coef:r.coef_por_sd*mult, lo:r.ci_lo*mult, hi:r.ci_hi*mult, p:r.p_hc3, col:kpi==='f_polvo'?c.feo:c.sn});}
+    }
+  }
+  const tr=[{type:'scatter', mode:'markers', x:rows.map(r=>r.coef), y:rows.map(r=>r.label), marker:{color:rows.map(r=>r.p<0.05?r.col:tok('--ink3')), size:9},
+    error_x:{type:'data', symmetric:false, array:rows.map(r=>r.hi-r.coef), arrayminus:rows.map(r=>r.coef-r.lo), color:tok('--ink3'), thickness:1.3, width:4}, text:rows.map(r=>'p '+r.p.toFixed(3)), hovertemplate:'%{y}: %{x:.3f} (%{text})<extra></extra>'}];
+  Plotly.newPlot('f_adherencia', tr, base({title:{text:'Coeficiente de la distancia a la política (+1 sd) sobre el KPI y sobre el polvo'}, margin:{l:290,r:20,t:56,b:52}, showlegend:false, height:420, xaxis:{title:'coeficiente por +1 sd', zeroline:true, zerolinecolor:tok('--ink3')}, yaxis:{autorange:'reversed'}}), CFG);
+}
+function fFormas(){
+  const c=C(); const f=D.formas; const forms=[...new Set(f.map(r=>r.forma))]; const names={ref_PLM:'PLM (ref.)', tasa:'PLM en tasa', estructural:'cinético estructural', loglineal:'log-lineal', hibrido_a_estruct_hgb:'estructural + HGB', hibrido_b_plm_offset:'PLM + offset estructural'};
+  const tr=[['sn_dep','agotamiento Sn',c.sn],['feo_ret','retención FeO',c.feo]].map(([k,name,col])=>({type:'bar', name, x:forms.map(x=>names[x]||x), y:forms.map(x=>{const r=f.find(y=>y.forma===x&&y.clave===k); return r?r.r2_oof:null;}), marker:{color:col}, hovertemplate:name+' · %{x}: R² %{y:.3f}<extra></extra>'}));
+  Plotly.newPlot('f_formas', tr, base({title:{text:'R² OOF por forma del modelo de Reducción (E9-01)'}, barmode:'group', yaxis:{title:'R² OOF', range:[0,0.9]}, xaxis:{tickangle:-20}, margin:{l:56,r:20,t:56,b:80}}), CFG);
+}
+function draw(){ tiles(); fAnclaje(); fLegado(); fGruposKpi(); fValidacion(); fPred('f_pred_sn','Reducción_sn_dep','Agotamiento de Sn (ln), Reducción', C().sn); fPred('f_pred_feo','Reducción_feo_ret','Retención de FeO (ln), Reducción', C().feo); fTecho(); fCurva(); fBakeoff(); fTheta(); fParsimonia(); fPerfil(); fCurvas(); fEjemplo(); fUplift(); fAdherencia(); fFormas(); }
+draw();
+const mq=window.matchMedia('(prefers-color-scheme: dark)'); mq.addEventListener && mq.addEventListener('change', ()=>{document.querySelectorAll('.legend').forEach(e=>e.remove()); draw();});
+new MutationObserver(()=>{document.querySelectorAll('.legend').forEach(e=>e.remove()); draw();}).observe(document.documentElement,{attributes:true, attributeFilter:['data-theme']});
+})();
+</script>

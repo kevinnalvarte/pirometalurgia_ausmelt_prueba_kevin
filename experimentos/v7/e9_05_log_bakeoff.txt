@@ -1,0 +1,32 @@
+[    0.0s] === R_sn_dep: n_dev=1058 n_lb=242 n_features=42 ===
+[   19.3s] R_sn_dep: HGB_ref listo (5 semillas)
+[  333.0s] R_sn_dep: HGB grid (81 cfgs) listo, mejor={'max_depth': 3, 'learning_rate': 0.03, 'max_iter': 150, 'min_samples_leaf': 40} r2_oof=0.771 (314s)
+[  347.6s] R_sn_dep: XGBoost listo
+[  434.1s] R_sn_dep: RF/ET listos
+[  437.6s] R_sn_dep: Ridge/Lasso listos (top8=['ley_sn_escoria_pct_prev', 'interaccion_Sn_x_FeO_prev', 'Cx_sn_v6', 'posicion_vertical_lanza_mm_prev', 'ratio_sn_feo_prev', 'cum_aire_nm3_prev', 'tasa_gn_nm3_min', 'grad_temperatura_horno_celsius_prev'])
+[  438.1s] R_sn_dep: kNN listo (mejor k=20)
+[  440.8s] R_sn_dep: MLP listo
+[  440.8s] R_sn_dep: stacking listo
+[  592.9s] R_sn_dep: PLM_v6 listo (5 semillas)
+[  592.9s] === R_feo_ret: n_dev=1058 n_lb=242 n_features=43 ===
+[  601.2s] R_feo_ret: HGB_ref listo (5 semillas)
+[  772.5s] R_feo_ret: HGB grid (81 cfgs) listo, mejor={'max_depth': 3, 'learning_rate': 0.05, 'max_iter': 150, 'min_samples_leaf': 10} r2_oof=0.332 (171s)
+[  785.0s] R_feo_ret: XGBoost listo
+[  877.0s] R_feo_ret: RF/ET listos
+[  880.6s] R_feo_ret: Ridge/Lasso listos (top8=['ratio_sn_feo_prev', 'm6_feo_inv_kg_prev', 'posicion_vertical_lanza_mm_prev', 'tasa_gn_nm3_min', 'ley_feo_escoria_pct_prev', 'm6_resto_frac_prev', 'interaccion_Sn_x_FeO_prev', 'grad_temperatura_horno_celsius_prev'])
+[  880.9s] R_feo_ret: kNN listo (mejor k=20)
+[  884.9s] R_feo_ret: MLP listo
+[  884.9s] R_feo_ret: stacking listo
+[ 1083.6s] R_feo_ret: PLM_v6 listo (5 semillas)
+[ 1083.7s] === F_sn_dep: n_dev=1469 n_lb=313 n_features=29 ===
+[ 1092.3s] F_sn_dep: HGB_ref listo (5 semillas)
+[ 1240.2s] F_sn_dep: HGB grid (81 cfgs) listo, mejor={'max_depth': 3, 'learning_rate': 0.03, 'max_iter': 150, 'min_samples_leaf': 40} r2_oof=0.192 (148s)
+[ 1247.5s] F_sn_dep: XGBoost listo
+[ 1320.6s] F_sn_dep: RF/ET listos
+[ 1322.2s] F_sn_dep: Ridge/Lasso listos (top8=['tiempo_fase', 'tasa_gn_nm3_min', 'tasa_feed_total_kg_min', 'exceso_o2_combustion_pct', 'ley_feo_escoria_pct_prev', 'ley_sn_carga_batch_pct', 'tasa_aire_nm3_min', 'relacion_C_Sn_carga'])
+[ 1322.5s] F_sn_dep: kNN listo (mejor k=15)
+[ 1323.8s] F_sn_dep: MLP listo
+[ 1323.8s] F_sn_dep: stacking listo
+[ 1417.5s] F_sn_dep: PLM_v6 listo (5 semillas)
+[ 1417.5s] guardado C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\v7\e9_05_bakeoff.csv (66 filas) y C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\v7\e9_05_bakeoff_grid_hgb.csv
+FIN bakeoff

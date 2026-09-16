@@ -1,0 +1,14 @@
+[    5.0s] f_polvo ~ F_gn_total_nm3_por_t: ols_dev=-0.0018990015813367973 p=0.3023382060805231 rho_dev=-0.005002356849453435
+[    5.9s] f_polvo ~ F_o2_total_nm3_por_t: ols_dev=-0.0010128869078740682 p=0.5952637500857807 rho_dev=0.013254921326120626
+[    6.7s] f_polvo ~ F_aire_total_nm3_por_t: ols_dev=-0.004839166367344346 p=0.14550698735635895 rho_dev=0.04980584049740746
+[    7.4s] f_polvo ~ F_gas_total_nm3_por_t: ols_dev=-0.002900060781417742 p=0.21572994585762528 rho_dev=0.03173037642252699
+[    8.1s] f_polvo ~ T_media_F: ols_dev=0.008126892985202357 p=0.026758905261636726 rho_dev=0.15941370564072638
+[    8.9s] recuperacion_refinada_pct ~ F_gn_total_nm3_por_t: ols_dev=-0.011423273254369981 p=0.9666577804452088 rho_dev=0.03122219478799578
+[    9.6s] recuperacion_refinada_pct ~ F_o2_total_nm3_por_t: ols_dev=-0.31177201312296826 p=0.2849857127976999 rho_dev=-0.05577383223721129
+[   10.3s] recuperacion_refinada_pct ~ F_aire_total_nm3_por_t: ols_dev=0.4557867395871127 p=0.3317904144536511 rho_dev=0.035622096024780586
+[   11.0s] recuperacion_refinada_pct ~ F_gas_total_nm3_por_t: ols_dev=0.0858975056575058 p=0.7953066364462444 rho_dev=0.03336805009988553
+[   11.7s] recuperacion_refinada_pct ~ T_media_F: ols_dev=-0.12643381977545154 p=0.7975607624347089 rho_dev=-0.003993176359677672
+[   52.2s] d_temperatura_gas_pre_bhf_celsius: r2_oof=0.407 r2_lockbox=0.577 (40.5s)
+[   82.4s] d_tiro_horno_pct: r2_oof=0.508 r2_lockbox=0.665 (30.2s)
+[   82.4s] FIN polvo
+[   82.4s] TOTAL 82.4s

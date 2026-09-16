@@ -113,3 +113,36 @@ Lección operativa: el término absoluto de soporte `−w_S·(1−s)` de v4 domi
 histórica; v5 penaliza sólo la pérdida de soporte respecto de la acción histórica (`soporte_ref`). Los θ de las palancas se estiman con
 mínimos cuadrados acotados por el signo de la teoría (un reductor no puede aumentar la retención de FeO): los efectos de signo imposible
 colapsan a 0 en vez de entrar al objetivo.
+
+
+### Iteración 8: `v6/` — masa de escoria por cierre físico y prescriptor v6 (2026-09-16; diseño `v6/ITERACION_8_diseno.md`, hallazgos.md §19)
+
+| Script | Qué hace | Dónde quedó consolidado |
+|---|---|---|
+| `v6/masa_v6.py` | Iteración 8: estimador de masa de escoria v6 (cierre físico del resto no reducible, coeficientes efectivos calibrados en DEV contra el balance global), inventarios/targets/palancas m6_*, batería de evaluación común | `modelo_predictivo_v6.py`, hallazgos §19 |
+| `v6/e8_01_masa_variantes.py` | Grilla de 66 variantes del estimador (fusión × reducción × δ_R × w_obs × aC), calibración por tercios/folds, sensibilidad ±30 %, propagación de ruido de ensayo, casos borde, diagnóstico de `m6_k_anclaje`, QC | PARAMS_DEFAULT (cierre/cierre, δ 0.01), `e8_01_resultados.md` |
+| `v6/e8_02_energia_v6.py` | Balance de energía por escalón con la masa v6: features térmicas e6_*, modelos de ΔT (4 configuraciones), energía específica como palanca, cierre del calor de reacción | Balance de energía = diagnóstico, no feature; `e8_02_resultados.md` |
+| `v6/e8_03_anclaje_v6.py` (+ `v6_lib.py`) | Anclaje de w/K/β_F con los targets v6, batería Spearman, PLM v5 vs v6 sobre las mismas filas, control de reversión de ruido, cadena de signos | CONFIG_V6 (w 6.09, K 2.89, β_F −0.58), `e8_03_resultados.md` |
+| `v6/e8_05_validacion_v6.py` | Validación del sistema v6 (OOF/lockbox vs HGB y vs PLM v5, θ con IC, predicciones, curvas de respuesta), política cross-fitted por fold y evidencia off-policy (+placebo) | hallazgos §19.4-19.5, artefacto |
+| `v6/e8_06_datos_figuras.py` | Exporta `figs/datos_v6.js` (trayectorias, grilla, calibración, SHAP/PDP, predicciones, curvas, evidencia) para el artefacto | `figs/masa_escoria_v6.html` |
+| `v6/e8_07_evidencia_extra_v6.py` | Emparejamiento por estado, dosis-respuesta, cadena θ→agregado→KPI con bootstrap, comparación v5 vs v6 por batch, política por tramo | `e8_07_resultados.md`, hallazgos §19.5 |
+
+
+### Iteración 9: `v7/` — el mejor enfoque predictivo/prescriptivo (2026-09-16, `/goal`; diseño `v7/ITERACION_9_diseno.md`, hallazgos.md §20)
+
+Datos: caché `cache/df_v6.pkl` (`v6/_cache_df_v6.py`); librería `v7/v7_lib.py`. Seis hipótesis con experimento refutable cada una (Sonnet 5.1 en
+paralelo), análisis de agregación/anclaje por Fable (E9-00) y síntesis en `modelo_predictivo_v7.py` + `candidate_win_model_v7.md`.
+
+| Script | Qué hace | Dónde quedó consolidado |
+|---|---|---|
+| `v7/e9_00_agregacion_fable.py`, `e9_00b_legado_fable.py`, `e9_00c_anclaje_fusion_fable.py` | Identidad telescópica escalón→fase, anclaje del KPI por grupo de escalones (Wald de homogeneidad), varianza de J por grupo, término de legado (KPI del batch siguiente, placebo temporal, mediación por el IRF terminal), anclaje de Fusión como nivel terminal | `CONFIG_V7` (K 3.52, w 7.86), `e9_00_resultados.md`, hallazgos §20.1-20.2 |
+| `v7/e9_01_formas.py` | Formas de Reducción: PLM (ref) vs tasa vs cinético estructural NLS (7 par.) vs log-lineal vs híbridos | PLM se mantiene (estructural 0.34 vs 0.77), `e9_01_resultados.md` |
+| `v7/e9_02_cal.py` | Cal/basicidad como palanca bajo la masa v6: batch (KPI, canales, dosis-respuesta), escalón F/R, óptimo de basicidad | Cal NO es palanca (p 0.145; el efecto de E7-02 era artefacto), `e9_02_resultados.md` |
+| `v7/e9_03_horizonte.py` | Simulador de estado con los PLM, política con horizonte (rollout) vs miope vs histórica cross-fitted, robustez a θ y pesimista, agregación temprano/tardío | Horizonte NO adoptado (mediana 0 %, robusto 12 %); J temprano ρ 0.35 vs tardío 0.09, `e9_03_resultados.md` |
+| `v7/e9_04_fusion.py` | Fusión: diagnóstico por orden, reentrenamiento walk-forward/progresivo, 8 targets, valor del estado final, canal polvo | F1 modelable (gradiente imputado), ΔT reentrenable (0.16-0.32), agotamiento no generaliza, `e9_04_resultados.md` |
+| `v7/e9_05_techo.py` | Techo de ruido de ensayo (Monte Carlo), curva de aprendizaje, bake-off de 14 algoritmos + grid HGB + stacking, desglose | R²_max FeO 0.57 (PLM 0.33/0.49), Sn ≈ 1.0; curva saturada; ningún algoritmo supera al PLM, `e9_05_resultados.md` |
+| `v7/e9_06_parsimonia.py` | Importancia por permutación y para la identificación, eliminación hacia atrás (libre/física), sets por teoría, estabilidad, varianza de θ | `ESTADO_R_V7` = libre_k16 (16 features, carbón identificado, mejor walk-forward), `e9_06_resultados.md` |
+| `v7/e9_07_validacion_v7.py` | Validación del sistema v7 (OOF/lockbox, θ, predicciones, curvas), política cross-fitted por fold + lockbox, evidencia off-policy, agregación escalón→grupo→batch en pp de KPI | `candidate_win_model_v7.md`, hallazgos §20.4-20.5 |
+| `v7/e9_08_potencia_fable.py` | Potencia del diseño off-policy: MDE al 80 % vs efecto esperado por la cadena (pendiente del uplift predicho sobre la distancia), n de batches requerido | dist_R: potencia 32 %, ~1 000 batches; hallazgos §20.5 |
+| `v7/e9_09_datos_artefacto.py` | Exporta `figs/datos_v7.js` (validación, θ, predicciones, techo, curva, bake-off, formas, parsimonia, anclajes, política, curvas, evidencia, potencia) para el artefacto | `figs/enfoque_v7.html`, https://claude.ai/artifact/L6GFrWjVcddg2tTa1AkL9F |
+| `v7/auditoria_[A-D]_*.md`, `v7/test_antifuga_v7.py` | Auditoría de comité (Fable 5.1 × 4: pirometalurgia, estadística, operación, datos) del enfoque v7 y test anti-fuga sobre las 281 columnas | `dictamen_comite_v7.md`, hallazgos §21 |

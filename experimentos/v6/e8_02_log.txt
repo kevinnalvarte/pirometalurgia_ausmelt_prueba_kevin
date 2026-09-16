@@ -1,0 +1,53 @@
+==========================================================================================
+0) CARGA DE DATOS
+df6: (3982, 265), DEV batches=299, lockbox batches=63
+==========================================================================================
+1) FEATURES TERMICAS b6_* (masa v3) y e6_* (masa v6)
+features termicas seguras (DERIVED/STATE): 31; LEAKAGE (solo diagnostico): 4
+df_base (sin primer escalon de batch): (3620, 300)
+  -> e8_02_features_termicas.csv (18x11)
+         fase                 feature_base unidad        version                                                        columna     n      media         sd         p5    mediana        p95
+0      Fusión  capacidad_termica_bano_MJ_K   MJ/K             b6                                 b6_capacidad_termica_bano_MJ_K  2155     33.831     23.198      5.615     31.280     67.642
+1      Fusión  capacidad_termica_bano_MJ_K   MJ/K             e6                                 e6_capacidad_termica_bano_MJ_K  2157     39.494     22.862      7.586     36.322     76.477
+2      Fusión  capacidad_termica_bano_MJ_K   MJ/K  b6_vs_e6_corr  b6_capacidad_termica_bano_MJ_K~e6_capacidad_termica_bano_MJ_K  2155        NaN        NaN      0.938      0.846        NaN
+3      Fusión      dT_teorico_sin_reaccion      K             b6                                     b6_dT_teorico_sin_reaccion  2080   -159.668    195.222   -451.693   -130.068     24.765
+4      Fusión      dT_teorico_sin_reaccion      K             e6                                     e6_dT_teorico_sin_reaccion  2156   -150.055    221.282   -426.727   -116.957     21.674
+5      Fusión      dT_teorico_sin_reaccion      K  b6_vs_e6_corr          b6_dT_teorico_sin_reaccion~e6_dT_teorico_sin_reaccion  2080        NaN        NaN      0.989      0.989        NaN
+6      Fusión            margen_termico_MJ     MJ             b6                                           b6_margen_termico_MJ  2172 -45528.150  17946.051 -76757.594 -44916.787 -21325.274
+7      Fusión            margen_termico_MJ     MJ             e6                                           e6_margen_termico_MJ  2172 -48495.528  19099.136 -82108.521 -47615.367 -21897.641
+8      Fusión            margen_termico_MJ     MJ  b6_vs_e6_corr                      b6_margen_termico_MJ~e6_margen_termico_MJ  2172        NaN        NaN      0.976      0.972        NaN
+9   Reducción  capacidad_termica_bano_MJ_K   MJ/K             b6                                 b6_capacidad_termica_bano_MJ_K  1436     67.126     16.226     54.101     67.062     86.164
+10  Reducción  capacidad_termica_bano_MJ_K   MJ/K             e6                                 e6_capacidad_termica_bano_MJ_K  1436     76.008     10.794     62.641     72.924     97.698
+11  Reducción  capacidad_termica_bano_MJ_K   MJ/K  b6_vs_e6_corr  b6_capacidad_termica_bano_MJ_K~e6_capacidad_termica_bano_MJ_K  1435        NaN        NaN      0.690      0.562        NaN
+12  Reducción      dT_teorico_sin_reaccion      K             b6                                     b6_dT_teorico_sin_reaccion  1388     72.892     42.381     17.049     66.483    151.031
+13  Reducción      dT_teorico_sin_reaccion      K             e6                                     e6_dT_teorico_sin_reaccion  1436     64.659     36.551     15.530     59.305    131.057
+14  Reducción      dT_teorico_sin_reaccion      K  b6_vs_e6_corr          b6_dT_teorico_sin_reaccion~e6_dT_teorico_sin_reaccion  1387        NaN        NaN      0.987      0.982        NaN
+15  Reducción            margen_termico_MJ     MJ             b6                                           b6_margen_termico_MJ  1448  -6305.359  13473.068 -36011.527   -334.163   4832.967
+16  Reducción            margen_termico_MJ     MJ             e6                                           e6_margen_termico_MJ  1448  -8270.399  15819.227 -43776.706   -726.580   4229.129
+17  Reducción            margen_termico_MJ     MJ  b6_vs_e6_corr                      b6_margen_termico_MJ~e6_margen_termico_MJ  1448        NaN        NaN      0.948      0.969        NaN
+[2s] seccion 1 lista
+==========================================================================================
+2) MODELOS DE dT (PLM v5, 4 configuraciones)
+  Fusión: a=0.483/0.059  b=0.497/0.037  c=0.496/0.037  d=0.481/0.063
+  Reducción: a=0.466/0.465  b=0.464/0.351  c=0.464/0.351  d=0.480/0.489
+  -> e8_02_modelos_dT.csv (8x12)
+  -> e8_02_theta_dT.csv (30x14)
+[307s] seccion 2 lista
+==========================================================================================
+3) ENERGIA ESPECIFICA COMO PALANCA
+  dT: base_tasa_absoluta=0.464/0.351  gn_a_e6_gn_nm3_por_t_escoria=0.464/0.407  gn_a_e6_q_neto_MJ_por_t=0.464/0.403  gn_a_e6_q_neto_MJ_por_kg_sn_disp=0.463/0.406
+  m6_ln_sn_dep: base_tasa_absoluta=0.755/0.811  gn_a_e6_gn_nm3_por_t_escoria=0.756/0.811  gn_a_e6_q_neto_MJ_por_t=0.757/0.810  gn_a_e6_q_neto_MJ_por_kg_sn_disp=0.755/0.810
+  m6_ln_feo_ret: base_tasa_absoluta=0.330/0.464  gn_a_e6_gn_nm3_por_t_escoria=0.326/0.467  gn_a_e6_q_neto_MJ_por_t=0.338/0.474  gn_a_e6_q_neto_MJ_por_kg_sn_disp=0.330/0.466
+  -> e8_02_energia_especifica.csv (12x13)
+[782s] seccion 3 lista
+==========================================================================================
+4) CIERRE DE ENERGIA: aparente vs trazador (v3 y v6)
+  -> e8_02_cierre_energia.csv (4x13)
+   version       fase     n  spearman_aparente_trazador  p_spearman  pearson_aparente_trazador  p_pearson  sesgo_medio_MJ  sesgo_mediana_MJ  sesgo_sd_MJ  perdidas_actuales_MJ_min  extra_perdida_MJ_min_para_sesgo_cero  perdidas_ajustadas_MJ_min
+0  masa_v3     Fusión  1779                     -0.2569         0.0                    -0.1774     0.0000     -23883.3203       -22400.2288   11007.2716                     117.0                             -508.5633                  -391.5633
+1  masa_v3  Reducción  1184                      0.3147         0.0                     0.1513     0.0000      -3482.5537         1090.9059   12034.0838                     158.0                             -156.1636                     1.8364
+2  masa_v6     Fusión  1781                     -0.2032         0.0                    -0.0669     0.0047     -23318.7263       -21582.5546   11074.1827                     117.0                             -496.6118                  -379.6118
+3  masa_v6  Reducción  1184                      0.3170         0.0                     0.1569     0.0000      -5741.7654          402.9011   14607.5425                     158.0                             -257.4705                   -99.4705
+[782s] seccion 4 lista
+==========================================================================================
+TODO listo, total 782s

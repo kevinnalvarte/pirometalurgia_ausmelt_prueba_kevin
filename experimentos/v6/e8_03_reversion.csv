@@ -1,0 +1,3 @@
+targets,target,n_estado_full,r2_full,n_full,r2_sin_CaO_B2_IRF,n_sin_cao,r2_sin_FeO_inv,n_sin_feo,drop_cao,drop_feo
+v6,m6_ln_feo_ret,22,0.26630226611413654,1084,0.2508511899699568,1084,0.2619597853542992,1084,"ley_cao_escoria_pct_prev,basicidad_B2_prev,indice_irf_prev","ley_feo_escoria_pct_prev,m6_feo_inv_kg_prev"
+v5,v5_ln_feo_ret,20,0.17311443944156835,1040,0.1440667978253446,1040,0.16956231072530636,1040,"ley_cao_escoria_pct_prev,basicidad_B2_prev,indice_irf_prev","ley_feo_escoria_pct_prev,feo_inventario_escoria_est_kg_prev"

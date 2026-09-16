@@ -1,0 +1,112 @@
+checkpoint {'ruta': 'libre', 'k': 38, 'sn_dep_r2_oof': 0.7652489876932658, 'sn_dep_r2_lockbox': 0.7996825168326529, 'sn_dep_n_dev': 1058, 'Cx_sn_theta1sd': np.float64(0.16445958726122442), 'Cx_sn_lo': np.float64(0.02456687737407819), 'Cx_sn_hi': np.float64(0.2909801913242671), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.05248017427366638), 'GN_sn_dep_lo': np.float64(0.005335167325490215), 'GN_sn_dep_hi': np.float64(0.10165355972838587), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.3293346891031186, 'feo_ret_r2_lockbox': 0.48614296954594594, 'feo_ret_n_dev': 1058, 'C_feo_theta1sd': np.float64(-6.321022191707774e-13), 'C_feo_lo': np.float64(-0.030606417277166398), 'C_feo_hi': np.float64(-5.175861173475729e-28), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.01188029877413039), 'GN_feo_ret_lo': np.float64(-0.019893687522969654), 'GN_feo_ret_hi': np.float64(-0.003962726320708744), 'GN_feo_ret_en_cota': False}
+[eliminacion:libre] importancia recalculada (k=38) en 15.1s
+[eliminacion:libre] quita 'interaccion_FeO_x_B2_prev' -> k=37
+[eliminacion:libre] quita 'ley_sn_dross_batch_pct' -> k=36
+[eliminacion:libre] quita 'indice_estructural_molar_prev' -> k=35
+[eliminacion:libre] quita 'indice_irf_prev' -> k=34
+[eliminacion:libre] importancia recalculada (k=34) en 13.9s
+[eliminacion:libre] quita 'ratio_sn_sio2_prev' -> k=33
+[eliminacion:libre] quita 'basicidad_B4_prev' -> k=32
+[eliminacion:libre] quita 'orden_escalon_fase' -> k=31
+[eliminacion:libre] quita 'cum_feed_Sn_kg_prev' -> k=30
+checkpoint {'ruta': 'libre', 'k': 30, 'sn_dep_r2_oof': 0.7651855700379555, 'sn_dep_r2_lockbox': 0.7987669737317673, 'sn_dep_n_dev': 1058, 'Cx_sn_theta1sd': np.float64(0.15683355320365136), 'Cx_sn_lo': np.float64(0.007513443938998064), 'Cx_sn_hi': np.float64(0.28401948829490814), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.05698709479307833), 'GN_sn_dep_lo': np.float64(0.010965092620598983), 'GN_sn_dep_hi': np.float64(0.1028258577609437), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.33297796932197743, 'feo_ret_r2_lockbox': 0.5007630251816035, 'feo_ret_n_dev': 1058, 'C_feo_theta1sd': np.float64(-3.0694112801177406e-16), 'C_feo_lo': np.float64(-0.02673895599014972), 'C_feo_hi': np.float64(-3.730694637256192e-34), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.011903716820157855), 'GN_feo_ret_lo': np.float64(-0.019516646745682105), 'GN_feo_ret_hi': np.float64(-0.003679335207146189), 'GN_feo_ret_en_cota': False}
+[eliminacion:libre] importancia recalculada (k=30) en 9.9s
+[eliminacion:libre] quita 'ley_sn_carga_batch_pct' -> k=29
+[eliminacion:libre] quita 'tiempo_fase' -> k=28
+[eliminacion:libre] quita 'log_ratio_sn_feo_prev' -> k=27
+[eliminacion:libre] quita 'cum_gn_nm3_prev' -> k=26
+[eliminacion:libre] importancia recalculada (k=26) en 8.1s
+[eliminacion:libre] quita 'ley_sn_pellets_batch_pct' -> k=25
+[eliminacion:libre] quita 'cum_o2_nm3_prev' -> k=24
+checkpoint {'ruta': 'libre', 'k': 24, 'sn_dep_r2_oof': 0.771823469148629, 'sn_dep_r2_lockbox': 0.8043145124274437, 'sn_dep_n_dev': 1082, 'Cx_sn_theta1sd': np.float64(0.1759164464844396), 'Cx_sn_lo': np.float64(0.05960887618025337), 'Cx_sn_hi': np.float64(0.3056973301528117), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.08133399107304402), 'GN_sn_dep_lo': np.float64(0.046421856045569115), 'GN_sn_dep_hi': np.float64(0.11533765402905696), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.3386324002163428, 'feo_ret_r2_lockbox': 0.4831681268668988, 'feo_ret_n_dev': 1082, 'C_feo_theta1sd': np.float64(-9.587325142889344e-19), 'C_feo_lo': np.float64(-0.008590353615859928), 'C_feo_hi': np.float64(-6.732734094759807e-86), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.011513751440529027), 'GN_feo_ret_lo': np.float64(-0.018053685965266512), 'GN_feo_ret_hi': np.float64(-0.003700453990202521), 'GN_feo_ret_en_cota': False}
+[eliminacion:libre] quita 'temperatura_gas_pre_bhf_celsius_prev' -> k=23
+[eliminacion:libre] quita 'm6_masa_kg_prev' -> k=22
+[eliminacion:libre] importancia recalculada (k=22) en 14.3s
+[eliminacion:libre] quita 'm6_avance_prev' -> k=21
+[eliminacion:libre] quita 'temperatura_horno_celsius_prev' -> k=20
+checkpoint {'ruta': 'libre', 'k': 20, 'sn_dep_r2_oof': 0.775039594413133, 'sn_dep_r2_lockbox': 0.8010807871665196, 'sn_dep_n_dev': 1082, 'Cx_sn_theta1sd': np.float64(0.18851513110038087), 'Cx_sn_lo': np.float64(0.04544135141542254), 'Cx_sn_hi': np.float64(0.33110441634105653), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.07093861013119951), 'GN_sn_dep_lo': np.float64(0.033167310020207154), 'GN_sn_dep_hi': np.float64(0.10556945524050662), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.3500261954349051, 'feo_ret_r2_lockbox': 0.4791104234392126, 'feo_ret_n_dev': 1082, 'C_feo_theta1sd': np.float64(-0.0017567146542465176), 'C_feo_lo': np.float64(-0.013248349599018059), 'C_feo_hi': np.float64(-7.899512382578909e-50), 'C_feo_en_cota': False, 'GN_feo_ret_theta1sd': np.float64(-0.009745898561916402), 'GN_feo_ret_lo': np.float64(-0.016824358878416733), 'GN_feo_ret_hi': np.float64(-0.0014328904181269652), 'GN_feo_ret_en_cota': False}
+[eliminacion:libre] quita 'basicidad_B2_prev' -> k=19
+[eliminacion:libre] quita 'cum_feed_total_kg_prev' -> k=18
+[eliminacion:libre] importancia recalculada (k=18) en 7.4s
+[eliminacion:libre] quita 'tiro_horno_pct_prev' -> k=17
+[eliminacion:libre] quita 'cum_feed_CaO_kg_prev' -> k=16
+checkpoint {'ruta': 'libre', 'k': 16, 'sn_dep_r2_oof': 0.7666338458599705, 'sn_dep_r2_lockbox': 0.795210599287193, 'sn_dep_n_dev': 1083, 'Cx_sn_theta1sd': np.float64(0.17762277552324918), 'Cx_sn_lo': np.float64(0.04721924253495846), 'Cx_sn_hi': np.float64(0.286508695913777), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.04732011486689363), 'GN_sn_dep_lo': np.float64(0.009962962586307574), 'GN_sn_dep_hi': np.float64(0.08518573347831641), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.33286945170220184, 'feo_ret_r2_lockbox': 0.48285253803446915, 'feo_ret_n_dev': 1083, 'C_feo_theta1sd': np.float64(-6.685670429640955e-05), 'C_feo_lo': np.float64(-0.010993971642758173), 'C_feo_hi': np.float64(-1.1e-322), 'C_feo_en_cota': False, 'GN_feo_ret_theta1sd': np.float64(-0.008093263745158027), 'GN_feo_ret_lo': np.float64(-0.015119011302393464), 'GN_feo_ret_hi': np.float64(-4.986778637693521e-12), 'GN_feo_ret_en_cota': False}
+[eliminacion:libre] quita 'cum_aire_nm3_prev' -> k=15
+[eliminacion:libre] quita 'cum_feed_Carbon_kg_prev' -> k=14
+[eliminacion:libre] importancia recalculada (k=14) en 6.0s
+[eliminacion:libre] quita 'ley_cao_escoria_pct_prev' -> k=13
+[eliminacion:libre] quita 'ley_feo_escoria_pct_prev' -> k=12
+checkpoint {'ruta': 'libre', 'k': 12, 'sn_dep_r2_oof': 0.7583030251741227, 'sn_dep_r2_lockbox': 0.8076323751917858, 'sn_dep_n_dev': 1083, 'Cx_sn_theta1sd': np.float64(0.18350865853756446), 'Cx_sn_lo': np.float64(0.021977792462031628), 'Cx_sn_hi': np.float64(0.3061118921837271), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.03622694447168603), 'GN_sn_dep_lo': np.float64(0.00444296233203636), 'GN_sn_dep_hi': np.float64(0.07177767977931648), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.3337019580874391, 'feo_ret_r2_lockbox': 0.4863202365843976, 'feo_ret_n_dev': 1083, 'C_feo_theta1sd': np.float64(-1.7145797254394615e-18), 'C_feo_lo': np.float64(-0.007448421578375122), 'C_feo_hi': np.float64(-1.1e-322), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.00713844024727286), 'GN_feo_ret_lo': np.float64(-0.014232657465892171), 'GN_feo_ret_hi': np.float64(-2.6744945218889416e-05), 'GN_feo_ret_en_cota': False}
+[eliminacion:libre] quita 'grad_temperatura_horno_celsius_prev' -> k=11
+[eliminacion:libre] quita 'ley_sio2_escoria_pct_prev' -> k=10
+checkpoint {'ruta': 'libre', 'k': 10, 'sn_dep_r2_oof': 0.7528482963060216, 'sn_dep_r2_lockbox': 0.8036148974606052, 'sn_dep_n_dev': 1083, 'Cx_sn_theta1sd': np.float64(0.19079066104310538), 'Cx_sn_lo': np.float64(0.032522447005032554), 'Cx_sn_hi': np.float64(0.306257162807276), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.032182899247562805), 'GN_sn_dep_lo': np.float64(1.4416145860486948e-13), 'GN_sn_dep_hi': np.float64(0.06911854721499903), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.3260382419659833, 'feo_ret_r2_lockbox': 0.46640706902720797, 'feo_ret_n_dev': 1083, 'C_feo_theta1sd': np.float64(-8.865244717750106e-15), 'C_feo_lo': np.float64(-0.006522123277195938), 'C_feo_hi': np.float64(-1.55608417655171e-52), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.005563317909897783), 'GN_feo_ret_lo': np.float64(-0.01292017429728182), 'GN_feo_ret_hi': np.float64(-6.32294641386912e-18), 'GN_feo_ret_en_cota': False}
+[eliminacion:libre] importancia recalculada (k=10) en 3.3s
+[eliminacion:libre] quita 'm6_sn_inv_kg_prev' -> k=9
+[eliminacion:libre] quita 'm6_resto_frac_prev' -> k=8
+checkpoint {'ruta': 'libre', 'k': 8, 'sn_dep_r2_oof': 0.755630340151042, 'sn_dep_r2_lockbox': 0.7963666334919575, 'sn_dep_n_dev': 1083, 'Cx_sn_theta1sd': np.float64(0.21591167682922083), 'Cx_sn_lo': np.float64(0.05463825105117756), 'Cx_sn_hi': np.float64(0.32128791592823863), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.03678502286347414), 'GN_sn_dep_lo': np.float64(0.003185635019176238), 'GN_sn_dep_hi': np.float64(0.06992443775122091), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.32795923798404614, 'feo_ret_r2_lockbox': 0.45825363798500485, 'feo_ret_n_dev': 1083, 'C_feo_theta1sd': np.float64(-3.662803326787965e-15), 'C_feo_lo': np.float64(-0.004043121438725345), 'C_feo_hi': np.float64(-1.1e-322), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.005741684389007914), 'GN_feo_ret_lo': np.float64(-0.01360911865032971), 'GN_feo_ret_hi': np.float64(-2.766863495477858e-16), 'GN_feo_ret_en_cota': False}
+[eliminacion:libre] quita 'relacion_C_cum_Sn_cum_prev' -> k=7
+[eliminacion:libre] quita 'espesor_ladrillo_norm_mm' -> k=6
+checkpoint {'ruta': 'libre', 'k': 6, 'sn_dep_r2_oof': 0.7564533200587977, 'sn_dep_r2_lockbox': 0.8045218808285318, 'sn_dep_n_dev': 1083, 'Cx_sn_theta1sd': np.float64(0.17562306094777144), 'Cx_sn_lo': np.float64(0.03136497233498459), 'Cx_sn_hi': np.float64(0.2824422322741025), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.029863301142405187), 'GN_sn_dep_lo': np.float64(0.0010731417232229764), 'GN_sn_dep_hi': np.float64(0.06554847957287127), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.29919523330056896, 'feo_ret_r2_lockbox': 0.46268125602249954, 'feo_ret_n_dev': 1083, 'C_feo_theta1sd': np.float64(-2.118519634721692e-22), 'C_feo_lo': np.float64(-9.421701705412344e-10), 'C_feo_hi': np.float64(-3.1782775354133555e-66), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.0031755449852638442), 'GN_feo_ret_lo': np.float64(-0.010834012545985493), 'GN_feo_ret_hi': np.float64(-6.753350446228974e-19), 'GN_feo_ret_en_cota': False}
+checkpoint {'ruta': 'fisica', 'k': 38, 'sn_dep_r2_oof': 0.7652489876932658, 'sn_dep_r2_lockbox': 0.7996825168326529, 'sn_dep_n_dev': 1058, 'Cx_sn_theta1sd': np.float64(0.16445958726122442), 'Cx_sn_lo': np.float64(0.02456687737407819), 'Cx_sn_hi': np.float64(0.2909801913242671), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.05248017427366638), 'GN_sn_dep_lo': np.float64(0.005335167325490215), 'GN_sn_dep_hi': np.float64(0.10165355972838587), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.3293346891031186, 'feo_ret_r2_lockbox': 0.48614296954594594, 'feo_ret_n_dev': 1058, 'C_feo_theta1sd': np.float64(-6.321022191707774e-13), 'C_feo_lo': np.float64(-0.030606417277166398), 'C_feo_hi': np.float64(-5.175861173475729e-28), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.01188029877413039), 'GN_feo_ret_lo': np.float64(-0.019893687522969654), 'GN_feo_ret_hi': np.float64(-0.003962726320708744), 'GN_feo_ret_en_cota': False}
+[eliminacion:fisica] importancia recalculada (k=38) en 8.2s
+[eliminacion:fisica] quita 'interaccion_FeO_x_B2_prev' -> k=37
+[eliminacion:fisica] quita 'ley_sn_dross_batch_pct' -> k=36
+[eliminacion:fisica] quita 'indice_estructural_molar_prev' -> k=35
+[eliminacion:fisica] quita 'log_ratio_sn_feo_prev' -> k=34
+[eliminacion:fisica] importancia recalculada (k=34) en 7.6s
+[eliminacion:fisica] quita 'ratio_sn_sio2_prev' -> k=33
+[eliminacion:fisica] quita 'tiempo_fase' -> k=32
+[eliminacion:fisica] quita 'basicidad_B4_prev' -> k=31
+[eliminacion:fisica] quita 'cum_feed_Sn_kg_prev' -> k=30
+checkpoint {'ruta': 'fisica', 'k': 30, 'sn_dep_r2_oof': 0.764341767701818, 'sn_dep_r2_lockbox': 0.8015027120297382, 'sn_dep_n_dev': 1058, 'Cx_sn_theta1sd': np.float64(0.15411568173665235), 'Cx_sn_lo': np.float64(0.011076363895085877), 'Cx_sn_hi': np.float64(0.27893017638247913), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.057942878644346156), 'GN_sn_dep_lo': np.float64(0.011365613024952047), 'GN_sn_dep_hi': np.float64(0.10213800345771894), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.32982741661300485, 'feo_ret_r2_lockbox': 0.49927670803865754, 'feo_ret_n_dev': 1058, 'C_feo_theta1sd': np.float64(-1.5548715013510738e-13), 'C_feo_lo': np.float64(-0.028625108961293482), 'C_feo_hi': np.float64(-6.188514425026643e-31), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.01289871691615475), 'GN_feo_ret_lo': np.float64(-0.021124087525601916), 'GN_feo_ret_hi': np.float64(-0.004250994383466089), 'GN_feo_ret_en_cota': False}
+[eliminacion:fisica] importancia recalculada (k=30) en 6.5s
+[eliminacion:fisica] quita 'ley_sn_carga_batch_pct' -> k=29
+[eliminacion:fisica] quita 'cum_gn_nm3_prev' -> k=28
+[eliminacion:fisica] quita 'cum_o2_nm3_prev' -> k=27
+[eliminacion:fisica] quita 'ley_sn_pellets_batch_pct' -> k=26
+[eliminacion:fisica] importancia recalculada (k=26) en 5.9s
+[eliminacion:fisica] quita 'temperatura_gas_pre_bhf_celsius_prev' -> k=25
+[eliminacion:fisica] quita 'ley_sio2_escoria_pct_prev' -> k=24
+checkpoint {'ruta': 'fisica', 'k': 24, 'sn_dep_r2_oof': 0.7681352904161323, 'sn_dep_r2_lockbox': 0.8143640881908688, 'sn_dep_n_dev': 1082, 'Cx_sn_theta1sd': np.float64(0.1858760505233418), 'Cx_sn_lo': np.float64(0.051425054047358365), 'Cx_sn_hi': np.float64(0.3217700367881045), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.04347195108274896), 'GN_sn_dep_lo': np.float64(2.619255157189283e-11), 'GN_sn_dep_hi': np.float64(0.08484686031301808), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.34565546470319297, 'feo_ret_r2_lockbox': 0.4996545722111303, 'feo_ret_n_dev': 1082, 'C_feo_theta1sd': np.float64(-2.202363972774615e-10), 'C_feo_lo': np.float64(-0.02193721484149391), 'C_feo_hi': np.float64(-1.8254761299929354e-31), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.011355270418211008), 'GN_feo_ret_lo': np.float64(-0.018635946454215763), 'GN_feo_ret_hi': np.float64(-0.0021612320145713492), 'GN_feo_ret_en_cota': False}
+[eliminacion:fisica] quita 'cum_feed_total_kg_prev' -> k=23
+[eliminacion:fisica] quita 'ley_cao_escoria_pct_prev' -> k=22
+[eliminacion:fisica] importancia recalculada (k=22) en 5.6s
+[eliminacion:fisica] quita 'tiro_horno_pct_prev' -> k=21
+[eliminacion:fisica] quita 'grad_temperatura_horno_celsius_prev' -> k=20
+checkpoint {'ruta': 'fisica', 'k': 20, 'sn_dep_r2_oof': 0.7615713052763523, 'sn_dep_r2_lockbox': 0.804278665616601, 'sn_dep_n_dev': 1083, 'Cx_sn_theta1sd': np.float64(0.18444705747222587), 'Cx_sn_lo': np.float64(0.022750534599170417), 'Cx_sn_hi': np.float64(0.29435900664982606), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.029860267920859152), 'GN_sn_dep_lo': np.float64(2.4497706918642784e-17), 'GN_sn_dep_hi': np.float64(0.07588383942555292), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.328148569666298, 'feo_ret_r2_lockbox': 0.48482196692897195, 'feo_ret_n_dev': 1083, 'C_feo_theta1sd': np.float64(-2.8263635719485985e-24), 'C_feo_lo': np.float64(-0.019786197541225018), 'C_feo_hi': np.float64(-6.225355322608214e-33), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.011839293644974287), 'GN_feo_ret_lo': np.float64(-0.0195630391452549), 'GN_feo_ret_hi': np.float64(-0.002281020526698894), 'GN_feo_ret_en_cota': False}
+[eliminacion:fisica] quita 'cum_feed_CaO_kg_prev' -> k=19
+[eliminacion:fisica] quita 'cum_aire_nm3_prev' -> k=18
+[eliminacion:fisica] importancia recalculada (k=18) en 4.1s
+[eliminacion:fisica] quita 'ley_feo_escoria_pct_prev' -> k=17
+[eliminacion:fisica] quita 'espesor_ladrillo_norm_mm' -> k=16
+checkpoint {'ruta': 'fisica', 'k': 16, 'sn_dep_r2_oof': 0.751367082997114, 'sn_dep_r2_lockbox': 0.8108486615394078, 'sn_dep_n_dev': 1083, 'Cx_sn_theta1sd': np.float64(0.22148638955309646), 'Cx_sn_lo': np.float64(0.057524655996794384), 'Cx_sn_hi': np.float64(0.3555856514597651), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.04610700565372426), 'GN_sn_dep_lo': np.float64(0.003634549374978522), 'GN_sn_dep_hi': np.float64(0.08453596934964508), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.3170439284775771, 'feo_ret_r2_lockbox': 0.49466416320471573, 'feo_ret_n_dev': 1083, 'C_feo_theta1sd': np.float64(-6.706445450412271e-26), 'C_feo_lo': np.float64(-0.02191848220980182), 'C_feo_hi': np.float64(-3.8826939361970297e-32), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.01614922154169621), 'GN_feo_ret_lo': np.float64(-0.023537936722583273), 'GN_feo_ret_hi': np.float64(-0.0066257296299062005), 'GN_feo_ret_en_cota': False}
+[eliminacion:fisica] quita 'm6_resto_frac_prev' -> k=15
+[eliminacion:fisica] quita 'termocupla_media_celsius_prev' -> k=14
+[eliminacion:fisica] importancia recalculada (k=14) en 4.4s
+[eliminacion:fisica] quita 'posicion_vertical_lanza_mm_prev' -> k=13
+[eliminacion:fisica] quita 'ley_sn_escoria_pct_prev' -> k=12
+checkpoint {'ruta': 'fisica', 'k': 12, 'sn_dep_r2_oof': 0.7388711556861849, 'sn_dep_r2_lockbox': 0.8004886121195443, 'sn_dep_n_dev': 1083, 'Cx_sn_theta1sd': np.float64(0.1383108666865427), 'Cx_sn_lo': np.float64(1.304834794946135e-15), 'Cx_sn_hi': np.float64(0.27206205779269), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.007043488908081766), 'GN_sn_dep_lo': np.float64(3.872449122936339e-24), 'GN_sn_dep_hi': np.float64(0.05249850955352029), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.28919375254114044, 'feo_ret_r2_lockbox': 0.46924234210853555, 'feo_ret_n_dev': 1083, 'C_feo_theta1sd': np.float64(-8.865871847280992e-14), 'C_feo_lo': np.float64(-0.023184905519210583), 'C_feo_hi': np.float64(-3.6022241319388864e-29), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.009836733791952929), 'GN_feo_ret_lo': np.float64(-0.018025555328628172), 'GN_feo_ret_hi': np.float64(-0.0012108803822461827), 'GN_feo_ret_en_cota': False}
+[eliminacion:fisica] quita 'ratio_sn_feo_prev' -> k=11
+[eliminacion:fisica] quita 'interaccion_Sn_x_FeO_prev' -> k=10
+checkpoint {'ruta': 'fisica', 'k': 10, 'sn_dep_r2_oof': 0.7361157793831704, 'sn_dep_r2_lockbox': 0.7997297597266061, 'sn_dep_n_dev': 1083, 'Cx_sn_theta1sd': np.float64(0.1548151328840694), 'Cx_sn_lo': np.float64(1.4298916402543148e-14), 'Cx_sn_hi': np.float64(0.280060814168841), 'Cx_sn_en_cota': False, 'GN_sn_dep_theta1sd': np.float64(0.008713092077957781), 'GN_sn_dep_lo': np.float64(8.191630561975794e-23), 'GN_sn_dep_hi': np.float64(0.05765724970294136), 'GN_sn_dep_en_cota': False, 'feo_ret_r2_oof': 0.2958951437824282, 'feo_ret_r2_lockbox': 0.44769153112993954, 'feo_ret_n_dev': 1083, 'C_feo_theta1sd': np.float64(-1.1322657160123157e-18), 'C_feo_lo': np.float64(-0.01612990023306388), 'C_feo_hi': np.float64(-6.768114266692143e-29), 'C_feo_en_cota': True, 'GN_feo_ret_theta1sd': np.float64(-0.008958615903907344), 'GN_feo_ret_lo': np.float64(-0.016869560199835716), 'GN_feo_ret_hi': np.float64(-4.1022578174307435e-12), 'GN_feo_ret_en_cota': False}
+      ruta   k  sn_dep_r2_oof  sn_dep_r2_lockbox  feo_ret_r2_oof  feo_ret_r2_lockbox  Cx_sn_theta1sd  Cx_sn_lo  Cx_sn_hi Cx_sn_en_cota
+0    libre  38         0.7652             0.7997          0.3293              0.4861          0.1645    0.0246    0.2910         False
+1    libre  30         0.7652             0.7988          0.3330              0.5008          0.1568    0.0075    0.2840         False
+2    libre  24         0.7718             0.8043          0.3386              0.4832          0.1759    0.0596    0.3057         False
+3    libre  20         0.7750             0.8011          0.3500              0.4791          0.1885    0.0454    0.3311         False
+4    libre  16         0.7666             0.7952          0.3329              0.4829          0.1776    0.0472    0.2865         False
+5    libre  12         0.7583             0.8076          0.3337              0.4863          0.1835    0.0220    0.3061         False
+6    libre  10         0.7528             0.8036          0.3260              0.4664          0.1908    0.0325    0.3063         False
+7    libre   8         0.7556             0.7964          0.3280              0.4583          0.2159    0.0546    0.3213         False
+8    libre   6         0.7565             0.8045          0.2992              0.4627          0.1756    0.0314    0.2824         False
+9   fisica  38         0.7652             0.7997          0.3293              0.4861          0.1645    0.0246    0.2910         False
+10  fisica  30         0.7643             0.8015          0.3298              0.4993          0.1541    0.0111    0.2789         False
+11  fisica  24         0.7681             0.8144          0.3457              0.4997          0.1859    0.0514    0.3218         False
+12  fisica  20         0.7616             0.8043          0.3281              0.4848          0.1844    0.0228    0.2944         False
+13  fisica  16         0.7514             0.8108          0.3170              0.4947          0.2215    0.0575    0.3556         False
+14  fisica  12         0.7389             0.8005          0.2892              0.4692          0.1383    0.0000    0.2721         False
+15  fisica  10         0.7361             0.7997          0.2959              0.4477          0.1548    0.0000    0.2801         False
+16  fisica   8            NaN                NaN             NaN                 NaN             NaN       NaN       NaN           NaN
+17  fisica   6            NaN                NaN             NaN                 NaN             NaN       NaN       NaN           NaN
+FIN eliminacion
+tiempo total: 1189.5s

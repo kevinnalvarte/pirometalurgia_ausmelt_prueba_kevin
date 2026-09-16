@@ -1,0 +1,37 @@
+[    0.0s] cargando datos (etapa=escalon_F)...
+[    2.1s] df (3982, 281) batch (362, 45)
+[    2.1s] === etapa escalon_F ===
+[    2.2s]   PLM target=m6_ln_sn_dep (estado 24, palancas 5)
+[   34.3s]     r2_oof=0.156 r2_lockbox=-0.384 n_dev=1469
+[   34.3s]                     palanca     theta_1sd     ci_lo_1sd     ci_hi_1sd  significativo
+0      tasa_feed_CaO_kg_min  5.237399e-03 -4.333345e-02  5.178919e-02          False
+1       relacion_C_Sn_carga  1.081660e-02  1.051874e-31  3.475573e-02          False
+2           tasa_gn_nm3_min  2.230330e-02  3.910136e-03  4.250106e-02           True
+3  exceso_o2_combustion_pct -6.412997e-15 -1.157041e-02 -7.552176e-21          False
+4         tasa_aire_nm3_min  1.376341e-02 -4.975597e-03  3.010614e-02          False
+[   44.1s]   PLM target=d_temperatura_horno_celsius (estado 7, palancas 5)
+[   65.0s]     r2_oof=0.498 r2_lockbox=0.041 n_dev=1482
+[   65.0s]                     palanca      theta_1sd      ci_lo_1sd      ci_hi_1sd  significativo
+0      tasa_feed_CaO_kg_min  -1.992837e-18  -6.175615e-01  -4.934861e-33          False
+1       relacion_C_Sn_carga  -2.419739e-01  -1.125393e+00   6.998504e-01          False
+2           tasa_gn_nm3_min  4.940656e-324  4.940656e-324   1.589028e-01          False
+3  exceso_o2_combustion_pct  -2.002251e-01  -9.589373e-01   5.959371e-01          False
+4         tasa_aire_nm3_min  -3.741817e-26  -7.343483e-01 -2.470328e-323          False
+[   72.3s]   PLM target=d_basicidad_B2 (estado 23, palancas 5)
+[  112.7s]     r2_oof=0.220 r2_lockbox=-0.020 n_dev=1471
+[  112.7s]                     palanca  theta_1sd     ci_lo_1sd  ci_hi_1sd  significativo
+0      tasa_feed_CaO_kg_min   0.002987  3.187908e-15   0.013413          False
+1       relacion_C_Sn_carga  -0.001539 -5.597476e-03   0.001862          False
+2           tasa_gn_nm3_min   0.002173 -2.320977e-03   0.007991          False
+3  exceso_o2_combustion_pct   0.002957 -2.316153e-04   0.006278          False
+4         tasa_aire_nm3_min   0.000114 -3.396957e-03   0.003249          False
+[  129.7s]   PLM target=v5_d_lnirf (estado 23, palancas 5)
+[  181.5s]     r2_oof=0.272 r2_lockbox=0.087 n_dev=1470
+[  181.5s]                     palanca  theta_1sd     ci_lo_1sd     ci_hi_1sd  significativo
+0      tasa_feed_CaO_kg_min  -0.006164 -1.439190e-02 -3.871896e-04           True
+1       relacion_C_Sn_carga   0.004012 -7.885766e-04  9.046185e-03          False
+2           tasa_gn_nm3_min  -0.000977 -5.782582e-03 -5.209790e-20          False
+3  exceso_o2_combustion_pct   0.001454  1.969173e-18  4.919035e-03          False
+4         tasa_aire_nm3_min  -0.000044 -4.827028e-03  4.950998e-03          False
+[  196.4s] guardado e9_02_plm_fusion.csv, e9_02_theta_fusion.csv, e9_02_estabilidad_fusion.csv
+[  196.4s] FIN

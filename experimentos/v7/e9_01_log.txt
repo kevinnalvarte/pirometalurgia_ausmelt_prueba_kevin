@@ -1,0 +1,118 @@
+[    0.0s] cargando datos...
+[    0.0s] dR (1448, 281)
+[    0.0s] === etapa ref ===
+[   35.9s] ref sn_dep {'n_dev': 1058, 'r2_oof': 0.7652, 'mae_oof': 0.2443, 'r2_lockbox': 0.7997, 'mae_lockbox': 0.2351}
+[  106.9s] ref feo_ret {'n_dev': 1058, 'r2_oof': 0.3293, 'mae_oof': 0.047, 'r2_lockbox': 0.4861, 'mae_lockbox': 0.0418}
+[  106.9s] ref: OK
+[  106.9s] === etapa tasa ===
+[  172.3s] tasa sn_dep {'r2_oof': 0.7593, 'mae_oof': 0.2495, 'r2_lockbox': 0.8012, 'mae_lockbox': 0.2418}
+[  247.5s] tasa feo_ret {'r2_oof': 0.3222, 'mae_oof': 0.047, 'r2_lockbox': 0.4963, 'mae_lockbox': 0.0422}
+[  247.6s] tasa: OK
+[  247.6s] === etapa estructural ===
+[  247.6s] estructural: n_dev 1083 n_lockbox 242 T_ref 1340.7
+[  247.7s]   fold 0 n_tr 863 params [5.0, 5.0, -1245.865, 3.4783, 1.5882, 0.0198, 0.0523]
+[  247.7s]   fold 1 n_tr 864 params [5.0, 5.0, -1731.0699, 3.4107, 1.6662, 0.0209, 0.0509]
+[  247.8s]   fold 2 n_tr 867 params [5.0, 5.0, -1352.0574, 3.4879, 1.4374, 0.0196, 0.0524]
+[  247.9s]   fold 3 n_tr 866 params [5.0, 4.9998, -1541.3125, 3.4812, 1.3149, 0.0224, 0.0473]
+[  248.0s]   fold 4 n_tr 872 params [5.0, 5.0, -1681.8347, 3.4114, 1.6021, 0.0214, 0.0492]
+[  248.1s] estructural metricas: [{'clave': 'sn_dep', 'r2_oof': 0.34152553677813213, 'r2_lockbox': 0.45760319603386934}, {'clave': 'feo_ret', 'r2_oof': 0.13463439665203603, 'r2_lockbox': 0.27044594654544074}]
+[  250.3s]   bootstrap 50 / 220
+[  252.0s]   bootstrap 100 / 220
+[  253.7s]   bootstrap 150 / 220
+[  255.4s]   bootstrap 200 / 220
+[  256.2s] parametros:
+   parametro      valor      ci_lo     ci_hi  excluye_0
+0     eta_C     5.0000     5.0000    5.0000       True
+1  gamma_GN     5.0000     5.0000    5.0000       True
+2        Ea -1686.0630 -2111.7342 -774.7812       True
+3    kappa0     3.4211     3.3125    3.5538       True
+4    kappa1     1.6336     1.1244    2.1024       True
+5   epsilon     0.0208     0.0182    0.0232       True
+6    delta0     0.0504     0.0453    0.0556       True
+[  256.2s] selectividad estructural (d target / d carbon kg/min):
+              der_ln_sn_dep                der_ln_feo_ret               
+                      mean      std count           mean      std count
+tramo_avance                                                           
+<0.84              0.05115  0.05460   318       -0.00122  0.00014   318
+0.84-0.96          0.03292  0.02780   232       -0.00137  0.00020   232
+>0.96              0.01590  0.00936   775       -0.00118  0.00043   775
+[  256.2s] estructural: OK
+[  256.2s] === etapa loglineal ===
+[  256.4s] loglineal sn_dep r2_oof 0.4088 r2_lockbox 0.6762 frac_target<=0 (limitacion) 0.054
+[  256.5s] loglineal feo_ret r2_oof 0.1351 r2_lockbox 0.2767 frac_target<=0 (limitacion) 0.102
+[  256.5s] loglineal: OK
+[  256.5s] === etapa hibrido ===
+[  257.1s]   hibrido-a fold 0 OK
+[  257.6s]   hibrido-a fold 1 OK
+[  258.1s]   hibrido-a fold 2 OK
+[  258.6s]   hibrido-a fold 3 OK
+[  259.1s]   hibrido-a fold 4 OK
+[  259.6s] hibrido-a sn_dep r2_oof 0.6345 (estructural mismo fold 0.3413 ) r2_lockbox 0.6924
+[  259.6s] hibrido-a feo_ret r2_oof 0.3204 (estructural mismo fold 0.1401 ) r2_lockbox 0.4756
+[  259.9s] hibrido-a vs ref (Delta R2 OOF, bootstrap por batch):
+      clave  delta_r2_media   ci_lo   ci_hi  n_batches
+0   sn_dep         -0.1294 -0.2065 -0.0741        290
+1  feo_ret         -0.0083 -0.0352  0.0165        290
+[  299.2s] hibrido-b sn_dep r2_oof 0.7669 r2_lockbox 0.802
+[  299.3s]   (ref PLM r2_oof 0.7652 r2_lockbox 0.7997 )
+[  351.4s] hibrido-b feo_ret r2_oof 0.3212 r2_lockbox 0.4727
+[  351.4s]   (ref PLM r2_oof 0.3293 r2_lockbox 0.4861 )
+[  351.4s] hibrido: OK
+[  351.4s] === etapa estabilidad ===
+[  351.5s] estabilidad por tercios:
+           forma    clave  tercio  r2_oof  mae_oof    n
+0           ref   sn_dep       0  0.7335   0.2560  355
+1           ref   sn_dep       1  0.7782   0.2516  345
+2           ref   sn_dep       2  0.7821   0.2256  358
+3           ref  feo_ret       0  0.4020   0.0457  355
+4           ref  feo_ret       1  0.2963   0.0466  345
+5           ref  feo_ret       2  0.2840   0.0488  358
+6   estructural   sn_dep       0  0.0870   0.4738  363
+7   estructural   sn_dep       1  0.4856   0.3954  355
+8   estructural   sn_dep       2  0.4405   0.3729  365
+9   estructural  feo_ret       0  0.0975   0.0563  363
+10  estructural  feo_ret       1  0.2197   0.0479  355
+11  estructural  feo_ret       2  0.1031   0.0548  365
+[  375.7s] walk-forward ref sn_dep OK
+[  408.9s] walk-forward ref feo_ret OK
+[  409.7s] walk-forward estructural OK
+[  409.7s] walk-forward:
+           forma    clave  bloque_desde  n_train_batches  n_test      r2     mae
+0           ref   sn_dep            50               50     181  0.6770  0.3213
+1           ref   sn_dep           100              100     175  0.7649  0.2582
+2           ref   sn_dep           150              150     184  0.7553  0.2737
+3           ref   sn_dep           200              200     178  0.7196  0.2345
+4           ref   sn_dep           250              250     183  0.8172  0.2273
+5           ref  feo_ret            50               50     181  0.3365  0.0511
+6           ref  feo_ret           100              100     175  0.1582  0.0504
+7           ref  feo_ret           150              150     184  0.3181  0.0468
+8           ref  feo_ret           200              200     178 -0.0105  0.0529
+9           ref  feo_ret           250              250     183  0.3403  0.0528
+10  estructural   sn_dep            50               50     181  0.0029  0.5447
+11  estructural  feo_ret            50               50     181  0.1118  0.0572
+12  estructural   sn_dep           100              100     175  0.2822  0.4568
+13  estructural  feo_ret           100              100     175  0.1886  0.0461
+14  estructural   sn_dep           150              150     184  0.5514  0.3805
+15  estructural  feo_ret           150              150     184  0.2349  0.0497
+16  estructural   sn_dep           200              200     178  0.1005  0.4119
+17  estructural  feo_ret           200              200     178  0.0099  0.0501
+18  estructural   sn_dep           250              250     183  0.5164  0.3686
+19  estructural  feo_ret           250              250     183  0.1385  0.0603
+[  409.7s] estabilidad: OK
+[  409.7s] === etapa resumen ===
+[  409.8s] tabla comparativa:
+                     forma    clave  n_parametros  r2_oof  mae_oof  r2_lockbox  mae_lockbox identificacion_carbon estable_tercios  signo_ok
+0                 ref_PLM   sn_dep             4  0.7652   0.2443      0.7997       0.2351                  True             NaN       NaN
+1                 ref_PLM  feo_ret             5  0.3293   0.0470      0.4861       0.0418                 False             NaN       NaN
+2                    tasa   sn_dep             4  0.7593   0.2495      0.8012       0.2418                   NaN             NaN       NaN
+3                    tasa  feo_ret             5  0.3222   0.0470      0.4963       0.0422                   NaN             NaN       NaN
+4             estructural   sn_dep             7  0.3415   0.4141      0.4576       0.4156                  True            True       NaN
+5             estructural  feo_ret             7  0.1346   0.0531      0.2704       0.0511                  True            True       NaN
+6               loglineal   sn_dep            12  0.4088   0.3274      0.6762       0.2984                   NaN             NaN       NaN
+7               loglineal  feo_ret            12  0.1351   0.0534      0.2767       0.0501                   NaN             NaN       NaN
+8   hibrido_a_estruct_hgb   sn_dep             7  0.6345   0.2939      0.6924       0.2940                   NaN             NaN       NaN
+9   hibrido_a_estruct_hgb  feo_ret             7  0.3204   0.0473      0.4756       0.0433                   NaN             NaN       NaN
+10   hibrido_b_plm_offset   sn_dep             5  0.7669   0.2439      0.8020       0.2412                   NaN             NaN       NaN
+11   hibrido_b_plm_offset  feo_ret             6  0.3212   0.0473      0.4727       0.0420                   NaN             NaN       NaN
+[  409.8s] resumen: OK, memo escrito
+[  409.8s] FIN

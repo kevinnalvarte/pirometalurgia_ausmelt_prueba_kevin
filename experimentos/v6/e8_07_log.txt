@@ -1,0 +1,117 @@
+[    0.0s] cargando df v6 (mp6.agregar_columnas_v6 sobre cache df_v3.pkl)...
+[    4.3s] df (3982, 262)  batch6 (362, 46) (299 DEV / 63 lockbox)
+[    4.3s] pb6 (362, 64)  pb5 (362, 64)  (misma muestra de batches: 362)
+[    4.3s] === A) emparejamiento por estado (v6) ===
+[    6.3s] 
+           dist                        kpi  n_pares  dif_media_pp  ci_lo  ci_hi  p_pareado  smd_medio_post  dist_media_cerca  dist_media_lejos   subset sistema
+0   dist_total  recuperacion_refinada_pct       99        -1.204 -2.319 -0.124      0.035           0.054             0.133             0.406      DEV      v6
+4       dist_R  recuperacion_refinada_pct       99         0.723 -0.367  1.877      0.217           0.035             0.098             0.443      DEV      v6
+8       dist_F  recuperacion_refinada_pct       99         0.273 -0.960  1.450      0.647           0.037             0.108             0.469      DEV      v6
+12  dist_total  recuperacion_refinada_pct       21        -0.984 -3.256  1.046      0.386           0.119             0.251             0.496  LOCKBOX      v6
+16      dist_R  recuperacion_refinada_pct       21        -2.821 -5.695 -0.285      0.054           0.129             0.148             0.466  LOCKBOX      v6
+20      dist_F  recuperacion_refinada_pct       21        -0.051 -1.637  1.554      0.953           0.120             0.267             0.625  LOCKBOX      v6
+24  dist_total  recuperacion_refinada_pct      120         0.375 -0.668  1.413      0.481           0.049             0.141             0.435    TOTAL      v6
+28      dist_R  recuperacion_refinada_pct      120        -0.004 -0.921  1.042      0.994           0.025             0.103             0.450    TOTAL      v6
+32      dist_F  recuperacion_refinada_pct      120         0.565 -0.410  1.443      0.224           0.036             0.118             0.522    TOTAL      v6
+[    6.3s] === B) dosis-respuesta por terciles (v6) ===
+[    7.2s] 
+           dist                     metric    n   cerca   medio   lejos  d_cerca_lejos  ols_coef_por_sd  ols_p   subset sistema
+0   dist_total  recuperacion_refinada_pct  297  68.333  68.200  67.831          0.502           -0.051  0.834      DEV      v6
+3       dist_R  recuperacion_refinada_pct  297  68.380  67.988  67.996          0.384            0.209  0.353      DEV      v6
+6       dist_F  recuperacion_refinada_pct  297  68.707  68.243  67.414          1.292           -0.398  0.154      DEV      v6
+9   dist_total  recuperacion_refinada_pct   63  68.719  69.254  69.985         -1.266           -0.654  0.189  LOCKBOX      v6
+12      dist_R  recuperacion_refinada_pct   63  68.993  69.028  69.936         -0.943           -0.371  0.551  LOCKBOX      v6
+15      dist_F  recuperacion_refinada_pct   63  68.771  69.047  70.140         -1.368           -0.619  0.262  LOCKBOX      v6
+18  dist_total  recuperacion_refinada_pct  360  68.455  68.026  68.511         -0.055            0.045  0.844    TOTAL      v6
+21      dist_R  recuperacion_refinada_pct  360  68.463  68.083  68.446          0.017            0.159  0.457    TOTAL      v6
+24      dist_F  recuperacion_refinada_pct  360  68.907  67.388  68.697          0.210           -0.141  0.559    TOTAL      v6
+[    7.2s] 
+           dist   metric    n   cerca   medio   lejos  d_cerca_lejos  ols_coef_por_sd   ols_p   subset sistema
+1   dist_total  f_dross  297  0.1283  0.1305  0.1240         0.0043          -0.0037  0.0893      DEV      v6
+2   dist_total  f_polvo  297  0.1785  0.1776  0.1869        -0.0085           0.0035  0.0901      DEV      v6
+4       dist_R  f_dross  297  0.1292  0.1275  0.1261         0.0032          -0.0031  0.1464      DEV      v6
+5       dist_R  f_polvo  297  0.1774  0.1826  0.1830        -0.0057           0.0001  0.9394      DEV      v6
+7       dist_F  f_dross  297  0.1267  0.1316  0.1244         0.0023          -0.0021  0.3100      DEV      v6
+8       dist_F  f_polvo  297  0.1752  0.1768  0.1910        -0.0158           0.0062  0.0078      DEV      v6
+10  dist_total  f_dross   63  0.1185  0.1203  0.1076         0.0109           0.0038  0.4532  LOCKBOX      v6
+11  dist_total  f_polvo   63  0.1819  0.1778  0.1833        -0.0013           0.0036  0.4422  LOCKBOX      v6
+13      dist_R  f_dross   63  0.1135  0.1157  0.1173        -0.0038           0.0023  0.6148  LOCKBOX      v6
+14      dist_R  f_polvo   63  0.1838  0.1852  0.1740         0.0098           0.0025  0.6507  LOCKBOX      v6
+16      dist_F  f_dross   63  0.1233  0.1181  0.1049         0.0184           0.0034  0.5713  LOCKBOX      v6
+17      dist_F  f_polvo   63  0.1789  0.1795  0.1846        -0.0056           0.0030  0.5171  LOCKBOX      v6
+19  dist_total  f_dross  360  0.1278  0.1304  0.1182         0.0096          -0.0047  0.0281    TOTAL      v6
+20  dist_total  f_polvo  360  0.1777  0.1795  0.1858        -0.0081           0.0039  0.0370    TOTAL      v6
+22      dist_R  f_dross  360  0.1286  0.1233  0.1245         0.0041          -0.0024  0.2194    TOTAL      v6
+23      dist_R  f_polvo  360  0.1772  0.1852  0.1806        -0.0034           0.0003  0.8524    TOTAL      v6
+25      dist_F  f_dross  360  0.1251  0.1347  0.1165         0.0086          -0.0047  0.0221    TOTAL      v6
+26      dist_F  f_polvo  360  0.1750  0.1819  0.1861        -0.0111           0.0062  0.0017    TOTAL      v6
+[    7.2s] === C) cadena theta -> agregado -> KPI (v6 y v5, controles E8-03) ===
+[  116.7s] 
+    sistema politica_en  n_batches  w_implicito  uplift_kpi_pp_medio  uplift_ci_lo  uplift_ci_hi  uplift_kg_sn_medio  pct_batches_uplift_pos
+0       v6         DEV        299        6.051                0.262         0.175         0.359             134.291                  98.328
+1       v6     LOCKBOX         63        6.051                0.370         0.233         0.521             189.462                 100.000
+2       v6       TOTAL        362        6.051                0.281         0.185         0.388             143.893                  98.619
+18      v5         DEV        299        6.040                0.206         0.128         0.312             105.733                  96.990
+19      v5     LOCKBOX         63        6.040                0.292         0.171         0.454             149.683                  98.413
+20      v5       TOTAL        362        6.040                0.221         0.137         0.337             113.382                  97.238
+[  116.7s] === D) comparacion directa v5 vs v6 ===
+[  116.8s] 
+                                    metric               tipo    n  pearson_r  pearson_p  spearman_rho  spearman_p  media_v5  media_v6  pct_mismo_signo
+0                              dist_total           continuo  362      0.896        0.0         0.865         0.0     0.258     0.276              NaN
+1                                  dist_R           continuo  362      0.866        0.0         0.662         0.0     0.221     0.248              NaN
+2                                  dist_F           continuo  360      0.919        0.0         0.926         0.0     0.296     0.307              NaN
+3                  uplift_fisico_total_kg           continuo  362      0.833        0.0         0.763         0.0   181.997   243.318              NaN
+4                 uplift_fisico_fusion_kg           continuo  362      0.969        0.0         0.952         0.0    67.252    83.440              NaN
+5              uplift_fisico_reduccion_kg           continuo  362      0.791        0.0         0.613         0.0   114.745   159.878              NaN
+6            dir_Fusión_tasa_aire_nm3_min  direccion_palanca  360      0.905        0.0         0.862         0.0    -0.042    -0.038           86.111
+7      dir_Fusión_tasa_feed_Carbon_kg_min  direccion_palanca  360      0.960        0.0         0.949         0.0    -0.484    -0.499           99.722
+8              dir_Fusión_tasa_gn_nm3_min  direccion_palanca  360      0.902        0.0         0.942         0.0    -0.152    -0.133           91.944
+9              dir_Fusión_tasa_o2_nm3_min  direccion_palanca  360      0.916        0.0         0.946         0.0    -0.110    -0.081           92.500
+10        dir_Reducción_tasa_aire_nm3_min  direccion_palanca  362      0.935        0.0         0.682         0.0     0.152     0.240           76.796
+11  dir_Reducción_tasa_feed_Carbon_kg_min  direccion_palanca  362      0.273        0.0         0.214         0.0     0.011    -0.126           51.657
+12          dir_Reducción_tasa_gn_nm3_min  direccion_palanca  362      0.776        0.0         0.743         0.0    -0.237    -0.116           77.348
+13          dir_Reducción_tasa_o2_nm3_min  direccion_palanca  362      0.695        0.0         0.664         0.0    -0.089    -0.104           75.967
+[  116.8s] === E) politica v6 por tramo/orden ===
+[  116.9s] 
+             segmento       tramo                  palanca   unidad    n  mediana_fisica  mediana_sd
+0   Reduccion_avance       <0.84  tasa_feed_Carbon_kg_min   kg/min  319           1.475       0.067
+1   Reduccion_avance       <0.84          tasa_gn_nm3_min  Nm3/min  319           0.000       0.000
+2   Reduccion_avance       <0.84          tasa_o2_nm3_min  Nm3/min  319           0.000       0.000
+3   Reduccion_avance       <0.84        tasa_aire_nm3_min  Nm3/min  319           0.000       0.000
+4   Reduccion_avance   0.84-0.96  tasa_feed_Carbon_kg_min   kg/min  232          -3.519      -0.160
+5   Reduccion_avance   0.84-0.96          tasa_gn_nm3_min  Nm3/min  232           0.000       0.000
+6   Reduccion_avance   0.84-0.96          tasa_o2_nm3_min  Nm3/min  232           0.000       0.000
+7   Reduccion_avance   0.84-0.96        tasa_aire_nm3_min  Nm3/min  232           0.453       0.040
+8   Reduccion_avance  0.96-0.975  tasa_feed_Carbon_kg_min   kg/min  365          -4.204      -0.191
+9   Reduccion_avance  0.96-0.975          tasa_gn_nm3_min  Nm3/min  365          -0.662      -0.132
+10  Reduccion_avance  0.96-0.975          tasa_o2_nm3_min  Nm3/min  365          -0.066      -0.008
+11  Reduccion_avance  0.96-0.975        tasa_aire_nm3_min  Nm3/min  365           0.454       0.041
+12  Reduccion_avance      >0.975  tasa_feed_Carbon_kg_min   kg/min  514          -2.529      -0.115
+13  Reduccion_avance      >0.975          tasa_gn_nm3_min  Nm3/min  514          -0.662      -0.132
+14  Reduccion_avance      >0.975          tasa_o2_nm3_min  Nm3/min  514           0.000       0.000
+15  Reduccion_avance      >0.975        tasa_aire_nm3_min  Nm3/min  514           0.452       0.040
+16      Fusion_orden           1  tasa_feed_Carbon_kg_min   kg/min  357          -2.284      -0.262
+17      Fusion_orden           1          tasa_gn_nm3_min  Nm3/min  357          -0.230      -0.143
+18      Fusion_orden           1          tasa_o2_nm3_min  Nm3/min  357           0.000       0.000
+19      Fusion_orden           1        tasa_aire_nm3_min  Nm3/min  357           0.000       0.000
+20      Fusion_orden           2  tasa_feed_Carbon_kg_min   kg/min  360          -3.206      -0.368
+21      Fusion_orden           2          tasa_gn_nm3_min  Nm3/min  360           0.000       0.000
+22      Fusion_orden           2          tasa_o2_nm3_min  Nm3/min  360           0.000       0.000
+23      Fusion_orden           2        tasa_aire_nm3_min  Nm3/min  360           0.000       0.000
+24      Fusion_orden           3  tasa_feed_Carbon_kg_min   kg/min  358          -3.179      -0.365
+25      Fusion_orden           3          tasa_gn_nm3_min  Nm3/min  358           0.000       0.000
+26      Fusion_orden           3          tasa_o2_nm3_min  Nm3/min  358           0.000       0.000
+27      Fusion_orden           3        tasa_aire_nm3_min  Nm3/min  358           0.000       0.000
+28      Fusion_orden           4  tasa_feed_Carbon_kg_min   kg/min  359          -2.288      -0.263
+29      Fusion_orden           4          tasa_gn_nm3_min  Nm3/min  359           0.000       0.000
+30      Fusion_orden           4          tasa_o2_nm3_min  Nm3/min  359           0.000       0.000
+31      Fusion_orden           4        tasa_aire_nm3_min  Nm3/min  359           0.000       0.000
+32      Fusion_orden           5  tasa_feed_Carbon_kg_min   kg/min  360          -3.043      -0.350
+33      Fusion_orden           5          tasa_gn_nm3_min  Nm3/min  360           0.000       0.000
+34      Fusion_orden           5          tasa_o2_nm3_min  Nm3/min  360           0.000       0.000
+35      Fusion_orden           5        tasa_aire_nm3_min  Nm3/min  360           0.000       0.000
+36      Fusion_orden           6  tasa_feed_Carbon_kg_min   kg/min  353          -2.445      -0.281
+37      Fusion_orden           6          tasa_gn_nm3_min  Nm3/min  353           0.000       0.000
+38      Fusion_orden           6          tasa_o2_nm3_min  Nm3/min  353           0.000       0.000
+39      Fusion_orden           6        tasa_aire_nm3_min  Nm3/min  353           0.000       0.000
+[  117.0s] LISTO

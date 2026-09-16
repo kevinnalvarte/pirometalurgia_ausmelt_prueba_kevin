@@ -1,0 +1,2 @@
+C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\.venv\Lib\site-packages\pandas\core\arraylike.py:402: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)

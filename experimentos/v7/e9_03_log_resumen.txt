@@ -1,0 +1,48 @@
+[03:40:10] # E9-03: politica con horizonte en Reduccion y agregacion escalon -> grupo -> batch
+
+Script: `experimentos/v7/e9_03_horizonte.py`. Parametros usados (reducidos por costo computacional,
+documentado): miope `n_candidatos=100`, `n_refinamiento=25`; horizonte
+`n_secuencias=80` en LAZO ABIERTO (se planifica una vez desde R0, sin re-planificacion MPC
+escalon a escalon) -- ver docstring de `politica_horizonte`.
+
+## 1) Validacion del simulador (encadenamiento)
+
+Ver `e9_03_validacion_resumen.csv` y `e9_03_validacion_simulador.csv` (sistema entrenado en todo DEV,
+aplicando las acciones HISTORICAS de R0..R3 desde el estado real de R0; degradacion por acumulacion de
+error medida por `orden_escalon_fase`).
+
+## 2) J_batch simulado por politica (DEV cross-fitted)
+
+Mediana del `%` de mejora de horizonte sobre miope en J_batch (DEV, cross-fitted): **0.0%**
+(IC bootstrap 95% [0.0, 0.0]); lockbox: 0.0%.
+Ver `e9_03_politicas_batch.csv` (J_batch, J_temprano, J_tardio por politica y batch) y
+`e9_03_perfil_escalon.csv` (accion media por politica/orden).
+
+## 3) Robustez
+
+Fraccion de replicas/batches donde horizonte > miope bajo bootstrap de theta (20 replicas, lockbox):
+**0.118**. Bajo el escenario pesimista
+(pred - 0.5*ancho IC): **0.095**.
+Ver `e9_03_robustez.csv`.
+
+## 4) Agregacion escalon -> grupo -> batch
+
+Identidad telescopica y correlacion de J_batch (targets reales) con el KPI refinado: ver
+`e9_03_telescopia.csv` y `e9_03_agregacion.csv`.
+
+## 5) Perfil de accion (adelanta el carbon?)
+
+Carbon medio horizonte: R0-R1 43.43 kg/min vs R2-R3 7.13 kg/min
+(miope: R0-R1 43.90, R2-R3 7.06 kg/min).
+GN medio: horizonte 21.491, miope 21.407, historica 21.970 nm3/min.
+
+## Veredicto
+
+Criterio de diseno (ITERACION_9_diseno.md): se adopta la politica con horizonte solo si mejora J_batch
+simulado >= 10% sobre la miope en DEV cross-fitted (mediana por batch, IC bootstrap) Y la mejora sobrevive
+a perturbaciones de theta y al modelo pesimista.
+
+**NO se adopta: la miope v6 queda con justificacion.**
+
+[03:40:10] FIN resumen
+[03:40:10] tiempo total: 0s

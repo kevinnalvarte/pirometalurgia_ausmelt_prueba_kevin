@@ -1,0 +1,49 @@
+[03:28:01] robustez: 63 batches lockbox, 20 replicas bootstrap de theta + 1 escenario pesimista
+[03:28:01] entrenando sistema v6 en todo DEV (mismo que lockbox)...
+[03:28:21] batches usables para robustez: 63
+[03:28:59] robustez: replica 1/20
+[03:29:36] robustez: replica 2/20
+[03:30:10] robustez: replica 3/20
+[03:30:43] robustez: replica 4/20
+[03:31:16] robustez: replica 5/20
+[03:31:48] robustez: replica 6/20
+[03:32:21] robustez: replica 7/20
+[03:32:53] robustez: replica 8/20
+[03:33:24] robustez: replica 9/20
+[03:33:56] robustez: replica 10/20
+[03:34:29] robustez: replica 11/20
+[03:35:01] robustez: replica 12/20
+[03:35:32] robustez: replica 13/20
+[03:36:04] robustez: replica 14/20
+[03:36:36] robustez: replica 15/20
+[03:37:08] robustez: replica 16/20
+[03:37:41] robustez: replica 17/20
+[03:38:13] robustez: replica 18/20
+[03:38:44] robustez: replica 19/20
+[03:39:16] robustez: replica 20/20
+[03:39:47] fraccion de batches donde horizonte>miope por replica (bootstrap theta):
+rep
+0     0.111111
+1     0.142857
+2     0.111111
+3     0.142857
+4     0.095238
+5     0.126984
+6     0.111111
+7     0.111111
+8     0.111111
+9     0.126984
+10    0.063492
+11    0.126984
+12    0.111111
+13    0.111111
+14    0.142857
+15    0.095238
+16    0.126984
+17    0.142857
+18    0.126984
+19    0.126984
+[03:39:47] fraccion global (todas las replicas): 0.118
+[03:39:47] pesimista: horizonte>miope en 0.095 de los batches; mediana J horizonte=-4926.9, miope=-4925.4
+[03:39:47] FIN robustez
+[03:39:47] tiempo total: 706s

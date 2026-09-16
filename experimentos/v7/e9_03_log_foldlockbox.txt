@@ -1,0 +1,11 @@
+[03:25:02] entrenando sistema v6 en todo DEV (lockbox)...
+[03:25:24] sd_acciones Reduccion (DEV entrenamiento): {'tasa_feed_Carbon_kg_min': 21.98225915669524, 'tasa_gn_nm3_min': 5.031265738397199, 'tasa_o2_nm3_min': 8.803777605589415, 'tasa_aire_nm3_min': 11.216416928810906}
+[03:25:43] lockbox: 10/63 (19s)
+[03:26:03] lockbox: 20/63 (38s)
+[03:26:22] lockbox: 30/63 (57s)
+[03:26:44] lockbox: 40/63 (80s)
+[03:27:05] lockbox: 50/63 (101s)
+[03:27:26] lockbox: 60/63 (122s)
+[03:27:31] lockbox: 63/63 batches usables, 127s total
+[03:27:31] FIN politicas_lockbox
+[03:27:31] tiempo total: 149s

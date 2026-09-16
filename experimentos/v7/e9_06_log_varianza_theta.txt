@@ -1,0 +1,23 @@
+[varianza_theta] FULL/baseline_hgb150_5fold_boot200: theta=0.1645 IC=[0.0246,0.2910] (5.9s)
+[varianza_theta] FULL/boot500: theta=0.1645 IC=[0.0350,0.2838] (6.2s)
+[varianza_theta] FULL/nuisance_hgb300: theta=0.1455 IC=[0.0011,0.2810] (9.5s)
+[varianza_theta] FULL/nuisance_ridge: theta=0.0000 IC=[0.0000,0.3174] (1.1s)
+[varianza_theta] FULL/crossfit_10fold: theta=0.1637 IC=[0.0287,0.2878] (10.4s)
+[varianza_theta] libre_k20/baseline_hgb150_5fold_boot200: theta=0.1885 IC=[0.0454,0.3311] (4.7s)
+[varianza_theta] libre_k20/boot500: theta=0.1885 IC=[0.0450,0.3112] (5.2s)
+[varianza_theta] libre_k20/nuisance_hgb300: theta=0.1960 IC=[0.0625,0.3465] (7.7s)
+[varianza_theta] libre_k20/nuisance_ridge: theta=0.0679 IC=[0.0000,0.1601] (0.9s)
+[varianza_theta] libre_k20/crossfit_10fold: theta=0.1540 IC=[0.0000,0.2781] (8.3s)
+      config   k                       variante  theta_1sd   ci_lo   ci_hi  ancho_ic  excluye_0_signo_correcto  segundos
+0       FULL  38  baseline_hgb150_5fold_boot200     0.1645  0.0246  0.2910    0.2664                      True    5.9055
+1       FULL  38                        boot500     0.1645  0.0350  0.2838    0.2488                      True    6.2061
+2       FULL  38                nuisance_hgb300     0.1455  0.0011  0.2810    0.2799                      True    9.5051
+3       FULL  38                 nuisance_ridge     0.0000  0.0000  0.3174    0.3174                      True    1.1086
+4       FULL  38                crossfit_10fold     0.1637  0.0287  0.2878    0.2591                      True   10.3918
+5  libre_k20  20  baseline_hgb150_5fold_boot200     0.1885  0.0454  0.3311    0.2857                      True    4.7024
+6  libre_k20  20                        boot500     0.1885  0.0450  0.3112    0.2662                      True    5.2322
+7  libre_k20  20                nuisance_hgb300     0.1960  0.0625  0.3465    0.2840                      True    7.6654
+8  libre_k20  20                 nuisance_ridge     0.0679  0.0000  0.1601    0.1601                      True    0.9489
+9  libre_k20  20                crossfit_10fold     0.1540  0.0000  0.2781    0.2781                      True    8.3280
+FIN varianza_theta
+tiempo total: 60.1s

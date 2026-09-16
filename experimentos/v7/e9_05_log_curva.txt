@@ -1,0 +1,42 @@
+[    0.0s] R_sn_dep: batches DEV disponibles=290, n_dev_full=1058, n_lb=242
+[   35.3s] R_sn_dep n=50 rep=0: PLM r2_oof=0.683 r2_lb=0.768 (32.8s) | HGB r2_oof=0.681 r2_lb=0.796 (2.5s)
+[   72.2s] R_sn_dep n=50 rep=1: PLM r2_oof=0.735 r2_lb=0.779 (34.3s) | HGB r2_oof=0.739 r2_lb=0.776 (2.6s)
+[  109.0s] R_sn_dep n=50 rep=2: PLM r2_oof=0.715 r2_lb=0.770 (34.2s) | HGB r2_oof=0.721 r2_lb=0.775 (2.5s)
+[  163.3s] R_sn_dep n=100 rep=0: PLM r2_oof=0.727 r2_lb=0.780 (51.5s) | HGB r2_oof=0.719 r2_lb=0.773 (2.9s)
+[  204.1s] R_sn_dep n=100 rep=1: PLM r2_oof=0.740 r2_lb=0.779 (39.1s) | HGB r2_oof=0.734 r2_lb=0.777 (1.7s)
+[  237.1s] R_sn_dep n=100 rep=2: PLM r2_oof=0.725 r2_lb=0.784 (30.9s) | HGB r2_oof=0.718 r2_lb=0.784 (2.1s)
+[  271.5s] R_sn_dep n=150 rep=0: PLM r2_oof=0.754 r2_lb=0.789 (32.2s) | HGB r2_oof=0.749 r2_lb=0.782 (2.2s)
+[  310.1s] R_sn_dep n=150 rep=1: PLM r2_oof=0.760 r2_lb=0.803 (36.1s) | HGB r2_oof=0.756 r2_lb=0.810 (2.5s)
+[  341.8s] R_sn_dep n=150 rep=2: PLM r2_oof=0.764 r2_lb=0.810 (29.3s) | HGB r2_oof=0.756 r2_lb=0.793 (2.4s)
+[  376.4s] R_sn_dep n=200 rep=0: PLM r2_oof=0.743 r2_lb=0.801 (32.8s) | HGB r2_oof=0.739 r2_lb=0.794 (1.8s)
+[  408.1s] R_sn_dep n=200 rep=1: PLM r2_oof=0.764 r2_lb=0.792 (29.9s) | HGB r2_oof=0.757 r2_lb=0.794 (1.8s)
+[  438.9s] R_sn_dep n=200 rep=2: PLM r2_oof=0.761 r2_lb=0.803 (29.0s) | HGB r2_oof=0.759 r2_lb=0.812 (1.8s)
+[  471.8s] R_sn_dep n=250 rep=0: PLM r2_oof=0.771 r2_lb=0.797 (30.9s) | HGB r2_oof=0.769 r2_lb=0.797 (1.9s)
+[  504.4s] R_sn_dep n=250 rep=1: PLM r2_oof=0.775 r2_lb=0.808 (30.7s) | HGB r2_oof=0.772 r2_lb=0.806 (1.9s)
+[  536.6s] R_sn_dep n=250 rep=2: PLM r2_oof=0.769 r2_lb=0.809 (30.6s) | HGB r2_oof=0.768 r2_lb=0.806 (1.6s)
+[  566.6s] R_sn_dep n=290 rep=0: PLM r2_oof=0.765 r2_lb=0.800 (28.2s) | HGB r2_oof=0.759 r2_lb=0.804 (1.8s)
+[  566.6s] R_feo_ret: batches DEV disponibles=290, n_dev_full=1058, n_lb=242
+[  586.1s] R_feo_ret n=50 rep=0: PLM r2_oof=0.133 r2_lb=0.311 (18.6s) | HGB r2_oof=0.142 r2_lb=0.341 (0.9s)
+[  604.7s] R_feo_ret n=50 rep=1: PLM r2_oof=0.269 r2_lb=0.372 (17.6s) | HGB r2_oof=0.267 r2_lb=0.417 (1.0s)
+[  622.7s] R_feo_ret n=50 rep=2: PLM r2_oof=0.248 r2_lb=0.460 (17.1s) | HGB r2_oof=0.240 r2_lb=0.471 (1.0s)
+[  647.4s] R_feo_ret n=100 rep=0: PLM r2_oof=0.207 r2_lb=0.305 (23.4s) | HGB r2_oof=0.165 r2_lb=0.284 (1.3s)
+[  672.4s] R_feo_ret n=100 rep=1: PLM r2_oof=0.275 r2_lb=0.427 (23.6s) | HGB r2_oof=0.207 r2_lb=0.421 (1.4s)
+[  700.6s] R_feo_ret n=100 rep=2: PLM r2_oof=0.190 r2_lb=0.377 (26.8s) | HGB r2_oof=0.219 r2_lb=0.374 (1.4s)
+[  733.7s] R_feo_ret n=150 rep=0: PLM r2_oof=0.291 r2_lb=0.423 (31.5s) | HGB r2_oof=0.264 r2_lb=0.425 (1.6s)
+[  765.0s] R_feo_ret n=150 rep=1: PLM r2_oof=0.242 r2_lb=0.368 (29.9s) | HGB r2_oof=0.196 r2_lb=0.306 (1.3s)
+[  799.8s] R_feo_ret n=150 rep=2: PLM r2_oof=0.275 r2_lb=0.450 (32.7s) | HGB r2_oof=0.292 r2_lb=0.394 (2.1s)
+[  840.3s] R_feo_ret n=200 rep=0: PLM r2_oof=0.283 r2_lb=0.466 (38.4s) | HGB r2_oof=0.270 r2_lb=0.415 (2.1s)
+[  880.1s] R_feo_ret n=200 rep=1: PLM r2_oof=0.330 r2_lb=0.458 (37.9s) | HGB r2_oof=0.323 r2_lb=0.456 (2.0s)
+[  925.9s] R_feo_ret n=200 rep=2: PLM r2_oof=0.324 r2_lb=0.467 (43.6s) | HGB r2_oof=0.339 r2_lb=0.451 (2.3s)
+[  966.8s] R_feo_ret n=250 rep=0: PLM r2_oof=0.276 r2_lb=0.469 (39.5s) | HGB r2_oof=0.258 r2_lb=0.434 (1.4s)
+[ 1001.4s] R_feo_ret n=250 rep=1: PLM r2_oof=0.292 r2_lb=0.477 (32.8s) | HGB r2_oof=0.271 r2_lb=0.460 (1.8s)
+[ 1039.3s] R_feo_ret n=250 rep=2: PLM r2_oof=0.304 r2_lb=0.487 (36.1s) | HGB r2_oof=0.294 r2_lb=0.475 (1.8s)
+[ 1079.5s] R_feo_ret n=290 rep=0: PLM r2_oof=0.329 r2_lb=0.486 (38.2s) | HGB r2_oof=0.305 r2_lb=0.455 (2.0s)
+[ 1079.5s] guardado C:\Users\user\Desktop\Linea de Sn\Lingo Smelter\experimentos\v7\e9_05_curva.csv (64 filas)
+[ 1079.5s] ajuste de saturacion:
+      target               modelo  a_asintota         b  r2_oof_n299  gap_asintota
+0  R_feo_ret  HGB_estado_palancas    0.303319 -5.397649          NaN           NaN
+1  R_feo_ret               PLM_v6    0.324590 -6.210165          NaN           NaN
+2   R_sn_dep  HGB_estado_palancas    0.770902 -3.153091          NaN           NaN
+3   R_sn_dep               PLM_v6    0.777934 -3.532223          NaN           NaN
+FIN curva

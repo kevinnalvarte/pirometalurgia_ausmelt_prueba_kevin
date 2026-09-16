@@ -1,0 +1,556 @@
+<title>Masa de Escoria v6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75,500;75,700;100,400;100,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#eef1f4; --bg-2:#e4e8ec; --paper:#f8f9fa; --ink:#151b22; --ink-2:#4a5561; --ink-3:#7b8792; --rule:#cfd6dc;
+  --accent:#c62f1c; --accent-ink:#8f200f; --accent-soft:#f6e3df;
+  --v6:#c62f1c; --v3:#7b8792; --v5:#2a78d6;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#4a3aa7;
+  --good:#0ca30c; --warn:#fab219; --bad:#d03b3b;
+  --grid:#d9dfe4; --plot-bg:#f8f9fa;
+  --shadow:0 1px 2px rgba(21,27,34,.08), 0 8px 24px rgba(21,27,34,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#15191e; --bg-2:#1c2127; --paper:#1f252c; --ink:#e8e6e0; --ink-2:#b6bcc3; --ink-3:#87919b; --rule:#333b44;
+    --accent:#ef6a4b; --accent-ink:#ffb39f; --accent-soft:#3a221c;
+    --v6:#ef6a4b; --v3:#8f9aa5; --v5:#3987e5;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#3aa53a; --s7:#9085e9;
+    --grid:#2c343c; --plot-bg:#1f252c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#15191e; --bg-2:#1c2127; --paper:#1f252c; --ink:#e8e6e0; --ink-2:#b6bcc3; --ink-3:#87919b; --rule:#333b44;
+  --accent:#ef6a4b; --accent-ink:#ffb39f; --accent-soft:#3a221c;
+  --v6:#ef6a4b; --v3:#8f9aa5; --v5:#3987e5;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#3aa53a; --s7:#9085e9;
+  --grid:#2c343c; --plot-bg:#1f252c;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --ink-3:#87919b; } }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.55;padding-inline:16px;padding-block:0 96px}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+.wrap{max-width:1120px;margin:0 auto}
+.prose{max-width:70ch}
+h1,h2,h3,h4,.eyebrow,.stat b,.toc,.tab{font-family:"Archivo","Arial Narrow",Arial,sans-serif;font-stretch:75%}
+h1{font-size:clamp(34px,5vw,56px);line-height:1.02;font-weight:700;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance}
+h2{font-size:clamp(24px,3vw,32px);line-height:1.1;font-weight:700;margin:0 0 14px;text-wrap:balance;letter-spacing:-.005em}
+h3{font-size:20px;line-height:1.2;font-weight:700;margin:28px 0 8px}
+h4{font-size:16px;margin:18px 0 6px;font-weight:700}
+p{margin:0 0 14px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:600;margin:0 0 8px;font-stretch:100%}
+.eyebrow .n{color:var(--accent);margin-right:8px}
+.mono,code,.num,td.num,th.num{font-family:"IBM Plex Mono",Consolas,monospace;font-variant-numeric:tabular-nums}
+code{font-size:.88em;background:var(--bg-2);padding:1px 5px;border-radius:3px}
+a{color:var(--accent-ink)}
+header.hero{padding-block:56px 28px;border-bottom:2px solid var(--ink)}
+header.hero .lede{font-size:20px;line-height:1.45;max-width:62ch;color:var(--ink);margin-top:14px}
+header.hero .meta{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-2);margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 22px}
+section{padding-block:40px 8px;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:26px 0 8px}
+.stat{background:var(--paper);border-top:3px solid var(--accent);padding:14px 16px 12px}
+.stat b{display:block;font-size:34px;line-height:1;font-weight:700;font-stretch:75%;font-family:"Archivo",sans-serif;color:var(--ink)}
+.stat b small{font-size:16px;color:var(--ink-2);font-weight:500;margin-left:4px}
+.stat span{display:block;font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.35}
+.stat .from{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);margin-top:4px}
+figure{margin:22px 0 26px}
+figure.chart{background:var(--paper);padding:12px 8px 6px;border:1px solid var(--rule)}
+figure .plot{width:100%;min-height:320px}
+figcaption{font-size:14px;color:var(--ink-2);line-height:1.45;padding:8px 8px 2px;max-width:90ch}
+figcaption b{color:var(--ink)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+.grid2 figure{margin:0}
+.formula{background:var(--paper);border-left:3px solid var(--ink);padding:10px 16px;margin:14px 0 18px;overflow-x:auto;font-size:16px}
+.callout{background:var(--accent-soft);border-left:3px solid var(--accent);padding:12px 16px;margin:18px 0}
+.callout p:last-child{margin:0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;margin:12px 0 20px}
+.tablewrap{overflow-x:auto;margin:12px 0 20px}
+.tablewrap table{margin:0}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:"Archivo",sans-serif;font-stretch:75%;font-weight:700;font-size:13.5px;letter-spacing:.02em;color:var(--ink-2);border-bottom:2px solid var(--ink)}
+td.num,th.num{text-align:right;white-space:nowrap}
+tr.hl td{background:var(--accent-soft)}
+td.tag{white-space:nowrap}
+#tab_grilla td:first-child{min-width:300px}
+#tab_val td:nth-child(3){white-space:nowrap}
+.pill{display:inline-block;font-family:"Archivo",sans-serif;font-stretch:75%;font-size:12px;font-weight:600;letter-spacing:.04em;padding:2px 8px;border-radius:3px;border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
+.pill.state{border-color:var(--s1);color:var(--s1)} .pill.action{border-color:var(--s2);color:var(--s2)} .pill.target{border-color:var(--accent);color:var(--accent-ink)} .pill.leak{border-color:var(--bad);color:var(--bad)} .pill.derived{border-color:var(--s7);color:var(--s7)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--ink-2);padding:0 8px 6px;font-family:"Archivo",sans-serif;font-stretch:75%}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:6px}
+.toc{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule);padding:8px 0;margin:0 -16px;padding-inline:16px;font-size:13px;overflow-x:auto;white-space:nowrap}
+.toc a{color:var(--ink-2);text-decoration:none;margin-right:18px;letter-spacing:.02em;font-weight:600}
+.toc a:hover,.toc a:focus-visible{color:var(--accent);outline:none;text-decoration:underline}
+.toc .n{color:var(--accent);margin-right:4px}
+.diagram{max-width:100%;height:auto;display:block;margin:0 auto}
+.diagram text{font-family:"Archivo",Arial,sans-serif;font-size:12.5px;fill:currentColor}
+.diagram .lab{font-size:11.5px;fill:var(--ink-2)}
+.diagram .box{fill:var(--paper);stroke:currentColor;stroke-width:1.2}
+.diagram .slag{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.6}
+.diagram .arrow{stroke:currentColor;stroke-width:1.4;fill:none}
+.diagram .hot{stroke:var(--accent);fill:none;stroke-width:1.8}
+.small{font-size:14px;color:var(--ink-2)}
+ul,ol{padding-left:22px;margin:0 0 14px}
+li{margin-bottom:5px}
+.two{columns:2;column-gap:36px}
+@media (max-width:760px){.two{columns:1}}
+.kbd{font-family:"IBM Plex Mono",monospace;font-size:.85em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js"></script>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+<script src="datos_v6.js"></script>
+<div class="wrap">
+<header class="hero">
+  <p class="eyebrow">Lingo Smelter · horno Ausmelt de Sn · iteración 8 · 2026-09-16</p>
+  <h1>Masa de escoria v6: del trazador de CaO al cierre físico del resto no reducible</h1>
+  <p class="lede">La masa de escoria por escalón ya no se infiere dividiendo la cal alimentada por el %CaO del ensayo. Se infiere conservando lo único que no sale de la escoria: todo lo que no es SnO₂ ni FeO. Con esa masa, los inventarios de Sn y FeO, los targets logarítmicos y el prescriptor se recalculan; el canal de FeO, que era mitad ruido de laboratorio, pasa a ser un target defendible.</p>
+  <div class="meta">
+    <span>362 batches · 3 982 escalones · abr–ago 2026</span><span>DEV 299 · lockbox 63 (últimos 17.5 %)</span><span>OOF GroupKFold(5) por batch · lockbox solo reporte</span><span>experimentos/v6 · modelo_predictivo_v6.py</span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Secciones">
+  <a href="#s1"><span class="n">1</span>Auditoría del trazador</a><a href="#s2"><span class="n">2</span>Inferencia de masa v6</a><a href="#s3"><span class="n">3</span>Balances de batch y energía</a><a href="#s4"><span class="n">4</span>Features y targets</a><a href="#s5"><span class="n">5</span>Modelos predictivos</a><a href="#s6"><span class="n">6</span>Prescriptor</a><a href="#s7"><span class="n">7</span>Límites</a>
+</nav>
+
+<div class="stats" aria-label="Resumen">
+  <div class="stat"><b>3.5<small>%</small></b><span>escalones de Reducción sin carga en los que la masa inferida "sube"</span><div class="from">v3: 31 %</div></div>
+  <div class="stat"><b>0.30<small>R² OOF</small></b><span>retención de FeO por escalón (HGB, estado v6); y ya no depende del %CaO previo</span><div class="from">v3: 0.15, de los cuales 2/3 era ruido</div></div>
+  <div class="stat"><b>1.02<small>lockbox</small></b><span>masa final del balance global ÷ masa inferida (mediana)</span><div class="from">v3: 1.12 · DEV v6: 1.04</div></div>
+  <div class="stat"><b>0.03<small>ρ</small></b><span>sesgo de la masa con la dosis de cal por tonelada de carga</span><div class="from">v3: −0.35</div></div>
+</div>
+
+<section id="s1">
+  <p class="eyebrow"><span class="n">1</span>Por qué el trazador de CaO estaba mal</p>
+  <h2>Acertaba por compensación, no por física</h2>
+  <div class="prose">
+  <p>El método clásico de componente inerte estima la masa de una fase como <em>entrada del inerte ÷ concentración del inerte</em>. La versión v3 tomaba la tolva 6 (cal, en kg húmedos) como CaO puro y única fuente de CaO:</p>
+  </div>
+  <div class="formula">$$M_t^{v3}=\frac{\sum_{k\le t}\text{cal}_k}{\%\text{CaO}_t/100}$$</div>
+  <div class="prose">
+  <p>Tres hechos de los propios datos lo desmienten. Primero, con cal pura y sin ganga el %CaO en Fusión sería del orden de 9 %; se observa 17–20 %. Segundo, la regresión del CaO en la escoria final (masa del balance global × %CaO final) sobre las entradas da <span class="mono">0.26·cal + 0.079·carga</span> en DEV: cerca de la mitad del CaO viene de la carga (ganga calcárea del concentrado, reciclo y pellets) o la "cal" húmeda tiene ~50 % de CaO. Tercero, el ruido del ensayo de %CaO (≈2.8 % relativo por muestra) supera la señal de masa por escalón en Reducción (−1.3 % por escalón): el cambio de %CaO entre escalones comparte muy poca varianza con el de Al₂O₃ (r 0.12) o SiO₂ (r 0.24), que también son inertes.</p>
+  <p>Funcionaba porque la cal se dosifica al ~10 % de la carga en todos los escalones de Fusión: el CaO no contado es proporcional al contado y el error es un factor casi constante dentro del batch, que se cancela en los cocientes de Reducción. Deja de cancelarse entre batches con distinta dosis de cal: de ahí el "efecto de la cal" de iteraciones anteriores, que era contable y no metalúrgico.</p>
+  </div>
+  <div class="grid2">
+    <figure class="chart"><div id="fig_f0" class="plot"></div><figcaption><b>%CaO observado frente al esperado con cal pura, por escalón de Fusión.</b> Medianas de 362 batches. La brecha es CaO que entra con la carga y ruido de la cal; el primer escalón queda además diluido por el estado inicial del horno.</figcaption></figure>
+    <figure class="chart"><div id="fig_dm" class="plot"></div><figcaption><b>Cambio de masa por escalón en Reducción sin carga.</b> Sin alimentación la escoria solo puede perder masa. Con el trazador v3 el 31 % de los escalones "ganan masa"; con el cierre físico v6, el 3.5 %.</figcaption></figure>
+  </div>
+  <div class="grid2">
+    <figure class="chart"><div id="fig_inertes" class="plot"></div><figcaption><b>Concordancia entre inertes.</b> Si el cambio de %CaO midiera masa, debería coincidir con el de Al₂O₃ y SiO₂ (también inertes). Comparten poca varianza: la señal por escalón del CaO es sobre todo ruido de laboratorio.</figcaption></figure>
+    <figure class="chart"><div id="fig_calcuartil" class="plot"></div><figcaption><b>Sesgo con la dosis de cal.</b> Masa del balance global ÷ masa inferida, por cuartil de cal/carga del batch. v3 sobreestima cuando hay más cal; v6 es plano.</figcaption></figure>
+  </div>
+  <div class="callout prose"><p><b>La consecuencia más cara</b> estaba en el modelo de retención de FeO: su R² OOF de 0.15 caía a 0.05 al quitar del estado el %CaO previo. El modelo aprendía la reversión a la media del ruido del ensayo de CaO (correlación 0.68 entre el término trazador y el %CaO previo), no la metalurgia del hierro.</p></div>
+</section>
+
+<section id="s2">
+  <p class="eyebrow"><span class="n">2</span>Inferencia de masa v6</p>
+  <h2>Conservar lo que no puede salir: el resto no reducible</h2>
+  <div class="prose">
+  <p>En el Ausmelt de Sn la escoria pierde masa por dos vías y solo dos: el SnO₂ que se reduce a Sn (a metal crudo o a polvo) y el FeO que se metaliza a Fe (a metal y dross). El oxígeno de ambos óxidos se va como CO/CO₂. SiO₂, CaO, Al₂O₃, MgO y los óxidos menores se quedan. Si se define la fracción <em>resto</em> de la escoria como todo lo que no es SnO₂ ni FeO, la masa de resto se conserva salvo por lo que entra con la carga:</p>
+  </div>
+  <div class="formula">$$r_t = 1 - K\,s_t - f_t,\qquad K=\frac{M_{\mathrm{SnO_2}}}{M_{\mathrm{Sn}}}=1.270,\qquad s_t=\tfrac{\%\mathrm{Sn}_t}{100},\; f_t=\tfrac{\%\mathrm{FeO}_t}{100}$$
+  $$M_t\,r_t \;=\; M_{t-1}\,r_{t-1}\,e^{-\delta_R\,[\text{Reducción}]} \;+\; \underbrace{p_G\,\text{cal}_t + g_G\,\text{carga}_t}_{\text{resto que entra, kg húmedos}}$$
+  $$M_t=\frac{M_{t-1}\,r_{t-1}\,e^{-\delta_R}+p_G\,\text{cal}_t+g_G\,\text{carga}_t}{1-K\,s_t-f_t},\qquad M_0=\frac{p_G\,\text{cal}_0+g_G\,\text{carga}_0}{r_0}$$</div>
+  <figure>
+    <svg class="diagram" viewBox="0 0 900 300" role="img" aria-label="Balance del resto no reducible: entra cal y carga como resto, sale SnO2 como Sn a metal y polvo, y FeO como Fe a metal y dross; el resto se conserva">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+      <marker id="arh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker></defs>
+      <rect x="300" y="70" width="300" height="160" rx="6" class="slag"/>
+      <text x="450" y="98" text-anchor="middle" font-weight="700">ESCORIA M_t</text>
+      <text x="450" y="124" text-anchor="middle" class="lab">SnO₂ = K·s_t   (sale)</text>
+      <text x="450" y="146" text-anchor="middle" class="lab">FeO = f_t   (sale)</text>
+      <line x1="330" y1="160" x2="570" y2="160" stroke="var(--accent)" stroke-dasharray="4 3"/>
+      <text x="450" y="185" text-anchor="middle" font-weight="700">resto r_t = 1 − K·s_t − f_t</text>
+      <text x="450" y="206" text-anchor="middle" class="lab">SiO₂ · CaO · Al₂O₃ · MgO · menores — se conserva</text>
+      <rect x="30" y="150" width="210" height="60" rx="4" class="box"/>
+      <text x="135" y="174" text-anchor="middle">cal (tolva 6) + carga</text>
+      <text x="135" y="194" text-anchor="middle" class="lab">kg húmedos · leyes desconocidas</text>
+      <path d="M240,180 L300,180" class="arrow" marker-end="url(#ar)"/>
+      <text x="270" y="166" text-anchor="middle" class="lab" font-size="10.5">p_G·cal + g_G·carga</text>
+      <rect x="30" y="50" width="210" height="60" rx="4" class="box"/>
+      <text x="135" y="74" text-anchor="middle">SnO₂, FeO con la carga</text>
+      <text x="135" y="94" text-anchor="middle" class="lab" font-size="10.5">entran sin contabilizar: se miden en s_t, f_t</text>
+      <path d="M240,80 L300,105" class="arrow" marker-end="url(#ar)"/>
+      <path d="M600,110 L680,80" class="hot" marker-end="url(#arh)"/>
+      <text x="700" y="70" class="lab">Sn → metal crudo / polvo</text>
+      <text x="700" y="86" class="lab">SnO₂ + 2C → Sn + 2CO</text>
+      <path d="M600,140 L680,150" class="hot" marker-end="url(#arh)"/>
+      <text x="700" y="146" class="lab">Fe → metal / dross</text>
+      <text x="700" y="162" class="lab">FeO + C → Fe + CO</text>
+      <path d="M600,200 L680,225" class="arrow" marker-end="url(#ar)" stroke-dasharray="4 3"/>
+      <text x="700" y="222" class="lab">δ_R ≈ 1 %/escalón: polvo, volátiles</text>
+      <text x="450" y="262" text-anchor="middle" class="lab">calibración: p_G, g_G de la regresión del resto final (masa del balance global × G_fin) sobre Σcal, Σcarga — solo batches DEV</text>
+    </svg>
+    <figcaption><b>Balance del resto no reducible.</b> La masa se despeja de un solo ensayo por escalón (Sn y Fe totales), que son los analitos principales y mejor determinados. El CaO deja de ser el denominador.</figcaption>
+  </figure>
+  <div class="prose">
+  <h3>Qué se asume y qué se calibra</h3>
+  <ul>
+    <li><b>Leyes desconocidas.</b> kgh son kilos húmedos; el CaO de la cal, la ganga de la carga y la ceniza del carbón no tienen ley. Se calibran <em>coeficientes efectivos</em> poblacionales <span class="mono">p_G</span> y <span class="mono">g_G</span>: fracción del kg húmedo de cada corriente que acaba como matriz (G = CaO+SiO₂+Al₂O₃+MgO) en la escoria. Se estiman por regresión sin intercepto del resto final de cada batch DEV (masa del balance global × G final) sobre Σcal y Σcarga: <span class="mono">p_G = 0.70</span>, <span class="mono">g_G = 0.30</span>. Solo su suma está identificada (la cal se dosifica en proporción casi fija a la carga); los targets logarítmicos son invariantes a un reescalado común de ambos.</li>
+    <li><b>Carbón.</b> Su ceniza entraría al resto; el coeficiente calibrado sale negativo y no significativo (−0.56, IC [−1.33, 0.20]), físicamente imposible, así que <span class="mono">a_C = 0</span>. Las variantes con carbón inflan el R² del target de FeO porque meten la acción en el target.</li>
+    <li><b>Pérdida residual</b> <span class="mono">δ_R = 0.01</span> por escalón de Reducción (polvo arrastrado, volátiles de Sb/As/Zn): reduce a un tercio los escalones que "ganan masa" y mueve la escala solo 4 pp.</li>
+    <li><b>Anclaje a la escala absoluta.</b> La calibración usa las salidas del batch (metal, dross, polvo) a través del balance global de masa; en inferencia no se necesita nada del batch: solo el ensayo del escalón y las alimentaciones acumuladas. El factor <span class="mono">k = M_balance / M_fin</span> por batch queda como diagnóstico offline (mediana 1.04 DEV, 1.02 lockbox; el 17 % de su varianza sigue un eje de campaña: espesor de ladrillo, tiempo).</li>
+    <li><b>Sin talón.</b> La composición del primer escalón se parece a una mezcla de un tercio de escoria final del batch anterior, pero el segundo escalón correlaciona más con ese final que el primero, y el rezago 2 casi igual: autocorrelación temporal de la carga y del laboratorio, no un talón físico. Una corrección de hasta 770 kg de CaO no cambia los targets (r 0.97).</li>
+  </ul>
+  </div>
+  <div class="grid2">
+    <figure class="chart"><div id="fig_tray" class="plot"></div><figcaption><b>Trayectorias de masa inferida en seis batches.</b> v3 (trazador CaO) frente a v6 (cierre físico), con la masa final del balance global como referencia. El cierre baja monótonamente en Reducción; el trazador oscila con el ensayo.</figcaption></figure>
+    <figure class="chart"><div id="fig_ruido" class="plot"></div><figcaption><b>Propagación del ruido de ensayo.</b> Con la misma incertidumbre analítica (Sn 2 %, FeO 2.8 %, CaO 2.8 % relativos), la desviación propagada a ln M es ≈0.013 con el cierre y ≈0.028 con el trazador: relación señal/ruido 1.2–3.0 frente a 0.55–1.4.</figcaption></figure>
+  </div>
+  <h3>Elección entre variantes</h3>
+  <div class="prose"><p>Se evaluaron 66 combinaciones (trazador de matriz G, trazador CaO calibrado o cierre en Fusión; cierre, trazador o mezcla en Reducción; δ_R; coeficiente de carbón) con una batería que no depende de la pureza de la cal: física del escalón, escala frente al balance, cierre de Sn frente a metal+dross+polvo y calidad de los targets. La regla de decisión fue no premiar el R² cuando la física empeora: las variantes que dividen por el ensayo contemporáneo alcanzan R² más altos del target de FeO a costa de que hasta el 20 % de los escalones sin carga ganen masa, que es el mismo síntoma que delató al trazador v3.</p></div>
+  <figure class="chart"><div id="fig_grilla" class="plot"></div><figcaption><b>Física frente a ajuste, por variante.</b> Cada punto es una variante del estimador; la elegida (cierre en ambas fases, δ_R 0.01) está en la esquina de menor sesgo físico con R² honesto. Las variantes con trazador contemporáneo suben el R² pero rompen la física.</figcaption></figure>
+  <div class="tablewrap"><table id="tab_grilla"><thead><tr><th>Estimador</th><th class="num">Escalones sin carga que ganan masa</th><th class="num">sd Δln M por escalón</th><th class="num">ρ(escala, cal/carga)</th><th class="num">Balance/M (DEV · lockbox)</th><th class="num">R² OOF ln FeO_ret</th><th class="num">sin %CaO prev</th><th class="num">R² OOF ln Sn_dep</th></tr></thead><tbody></tbody></table></div>
+  <div class="grid2">
+    <figure class="chart"><div id="fig_calib" class="plot"></div><figcaption><b>Estabilidad de la calibración.</b> Coeficiente de la carga (g_G) estable por tercios y folds; el de la cal (p_G) no: la pureza efectiva de la cal cambia a lo largo de la campaña. Con el cierre, p_G solo ancla el primer escalón.</figcaption></figure>
+    <figure class="chart"><div id="fig_cierre_sn" class="plot"></div><figcaption><b>Cierre de estaño por batch.</b> Sn cargado menos inventario final inferido, contra metal+dross+polvo medidos. Mediana 0.99; el Sn residual en escoria final correlaciona 0.95 con el del balance global.</figcaption></figure>
+  </div>
+</section>
+<section id="s3">
+  <p class="eyebrow"><span class="n">3</span>Balances de batch y energía</p>
+  <h2>Qué balances se aplicaron y cuáles se descartaron</h2>
+  <div class="prose">
+  <h3>Balance global de masa por batch: el ancla</h3>
+  <p>La única masa de escoria "medida" es indirecta: por batch se conocen el Sn a metal crudo, a dross y a polvo (los tres pesados y ensayados por planta para el rendimiento). Con ellos, el balance global reconstruye la escoria final:</p>
+  </div>
+  <div class="formula">$$M^{\text{bal}}_{\text{fin}} = \underbrace{\Sigma\text{carga}_h+\Sigma\text{cal}_h}_{\text{sólidos}} - h\,\Sigma\text{carga}_h - (M+D+P)\tfrac{M_{\mathrm{SnO_2}}}{M_{\mathrm{Sn}}} - \text{Fe}_{\text{met}}\tfrac{M_{\mathrm{FeO}}}{M_{\mathrm{Fe}}} + \text{Fe}^{\text{dross}}_{\text{in}}\tfrac{M_{\mathrm O}}{M_{\mathrm{Fe}}} - \big(\tfrac{P}{\ell_P}-P\big) + c\,\Sigma C$$</div>
+  <div class="prose">
+  <p>con humedad \(h\) = 6 %, leyes de metal, dross y polvo de 96 / 65 / 55 % Sn, 30 % de Fe metálico en el dross y 10 % de ceniza en el carbón (supuestos de la iteración 6, robustos a ±0.2 pp de KPI). Este balance no sirve en línea (usa las salidas del batch) pero sirve para dos cosas: calibrar los coeficientes efectivos \(p_G, g_G\) en DEV y definir el KPI refinado, recuperación = metal ÷ (metal + dross + polvo + Sn en escoria final), que es la variable de anclaje de todo el prescriptor. El cierre de Sn del estimador v6 contra este balance es la comprobación independiente de la sección 2.</p>
+  <h3>Balance de energía por escalón: diagnóstico, no feature</h3>
+  <p>Con la masa v6 se recomputó el balance térmico por escalón de la iteración 6 (calor de combustión del gas natural según la fracción a CO, carbón quemado con el O₂ sobrante, entalpía de calentamiento de la carga, gases de salida, pérdidas por fase) y su traducción a ΔT teórico con la capacidad térmica del baño \(M_{t-1}\,c_p\). Resultados:</p>
+  <ul>
+    <li><b>ΔT de horno.</b> Sustituir la masa v3 por la v6 en el estado del modelo de ΔT no cambia el OOF (0.466 → 0.464 en Reducción, 0.483 → 0.497 en Fusión) pero baja el lockbox de Reducción (0.465 → 0.351). Añadir las features térmicas recalculadas (calor neto por minuto, ΔT teórico, margen térmico) no aporta nada: mismo R² a tres decimales. Se mantienen fuera del prescriptor.</li>
+    <li><b>Energía específica.</b> Expresar el gas natural por tonelada de escoria inferida (Nm³/t) en lugar de Nm³/min deja el OOF igual (0.464) y mejora el lockbox de ΔT (0.351 → 0.407); sobre los targets de Sn y FeO no cambia nada (0.755–0.757). Como el criterio de selección es OOF, queda documentada como variante, no adoptada.</li>
+    <li><b>Cierre de energía.</b> El calor de reacción aparente (calor neto menos el sensible del baño) frente al calor de reducción por inventarios v6 correlaciona 0.32 en Reducción y −0.20 en Fusión, con un sesgo de decenas de GJ por escalón que no se cierra ajustando pérdidas (harían falta pérdidas negativas en Fusión). Faltan el aire de post-combustión y la temperatura de baño: sin ellos el balance de energía no cierra con ninguna masa, y no se usa como restricción.</li>
+  </ul>
+  <div class="callout"><p><b>Decisión.</b> Se adopta el balance global de masa por batch como ancla de calibración y de KPI, y el cierre físico del resto por escalón como estimador. El balance de energía se queda como diagnóstico: coherente en signo (más gas, más ΔT; θ +2.9 °C por sd en Reducción), pero sin cierre cuantitativo.</p></div>
+  </div>
+</section>
+<section id="s4">
+  <p class="eyebrow"><span class="n">4</span>Features y targets</p>
+  <h2>Cada columna, su fórmula y su razón metalúrgica</h2>
+  <div class="prose"><p>Roles anti-fuga: <span class="pill state">STATE</span> es el valor al cierre del escalón anterior (conocido cuando se decide), <span class="pill action">ACTION</span> es lo que el operador fija en el escalón, <span class="pill derived">DERIVED</span> combina acción y estado previo (admisible), <span class="pill target">TARGET</span> usa el ensayo del cierre del escalón (solo como objetivo). Toda columna contemporánea es <span class="pill leak">LEAKAGE</span> y no entra como feature.</p></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Columna</th><th>Rol</th><th>Cómo se calcula</th><th>Fundamento pirometalúrgico</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">m6_masa_kg</td><td class="tag"><span class="pill leak">LEAKAGE</span></td><td>\(M_t=\dfrac{M_{t-1}r_{t-1}e^{-\delta_R}+p_G\,\text{cal}_t+g_G\,\text{carga}_t}{1-K s_t-f_t}\)</td><td>Conservación del resto no reducible; solo SnO₂ y FeO abandonan la fase escoria (a metal, dross, polvo).</td></tr>
+      <tr><td class="mono">m6_masa_kg_prev</td><td class="tag"><span class="pill state">STATE</span></td><td>\(M_{t-1}\)</td><td>Inventario de baño al decidir: escala de la cinética y de la capacidad térmica.</td></tr>
+      <tr><td class="mono">m6_sn_inv_kg_prev</td><td class="tag"><span class="pill state">STATE</span></td><td>\(M_{t-1}\,s_{t-1}\)</td><td>Sn disponible en la escoria para reducir; la demanda estequiométrica de carbón es 0.2024 kg C/kg Sn (SnO₂ + 2C → Sn + 2CO).</td></tr>
+      <tr><td class="mono">m6_feo_inv_kg_prev</td><td class="tag"><span class="pill state">STATE</span></td><td>\(M_{t-1}\,f_{t-1}\)</td><td>Hierro que puede metalizarse con reductor sobrante (FeO + C → Fe + CO) y contaminar el metal o formar dross.</td></tr>
+      <tr><td class="mono">m6_avance_prev</td><td class="tag"><span class="pill derived">DERIVED-STATE</span></td><td>\(1-\dfrac{M_{t-1}s_{t-1}}{\sum_{k\lt t}\text{Sn}_k^{\text{feed}}}\)</td><td>Fracción del Sn cargado ya extraída. La selectividad Sn/Fe cae con el avance: queda poco SnO₂ que compita por el reductor.</td></tr>
+      <tr><td class="mono">m6_resto_frac_prev</td><td class="tag"><span class="pill state">STATE</span></td><td>\(1-K s_{t-1}-f_{t-1}\)</td><td>Fracción de matriz (formadores y modificadores de red distintos de FeO): proxy de viscosidad y de cuánto óxido reducible queda.</td></tr>
+      <tr><td class="mono">m6_ln_sn_dep</td><td class="tag"><span class="pill target">TARGET</span></td><td>\(\ln\dfrac{M_{t-1}s_{t-1}+\text{Sn}^{\text{feed}}_t}{M_t s_t}\)</td><td>Agotamiento de primer orden del Sn en escoria; su suma por batch es telescópica (ln Sn inicial / Sn final). En Fusión el signo deseable es conservar (β_F &lt; 0).</td></tr>
+      <tr><td class="mono">m6_ln_feo_ret</td><td class="tag"><span class="pill target">TARGET</span></td><td>\(\ln\dfrac{M_t f_t}{M_{t-1}f_{t-1}}\) (solo Reducción)</td><td>Retención de FeO: ≤ 0 si se metaliza Fe. −ln = fracción de FeO reducida en el escalón. Componente de FeO del SDI; el KPI de batch la premia (+17.6 pp/unidad).</td></tr>
+      <tr><td class="mono">d_temperatura_horno_celsius</td><td class="tag"><span class="pill target">TARGET</span></td><td>\(T_t-T_{t-1}\)</td><td>Ventana térmica: por debajo sube la viscosidad y baja la cinética; por encima crece la volatilización de Sn a polvo y el desgaste del refractario.</td></tr>
+      <tr><td class="mono">Cx_sn_v6</td><td class="tag"><span class="pill derived">DERIVED</span></td><td>\(\dot C_t\,[\text{kg/min}]\times M_{t-1}s_{t-1}/1000\)</td><td>Cinética bilineal: la velocidad de reducción es proporcional al reductor y al SnO₂ disponible.</td></tr>
+      <tr><td class="mono">Cx_av_v6</td><td class="tag"><span class="pill derived">DERIVED</span></td><td>\(\dot C_t\times\text{avance}_{t-1}\)</td><td>Carbón que actúa cuando ya hay poco Sn: se dirige al FeO (pérdida de selectividad).</td></tr>
+      <tr><td class="mono">m6_dosis_C_sn</td><td class="tag"><span class="pill derived">DERIVED</span></td><td>\(C_t\,[\text{kg}]/(M_{t-1}s_{t-1}+\text{Sn}^{\text{feed}}_t)\)</td><td>Dosis específica frente al estequiométrico 0.2024; el sobrante <span class="mono">m6_exceso_C_pos</span> es el reductor libre para el hierro.</td></tr>
+      <tr><td class="mono">tasa_gn_nm3_min, tasa_o2_nm3_min, tasa_aire_nm3_min</td><td class="tag"><span class="pill action">ACTION</span></td><td>volumen del escalón / duración</td><td>Lanza: calor y potencial de oxígeno. El exceso de O₂ de combustión (O₂ + 0.21·aire − 2·GN) fija la atmósfera: reductora extrae Sn pero también Fe; oxidante retiene FeO.</td></tr>
+      <tr><td class="mono">exceso_o2_combustion_pct</td><td class="tag"><span class="pill derived">DERIVED</span></td><td>\(100\,(O_2+0.21\,\text{aire}-2\,\text{GN})/(2\,\text{GN})\)</td><td>Estequiometría de la lanza (la planta la registra como "HA-01 Estequiometría").</td></tr>
+      <tr><td class="mono">m6_k_anclaje</td><td class="tag"><span class="pill leak">LEAKAGE</span></td><td>\(M^{\text{balance}}_{\text{fin}}/M^{v6}_{\text{fin}}\)</td><td>Diagnóstico offline: usa metal, dross y polvo del batch. Sirve para recalibrar p_G, g_G por campaña, nunca como feature.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <h3>Qué cambia respecto de v5</h3>
+  <p>Se sustituyen los cuatro estados de inventario (masa, Sn, FeO, avance) y las dos palancas cinéticas por sus versiones v6, se añade el resto no reducible previo como estado, y se recalculan los dos targets logarítmicos. Todo lo demás se conserva: leyes previas de la escoria (Sn, FeO, SiO₂, CaO), basicidad, índice IRF, temperaturas y termocuplas, lanza, tiro, acumulados de carga, ensayos del batch por tolva y espesor de ladrillo. Las palancas del prescriptor siguen siendo carbón, gas natural, oxígeno y aire; cal, duración y mezcla de carga siguen fuera (plan o artefacto).</p>
+  </div>
+</section>
+<section id="s5">
+  <p class="eyebrow"><span class="n">5</span>Modelos predictivos por escalón</p>
+  <h2>El canal de FeO deja de ser ruido</h2>
+  <div class="prose">
+  <p>Cada target se modela con un PLM parcialmente lineal: un HGB para el estado \(g(S)\) y coeficientes lineales \(\theta\) para las palancas, estimados por mínimos cuadrados acotados por el signo que dicta la teoría (un reductor no puede aumentar la retención de FeO). Validación OOF GroupKFold(5) por batch en DEV; el lockbox (últimos 63 batches, fin de campaña de refractario) solo se reporta. Se compara con la referencia HGB sin estructura y con el PLM v5 sobre las mismas filas.</p>
+  </div>
+  <div class="tablewrap"><table id="tab_val"><thead><tr><th>Fase</th><th>Target</th><th>Forma</th><th class="num">n DEV</th><th class="num">R² OOF</th><th class="num">MAE OOF</th><th class="num">R² lockbox</th><th class="num">MAE lockbox</th></tr></thead><tbody></tbody></table></div>
+  <div class="callout prose"><p><b>Lectura.</b> La retención de FeO pasa de 0.17 a 0.33 en OOF y de 0.19 a 0.49 en lockbox sobre las mismas filas: v6 es la única versión que generaliza mejor fuera de DEV que dentro, señal de que no ajusta ruido. El agotamiento de Sn no cambia (0.77/0.80), como corresponde a un target dominado por el %Sn. En Fusión ninguna versión es utilizable como predictor de escalón (R² lockbox negativo en ambas); el ΔT de Reducción pierde en lockbox con la masa v6 en el estado (0.35 frente a 0.47), un punto que el balance de energía retoma.</p></div>
+  <div class="grid2">
+    <figure class="chart"><div id="fig_sc_feo" class="plot"></div><figcaption><b>Retención de FeO en Reducción: real vs predicho.</b> Puntos OOF (DEV) y lockbox. La diagonal es el ajuste perfecto.</figcaption></figure>
+    <figure class="chart"><div id="fig_sc_sn" class="plot"></div><figcaption><b>Agotamiento de Sn en Reducción: real vs predicho.</b> El primer escalón de Reducción (transición desde Fusión) domina el rango alto.</figcaption></figure>
+  </div>
+  <figure class="chart"><div id="fig_evo" class="plot"></div><figcaption><b>Evolutivo por batch.</b> Suma por batch del target real y del predicho (agregado telescópico: ln FeO final / inicial) en orden cronológico; la franja gris marca el lockbox. Un modelo útil sigue las oscilaciones de batch a batch, no solo el nivel.</figcaption></figure>
+  <div class="grid2">
+    <figure class="chart"><div id="fig_sc_dt" class="plot"></div><figcaption><b>ΔT de horno en Reducción: real vs predicho.</b> Ventana térmica del prescriptor.</figcaption></figure>
+    <figure class="chart"><div id="fig_r2_orden" class="plot"></div><figcaption><b>R² por orden de escalón.</b> Dónde acierta y dónde no cada target a lo largo de la Reducción.</figcaption></figure>
+  </div>
+  <h3>Qué mira el modelo: SHAP y dependencia parcial</h3>
+  <div class="prose"><p>Sobre el HGB de referencia (estado + palancas, entrenado en DEV): importancia media |SHAP|, enjambre de valores SHAP para las diez variables principales, y curvas de dependencia parcial de las palancas y de cuatro estados. Los estados dominan, como debe ser en un proceso por lotes con fuerte autocorrelación; las palancas aportan el margen que el prescriptor explota.</p></div>
+  <div class="grid2">
+    <figure class="chart"><div id="fig_shap_feo" class="plot"></div><figcaption><b>SHAP, retención de FeO (Reducción).</b> Cada punto es un escalón; el color codifica el valor de la variable (bajo→alto). Valores SHAP negativos empujan hacia más reducción de FeO.</figcaption></figure>
+    <figure class="chart"><div id="fig_shap_sn" class="plot"></div><figcaption><b>SHAP, agotamiento de Sn (Reducción).</b></figcaption></figure>
+  </div>
+  <div class="grid2">
+    <figure class="chart"><div id="fig_pdp_feo" class="plot"></div><figcaption><b>Dependencia parcial, retención de FeO.</b> Palancas y estados clave; la alfombra inferior muestra dónde hay datos. Las curvas son medias marginales del HGB: describen, no prescriben.</figcaption></figure>
+    <figure class="chart"><div id="fig_pdp_sn" class="plot"></div><figcaption><b>Dependencia parcial, agotamiento de Sn.</b></figcaption></figure>
+  </div>
+  <figure class="chart"><div id="fig_imp" class="plot"></div><figcaption><b>Importancia media |SHAP| por target.</b> Estados en gris, palancas en color.</figcaption></figure>
+</section>
+
+<section id="s6">
+  <p class="eyebrow"><span class="n">6</span>Prescriptor v6</p>
+  <h2>Mismo objetivo, anclaje más preciso</h2>
+  <div class="prose"><p>El objetivo por escalón de Reducción combina las dos componentes logarítmicas con un peso \(w\) anclado en el KPI refinado del batch (recuperación = metal ÷ (metal + dross + polvo + Sn en escoria final)), y descuenta costos, salida de la ventana térmica, incertidumbre conformal y pérdida de soporte histórico respecto de la acción real:</p></div>
+  <div class="formula">$$J_R = K\,[\,\widehat{\ln\text{Sn}_{\text{dep}}} + w\,\widehat{\ln\text{FeO}_{\text{ret}}}\,] - \text{costos} - w_T\,[T\notin\text{ventana}] - w_U\,\text{ancho IC} - w_S\,\max(0,\,s_{\text{hist}}-s)$$
+  $$w = \frac{b_{\text{FeO}}}{b_{\text{Sn}}} = \frac{17.63}{2.89} = 6.09\ [4.05,\,9.99],\qquad K = 2.89\ \tfrac{\text{pp de KPI}}{\text{unidad}}\times 512\ \tfrac{\text{kg Sn}}{\text{pp}}$$</div>
+  <div class="prose"><p>Los coeficientes salen de la regresión OLS (HC3) del KPI refinado sobre las sumas por batch de ambos targets, con controles de carga, ley, refractario, dross y tendencia, solo en DEV (n = 285). Con v5 el intervalo de \(w\) era [3.63, 14.33]; con v6 se estrecha a la mitad porque el target de FeO tiene menos ruido. Fusión conserva el término de conservación de Sn (−0.58 pp por unidad, débil: p 0.17 en DEV, 0.014 en total) y la ventana térmica.</p></div>
+  <div class="grid2">
+    <figure class="chart"><div id="fig_wsweep" class="plot"></div><figcaption><b>Barrido de w.</b> ρ de Spearman entre Σ(ln Sn_dep + w·ln FeO_ret) y el KPI refinado, DEV y lockbox, v5 y v6. El anclaje (6.1) cae en el máximo de DEV; en lockbox el peso óptimo es menor en ambas versiones: el fin de campaña premia sobre todo agotar el Sn.</figcaption></figure>
+    <figure class="chart"><div id="fig_theta" class="plot"></div><figcaption><b>Efectos de las palancas θ por +1 sd, con IC bootstrap por batch.</b> Signos acotados por teoría. El gas natural es la única palanca robusta en ambos canales: sube el agotamiento de Sn y baja la retención de FeO (reductor no selectivo). El carbón cinético se identifica con el estado completo.</figcaption></figure>
+  </div>
+  <figure class="chart"><div id="fig_curvas" class="plot"></div><figcaption><b>Curvas de respuesta de J a cada palanca</b> en escalones reales de Reducción a distinto avance (0.75, 0.90, 0.965, 0.985) y de Fusión. Los óptimos interiores nacen de la ventana térmica y del trade-off Sn/FeO, no de monotonías impuestas.</figcaption></figure>
+  <h3>Política cross-fitted y evidencia fuera de la política</h3>
+  <div class="prose"><p>Para cada uno de los 362 batches se recomienda escalón a escalón con un sistema entrenado sin ese batch (5 folds en DEV; el lockbox con todo DEV). La recomendación se compara con lo que hizo la planta y la distancia entre ambas (en sd de cada palanca) se confronta con el KPI del batch, con controles, permutación y placebo aleatorio.</p></div>
+  <div class="grid2">
+    <figure class="chart"><div id="fig_politica" class="plot"></div><figcaption><b>Qué cambia la política respecto de lo histórico</b> (mediana y cuartiles de recomendado − histórico) por fase, palanca y tramo de avance.</figcaption></figure>
+    <figure class="chart"><div id="fig_uplift" class="plot"></div><figcaption><b>Uplift físico estimado por batch</b> (kg de Sn a metal equivalentes según el modelo; no es evidencia, es la propia predicción).</figcaption></figure>
+  </div>
+  <div class="tablewrap"><table id="tab_evid"><thead><tr><th>KPI</th><th>Adherencia</th><th class="num">DEV coef/sd</th><th class="num">p</th><th class="num">lockbox coef/sd</th><th class="num">p</th><th class="num">total coef/sd</th><th class="num">p</th></tr></thead><tbody></tbody></table></div>
+  <div id="cadena_texto" class="prose">
+    <h3>Cadena θ → agregado → KPI</h3>
+    <p>La otra vía de evidencia no mira la adherencia sino el propio mecanismo: cuánto cambiarían las sumas por batch de agotamiento de Sn y retención de FeO si se siguiera la política (predicción del PLM, cross-fitted), traducido a puntos de KPI con los coeficientes de batch. Para v6 el uplift esperado es de +0.26 pp de recuperación por batch en DEV (IC bootstrap [0.18, 0.36]) y +0.37 pp en lockbox [0.23, 0.52], es decir unos 134 y 189 kg de Sn a metal por batch; con v5 eran +0.21 y +0.29 pp. El mecanismo es casi todo retención de FeO (+0.016 a +0.027 por batch) a costa de un agotamiento de Sn prácticamente igual (−0.006 a −0.033).</p>
+    <p>Las dos políticas se parecen: la adherencia por batch correlaciona 0.90 entre v5 y v6, y la dirección recomendada por palanca coincide en signo en el 92–99 % de los batches en Fusión y en el 76–77 % en Reducción para gas, oxígeno y aire. Donde difieren es en el carbón de Reducción: v5 casi no lo movía y v6 lo baja (−0.13 sd), coherente con un carbón identificado con mejor precisión pero todavía con intervalo ancho.</p>
+  </div>
+  <div class="callout prose" id="evidencia_lectura"><p><b>Lectura honesta.</b> Alejarse de la política de Fusión se asocia con menos recuperación (−0.42 pp por sd en DEV, p 0.17) y más polvo (+0.006 por sd, p 0.006), con placebo nulo; en v5 el coeficiente sobre el KPI era mayor y significativo (−0.70, p 0.025). En Reducción la adherencia no muestra efecto en ninguna versión. El emparejamiento por estado (batches parecidos que siguieron más o menos la política) da para v6 un resultado adverso en DEV sobre la adherencia total (−1.2 pp, p 0.035) y positivo sobre el KPI del batch siguiente para Reducción (+1.5 pp, p 0.012): señales pequeñas, inestables entre subconjuntos y de signo mixto. En resumen: <b>v6 mejora la física y la precisión del target de FeO, y su mecanismo proyecta más uplift, pero no tiene todavía mejor evidencia empírica a nivel de batch que v5.</b> Las dos políticas coinciden en casi todo salvo en el carbón de Reducción, donde v6 lo dosifica al inicio y lo recorta con el avance; esa discrepancia hay que resolverla en un piloto A/B antes de desplegar.</p></div>
+</section>
+
+<section id="s7">
+  <p class="eyebrow"><span class="n">7</span>Límites y siguientes pasos</p>
+  <h2>Qué queda sin resolver</h2>
+  <div class="prose two">
+  <ul>
+    <li><b>Leyes de entrada.</b> p_G y g_G son coeficientes efectivos: solo su suma está identificada y el de la cal cambia a lo largo de la campaña. Un análisis de CaO y humedad de la cal, y de la ganga del concentrado y del reciclo, convertiría la calibración en un balance cerrado. Mientras tanto, recalibrar por campaña o por lote de cal.</li>
+    <li><b>Ensayos faltantes.</b> El cierre necesita Sn y Fe totales en cada escalón (3 % de huecos, casi todos en Reducción): el escalón sin ensayo queda sin masa y el siguiente se re-ancla con el trazador de matriz.</li>
+    <li><b>Polvo y volátiles.</b> δ_R = 1 % por escalón es una constante calibrada, no una medida; con pesaje de polvo por batch se podría hacer variable.</li>
+    <li><b>Fusión.</b> Ningún target de escalón es predictivo en lockbox; el estado inicial heredado (IRF al cierre de F0) domina el KPI. La política de Fusión se apoya en conservar Sn y en la ventana térmica, con evidencia débil.</li>
+    <li><b>Régimen de fin de campaña.</b> El peso w anclado en DEV no es el óptimo del lockbox (que premia agotar Sn); reentrenamiento progresivo cada 10 batches y w por campaña.</li>
+    <li><b>Carbón.</b> Su efecto sobre la retención de FeO sigue sin identificarse robustamente a nivel de escalón; la teoría (selectividad decreciente con el avance) entra por el signo, no por los datos.</li>
+    <li><b>Evidencia causal.</b> Todo es observacional con controles. La cadena θ→agregado→KPI y la adherencia apuntan en la dirección correcta; el piloto A/B (gas natural de Reducción, carbón y gas de Fusión) es la única forma de cerrar la pregunta.</li>
+  </ul>
+  </div>
+  <p class="small">Artefactos: <code>experimentos/v6/masa_v6.py</code> (estimador y batería), <code>modelo_predictivo_v6.py</code> (prescriptor), <code>experimentos/v6/e8_01…e8_07</code> (memos y CSV), <code>hallazgos.md</code> §19, <code>candidate_win_model.md</code>. Datos: Excel de planta, 362 batches, abril–agosto 2026.</p>
+</section>
+</div>
+<script>
+(function(){
+const D = window.DATOS_V6 || {};
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const F = () => ({font:{family:'"Archivo","Arial Narrow",Arial,sans-serif',size:12.5,color:css('--ink')},
+  paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:css('--plot-bg'),
+  margin:{l:56,r:18,t:46,b:48}, hovermode:'closest',
+  legend:{orientation:'h',x:0,y:1.02,xanchor:'left',yanchor:'bottom',font:{size:12}},
+  title:{font:{size:14,color:css('--ink')},x:0,xref:'paper',yref:'container',y:0.98,yanchor:'top'},
+  xaxis:{gridcolor:css('--grid'),zerolinecolor:css('--rule'),linecolor:css('--rule'),tickfont:{size:11.5,family:'"IBM Plex Mono",monospace'},title:{font:{size:12.5}}},
+  yaxis:{gridcolor:css('--grid'),zerolinecolor:css('--rule'),linecolor:css('--rule'),tickfont:{size:11.5,family:'"IBM Plex Mono",monospace'},title:{font:{size:12.5}}},
+  hoverlabel:{bgcolor:css('--paper'),bordercolor:css('--rule'),font:{family:'"IBM Plex Mono",monospace',size:12,color:css('--ink')}}});
+const C = () => ({v6:css('--v6'),v3:css('--v3'),v5:css('--v5'),s1:css('--s1'),s2:css('--s2'),s3:css('--s3'),s4:css('--s4'),s5:css('--s5'),s6:css('--s6'),s7:css('--s7'),ink:css('--ink'),ink2:css('--ink-2'),ink3:css('--ink-3'),rule:css('--rule'),good:css('--good'),bad:css('--bad'),warn:css('--warn')});
+const merge=(a,b)=>{const o=JSON.parse(JSON.stringify(a));for(const k in b){o[k]=(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k])&&o[k]&&typeof o[k]==='object')?Object.assign({},o[k],b[k]):b[k];}return o;};
+const CFG={displayModeBar:false,responsive:true};
+const q = id => document.getElementById(id);
+const fmt=(x,d=2)=>(x==null||isNaN(x))?'–':Number(x).toFixed(d);
+const plots=[];
+function plot(id,traces,layout){ if(!q(id)) return; plots.push([id,traces,layout]); Plotly.newPlot(id,traces(C()),merge(F(),layout(C())),CFG); }
+function redraw(){ for(const [id,tr,lay] of plots){ Plotly.react(id,tr(C()),merge(F(),lay(C())),CFG); } }
+window.__redraw=redraw;
+const mq=window.matchMedia('(prefers-color-scheme: dark)'); mq.addEventListener && mq.addEventListener('change',()=>setTimeout(redraw,50));
+new MutationObserver(()=>setTimeout(redraw,50)).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+window.__viz={D,plot,fmt,q,C,F};
+})();
+</script>
+<script>
+(function(){
+const {D,plot,fmt,q}=window.__viz;
+const hov=(n)=> n;
+// ---- 1. F0 composicion
+if(D.f0_composicion){ const f=D.f0_composicion;
+  plot('fig_f0',c=>[
+    {type:'scatter',mode:'lines+markers',name:'%CaO observado (mediana)',x:f.map(r=>'F'+r.orden),y:f.map(r=>r.cao_obs),line:{color:c.v6,width:2},marker:{size:8},hovertemplate:'F%{x}: %{y:.1f} % CaO<extra>observado</extra>'},
+    {type:'scatter',mode:'lines+markers',name:'%CaO esperado con cal pura',x:f.map(r=>'F'+r.orden),y:f.map(r=>r.cao_esperado),line:{color:c.v3,width:2,dash:'dot'},marker:{size:8,symbol:'square'},hovertemplate:'F%{x}: %{y:.1f} %<extra>cal pura</extra>'},
+    {type:'scatter',mode:'lines+markers',name:'%Sn observado',x:f.map(r=>'F'+r.orden),y:f.map(r=>r.sn_obs),line:{color:c.s1,width:1.5},marker:{size:6},yaxis:'y',hovertemplate:'F%{x}: %{y:.1f} % Sn<extra></extra>'}
+  ],c=>({title:{text:'%CaO por escalón de Fusión: observado vs. cal pura'},yaxis:{title:{text:'% en escoria'},rangemode:'tozero'},xaxis:{title:{text:'escalón de Fusión'}}}));
+}
+// ---- 2. dM en Reduccion sin carga
+if(D.dm_reduccion){ const h=D.dm_reduccion; const mid=e=>e.slice(0,-1).map((v,i)=>(v+e[i+1])/2);
+  plot('fig_dm',c=>[
+    {type:'bar',name:`v3 trazador CaO (${(100*h.v3.frac_pos).toFixed(0)} % > 0)`,x:mid(h.v3.bin_edges),y:h.v3.counts,marker:{color:c.v3,opacity:.75},hovertemplate:'Δln M %{x:.2f}: %{y} escalones<extra>v3</extra>'},
+    {type:'bar',name:`v6 cierre físico (${(100*h.v6.frac_pos).toFixed(1)} % > 0)`,x:mid(h.v6.bin_edges),y:h.v6.counts,marker:{color:c.v6,opacity:.8},hovertemplate:'Δln M %{x:.2f}: %{y} escalones<extra>v6</extra>'}
+  ],c=>({barmode:'overlay',title:{text:'ln(M_t / M_{t−1}) en Reducción sin carga'},xaxis:{title:{text:'cambio de masa por escalón (ln)'},range:[-0.2,0.15]},yaxis:{title:{text:'escalones'}},shapes:[{type:'line',x0:0,x1:0,y0:0,y1:1,yref:'paper',line:{color:c.ink2,width:1,dash:'dash'}}]}));
+}
+// ---- 3. inertes
+if(D.inertes_concordancia){ const p=D.inertes_concordancia.puntos, I=D.inertes_concordancia;
+  plot('fig_inertes',c=>[
+    {type:'scatter',mode:'markers',name:`Al₂O₃ (r ${fmt(I.pearson_al2o3,2)}, ρ ${fmt(I.spearman_al2o3,2)})`,x:p.ln_cao,y:p.ln_al2o3,marker:{color:c.s1,size:5,opacity:.55},hovertemplate:'CaO %{x:.3f} · Al₂O₃ %{y:.3f}<extra></extra>'},
+    {type:'scatter',mode:'markers',name:`SiO₂ (r ${fmt(I.pearson_sio2,2)}, ρ ${fmt(I.spearman_sio2,2)})`,x:p.ln_cao,y:p.ln_sio2,marker:{color:c.s2,size:5,opacity:.45,symbol:'diamond'},hovertemplate:'CaO %{x:.3f} · SiO₂ %{y:.3f}<extra></extra>'},
+    {type:'scatter',mode:'lines',name:'identidad',x:[-0.2,0.2],y:[-0.2,0.2],line:{color:c.ink3,width:1,dash:'dot'},hoverinfo:'skip'}
+  ],c=>({title:{text:`Cambio de ln(%óxido) entre escalones consecutivos (n=${I.n})`},xaxis:{title:{text:'ln(%CaO_{t−1}/%CaO_t)'},range:[-0.2,0.2]},yaxis:{title:{text:'mismo cociente para Al₂O₃ / SiO₂'},range:[-0.2,0.2],scaleanchor:'x'}}));
+}
+// ---- 4. ratio por cuartil de cal/carga
+if(D.calibracion){ const r=D.calibracion.ratio_por_cuartil_calcarga; const xs=['Q1 menos cal','Q2','Q3','Q4 más cal'];
+  plot('fig_calcuartil',c=>[
+    {type:'bar',name:'v3 trazador CaO',x:xs,y:[1,2,3,4].map(k=>r.v3[k]),marker:{color:c.v3},text:[1,2,3,4].map(k=>fmt(r.v3[k],2)),textposition:'outside',textfont:{family:'IBM Plex Mono'},hovertemplate:'%{x}: %{y:.3f}<extra>v3</extra>'},
+    {type:'bar',name:'v6 cierre físico',x:xs,y:[1,2,3,4].map(k=>r.v6[k]),marker:{color:c.v6},text:[1,2,3,4].map(k=>fmt(r.v6[k],2)),textposition:'outside',textfont:{family:'IBM Plex Mono'},hovertemplate:'%{x}: %{y:.3f}<extra>v6</extra>'}
+  ],c=>({barmode:'group',title:{text:'Masa del balance ÷ masa inferida, por cuartil de cal/carga'},yaxis:{title:{text:'ratio (mediana)'},range:[0.9,1.2]},shapes:[{type:'line',x0:-0.5,x1:3.5,y0:1,y1:1,line:{color:c.ink2,width:1,dash:'dash'}}]}));
+}
+// ---- 5. trayectorias
+if(D.masa_trayectorias){ const T=D.masa_trayectorias; const keys=Object.keys(T); const et={dev_tipico_1:'DEV típico',dev_tipico_2:'DEV típico 2',cal_casi_0:'sin cal',k_anclaje_alto:'k alto',k_anclaje_bajo:'k bajo',lockbox:'lockbox'};
+  plot('fig_tray',c=>{ const tr=[]; keys.forEach((k,i)=>{ const b=T[k]; const x=b.pasos.map(p=>(p.fase==='Fusión'?'F':'R')+p.orden); const xn=b.pasos.map((p,j)=>j);
+    tr.push({type:'scatter',mode:'lines',name:`v3 ${b.batch} (${et[k]||k})`,x:xn,y:b.pasos.map(p=>p.masa_v3/1000),line:{color:c.v3,width:1.2,dash:'dot'},legendgroup:k,showlegend:i===0,hovertemplate:'%{text}: %{y:.1f} t<extra>v3 '+b.batch+'</extra>',text:x});
+    tr.push({type:'scatter',mode:'lines+markers',name:`v6 ${b.batch} (${et[k]||k})`,x:xn,y:b.pasos.map(p=>p.masa_v6/1000),line:{color:c.v6,width:1.6},marker:{size:4},legendgroup:k,showlegend:i===0,hovertemplate:'%{text}: %{y:.1f} t<extra>v6 '+b.batch+'</extra>',text:x,opacity:0.55+0.45*(i===0)});
+    tr.push({type:'scatter',mode:'markers',name:'balance final',x:[xn[xn.length-1]],y:[b.pasos[0].masa_balance/1000],marker:{color:c.s1,size:9,symbol:'diamond'},legendgroup:k,showlegend:i===0,hovertemplate:'balance global: %{y:.1f} t<extra>'+b.batch+'</extra>'});
+    }); return tr; },
+  c=>({title:{text:'Masa de escoria inferida a lo largo del batch (t): v3 vs v6 y balance final'},xaxis:{title:{text:'escalón'},tickvals:[0,1,2,3,4,5,6,7,8,9,10],ticktext:['F0','F1','F2','F3','F4','F5','F6','R0','R1','R2','R3']},yaxis:{title:{text:'t de escoria'},rangemode:'tozero'},shapes:[{type:'line',x0:6.5,x1:6.5,y0:0,y1:1,yref:'paper',line:{color:c.ink3,width:1,dash:'dash'}}],annotations:[{x:3,y:1,yref:'paper',text:'Fusión',showarrow:false,font:{color:c.ink2}},{x:8.5,y:1,yref:'paper',text:'Reducción',showarrow:false,font:{color:c.ink2}}]}));
+}
+// ---- 6. ruido
+if(D.ruido){ const r=D.ruido.filter(x=>x.orden_R>0);
+  plot('fig_ruido',c=>[
+    {type:'bar',name:'señal: sd real de Δln M',x:r.map(x=>'R'+x.orden_R),y:r.map(x=>x.senal_sd_dlnM),marker:{color:c.ink2},hovertemplate:'%{x}: %{y:.4f}<extra>señal</extra>'},
+    {type:'bar',name:'ruido propagado · cierre v6',x:r.map(x=>'R'+x.orden_R),y:r.map(x=>x.ruido_sd_dlnM_cierre),marker:{color:c.v6},hovertemplate:'%{x}: %{y:.4f}<extra>cierre</extra>'},
+    {type:'bar',name:'ruido propagado · trazador CaO',x:r.map(x=>'R'+x.orden_R),y:r.map(x=>x.ruido_sd_dlnM_CaO),marker:{color:c.v3},hovertemplate:'%{x}: %{y:.4f}<extra>CaO</extra>'}
+  ],c=>({barmode:'group',title:{text:'sd de Δln M por escalón de Reducción: señal vs ruido propagado (200 réplicas)'},yaxis:{title:{text:'sd de ln(M_t/M_{t−1})'}},xaxis:{title:{text:'escalón'}}}));
+}
+// ---- 7. grilla
+if(D.grilla){ const g=D.grilla; const lab=r=>r.fusion==='v3'?'v3 trazador CaO':`F:${r.fusion} · R:${r.reduccion}${r.w_obs_R?' w'+r.w_obs_R:''} δ${r.delta_R}`;
+  const chosen=r=>r.fusion==='cierre'&&r.reduccion==='cierre'&&Math.abs(r.delta_R-0.01)<1e-6&&!r.w_obs_R;
+  plot('fig_grilla',c=>[
+    {type:'scatter',mode:'markers',name:'variantes',x:g.filter(r=>!chosen(r)&&r.fusion!=='v3').map(r=>100*r.frac_dM_pos_R),y:g.filter(r=>!chosen(r)&&r.fusion!=='v3').map(r=>r.R2_feo),text:g.filter(r=>!chosen(r)&&r.fusion!=='v3').map(lab),marker:{size:9,color:g.filter(r=>!chosen(r)&&r.fusion!=='v3').map(r=>r.reduccion==='cierre'?c.s3:(r.reduccion==='cierre+obs'?c.s4:c.s2)),opacity:.85,line:{color:c.ink,width:.5}},hovertemplate:'%{text}<br>ganan masa %{x:.1f} % · R² FeO %{y:.3f}<extra></extra>'},
+    {type:'scatter',mode:'markers+text',name:'elegida: cierre/cierre δ 0.01',x:g.filter(chosen).map(r=>100*r.frac_dM_pos_R),y:g.filter(chosen).map(r=>r.R2_feo),marker:{size:15,color:c.v6,symbol:'star'},text:['v6'],textposition:'top right',textfont:{color:c.v6,family:'Archivo'},hovertemplate:'v6 elegida<br>ganan masa %{x:.1f} % · R² FeO %{y:.3f}<extra></extra>'},
+    {type:'scatter',mode:'markers+text',name:'v3 trazador CaO',x:g.filter(r=>r.fusion==='v3').map(r=>100*r.frac_dM_pos_R),y:g.filter(r=>r.fusion==='v3').map(r=>r.R2_feo),marker:{size:13,color:c.v3,symbol:'square'},text:['v3'],textposition:'top left',textfont:{color:c.v3,family:'Archivo'},hovertemplate:'v3<br>ganan masa %{x:.1f} % · R² FeO %{y:.3f}<extra></extra>'}
+  ],c=>({title:{text:'Variantes del estimador: escalones sin carga que ganan masa vs R² OOF del target de FeO'},xaxis:{title:{text:'% de escalones de Reducción sin carga con masa creciente (menor = más físico)'},rangemode:'tozero'},yaxis:{title:{text:'R² OOF ln FeO_ret'}},annotations:[{x:0.99,y:0.02,xref:'paper',yref:'paper',xanchor:'right',text:'verde: cierre en R · amarillo: cierre+obs · naranja: trazador en R',showarrow:false,font:{size:11,color:c.ink2}}]}));
+  const tb=q('tab_grilla'); if(tb){ const rows=[['v3',null],['G','cierre'],['CaO','cierre'],['cierre','cierre'],['cierre','cierre+obs']]; const pick=[]; g.forEach(r=>{ if(r.fusion==='v3') pick.push(['v3 · trazador CaO (cal / %CaO)',r,false]); });
+    const find=(f,rr,d,w)=>g.find(r=>r.fusion===f&&r.reduccion===rr&&Math.abs(r.delta_R-d)<1e-6&&Math.abs((r.w_obs_R||0)-w)<1e-6);
+    [['Fusión trazador G · Reducción cierre · δ 0',find('G','cierre',0,0),false],['Fusión trazador CaO calibrado · Reducción cierre · δ 0',find('CaO','cierre',0,0),false],['Fusión cierre · Reducción cierre · δ 0',find('cierre','cierre',0,0),false],['Fusión cierre · Reducción cierre · δ 0.01 (elegida)',find('cierre','cierre',0.01,0),true],['Fusión cierre · Reducción cierre+obs (w 0.30) · δ 0.02',find('cierre','cierre+obs',0.02,0.3),false],['Fusión G · Reducción trazador G (cada escalón)',find('G','G',0,0),false]].forEach(x=>{ if(x[1]) pick.push(x); });
+    tb.querySelector('tbody').innerHTML=pick.map(([n,r,hl])=>`<tr${hl?' class="hl"':''}><td>${n}</td><td class="num">${(100*r.frac_dM_pos_R).toFixed(1)} %</td><td class="num">${fmt(r.sd_dlnM_R,3)}</td><td class="num">${fmt(r.rho_ratio_calcarga,2)}</td><td class="num">${fmt(r.ratio_bal_dev,2)} · ${fmt(r.ratio_bal_lb,2)}</td><td class="num">${fmt(r.R2_feo,2)}</td><td class="num">${fmt(r.R2_feo_sinCaOprev,2)}</td><td class="num">${fmt(r.R2_sn,2)}</td></tr>`).join('');
+  }
+}
+// ---- 8. calibracion estabilidad
+if(D.calibracion){ const f=D.calibracion.filas.filter(r=>r.trazador==='G'&&!r.con_carbon); const order=['full_dev','tercio1','tercio2','tercio3','kfold0','kfold1','kfold2','kfold3','kfold4']; const rows=order.map(s=>f.find(r=>r.split===s)).filter(Boolean); const ic=s=>{try{const m=String(s).match(/-?[\d.]+/g);return m?[+m[0],+m[1]]:[null,null]}catch(e){return [null,null]}};
+  plot('fig_calib',c=>[
+    {type:'scatter',mode:'markers',name:'p_G (cal)',x:rows.map(r=>r.split),y:rows.map(r=>r.cal),error_y:{type:'data',symmetric:false,array:rows.map(r=>ic(r.cal_ic)[1]-r.cal),arrayminus:rows.map(r=>r.cal-ic(r.cal_ic)[0]),color:c.s2,thickness:1},marker:{color:c.s2,size:9},hovertemplate:'%{x}: p_G %{y:.2f}<extra></extra>'},
+    {type:'scatter',mode:'markers',name:'g_G (carga)',x:rows.map(r=>r.split),y:rows.map(r=>r.carga),error_y:{type:'data',symmetric:false,array:rows.map(r=>ic(r.carga_ic)[1]-r.carga),arrayminus:rows.map(r=>r.carga-ic(r.carga_ic)[0]),color:c.s1,thickness:1},marker:{color:c.s1,size:9,symbol:'square'},hovertemplate:'%{x}: g_G %{y:.3f}<extra></extra>'}
+  ],c=>({title:{text:'Coeficientes efectivos del resto que entra: DEV completo, tercios cronológicos y folds'},yaxis:{title:{text:'kg de matriz por kg húmedo'},range:[-0.6,1.8]},xaxis:{tickangle:-30}}));
+}
+// ---- 9. cierre Sn
+if(D.cierre_sn){ const s=D.cierre_sn;
+  plot('fig_cierre_sn',c=>[
+    {type:'scatter',mode:'markers',name:'DEV',x:s.filter(r=>r.conjunto!=='lockbox').map(r=>r.mdp/1000),y:s.filter(r=>r.conjunto!=='lockbox').map(r=>(r.feed_sn_total_kg-r.inv_v6)/1000),text:s.filter(r=>r.conjunto!=='lockbox').map(r=>r.Batch),marker:{color:c.v6,size:6,opacity:.6},hovertemplate:'%{text}<br>M+D+P %{x:.1f} t · extraído v6 %{y:.1f} t<extra></extra>'},
+    {type:'scatter',mode:'markers',name:'lockbox',x:s.filter(r=>r.conjunto==='lockbox').map(r=>r.mdp/1000),y:s.filter(r=>r.conjunto==='lockbox').map(r=>(r.feed_sn_total_kg-r.inv_v6)/1000),text:s.filter(r=>r.conjunto==='lockbox').map(r=>r.Batch),marker:{color:c.s1,size:7,opacity:.8,symbol:'diamond'},hovertemplate:'%{text}<br>M+D+P %{x:.1f} t · extraído v6 %{y:.1f} t<extra></extra>'},
+    {type:'scatter',mode:'lines',name:'identidad',x:[30,75],y:[30,75],line:{color:c.ink3,width:1,dash:'dot'},hoverinfo:'skip'}
+  ],c=>({title:{text:'Sn extraído inferido (cargado − inventario final v6) vs Sn medido en metal+dross+polvo, t/batch'},xaxis:{title:{text:'metal + dross + polvo (t Sn)'}},yaxis:{title:{text:'Sn cargado − Sn residual v6 (t)'},scaleanchor:'x'}}));
+}
+})();
+</script>
+<script>
+(function(){
+const {D,plot,fmt,q}=window.__viz;
+const NOM={sn_dep:'agotamiento Sn',feo_ret:'retención FeO',dT:'ΔT horno'};
+const PAL={tasa_feed_Carbon_kg_min:'carbón kg/min',tasa_gn_nm3_min:'gas natural Nm³/min',tasa_o2_nm3_min:'O₂ Nm³/min',tasa_aire_nm3_min:'aire Nm³/min',Cx_sn_v6:'carbón × Sn disp. (Cx_sn)',Cx_av_v6:'carbón × avance (Cx_av)',exceso_o2_combustion_pct:'exceso O₂ %',relacion_C_Sn_carga:'C / Sn cargado'};
+const nice=s=>PAL[s]||s.replace(/_escoria_pct_prev/,' prev %').replace(/_prev$/,' prev').replace(/_/g,' ');
+// ---- tabla validacion
+if(D.validacion&&q('tab_val')){ const v=D.validacion; const order={'PLM_v6':0,'HGB_estado+palancas_ref':1,'PLM_v5_ref':2}; const fl={'PLM_v6':'PLM v6','HGB_estado+palancas_ref':'HGB referencia','PLM_v5_ref':'PLM v5 (mismas filas)'};
+  const rows=v.slice().sort((a,b)=>(a.fase>b.fase?-1:a.fase<b.fase?1:0)||(a.target>b.target?1:-1)||(order[a.forma]-order[b.forma]));
+  q('tab_val').querySelector('tbody').innerHTML=rows.map(r=>`<tr${r.forma==='PLM_v6'?' class="hl"':''}><td>${r.fase}</td><td>${NOM[r.target]||r.target}</td><td>${fl[r.forma]||r.forma}</td><td class="num">${r.n_dev}</td><td class="num">${fmt(r.r2_oof,3)}</td><td class="num">${fmt(r.mae_oof,3)}</td><td class="num">${fmt(r.r2_lockbox,3)}</td><td class="num">${fmt(r.mae_lockbox,3)}</td></tr>`).join('');
+}
+// ---- scatter real vs pred
+function scatter(id,key,titulo,unidad){ const p=D.pred&&D.pred[key]; if(!p) return; const m=p.muestra; const res=p.resumen.filter(r=>r.orden==null);
+  const rr=res.find(r=>r.conjunto==='OOF_dev')||{}, rl=res.find(r=>r.conjunto==='lockbox')||{};
+  const lo=Math.min(...m.real,...m.pred), hi=Math.max(...m.real,...m.pred);
+  plot(id,c=>[
+    {type:'scatter',mode:'markers',name:`OOF DEV · R² ${fmt(rr.r2,2)} · MAE ${fmt(rr.mae,3)}`,x:m.real.filter((_,i)=>m.conjunto[i]!=='lockbox'),y:m.pred.filter((_,i)=>m.conjunto[i]!=='lockbox'),marker:{color:c.v6,size:5,opacity:.5},hovertemplate:'real %{x:.3f} · pred %{y:.3f}<extra>OOF</extra>'},
+    {type:'scatter',mode:'markers',name:`lockbox · R² ${fmt(rl.r2,2)} · MAE ${fmt(rl.mae,3)}`,x:m.real.filter((_,i)=>m.conjunto[i]==='lockbox'),y:m.pred.filter((_,i)=>m.conjunto[i]==='lockbox'),marker:{color:c.s1,size:6,opacity:.75,symbol:'diamond'},hovertemplate:'real %{x:.3f} · pred %{y:.3f}<extra>lockbox</extra>'},
+    {type:'scatter',mode:'lines',name:'identidad',x:[lo,hi],y:[lo,hi],line:{color:c.ink3,width:1,dash:'dot'},hoverinfo:'skip'}
+  ],c=>({title:{text:titulo},xaxis:{title:{text:'real '+unidad}},yaxis:{title:{text:'predicho '+unidad},scaleanchor:'x'}}));
+}
+scatter('fig_sc_feo','Reducción|feo_ret','ln FeO_ret por escalón (Reducción)','ln');
+scatter('fig_sc_sn','Reducción|sn_dep','ln Sn_dep por escalón (Reducción)','ln');
+scatter('fig_sc_dt','Reducción|dT','ΔT de horno por escalón (Reducción)','°C');
+// ---- evolutivo
+if(D.pred){ const e=D.pred['Reducción|feo_ret'].evolutivo, e2=D.pred['Reducción|sn_dep'].evolutivo; const idx=e.batch.map((_,i)=>i+1); const firstLb=e.es_lockbox.indexOf(true);
+  plot('fig_evo',c=>[
+    {type:'scatter',mode:'lines',name:'Σ ln FeO_ret real',x:idx,y:e.real,text:e.batch,line:{color:c.ink2,width:1.2},hovertemplate:'%{text}: real %{y:.3f}<extra></extra>'},
+    {type:'scatter',mode:'lines',name:'Σ ln FeO_ret predicho (OOF / lockbox)',x:idx,y:e.pred,text:e.batch,line:{color:c.v6,width:1.6},hovertemplate:'%{text}: pred %{y:.3f}<extra></extra>'},
+    {type:'scatter',mode:'lines',name:'Σ ln Sn_dep real',x:e2.batch.map((_,i)=>i+1),y:e2.real,text:e2.batch,line:{color:c.ink3,width:1,dash:'dot'},yaxis:'y2',hovertemplate:'%{text}: real %{y:.2f}<extra>Sn</extra>'},
+    {type:'scatter',mode:'lines',name:'Σ ln Sn_dep predicho',x:e2.batch.map((_,i)=>i+1),y:e2.pred,text:e2.batch,line:{color:c.s1,width:1.4},yaxis:'y2',hovertemplate:'%{text}: pred %{y:.2f}<extra>Sn</extra>'}
+  ],c=>({title:{text:'Agregado por batch, orden cronológico: retención de FeO (arriba) y agotamiento de Sn (abajo)'},grid:{rows:2,columns:1,pattern:'independent',roworder:'top to bottom'},xaxis:{title:{text:''},showticklabels:false},yaxis:{title:{text:'Σ ln FeO_ret'},domain:[0.55,1]},yaxis2:{title:{text:'Σ ln Sn_dep'},domain:[0,0.45]},xaxis2:{title:{text:'batch (cronológico)'}},shapes:firstLb>0?[{type:'rect',x0:firstLb,x1:idx.length,y0:0,y1:1,yref:'paper',fillcolor:c.ink3,opacity:.12,line:{width:0}}]:[],annotations:firstLb>0?[{x:firstLb+2,y:0.98,yref:'paper',text:'lockbox',showarrow:false,xanchor:'left',font:{color:c.ink2,size:11}}]:[],legend:{y:1.06},margin:{t:70}}));
+  // R2 por orden
+  plot('fig_r2_orden',c=>{ const keys=[['Reducción|feo_ret','retención FeO',c.v6],['Reducción|sn_dep','agotamiento Sn',c.s1],['Reducción|dT','ΔT',c.s3]]; const tr=[];
+    keys.forEach(([k,n,col])=>{ const r=D.pred[k].resumen.filter(x=>x.orden!=null&&x.conjunto==='OOF_dev'); tr.push({type:'bar',name:n+' (OOF)',x:r.map(x=>'R'+x.orden),y:r.map(x=>x.r2),marker:{color:col},hovertemplate:'%{x}: R² %{y:.2f}<extra>'+n+'</extra>'}); });
+    return tr; },c=>({barmode:'group',title:{text:'R² OOF por orden de escalón de Reducción'},yaxis:{title:{text:'R²'},range:[-0.2,1]},xaxis:{title:{text:'escalón'}}}));
+}
+// ---- SHAP beeswarm
+function beeswarm(id,key,titulo){ const s=D.shap_pdp&&D.shap_pdp[key]; if(!s) return; const feats=Object.keys(s.beeswarm);
+  plot(id,c=>{ const tr=[]; feats.forEach((f,i)=>{ const b=s.beeswarm[f]; const n=b.shap.length; const jit=b.shap.map((_,j)=>i+ (Math.sin(j*12.9898+i)*0.5)*0.35);
+    tr.push({type:'scatter',mode:'markers',name:nice(f),x:b.shap,y:jit,marker:{size:5,opacity:.7,color:b.valor_norm,colorscale:[[0,c.s1],[0.5,c.rule],[1,c.s2]],cmin:0,cmax:1,showscale:i===0,colorbar:{title:{text:'valor',side:'right'},thickness:8,len:.5,y:0.5,tickvals:[0,1],ticktext:['bajo','alto'],tickfont:{size:10}}},text:b.valor_bruto.map(v=>fmt(v,2)),hovertemplate:nice(f)+' = %{text}<br>SHAP %{x:.4f}<extra></extra>',showlegend:false}); });
+    return tr; },c=>({title:{text:titulo},xaxis:{title:{text:'valor SHAP (contribución al target)'},zeroline:true},yaxis:{tickvals:feats.map((_,i)=>i),ticktext:feats.map(nice),autorange:'reversed',tickfont:{size:11}},margin:{l:190,r:60},height:420}));
+}
+beeswarm('fig_shap_feo','Reducción|feo_ret','SHAP · retención de FeO (HGB, 300 escalones DEV)');
+beeswarm('fig_shap_sn','Reducción|sn_dep','SHAP · agotamiento de Sn (HGB, 300 escalones DEV)');
+// ---- PDP
+function pdp(id,key,titulo){ const s=D.shap_pdp&&D.shap_pdp[key]; if(!s) return; const feats=Object.keys(s.pdp); const n=feats.length; const cols=3, rows=Math.ceil(n/cols);
+  plot(id,c=>{ const tr=[]; feats.forEach((f,i)=>{ const p=s.pdp[f]; const ax=i===0?'':String(i+1); const isPal=!!PAL[f]||/tasa_|Cx_|exceso|relacion_C/.test(f);
+    tr.push({type:'scatter',mode:'lines',name:nice(f),x:p.grid,y:p.pred,xaxis:'x'+ax,yaxis:'y'+ax,line:{color:isPal?c.v6:c.s1,width:2},showlegend:false,hovertemplate:nice(f)+' %{x:.3g}<br>pred %{y:.3f}<extra></extra>'});
+    tr.push({type:'scatter',mode:'markers',name:'deciles',x:p.deciles,y:p.deciles.map(()=>Math.min(...p.pred)),xaxis:'x'+ax,yaxis:'y'+ax,marker:{symbol:'line-ns-open',size:8,color:c.ink3},showlegend:false,hoverinfo:'skip'}); });
+    return tr; },c=>{ const lay={title:{text:titulo},grid:{rows:rows,columns:cols,pattern:'independent',xgap:.12,ygap:.28},height:rows*190+60,margin:{l:44,r:12,t:46,b:36},showlegend:false,annotations:[]};
+    feats.forEach((f,i)=>{ const ax=i===0?'':String(i+1); lay['xaxis'+ax]=Object.assign({},window.__viz.F().xaxis,{title:{text:nice(f),font:{size:11}},tickfont:{size:10}}); lay['yaxis'+ax]=Object.assign({},window.__viz.F().yaxis,{tickfont:{size:10}}); });
+    lay.annotations.push({x:0.99,y:-0.02,xref:'paper',yref:'paper',xanchor:'right',text:'rojo: palanca · azul: estado · marcas: deciles de la variable',showarrow:false,font:{size:11,color:c.ink2}}); return lay; });
+}
+pdp('fig_pdp_feo','Reducción|feo_ret','Dependencia parcial · retención de FeO');
+pdp('fig_pdp_sn','Reducción|sn_dep','Dependencia parcial · agotamiento de Sn');
+// ---- importancia
+if(D.shap_pdp){ const ks=['Reducción|feo_ret','Reducción|sn_dep','Reducción|dT','Fusión|sn_dep']; const cols=2, rows=2;
+  plot('fig_imp',c=>{ const tr=[]; ks.forEach((k,i)=>{ const s=D.shap_pdp[k]; if(!s) return; const ax=i===0?'':String(i+1); const f=s.importancia_top15.feature.slice(0,12).reverse(), v=s.importancia_top15.abs_shap_medio.slice(0,12).reverse();
+    tr.push({type:'bar',orientation:'h',x:v,y:f.map(nice),xaxis:'x'+ax,yaxis:'y'+ax,marker:{color:f.map(x=>(/tasa_|Cx_|exceso|relacion_C/.test(x))?c.v6:c.ink3)},showlegend:false,hovertemplate:'%{y}: %{x:.4f}<extra>'+k+'</extra>'}); }); return tr; },
+  c=>{ const lay={title:{text:'|SHAP| medio · las 12 variables principales por target (HGB estado+palancas, DEV)'},grid:{rows:rows,columns:cols,pattern:'independent',xgap:.32,ygap:.16},height:640,margin:{l:170,r:14,t:50,b:30},annotations:[]};
+    ks.forEach((k,i)=>{ const ax=i===0?'':String(i+1); lay['xaxis'+ax]=Object.assign({},window.__viz.F().xaxis,{tickfont:{size:10}}); lay['yaxis'+ax]=Object.assign({},window.__viz.F().yaxis,{tickfont:{size:10}}); const s=D.shap_pdp[k]; lay.annotations.push({xref:'x'+ax+' domain',yref:'y'+ax+' domain',x:1,y:1.06,xanchor:'right',text:k.replace('|',' · ')+(s?` (R² OOF ${fmt(s.r2_oof,2)})`:''),showarrow:false,font:{size:12,color:c.ink}}); }); return lay; });
+}
+// ---- w sweep
+if(D.anclaje_w){ const s=D.anclaje_w.w_sweep;
+  plot('fig_wsweep',c=>{ const tr=[]; [['v6','dev',c.v6,'solid'],['v6','lockbox',c.v6,'dot'],['v5','dev',c.v5,'solid'],['v5','lockbox',c.v5,'dot']].forEach(([t,sp,col,ds])=>{ const r=s.filter(x=>x.targets===t&&x.split===sp).sort((a,b)=>a.w-b.w);
+    tr.push({type:'scatter',mode:'lines+markers',name:`${t} · ${sp==='dev'?'DEV':'lockbox'}`,x:r.map(x=>x.w),y:r.map(x=>x.rho),error_y:{type:'data',symmetric:false,array:r.map(x=>x.ci_hi-x.rho),arrayminus:r.map(x=>x.rho-x.ci_lo),color:col,thickness:.8,width:2,visible:sp==='dev'},line:{color:col,dash:ds,width:2},marker:{size:7,symbol:sp==='dev'?'circle':'diamond'},hovertemplate:'w %{x}: ρ %{y:.3f}<extra>'+t+' '+sp+'</extra>'}); });
+    return tr; },c=>({title:{text:'ρ Spearman de Σ(ln Sn_dep + w·ln FeO_ret) con el KPI refinado'},xaxis:{title:{text:'w'}},yaxis:{title:{text:'ρ'}},shapes:[{type:'line',x0:6.09,x1:6.09,y0:0,y1:1,yref:'paper',line:{color:c.v6,width:1,dash:'dash'}}],annotations:[{x:6.09,y:1,yref:'paper',text:'w anclado 6.09',showarrow:false,xanchor:'left',font:{size:11,color:c.v6}}]}));
+}
+// ---- theta
+if(D.efectos){ const e=D.efectos.filter(r=>r.clave!=='dT'); const lab=r=>`${r.fase==='Fusión'?'F':'R'} · ${NOM[r.clave]} · ${nice(r.palanca)}`;
+  plot('fig_theta',c=>[
+    {type:'scatter',mode:'markers',name:'θ por +1 sd (IC 90 % bootstrap)',y:e.map(lab),x:e.map(r=>r.theta_1sd),error_x:{type:'data',symmetric:false,array:e.map(r=>r.ci_hi_1sd-r.theta_1sd),arrayminus:e.map(r=>r.theta_1sd-r.ci_lo_1sd),color:c.ink2,thickness:1.2},marker:{size:9,color:e.map(r=>r.significativo?c.v6:c.ink3),symbol:e.map(r=>r.signo_teorico>0?'triangle-up':r.signo_teorico<0?'triangle-down':'circle')},hovertemplate:'%{y}<br>θ %{x:.4f}<extra></extra>'}
+  ],c=>({title:{text:'θ del PLM v6 (unidades del target por +1 sd de la palanca); rojo = IC excluye 0; ▲▼ signo teórico impuesto'},xaxis:{title:{text:'θ · 1 sd'},zeroline:true,zerolinecolor:c.ink2},yaxis:{autorange:'reversed',tickfont:{size:10.5}},margin:{l:260},height:420,showlegend:false}));
+}
+// ---- curvas de respuesta
+if(D.curvas){ const cu=D.curvas; const pals=['tasa_feed_Carbon_kg_min','tasa_gn_nm3_min','tasa_o2_nm3_min','tasa_aire_nm3_min'];
+  const R=cu.filter(r=>r.fase==='Reducción'); const avs=[...new Set(R.map(r=>r.avance_prev))].sort((a,b)=>a-b); const F=cu.filter(r=>r.fase==='Fusión'); const fb=[...new Set(F.map(r=>r.Batch))];
+  plot('fig_curvas',c=>{ const tr=[]; const shades=[c.s1,c.s3,c.s4,c.v6]; pals.forEach((p,i)=>{ const ax=i===0?'':String(i+1);
+    avs.forEach((av,j)=>{ const r=R.filter(x=>x.palanca===p&&x.avance_prev===av).sort((a,b)=>a.valor-b.valor); if(!r.length) return; tr.push({type:'scatter',mode:'lines',name:`Reducción · avance ${fmt(av,3)}`,x:r.map(x=>x.valor),y:r.map(x=>x.J),xaxis:'x'+ax,yaxis:'y'+ax,line:{color:shades[j%4],width:2},showlegend:i===0,legendgroup:'av'+j,hovertemplate:nice(p)+' %{x:.1f}: J %{y:.0f} kg<extra>avance '+fmt(av,3)+'</extra>'}); });
+    fb.forEach((b,j)=>{ const r=F.filter(x=>x.palanca===p&&x.Batch===b).sort((a,b2)=>a.valor-b2.valor); if(!r.length) return; tr.push({type:'scatter',mode:'lines',name:`Fusión · ${b}`,x:r.map(x=>x.valor),y:r.map(x=>x.J),xaxis:'x'+ax,yaxis:'y'+ax,line:{color:c.ink3,width:1.4,dash:j===0?'dot':j===1?'dash':'dashdot'},showlegend:i===0,legendgroup:'f'+j,hovertemplate:nice(p)+' %{x:.1f}: J %{y:.0f} kg<extra>Fusión '+b+'</extra>'}); }); });
+    return tr; },c=>{ const lay={title:{text:'J (kg Sn equivalentes) al mover una palanca, con las demás en su valor histórico'},grid:{rows:2,columns:2,pattern:'independent',xgap:.12,ygap:.22},height:560,margin:{l:50,r:14,t:80,b:40},legend:{y:1.07}};
+    pals.forEach((p,i)=>{ const ax=i===0?'':String(i+1); lay['xaxis'+ax]=Object.assign({},window.__viz.F().xaxis,{title:{text:nice(p),font:{size:11.5}}}); lay['yaxis'+ax]=Object.assign({},window.__viz.F().yaxis,{title:{text:'J kg',font:{size:11}}}); }); return lay; });
+}
+// ---- politica por tramo
+if(D.recomendaciones){ const rt=D.recomendaciones.resumen_por_tramo.filter(r=>['tasa_feed_Carbon_kg_min','tasa_gn_nm3_min','tasa_o2_nm3_min','tasa_aire_nm3_min'].includes(r.palanca));
+  const tR=['<0.84','0.84-0.96','0.96-0.975','>0.975']; const tF=[...new Set(rt.filter(r=>r.fase==='Fusión').map(r=>String(r.tramo)))].sort();
+  const pals=['tasa_feed_Carbon_kg_min','tasa_gn_nm3_min','tasa_o2_nm3_min','tasa_aire_nm3_min']; const cols=[null,null,null,null];
+  plot('fig_politica',c=>{ const col={tasa_feed_Carbon_kg_min:c.ink,tasa_gn_nm3_min:c.v6,tasa_o2_nm3_min:c.s1,tasa_aire_nm3_min:c.s3}; const tr=[];
+    pals.forEach(p=>{ const r=tR.map(t=>rt.find(x=>x.fase==='Reducción'&&x.palanca===p&&String(x.tramo)===t)).filter(Boolean); tr.push({type:'bar',name:nice(p),x:r.map(x=>'R avance '+x.tramo),y:r.map(x=>x.media),error_y:{type:'data',symmetric:false,array:r.map(x=>x.p75-x.media),arrayminus:r.map(x=>x.media-x.p25),thickness:1,color:c.ink2},marker:{color:col[p]},legendgroup:p,hovertemplate:'%{x}<br>'+nice(p)+': %{y:.2f} (n=%{text})<extra></extra>',text:r.map(x=>x.n),textposition:'none'});
+      const f=tF.map(t=>rt.find(x=>x.fase==='Fusión'&&x.palanca===p&&String(x.tramo)===t)).filter(Boolean); tr.push({type:'bar',name:nice(p),x:f.map(x=>'F'+x.tramo),y:f.map(x=>x.media),error_y:{type:'data',symmetric:false,array:f.map(x=>x.p75-x.media),arrayminus:f.map(x=>x.media-x.p25),thickness:1,color:c.ink2},marker:{color:col[p]},legendgroup:p,showlegend:false,hovertemplate:'%{x}<br>'+nice(p)+': %{y:.2f} (n=%{text})<extra></extra>',text:f.map(x=>x.n),textposition:'none'}); });
+    return tr; },c=>({barmode:'group',title:{text:'Recomendado − histórico (media, barras = P25–P75) por tramo de avance en Reducción y por escalón de Fusión'},yaxis:{title:{text:'kg/min o Nm³/min'},zeroline:true},xaxis:{tickangle:-25}}));
+  const h=D.recomendaciones.hist_uplift_J; const mid=e=>e.slice(0,-1).map((v,i)=>(v+e[i+1])/2);
+  plot('fig_uplift',c=>[
+    {type:'bar',name:`Reducción (media ${fmt(h['Reducción'].media,0)} kg)`,x:mid(h['Reducción'].bin_edges),y:h['Reducción'].counts,marker:{color:c.v6,opacity:.8}},
+    {type:'bar',name:`Fusión (media ${fmt(h['Fusión'].media,0)} kg)`,x:mid(h['Fusión'].bin_edges),y:h['Fusión'].counts,marker:{color:c.s1,opacity:.7}}
+  ],c=>({barmode:'overlay',title:{text:'Uplift de J por escalón (kg Sn equivalentes, según el modelo)'},xaxis:{title:{text:'kg'}},yaxis:{title:{text:'escalones'}}}));
+}
+// ---- tabla evidencia
+if(D.evidencia&&q('tab_evid')){ const ev=D.evidencia; const kp={recuperacion_refinada_pct:'recuperación refinada',f_polvo:'fracción a polvo',f_dross:'fracción a dross',recuperacion_refinada_pct_next:'recuperación batch siguiente'}; const vars=['dist_F','dist_R','dist_total','dist_F_placebo','dist_R_placebo']; const rows=[];
+  ['recuperacion_refinada_pct','f_polvo','f_dross'].forEach(k=>vars.forEach(v=>{ const g=s=>ev.find(x=>x.kpi===k&&x.variable===v&&x.subset===s)||{}; const a=g('DEV'),b=g('LOCKBOX'),t=g('TOTAL'); if(!a.n&&!t.n) return; rows.push(`<tr${v==='dist_F'&&k!=='f_dross'?' class="hl"':''}><td>${kp[k]}</td><td class="mono">${v.replace('dist_','adherencia ').replace('_placebo',' (placebo)')}</td><td class="num">${fmt(a.coef_por_sd,3)}</td><td class="num">${fmt(a.p_hc3,3)}</td><td class="num">${fmt(b.coef_por_sd,3)}</td><td class="num">${fmt(b.p_hc3,3)}</td><td class="num">${fmt(t.coef_por_sd,3)}</td><td class="num">${fmt(t.p_hc3,3)}</td></tr>`); }));
+  q('tab_evid').querySelector('tbody').innerHTML=rows.join('');
+}
+})();
+</script>

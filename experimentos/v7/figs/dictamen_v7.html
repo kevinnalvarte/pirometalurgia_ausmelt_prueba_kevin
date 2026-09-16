@@ -1,0 +1,119 @@
+<title>Dictamen del comité sobre v7</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{--bg:#f5f4f0;--panel:#fbfaf8;--ink:#171b1f;--ink2:#525a63;--ink3:#8a919a;--line:#d9d7d0;--line2:#ebe9e3;--ok:#1c5cab;--ok-bg:#e4eefb;--duda:#8a5a00;--duda-bg:#fff1d6;--no:#a63a3a;--no-bg:#fbe3e1;--accent:#1c5cab;
+--font-d:"Fraunces",Georgia,serif;--font-b:"Source Sans 3","Segoe UI",Arial,sans-serif;--font-m:"JetBrains Mono",Consolas,monospace;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#191a1b;--panel:#212325;--ink:#f1efe9;--ink2:#c3c2b7;--ink3:#8f9399;--line:#3a3d41;--line2:#2c2f33;--ok:#6ea6ef;--ok-bg:#1d2b3f;--duda:#e0b04a;--duda-bg:#3a2f14;--no:#ef8c8c;--no-bg:#3f2222;--accent:#6ea6ef;}}
+:root[data-theme="dark"]{--bg:#191a1b;--panel:#212325;--ink:#f1efe9;--ink2:#c3c2b7;--ink3:#8f9399;--line:#3a3d41;--line2:#2c2f33;--ok:#6ea6ef;--ok-bg:#1d2b3f;--duda:#e0b04a;--duda-bg:#3a2f14;--no:#ef8c8c;--no-bg:#3f2222;--accent:#6ea6ef;}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-b);font-size:16px;line-height:1.55;padding-inline:clamp(16px,4vw,48px);padding-block:32px 80px;}
+main{max-width:1000px;margin:0 auto;}
+h1,h2,h3{font-family:var(--font-d);font-weight:500;text-wrap:balance;line-height:1.15;margin:0;}
+h1{font-size:clamp(30px,4.5vw,44px);} h2{font-size:clamp(22px,3vw,28px);margin-top:56px;padding-top:20px;border-top:1px solid var(--line);} h3{font-size:18px;margin-top:26px;font-weight:700;}
+p{max-width:70ch;margin:12px 0;} .lead{font-size:18px;color:var(--ink2);max-width:72ch;}
+.eyebrow{font-family:var(--font-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);}
+.verdict{background:var(--panel);border:1px solid var(--line2);border-left:4px solid var(--accent);padding:16px 20px;margin:22px 0;max-width:80ch;}
+.verdict b{font-family:var(--font-d);font-size:19px;font-weight:700;}
+.tally{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:22px 0;}
+.t{padding:14px 16px;border-radius:6px;border:1px solid var(--line2);}
+.t .n{font-family:var(--font-m);font-size:30px;font-weight:600;} .t .l{font-size:13px;color:var(--ink2);}
+.t.ok{background:var(--ok-bg);} .t.duda{background:var(--duda-bg);} .t.no{background:var(--no-bg);}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:14px 0;} .tw{overflow-x:auto;}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line2);text-align:left;vertical-align:top;}
+th{font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink3);font-weight:600;}
+td:first-child{font-weight:600;min-width:180px;}
+.pill{display:inline-block;font-family:var(--font-m);font-size:11px;letter-spacing:.05em;padding:2px 8px;border-radius:99px;white-space:nowrap;}
+.pill.ok{background:var(--ok-bg);color:var(--ok);} .pill.duda{background:var(--duda-bg);color:var(--duda);} .pill.no{background:var(--no-bg);color:var(--no);}
+.who{font-family:var(--font-m);font-size:11.5px;color:var(--ink3);}
+.road{display:grid;gap:12px;margin:20px 0;}
+.phase{display:grid;grid-template-columns:110px 1fr;gap:14px;background:var(--panel);border:1px solid var(--line2);border-radius:6px;padding:14px 16px;}
+.phase .k{font-family:var(--font-m);font-size:12px;color:var(--accent);letter-spacing:.05em;}
+.phase .k b{display:block;font-size:15px;color:var(--ink);font-family:var(--font-d);font-weight:700;margin-top:2px;}
+.phase .d{font-size:14.5px;} .phase .d .exit{color:var(--ink2);font-size:13.5px;margin-top:6px;}
+ul{max-width:78ch;padding-left:20px;} li{margin:5px 0;}
+.guard{border-left:3px solid var(--no);padding:8px 14px;background:var(--panel);margin:16px 0;font-size:14.5px;max-width:80ch;}
+code{font-family:var(--font-m);font-size:13px;background:var(--panel);padding:1px 5px;border-radius:3px;}
+@media (max-width:520px){.phase{grid-template-columns:1fr;}}
+</style>
+<main>
+<div class="eyebrow">Lingo Smelter · Horno Ausmelt de Sn · Comité de auditoría · 16 de septiembre de 2026</div>
+<h1>Dictamen del comité sobre el prescriptor v7</h1>
+<p class="lead">Cuatro auditores independientes revisaron el enfoque ganador desde la pirometalurgia, la inferencia causal, la operación del horno y la integridad de los datos, con comprobaciones numéricas propias sobre el repositorio. Este dictamen consolida lo que se rescata como válido, lo que queda en duda con la prueba que lo resolvería, lo que se descarta con su sustituto, y la hoja de ruta para llegar a un sistema que se pueda aplicar sin perjuicio y con valor demostrado.</p>
+
+<div class="verdict"><b>Veredicto: no desplegar en línea; piloto restringido tras las correcciones de la fase 0.</b><br>El núcleo predictivo de Reducción es válido. Lo que convierte ese núcleo en recomendaciones no está demostrado: los efectos sobre la retención de FeO que sostienen el 82 % del uplift no están identificados, los pesos del objetivo dependen del régimen, el optimizador produce soluciones de esquina y mueve el aire sin efecto ni costo, las recomendaciones de Reducción no son ejecutables en tiempo real con la latencia del laboratorio, y la evidencia observacional no tiene potencia ni para demostrar mejora ni para excluir perjuicio.</div>
+
+<div class="tally">
+  <div class="t ok"><div class="n">11</div><div class="l">componentes rescatados como válidos</div></div>
+  <div class="t duda"><div class="n">12</div><div class="l">en duda, con prueba definida para resolverlos</div></div>
+  <div class="t no"><div class="n">12</div><div class="l">descartados, con sustituto</div></div>
+</div>
+
+<h2>1. Lo que se rescata como válido</h2>
+<div class="tw"><table>
+<tr><th>Componente</th><th>Por qué es válido</th><th>Auditor</th></tr>
+<tr><td>Masa de escoria por cierre físico</td><td>Único uso coherente de un ensayo de Fe total sin especiación; supera al trazador de CaO; los targets de Reducción son invariantes a los coeficientes de calibración (corr 0.99999 al recalibrar por fold) y a la pérdida residual δ.</td><td class="who">A · D</td></tr>
+<tr><td>Targets logarítmicos agregables</td><td>Identidad telescópica exacta; un solo par (K, w) por fase es coherente; el objetivo del batch depende sólo del estado terminal.</td><td class="who">A · B</td></tr>
+<tr><td>Retención de Fe total como proxy de hardhead</td><td>Complemento por balance del Fe metalizado; baja el dross con el signo correcto (−0.045 por unidad, p 0.04).</td><td class="who">A</td></tr>
+<tr><td>Forma PLM con cross-fitting por batch</td><td>Ningún algoritmo de 14 ni la forma cinética la supera; curva de aprendizaje saturada desde 150 batches.</td><td class="who">B</td></tr>
+<tr><td>Estado de 16 features como predictor</td><td>0.767 ± 0.003 / 0.326 ± 0.007 en cuatro particiones aleatorias frente a 0.765 / 0.305 con 38; sin fuga; sin salidas de batch en estado, palancas ni soporte.</td><td class="who">B · D</td></tr>
+<tr><td>Carbón y gas natural sobre el agotamiento de Sn</td><td>+0.178 [0.041, 0.285] y +0.047 [0.011, 0.086] por desviación estándar; óptimos interiores (la cota de signo no interviene); robustos a semillas y sets.</td><td class="who">B</td></tr>
+<tr><td>Legado al batch siguiente como señal</td><td>+10.4 pp por unidad (p 2e-4); sobrevive al KPI actual como control, a errores HAC y al placebo inverso; replica en el lockbox (+19.8, p 0.011). El hallazgo mejor protegido del proyecto.</td><td class="who">B</td></tr>
+<tr><td>Recorte de carbón en R2-R3</td><td>Coincide con la práctica TSL y con la selectividad marginal medida: de 5.3 kg de Sn por kg de FeO en R0 a 0.44 en R3, donde cada kg de Fe reducido arrastra más Sn al dross del que libera.</td><td class="who">A · C</td></tr>
+<tr><td>Cadena de validación</td><td>OOF por batch como criterio; DEV y lockbox sin solape; calibración sólo en DEV; tablas reproducidas a 1e-16; cobertura 3577 de 3620 escalones modelables sin sesgo por KPI.</td><td class="who">D</td></tr>
+<tr><td>Abstención sobre lanza y cal</td><td>Convención de la lanza sin confirmar; cal sin contraste en el rango histórico (9.1-10.2 % de la carga).</td><td class="who">A</td></tr>
+<tr><td>Reentrenamiento por campaña y cambio de gestión</td><td>Procedimiento definido (cada 10 batches, validación previa, modo sombra al cambiar de campaña, rango en vez de punto, códigos de razón).</td><td class="who">C</td></tr>
+</table></div>
+
+<h2>2. Lo que queda en duda</h2>
+<div class="tw"><table>
+<tr><th>Componente</th><th>Duda</th><th>Cómo se resuelve</th></tr>
+<tr><td>Efectos sobre la retención de FeO</td><td>Intervalos libres que cruzan cero: gas natural [−0.0174, +0.0002], O₂, aire, carbón ±0.045; el gas sólo se identifica en el último tercio; "carbón selectivo" es ausencia de identificación.</td><td>Piloto aleatorizado por escalón: carbón ±1 sd en R0-R1 (≈ 15-30 batches por brazo), gas natural ±1 sd en R1-R3 (≈ 230 por brazo).</td></tr>
+<tr><td>Pesos del objetivo K y w</td><td>K_Sn [1.8, 5.5]; K_FeO atenuado ×1.2-1.4 por errores en variables; w 7.86 en desarrollo y ≈ 1 en el lockbox; un kg de Sn agotado vale 2.0-2.5 kg de Sn a metal (físicamente ≤ 1); un kg de FeO vale 6.9 kg de Sn en R0 y 0.68 en R3.</td><td>Objetivo lineal en kg como contraste (λ 0.5-1.5); barrido de w en [1, 11]; K corregido; re-anclaje con un holdout nuevo.</td></tr>
+<tr><td>Mecanismo del legado</td><td>Señal sólida pero persiste dos batches y su signo contradice el mecanismo de talón metálico.</td><td>Confirmar el protocolo de sangrado y el talón; base sin legado (w 6.09) hasta entonces.</td></tr>
+<tr><td>Transición Fusión → Reducción</td><td>Fe³⁺ de la Fusión oxidante y Fe metálico del dross alimentado contaminan la retención de R0 (hasta +0.14); Sn²⁺ frente a Sn⁴⁺.</td><td>Especiación Fe y Sn en escoria F6 y R0 de 20-30 batches; %Fe del dross; descontar el Fe alimentado.</td></tr>
+<tr><td>Ceguera al polvo</td><td>9.3 t de Sn por batch van a polvo (18 %) sin medición por fase; el carbón de R0 se asocia con más polvo y menos KPI.</td><td>Pesaje y ensayo del polvo por batch y fase.</td></tr>
+<tr><td>Estado de 16 como estado físico</td><td>Tres features son relojes de campaña (termocupla −0.97 con el espesor; aire acumulado 0.92 con el tiempo; espesor −0.9996 con la fecha, fuera de rango en el lockbox).</td><td>Retirar el espesor (no cuesta R²); recuperar T de horno y Al₂O₃; reentrenar por campaña.</td></tr>
+<tr><td>Generalización de la retención de FeO</td><td>OOF aleatorio 0.333, cronológico 0.296, walk-forward 0.261; el lockbox está gastado.</td><td>Reportar el cronológico y el walk-forward; pre-registrar un holdout nuevo.</td></tr>
+<tr><td>Techo de ruido</td><td>El cálculo 0.57 ignora que el ruido del escalón anterior está en el estado y se revierte; techo corregido 0.79.</td><td>Techo con ruido no revertible; medir la fracción de R² que es reversión.</td></tr>
+<tr><td>Recorte de carbón en Fusión</td><td>Defendible por costo y polvo, no por conservar Sn; el carbón de Fusión es en parte combustible; el 39 % del uplift son costos con precios placeholder.</td><td>Precios reales; recorte ≤ 1 sd y ≥ P10 del orden; bajar O₂ en proporción; no en fin de campaña.</td></tr>
+<tr><td>Latencia del ensayo</td><td>R0-R2 duran exactamente 30/25/20 min y no esperan al laboratorio; con latencia ≥ 15 min, R1-R3 no son recomendables en tiempo real.</td><td>Registrar hora de toma y de reporte; arquitectura de dos niveles (receta de Fusión y plan de Reducción al inicio, re-plan tras R0).</td></tr>
+<tr><td>Uplift modelado</td><td>Con K, w y θ propagados el intervalo es ≈ [0.12, 0.63] pp; "más del 99 % positivo" es tautológico.</td><td>Recomputar sólo con efectos identificados y con un modelo distinto del que optimiza.</td></tr>
+<tr><td>Cal y basicidad</td><td>Sin contraste en el rango histórico; los canales físicos responden a la basicidad.</td><td>Piloto de cal (riesgo bajo) con basicidad 0.45-0.65.</td></tr>
+</table></div>
+
+<h2>3. Lo que se descarta</h2>
+<div class="tw"><table>
+<tr><th>Componente</th><th>Motivo</th><th>Sustituto</th></tr>
+<tr><td>Conservar Sn en Fusión como principio</td><td>Contrario a la selectividad de la primera etapa TSL; coeficiente débil (p 0.17) sobre un target que no generaliza (lockbox −0.70).</td><td>β_F = 0; Fusión gobernada por costos reales, ventana térmica dura y polvo.</td></tr>
+<tr><td>Aire como palanca</td><td>Setpoint de protección de lanza (120 Nm³/min); efectos nulos; costo cero; recomendaciones de hasta +26 Nm³/min.</td><td>Aire y O₂ congelados al plan.</td></tr>
+<tr><td>Escalón F1 recomendable</td><td>ΔT con R² 0.04-0.07; uplift de 6.6 kg que es sólo el recorte genérico de carbón.</td><td>F1 hereda la receta de Fusión.</td></tr>
+<tr><td>"Carbón selectivo"</td><td>Ausencia de identificación, no hallazgo.</td><td>Declararlo no identificado; piloto por escalón.</td></tr>
+<tr><td>Signo de O₂ sobre ΔT como física</td><td>Control reactivo: más O₂ cuando el horno está frío.</td><td>ΔT sólo como ventana térmica.</td></tr>
+<tr><td>Techo de ruido 0.57 y "ruido ≤ 2.8 %"</td><td>Cálculo que ignora la reversión del ruido.</td><td>Techo corregido 0.79.</td></tr>
+<tr><td>"3 % de escalones sin masa"</td><td>Reducción 8 %; R3 29 % sin ningún ensayo (105 batches).</td><td>Documentar y hacer la sensibilidad del anclaje.</td></tr>
+<tr><td>Evidencia off-policy como prueba</td><td>Polvo q-BH 0.24 en 18 pruebas y sin réplica; adherencia en Reducción con signo contrario; placebo no informativo.</td><td>Piloto aleatorizado; la adherencia sólo como monitoreo.</td></tr>
+<tr><td>"Las recomendaciones mejoran el batch"</td><td>Cálculo del modelo, no evidencia; un A/B sobre el KPI exigiría ≈ 3 500 batches por brazo.</td><td>Endpoints de escalón y de consumo; KPI como seguridad.</td></tr>
+<tr><td>Término de incertidumbre de J</td><td>Constante entre candidatos; no frena nada.</td><td>Intervalo dependiente de la acción.</td></tr>
+<tr><td>Límites globales y carbón en la cota</td><td>52 % de los R0 en la cota P99; saltos desde estados sin soporte (3.4 → 58 kg/min).</td><td>Límites por orden, cambio ≤ 1 sd, techo P90 en R0, sin recomendación sin soporte.</td></tr>
+<tr><td>Más carbón en R0 (+3 kg/min)</td><td>Riesgo alto: espumado y fume en el escalón de mayor generación de CO; la observación va en contra (KPI −0.43 pp/sd, polvo +).</td><td>Mantener el carbón de R0 en la mediana del orden hasta el piloto por escalón.</td></tr>
+</table></div>
+
+<h2>4. Hoja de ruta</h2>
+<div class="road">
+  <div class="phase"><div class="k">Fase 0<b>v7.1 conservador</b></div><div class="d">Efectos libres y acotados reportados; uplift sólo con efectos identificados e IC propagado; límites P5-P95 por orden, cambio ≤ 1 sd, carbón de R0 ≤ P90; aire y O₂ congelados; β_F = 0; base sin legado; contraste con objetivo lineal en kg y barrido de w; espesor fuera del estado; IC real; precios de planta; filtro anti-fuga endurecido (hecho) y test sobre las 281 columnas (hecho).<div class="exit">Sale cuando la política conserva el signo bajo w ∈ [1, 11] y bajo el objetivo lineal, y ninguna recomendación sale del envolvente del orden. 2-3 semanas.</div></div></div>
+  <div class="phase"><div class="k">Fase 1<b>Datos de planta</b></div><div class="d">Hora de toma y reporte del ensayo; especiación Fe y Sn en F6 y R0; %Fe de dross y metal; polvo por batch y fase; composición del gas natural; aire de camisa frente a proceso; protocolo de sangrado y talón; convención de la lanza; precios de Sn, carbón, gas, O₂, aire, lanza, refractario, hora de horno y mermas.<div class="exit">Cada dato con dueño y fecha. 4-8 semanas en paralelo.</div></div></div>
+  <div class="phase"><div class="k">Fase 2<b>Modo sombra</b></div><div class="d">El sistema recomienda sin mostrarse durante 30-60 batches: registra recomendación, acción real, código de razón, error por orden, sesgo, soporte vivo, fracción en cota, escalones sin estado.<div class="exit">Error ≤ 1.2× la referencia; sesgo por orden ≤ 0.10; fracción en cota ≤ 30 %; latencia medida; sin evento atribuible.</div></div></div>
+  <div class="phase"><div class="k">Fase 3<b>Piloto por escalón</b></div><div class="d">Aleatorización del carbón en R0-R1 (±1 sd alrededor de la recomendación, techo P90, bloqueada por batch; ≈ 15-30 batches por brazo) y después del gas natural en R1-R3 (≈ 230 por brazo). Endpoints: targets del escalón, polvo por fase, temperatura de gases, eventos.<div class="exit">Efectos con intervalos que excluyan cero sin cotas de signo; ningún evento de seguridad. 1-3 meses.</div></div></div>
+  <div class="phase"><div class="k">Fase 4<b>A/B de política restringida</b></div><div class="d">Batches alternos, 120 batches, dos palancas, aire y O₂ congelados. Endpoints primarios factibles: consumo de carbón de Fusión, Sn en escoria final ajustado, agotamiento de R0 ajustado. KPI, dross y polvo como seguridad con criterios de parada.<div class="exit">No inferioridad en KPI, dross y polvo; endpoints en la dirección predicha; caso económico positivo con precios reales. 40-60 días.</div></div></div>
+  <div class="phase"><div class="k">Fase 5<b>Decisión</b></div><div class="d">Re-anclaje de K, w y β con el holdout nuevo; efectos re-estimados con datos aleatorizados; política final; procedimientos de congelar, desactivar y revertir probados.</div></div>
+  <div class="phase"><div class="k">Fase 6<b>Mejoras en paralelo</b></div><div class="d">Objetivo lineal en kg; piso de Sn de equilibrio; descuento del Fe alimentado; efectos heterogéneos (carbón × temperatura, carbón × basicidad); ganga por corriente; estado en línea (CO/CO₂, temperatura de baño, análisis rápido) para R1-R3 en tiempo real; piloto de cal.</div></div>
+</div>
+<div class="guard"><b>Garantías de no perjuicio durante las fases 2-4.</b> El sistema corre por debajo de los enclavamientos y nunca los sustituye; la acción histórica y la receta estándar son siempre admisibles; ninguna recomendación sale del envolvente P5-P95 del orden ni supera 1 sd de cambio; carbón de R0 con techo P90; aire y O₂ intocados; sin recortar carbón de Fusión en fin de campaña ni con baño frío; desactivación automática con tres indicadores de deriva o un evento de seguridad; el operador conserva la decisión y registra el motivo.</div>
+
+<h2>5. Qué puede afirmarse hoy</h2>
+<ul>
+  <li><b>Sí:</b> el modelo predictivo de Reducción es el mejor que permiten estos datos; su agregación por escalón es exacta; el carbón y el gas natural mueven el agotamiento de Sn con efectos identificados; retener FeO se asocia con mejor recuperación en este batch y en el siguiente; recortar carbón tarde es coherente con la física y con la selectividad medida.</li>
+  <li><b>No:</b> que la política mejore el KPI (ni que no lo empeore); que los efectos sobre la retención de FeO existan con la magnitud usada; que los pesos del objetivo sean estables entre campañas; que conservar Sn en Fusión aporte; que las recomendaciones sean ejecutables en R1-R3 con la latencia actual.</li>
+  <li><b>Rentabilidad:</b> defendible hoy del orden de 20 t de Sn por campaña (≈ 0.6 MUSD a 30 kUSD/t) frente a las 50-65 t del cálculo del modelo; el 39 % del uplift modelado son costos con precios placeholder. El caso se cierra con precios reales (fase 1) y datos aleatorizados (fase 4).</li>
+</ul>
+<p class="lead" style="font-size:14px">Fuentes: <code>dictamen_comite_v7.md</code>, <code>experimentos/v7/auditoria_A..D</code>, <code>candidate_win_model_v7.md</code>, hallazgos §20-21. Los informes de los auditores citan los scripts de comprobación y los números fila a fila.</p>
+</main>

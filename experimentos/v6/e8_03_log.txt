@@ -1,0 +1,98 @@
+[    0.0s] cargando datos (v6_lib.cargar_df = v5_lib + masa_v6)...
+[    2.9s] df (3982, 281)  dR (1448, 281)  dF (2172, 281)  batch (362, 45) (299 DEV / 63 lockbox)
+[    2.9s] === tarea 1: anclaje de w (v6 vs v5, misma muestra) ===
+[    2.9s] muestra comun DEV (v5 y v6 + controles + 3 variantes KPI, sin NaN): n=285
+[    7.6s] w_anclaje v6 actual         n=285 coef_sn=2.854(p0.000) coef_feo=17.801(p0.000) w=6.24 [4.30,9.83]
+[   12.4s] w_anclaje v6 next           n=285 coef_sn=0.877(p0.267) coef_feo=10.556(p0.000) w=12.03 [-85.95,122.41]
+[   17.3s] w_anclaje v6 mean_cur_next  n=285 coef_sn=1.865(p0.000) coef_feo=14.178(p0.000) w=7.60 [5.21,12.65]
+[   22.3s] w_anclaje v5 actual         n=285 coef_sn=2.124(p0.001) coef_feo=12.827(p0.000) w=6.04 [3.64,15.54]
+[   27.2s] w_anclaje v5 next           n=285 coef_sn=0.535(p0.512) coef_feo=4.526(p0.086) w=8.45 [-127.95,78.68]
+[   32.2s] w_anclaje v5 mean_cur_next  n=285 coef_sn=1.329(p0.007) coef_feo=8.676(p0.000) w=6.53 [3.32,19.62]
+[   32.2s] muestra comun lockbox: n=63
+[   36.8s] w_anclaje LOCKBOX(reporte) v6 n= 63 w=0.68 [-5.87,4.66]
+[   41.5s] w_anclaje LOCKBOX(reporte) v5 n= 63 w=0.66 [-2.94,3.27]
+[   41.5s] guardado e8_03_w_anclaje.csv (8 filas)
+[   41.5s] w anclado v6=6.24  w anclado v5=6.04 (referencia E7-01: 6.04)
+[   41.5s] === tarea 1b: barrido de w ===
+[   52.8s] guardado e8_03_w_sweep.csv (36 filas)
+[   52.8s]   sweep v6: w=2:rho=0.201 w=4:rho=0.285 w=6:rho=0.322 w=8:rho=0.326 w=10:rho=0.322 w=15:rho=0.299
+[   52.8s]   sweep v5: w=2:rho=0.185 w=4:rho=0.264 w=6:rho=0.299 w=8:rho=0.314 w=10:rho=0.317 w=15:rho=0.314
+[   52.8s] === tarea 2: bateria Spearman ===
+[   54.0s]   R_sum_m6_ln_sn_dep       vs recuperacion_refinada_pct    rho_dev=0.069 p_dev=0.233 rho_lockbox=0.370
+[   55.1s]   R_sum_m6_ln_sn_dep       vs f_dross                      rho_dev=-0.046 p_dev=0.432 rho_lockbox=-0.202
+[   56.2s]   R_sum_m6_ln_sn_dep       vs f_polvo                      rho_dev=0.019 p_dev=0.743 rho_lockbox=-0.171
+[   57.4s]   R_sum_m6_ln_sn_dep       vs recuperacion_refinada_pct_next rho_dev=-0.018 p_dev=0.760 rho_lockbox=-0.135
+[   58.7s]   R_sum_m6_ln_feo_ret      vs recuperacion_refinada_pct    rho_dev=0.234 p_dev=0.000 rho_lockbox=-0.143
+[   59.8s]   R_sum_m6_ln_feo_ret      vs f_dross                      rho_dev=-0.166 p_dev=0.004 rho_lockbox=0.067
+[   61.0s]   R_sum_m6_ln_feo_ret      vs f_polvo                      rho_dev=-0.140 p_dev=0.016 rho_lockbox=-0.004
+[   62.2s]   R_sum_m6_ln_feo_ret      vs recuperacion_refinada_pct_next rho_dev=0.194 p_dev=0.001 rho_lockbox=0.329
+[   63.4s]   F_sum_m6_ln_sn_dep       vs recuperacion_refinada_pct    rho_dev=-0.082 p_dev=0.157 rho_lockbox=-0.252
+[   64.6s]   F_sum_m6_ln_sn_dep       vs f_dross                      rho_dev=0.231 p_dev=0.000 rho_lockbox=0.304
+[   65.9s]   F_sum_m6_ln_sn_dep       vs f_polvo                      rho_dev=-0.097 p_dev=0.094 rho_lockbox=0.011
+[   67.1s]   F_sum_m6_ln_sn_dep       vs recuperacion_refinada_pct_next rho_dev=-0.042 p_dev=0.471 rho_lockbox=-0.265
+[   68.4s]   R_sum_ln_sn_dep          vs recuperacion_refinada_pct    rho_dev=-0.001 p_dev=0.990 rho_lockbox=0.354
+[   69.6s]   R_sum_ln_sn_dep          vs f_dross                      rho_dev=0.035 p_dev=0.561 rho_lockbox=-0.193
+[   70.8s]   R_sum_ln_sn_dep          vs f_polvo                      rho_dev=0.029 p_dev=0.629 rho_lockbox=-0.155
+[   72.1s]   R_sum_ln_sn_dep          vs recuperacion_refinada_pct_next rho_dev=0.021 p_dev=0.724 rho_lockbox=-0.138
+[   73.3s]   R_sum_ln_feo_ret         vs recuperacion_refinada_pct    rho_dev=0.286 p_dev=0.000 rho_lockbox=-0.088
+[   74.4s]   R_sum_ln_feo_ret         vs f_dross                      rho_dev=-0.184 p_dev=0.002 rho_lockbox=0.012
+[   75.7s]   R_sum_ln_feo_ret         vs f_polvo                      rho_dev=-0.189 p_dev=0.001 rho_lockbox=0.017
+[   76.9s]   R_sum_ln_feo_ret         vs recuperacion_refinada_pct_next rho_dev=0.122 p_dev=0.039 rho_lockbox=0.375
+[   78.1s]   F_sum_ln_sn_dep          vs recuperacion_refinada_pct    rho_dev=-0.115 p_dev=0.053 rho_lockbox=-0.165
+[   79.3s]   F_sum_ln_sn_dep          vs f_dross                      rho_dev=0.309 p_dev=0.000 rho_lockbox=0.273
+[   80.5s]   F_sum_ln_sn_dep          vs f_polvo                      rho_dev=-0.120 p_dev=0.043 rho_lockbox=-0.086
+[   81.7s]   F_sum_ln_sn_dep          vs recuperacion_refinada_pct_next rho_dev=-0.063 p_dev=0.285 rho_lockbox=-0.066
+[   81.8s] guardado e8_03_bateria.csv (24 filas)
+[   81.8s] === tarea 3: Fusion, conservacion de Sn controlando el heel ===
+[   81.9s] guardado e8_03_fusion.csv (24 filas)
+[   81.9s]   Fusion natural DEV v6: coef=-0.553 p=0.203 [-1.404,0.298] n=297
+[   81.9s]   Fusion natural DEV v5: coef=-0.649 p=0.083 [-1.383,0.086] n=285
+[   81.9s] === tarea 4: PLM por escalon (v6 vs v5, con/sin signos, FULL/CURADO) ===
+[   81.9s] [1/20] Reduccion Sn  CURADO cinetica       v6 signos=True n_comun=1280
+[  132.5s]   R2_oof=0.766  R2_lockbox=0.807  n_dev=1046 n_lb=234
+[  132.5s] [2/20] Reduccion Sn  CURADO cinetica       v5 signos=True n_comun=1280
+[  176.9s]   R2_oof=0.766  R2_lockbox=0.800  n_dev=1046 n_lb=234
+[  176.9s] [3/20] Reduccion Sn  CURADO cinetica       v6 signos=False n_comun=1280
+[  197.7s]   R2_oof=0.766  R2_lockbox=0.807  n_dev=1046 n_lb=234
+[  197.7s] [4/20] Reduccion Sn  CURADO cinetica       v5 signos=False n_comun=1280
+[  217.3s]   R2_oof=0.766  R2_lockbox=0.800  n_dev=1046 n_lb=234
+[  217.3s] [5/20] Reduccion FeO CURADO cinetica       v6 signos=True n_comun=1280
+[  245.7s]   R2_oof=0.327  R2_lockbox=0.473  n_dev=1046 n_lb=234
+[  245.7s] [6/20] Reduccion FeO CURADO cinetica       v5 signos=True n_comun=1280
+[  299.7s]   R2_oof=0.197  R2_lockbox=0.190  n_dev=1046 n_lb=234
+[  299.7s] [7/20] Reduccion FeO CURADO cinetica       v6 signos=False n_comun=1280
+[  359.3s]   R2_oof=0.325  R2_lockbox=0.473  n_dev=1046 n_lb=234
+[  359.3s] [8/20] Reduccion FeO CURADO cinetica       v5 signos=False n_comun=1280
+[  418.3s]   R2_oof=0.196  R2_lockbox=0.177  n_dev=1046 n_lb=234
+[  418.3s] [9/20] Reduccion Sn  CURADO dosis_sobrante v6 signos=True n_comun=1280
+[  472.1s]   R2_oof=0.765  R2_lockbox=0.805  n_dev=1046 n_lb=234
+[  472.1s] [10/20] Reduccion Sn  CURADO dosis_sobrante v5 signos=True n_comun=1280
+[  542.5s]   R2_oof=0.765  R2_lockbox=0.799  n_dev=1046 n_lb=234
+[  542.5s] [11/20] Reduccion Sn  CURADO dosis_sobrante v6 signos=False n_comun=1280
+[  605.9s]   R2_oof=0.765  R2_lockbox=0.805  n_dev=1046 n_lb=234
+[  605.9s] [12/20] Reduccion Sn  CURADO dosis_sobrante v5 signos=False n_comun=1280
+[  655.5s]   R2_oof=0.764  R2_lockbox=0.799  n_dev=1046 n_lb=234
+[  655.5s] [13/20] Reduccion FeO CURADO dosis_sobrante v6 signos=True n_comun=1280
+[  722.8s]   R2_oof=0.326  R2_lockbox=0.471  n_dev=1046 n_lb=234
+[  722.8s] [14/20] Reduccion FeO CURADO dosis_sobrante v5 signos=True n_comun=1280
+[  784.3s]   R2_oof=0.196  R2_lockbox=0.190  n_dev=1046 n_lb=234
+[  784.3s] [15/20] Reduccion FeO CURADO dosis_sobrante v6 signos=False n_comun=1280
+[  845.5s]   R2_oof=0.326  R2_lockbox=0.470  n_dev=1046 n_lb=234
+[  845.5s] [16/20] Reduccion FeO CURADO dosis_sobrante v5 signos=False n_comun=1280
+[  897.2s]   R2_oof=0.193  R2_lockbox=0.189  n_dev=1046 n_lb=234
+[  897.2s] [17/20] Fusion Sn CURADO v6 signos=True n_comun=1720
+[  918.4s]   R2_oof=0.200  R2_lockbox=-0.682
+[  918.4s] [18/20] Fusion Sn CURADO v5 signos=True n_comun=1720
+[  940.9s]   R2_oof=0.184  R2_lockbox=-0.294
+[  940.9s] [19/20] Fusion Sn CURADO v6 signos=False n_comun=1720
+[  985.0s]   R2_oof=0.204  R2_lockbox=-0.664
+[  985.0s] [20/20] Fusion Sn CURADO v5 signos=False n_comun=1720
+[ 1022.5s]   R2_oof=0.189  R2_lockbox=-0.280
+[ 1022.5s] guardado e8_03_plm_comparacion.csv (20 filas) y e8_03_theta.csv (88 filas)
+[ 1022.5s] === tarea 5: control de reversion de ruido de %CaO / %FeO ===
+[ 1031.9s]   v6 m6_ln_feo_ret: R2_full=0.266 (n=1084)  R2_sinCaO/B2/IRF=0.251  R2_sinFeOinv=0.262
+[ 1040.2s]   v5 v5_ln_feo_ret: R2_full=0.173 (n=1040)  R2_sinCaO/B2/IRF=0.144  R2_sinFeOinv=0.170
+[ 1040.2s] guardado e8_03_reversion.csv (2 filas)
+[ 1040.2s] === tarea 6: cadena de signos ===
+[ 1040.2s] guardado e8_03_cadena_signos.csv (12 filas)
+[ 1040.2s] TOTAL calculo 1040.2s

@@ -1,0 +1,10 @@
+[    0.0s] cargando datos (etapa=escalon_R)...
+[    2.5s] df (3982, 281) batch (362, 45)
+[    2.5s] === etapa escalon_R ===
+[    2.5s] n escalones Reduccion: 1448; fraccion con cal>0: 0.999 (n=1446); cal>0 describe: {'count': 1446.0, 'mean': 4.956, 'std': 36.316, 'min': 0.0, '25%': 0.0, '50%': 0.0, '75%': 0.092, 'max': 653.132}
+[    2.5s]   PLM target=m6_ln_sn_dep (estado 38, palancas 5)
+[   37.4s]     r2_oof=0.765 r2_lockbox=0.799 n_dev=1058
+[   37.4s]   PLM target=m6_ln_feo_ret (estado 38, palancas 6)
+[   81.5s]     r2_oof=0.329 r2_lockbox=0.486 n_dev=1058
+[   81.5s] guardado e9_02_plm_reduccion.csv, e9_02_theta_reduccion.csv
+[   81.5s] FIN

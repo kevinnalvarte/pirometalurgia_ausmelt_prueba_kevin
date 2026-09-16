@@ -1,0 +1,8 @@
+[    0.3s] CONFIG_V6: {'w_sdi': 6.09, 'pp_kpi_por_unidad_sdi': 2.893, 'beta_fusion': {'C_por_Sn': {'pp_por_sd': 0.0, 'sd_batch': 0.018, 'media_batch': 0.272}, 'T_media': {'pp_por_sd': 0.0, 'sd_batch': 75.1, 'media_batch': 1068.0}}, 'pp_kpi_por_unidad_sn_dep_F': -0.58, 'pp_kpi_por_unidad_d_lnirf_F': 0.0, 'n_escalones_fusion': 7} PARAMS_MASA_V6: {'fusion': 'cierre', 'reduccion': 'cierre', 'pG': 0.703, 'gG': 0.3013, 'aC': 0.0, 'pCaO': 0.256, 'cCaO': 0.0794, 'delta_R': 0.01, 'w_obs_R': 0.0, 'resto_min': 0.3, 'ley_min_G': 5.0, 'ley_min_cao': 2.0}
+[  167.7s] 1: 10/60
+[  241.3s] 1: 20/60
+[  287.0s] 1: 30/60
+[  370.4s] 1: 40/60
+[  460.0s] 1: 50/60
+[  549.2s] 1: 60/60
+[  549.3s] LISTO 1 (596, 66)

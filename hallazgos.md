@@ -1305,3 +1305,200 @@ signo negativo viene de un sesgo de nivel (+0.08, concentrado en F6 con +0.23) p
 frío, extracción en Fusión 0.59 vs 0.62-0.65) y de una varianza del target 25 % menor. No es un modelo espurio, pero la palanca que
 sostiene el término de conservación (GN +0.030 en DEV) cae a 0 ajustando sólo el lockbox y a +0.017 con reentrenamiento progresivo.
 Consecuencia: Fusión es módulo de menor confianza; operar con reentrenamiento por campaña o dejar sólo ventana térmica y costos.
+
+
+## 19. Iteración 8: inferencia de masa de escoria v6 por cierre físico del resto no reducible y prescriptor v6 (2026-09-16)
+
+Artefacto: https://claude.ai/artifact/MWuQCtJCnqNtFVXJ9no3SP (fuente `experimentos/v6/figs/masa_escoria_v6.html` + `datos_v6.js`).
+Diseño `experimentos/v6/ITERACION_8_diseno.md`; librería `experimentos/v6/masa_v6.py`; módulo `modelo_predictivo_v6.py`; ficha
+`candidate_win_model_v6.md`; memos E8-01..E8-07 en `experimentos/v6/`.
+
+### 19.1 Auditoría del trazador CaO (v3)
+
+- `masa = cum cal / %CaO` suponía cal (tolva 6, kg húmedos) = CaO puro y única fuente de CaO. Regresión del CaO en escoria final (masa
+  del balance global × %CaO) sobre las entradas: 0.26·cal + 0.079·carga (DEV); con cal pura el %CaO en Fusión sería ~9 % y se observan
+  17-20 %. La cal se dosifica al ~10 % de la carga en todos los escalones, así que el error es un factor casi constante dentro del batch
+  (por eso "funcionaba" en cocientes) pero varía entre batches con cal/carga (ρ del ratio balance/trazador con cal/carga −0.35): el
+  "efecto de la cal" de exp 18 / E7-02 era contable, no metalúrgico.
+- Ruido del ensayo de %CaO ≈ 2.8 % relativo frente a −1.3 %/escalón de señal en Reducción: 31 % de los escalones sin carga "ganaban
+  masa"; Δln %CaO comparte r 0.12 con Δln %Al₂O₃ y 0.24 con Δln %SiO₂. El R² OOF 0.15 de `v5_ln_feo_ret` caía a 0.05 sin
+  `%CaO_prev`/B2/IRF_prev en el estado (corr término CaO vs %CaO_prev 0.68): el PLM aprendía la reversión del ruido de laboratorio.
+- Talón: F0 parece 1/3 de escoria final previa por composición, pero F1 correlaciona más con el final previo que F0 y el rezago 2
+  casi igual → autocorrelación temporal, no talón físico; una corrección de hasta 770 kg CaO no cambia los targets (r 0.97).
+
+### 19.2 Estimador v6 (`masa_v6.agregar_masa_v6`; PARAMS fusion="cierre", reduccion="cierre", pG 0.703, gG 0.301, aC 0, δ_R 0.01)
+
+    r_t = 1 − K·s_t − f_t          (K = M_SnO2/M_Sn = 1.270; s, f = fracciones de Sn y FeO de la escoria)
+    M_t·r_t = M_{t−1}·r_{t−1}·e^{−δ_R [Reducción]} + pG·cal_t + gG·carga_t ;   M_0 = (pG·cal_0 + gG·carga_0)/r_0
+
+Solo salen de la escoria SnO₂ (Sn a metal/polvo) y FeO (Fe a metal/dross); el resto (SiO₂, CaO, Al₂O₃, MgO, menores) se conserva.
+pG, gG = coeficientes efectivos (leyes de cal, ganga y ceniza desconocidas; kgh = kg húmedos) por OLS sin intercepto del resto final
+(masa del balance global × G_fin, G = CaO+SiO₂+Al₂O₃+MgO) sobre Σcal, Σcarga, solo DEV. Solo su suma está identificada (colineales;
+pG inestable por tercios 0.91/0.00/0.47, gG estable 0.28-0.37); los targets log son invariantes a un reescalado común. aC (ceniza de
+carbón) calibra negativo y n.s. (−0.56 [−1.33, 0.20]) → 0; las variantes con carbón inflan el R² de FeO metiendo la acción en el target.
+E8-01 (66 variantes): la elegida tiene ρ(escala, cal/carga) 0.03 (v3 −0.35), balance/M 1.04 DEV / 1.02 lockbox (v3 1.08/1.12),
+3.5 % de escalones sin carga que ganan masa (v3 31 %), sd Δln M 0.025 (v3 0.040), ruido propagado 0.013 vs 0.028 (SNR 1.2-3.0 vs
+0.55-1.4), cierre de Sn (cargado − residual)/(M+D+P) mediana 0.99, Sn residual final r 0.95 con el balance. Las variantes que dividen
+por el ensayo contemporáneo (trazador G/CaO en Reducción, o mezcla con peso alto) suben el R² de FeO hasta 0.66 pero con 20 % de
+escalones que ganan masa: el mismo artefacto de v3. `m6_k_anclaje` (balance/M por batch, LEAKAGE) tiene 17 % de varianza explicada
+por un eje de campaña (espesor de ladrillo ≡ tiempo): recalibrar pG/gG por campaña o lote de cal.
+
+### 19.3 Balances (E8-02)
+
+Balance global de masa por batch = ancla de calibración y del KPI refinado. Balance de energía por escalón recomputado con la masa v6:
+no mejora ΔT (OOF 0.464 igual; lockbox Reducción 0.465→0.351 con la masa v6 en el estado), features térmicas e6_* sin efecto (mismo
+R²), GN por t de escoria como palanca: OOF igual, lockbox 0.351→0.407 (variante documentada, no adoptada por criterio OOF). El calor
+de reacción aparente no cierra con ninguna masa (sesgo de decenas de GJ; faltan aire de post-combustión y temperatura de baño).
+
+### 19.4 Targets, anclaje y PLM v6 (E8-03, E8-05)
+
+- Targets `m6_ln_sn_dep`, `m6_ln_feo_ret`; estado v5 con inventarios m6_* + `m6_resto_frac_prev`; palancas `Cx_sn_v6`, `Cx_av_v6`
+  (misma escala kg/min que v4), GN, exceso O₂, aire. Anclaje (OLS HC3 del KPI refinado, DEV n=285, controles E7-01): coef Sn 2.893
+  (p 5e-6), FeO 17.63 (p 1e-7) → w = 6.09 [4.05, 9.99] (v5 6.04 [3.63, 14.33]: IC ~50 % más angosto); K = 2.89 pp/unidad; Fusión
+  β_F −0.58 (DEV p 0.17; total −0.91 p 0.014). CONFIG_V6 fijada con estos valores.
+- Validación (mismas filas que v5): Reducción FeO_ret PLM 0.329/0.486 OOF/lockbox (v5 0.169/0.194; HGB 0.305/0.455); Sn_dep
+  0.765/0.800 (v5 0.766/0.802); ΔT R 0.464/0.351 (v5 0.466/0.465); Fusión Sn_dep 0.161/−0.47 (v5 0.180/−0.38); ΔT F 0.497/0.037.
+  Reversión de ruido: quitar %CaO_prev/B2/IRF_prev cuesta 5.6 % del R² a v6 frente a 16.8 % a v5.
+- θ (estado FULL, signos de teoría): GN +0.052 [0.005, 0.099] sobre Sn y −0.012 [−0.021, −0.004] sobre FeO (única palanca robusta en
+  ambos canales, no selectiva); Cx_sn_v6 +0.16 [0.03, 0.29] (se identifica con FULL; con CURADO n.s.); exceso O₂ y aire ≈ 0;
+  carbón y Cx_av sobre FeO en cota. Cadena de signos igual que v5.
+
+### 19.5 Política y evidencia (E8-05, E8-07; 362 batches cross-fitted)
+
+- Política: Fusión carbón −0.5 sd (−2.3..−3.2 kg/min en todos los escalones), GN −0.13 sd; Reducción carbón +1.5 kg/min con avance
+  <0.84 y −2.5..−4.2 con avance >0.84, GN −0.12 sd, aire +0.24 sd. Uplift físico medio 243 kg Sn eq./batch (v5 182; K mayor).
+- Cadena θ→agregado→KPI: +0.26 pp [0.18, 0.36] DEV, +0.37 [0.23, 0.52] lockbox (~134/189 kg Sn/batch); v5 +0.21/+0.29. Casi todo
+  por retención de FeO.
+- Adherencia vs KPI: dist_F −0.42 pp/sd (DEV p 0.17; v5 −0.70 p 0.025), polvo +0.006/sd (p 0.006; v5 +0.008 p 0.0002), Reducción
+  nula en ambas, placebo nulo. Emparejamiento por estado: dist_total DEV adverso (−1.2 pp p 0.035), dist_R sobre KPI del batch
+  siguiente +1.5 pp (p 0.012): señales pequeñas, inestables y de signo mixto. **v6 no tiene mejor evidencia off-policy que v5**; su
+  ventaja es física y de precisión (target de FeO), no un KPI demostrado. v5 y v6 coinciden en adherencia (r 0.90) y en el signo de
+  las palancas de Fusión (92-99.7 %) y de GN/O₂/aire de Reducción (76-78 %), pero discrepan en el carbón de Reducción (52 % mismo
+  signo): resolver en piloto A/B antes de desplegar.
+
+### 19.6 Decisión y límites
+
+Se adopta la masa v6 (cierre físico) como inferencia de escoria por escalón y los targets/estado v6 para el modelado; el prescriptor
+v6 queda como candidato con la misma estructura que v5 y anclaje más preciso, pendiente de piloto. Límites: pG/gG por campaña; 3 % de
+escalones sin ensayo de Sn/Fe quedan sin masa y re-anclan con el trazador G; δ_R constante; Fusión sin target predictivo en lockbox;
+w anclado en DEV no es el óptimo del lockbox (fin de campaña premia agotar Sn); carbón sobre FeO no identificado; evidencia
+observacional.
+
+Lección operativa: en subagentes, los procesos lanzados con `&` de Bash mueren al cerrar el turno; usar PowerShell `Start-Process` con
+redirección a log y esperar con `until` en Bash en segundo plano. Los 5 folds + lockbox de la política tardan ~10 min cada uno en
+paralelo (20 núcleos).
+
+## 20. Iteración 9: el mejor enfoque predictivo/prescriptivo — v7 (2026-09-16)
+
+Artefacto: https://claude.ai/artifact/L6GFrWjVcddg2tTa1AkL9F (fuente `experimentos/v7/figs/enfoque_v7.html` + `datos_v7.js`, `e9_09_datos_artefacto.py`).
+
+Diseño `experimentos/v7/ITERACION_9_diseno.md` (6 hipótesis refutables, criterios de decisión fijados antes de los resultados);
+librería `experimentos/v7/v7_lib.py`; caché `experimentos/cache/df_v6.pkl`; memos `experimentos/v7/e9_0N_resultados.md`; módulo
+`modelo_predictivo_v7.py`; ficha `candidate_win_model_v7.md`. Meta (`/goal`): el mejor modelo predictivo/prescriptivo por escalón para
+Fusión y Reducción, con targets y objetivo agregables (escalón → grupo → fase → batch), palancas identificadas, parsimonia y
+validación OOF/lockbox, parando sólo al demostrar que no hay enfoque mejor con los datos disponibles.
+
+### 20.1 Agregación exacta y anclaje único por fase (E9-00, Fable)
+
+- Identidad telescópica verificada en 254 batches con 4 escalones válidos: Σ_R `m6_ln_sn_dep` − ln((Sn_ini+Sn alimentado)/Sn_fin) =
+  +0.005 ± 0.018; Σ_R `m6_ln_feo_ret` − ln(FeO_fin/FeO_ini) = 0 exacto. Con escalones inválidos la fase se agrega por cociente de
+  inventarios; la suma por escalón es la descomposición.
+- Anclaje del KPI por grupo (OLS HC3, DEV n 298): ln_sn_dep R0 2.97 / R1 4.21 / R2-R3 1.44 pp/unidad; ln_feo_ret 24.6 / 24.1 / 11.9.
+  El cociente w es estable (8.3 / 5.7 / 8.3) y la mitad del grupo tardío es atenuación por errores-en-variables (SNR del cierre físico
+  3.0 en R1 vs 1.2 en R2-R3, E8-01): la física no distingue de qué escalón viene un ln (el KPI depende sólo del estado terminal), así
+  que se mantiene un único (K, w) por fase. Varianza de J_R: FeO 62 %, Sn 38 %; R2-R3 48 %, R0 30 %, R1 22 %. E9-03 lo confirma desde el
+  otro lado: J temprano (R0-R1) ρ 0.35 DEV / 0.31 lockbox (p 0.014) con el KPI; J tardío 0.09 / −0.07 (ruido).
+- Fusión: Σ_F ln_sn_dep −0.46 (p 0.29 DEV) / −0.71 (p 0.05 total con heel); por grupos F1-F3 −0.92 (p 0.23), F4-F6 +0.31 (n.s.).
+
+### 20.2 Término de legado: la retención de FeO también paga en el batch siguiente (E9-00b)
+
+KPI_next ~ Σ_R ln_feo_ret +10.4 pp/unidad [5.0, 15.9] (p 2e-4 DEV; +11.4 total); Σ_R ln_sn_dep n.s. Placebo temporal (KPI del batch
+anterior) +2.1 (p 0.56): no es campaña. Mediación: Σ_R ln_feo_ret → ln IRF al cierre de F0 del batch siguiente +0.50 (p 5e-4) → KPI_next
++7.6/unidad; con el IRF final de Reducción en la regresión el FeO cae a 4.8 n.s. y el IRF toma 5.4 (p 0.04): el legado viaja por el talón
+químico de la matriz (iteración 5), no por el Sn. Anclaje sobre KPI_actual + KPI_siguiente (DEV n 297, bootstrap 1000): K_Sn 3.522,
+K_FeO 27.68 → **w 7.86 [5.14, 13.04]** (batch actual solo: 2.853 / 17.26, w 6.05 [4.11, 9.63]). CONFIG_V7 adopta K 3.522 pp (dos
+batches) y w 7.86; la estructura aditiva no cambia porque el legado depende sólo del estado terminal. Fusión (E9-00c): anclaje como
+nivel terminal ln(Sn conservado/Sn alimentado) +1.22 pp/unidad con heel (p 0.14 DEV; +1.70 p 0.013 total), equivalente en fuerza a la
+suma de escalón (−0.58); pesos de dilución de cada escalón sobre el nivel terminal F1 0.02 … F5 0.49, F6 1.00. Se mantiene β_F = −0.58.
+
+### 20.3 Seis hipótesis, seis veredictos (Sonnet 5.1 en paralelo; criterios del diseño)
+
+| H | Experimento | Resultado | Veredicto |
+|---|---|---|---|
+| H1 forma estructural | E9-01: PLM vs tasa vs cinético NLS (7 par.: C_eff, reparto competitivo φ = Sn/(Sn+κ·FeO), Arrhenius) vs log-lineal vs híbridos | Sn_dep 0.765/0.800 (PLM) vs 0.342/0.458 (estructural), 0.409/0.676 (log-lineal), 0.635/0.692 (híbrido a), 0.767/0.802 (híbrido b); FeO 0.329/0.486 vs 0.135/0.270; η_C y γ_GN saturan la cota, κ0 3.4 (preferiría FeO: anti-teórico), inestable por tercios (0.09/0.49/0.44) | **Refutada**: el PLM sigue; la forma en tasa empata (−0.006) |
+| H2 cal como palanca | E9-02: batch (KPI, canales, dosis-respuesta, cuadrático), escalón F (ΔB2, ΔT, agotamiento, Δln IRF), escalón R, óptimo de basicidad | cal/carga → KPI −0.52 pp/sd (p 0.145 DEV; E7-02 daba −0.87 p 0.038 con el trazador v3); cal → ΔB2 n.s. (IC toca 0), → ΔT en cota, → Δln IRF −0.006* pero 1/3 tercios; quintiles planos; 0/6 cuadráticos; cal en R ≈ 0 (mediana 0 kg/min) | **Refutada**: la cal NO es palanca; el efecto de E7-02 era el artefacto contable del trazador. Basicidad realizada = STATE |
+| H3 política con horizonte | E9-03: simulador de estado (cierre físico + PLM), rollout de 80 secuencias vs miope vs histórica, 5 folds + lockbox, bootstrap de θ, pesimista | Simulador: Sn_inv R² 0.69 → 0.12 por orden, FeO 0.89 → 0.66, T 0.97 → 0.90, sesgo < 8 %. J_batch mediana DEV: histórica −2 073, miope −1 967, horizonte −1 904 kg Sn eq; mejora mediana horizonte/miope 0.0 % [0, 0] (gana en 40 %, empata 59 %); robustez a θ 0.118, pesimista 0.095 | **No adoptada**: política miope por escalón (la mayor parte del valor es reducir carbón total en R1-R2, no re-secuenciarlo) |
+| H4 Fusión | E9-04: diagnóstico por orden, reentrenamiento (walk-forward, ventana móvil, progresivo), 8 targets, valor del estado final, polvo | Agotamiento: OOF 0.03-0.11 por orden, lockbox negativo en todos, sesgo +0.22 en F6; recalibrar intercepto por orden con 20 batches −0.45 → +0.01; ningún reentrenamiento cruza 0 (mejor −0.01). ΔT sí: 0.04 → 0.16 (progresivo) / 0.32 (walk-forward). F1 nunca se modelaba (gradiente NaN). Δ%FeO es el target más robusto (0.18/0.17) pero es el espejo del Sn extraído; ln IRF nivel 0.77/0.84 sin palanca. Estado final: `m6_sn_inv` +8.7 pp/sd (p 0.038) en OLS conjunta; IRF/B2 heredados dominan la Reducción; carbón acumulado en F baja la retención de FeO en R (−0.072, p 0.014). Polvo: sólo T media F (+0.008/sd, p 0.027), gas/t sin señal | **A medias**: se corrige F1, se recomienda reentrenar ΔT por campaña, se mantiene conservación de Sn como objetivo débil; el agotamiento de Fusión no es predecible fuera de DEV con estos datos |
+| H5 techo | E9-05: Monte Carlo del ruido de ensayo (200 réplicas), curva de aprendizaje, bake-off (14 algoritmos, grid HGB 81, stacking, 5 semillas), desglose | R²_max: Sn_dep 0.998 (R) / 0.978 (F), FeO_ret **0.571** (0.78 con 2 % de ruido, 0.13 con 4 %: el ruido real de %FeO ≤ 2.8 %). PLM: 77 % / 16 % / 58 % del techo. Curva saturada desde n ≈ 150 (asíntota +0.013 / −0.005). Bake-off: Sn_dep stacking +0.005 [−0.003, 0.014]; FeO ninguno supera al PLM; F stacking +0.031 OOF pero lockbox −0.77 (peor). Residuos: autocorr lag-1 −0.05/−0.11/−0.04; PLM fuerte en R1 y avance medio, débil en R0/R3 y avance extremo | **Confirmada**: no hay modelo mejor con estos datos; el margen de FeO es ruido de laboratorio, el de Sn (R) es estado/forma ya agotado por E9-01/E9-06, el de Fusión es deriva de campaña |
+| H6 parsimonia | E9-06: importancia por permutación y para la identificación, eliminación libre vs física, sets por teoría, tercios, walk-forward, varianza de θ | Señal concentrada en %Sn prev (Δ 0.32), Sn×FeO, Sn/FeO. Eliminación libre identifica el carbón en todos los k (38 → 6); la ruta que protege el núcleo teórico pierde la identificación en k ≤ 12. Sets por teoría T1-T3 (10-18) no identifican; la historia de dosificación no es imprescindible (T4_sin_dosif sí identifica). Nuisance lineal (Ridge) colapsa θ → 0: el HGB es necesario. `libre_k16`: 0.767/0.795 y 0.333/0.483, Cx_sn +0.178 [0.047, 0.287], identificado en 2/3 tercios (FULL 1/3), walk-forward +0.007 / +0.028 sobre FULL | **Confirmada (débil)**: `ESTADO_R_V7` = libre_k16 (16 features) |
+
+### 20.4 Sistema v7 (`modelo_predictivo_v7.py`; E9-07 `e9_07_validacion_v7.py`)
+
+Capa fina que reconfigura v6 en el proceso (`activar_v7()`): estado de Reducción = `ESTADO_R_V7` (16), CONFIG_V7 (K 3.522 pp de KPI de
+dos batches, w 7.86, β_F −0.58), base con F1 modelable (gradiente de T imputado a 0 en el segundo escalón), política miope por escalón,
+`agregar_objetivo()` para la descomposición escalón → grupo (R temprano/tardío, F inicial/final) → fase → batch en pp y kg.
+
+| Fase / target | k | R² OOF | R² lockbox | v6 (38 / 25) | θ clave (+1 sd, IC95 %) |
+|---|---|---|---|---|---|
+| R agotamiento Sn | 16 | 0.767 | 0.795 | 0.765 / 0.800 | Cx_sn +0.178 [0.041, 0.285]; GN +0.047 [0.011, 0.086] |
+| R retención FeO | 16 | 0.333 | 0.483 | 0.329 / 0.486 | GN −0.008 [−0.015, 0]; carbón y Cx_av en cota 0 |
+| R ΔT | 6 | 0.464 | 0.351 | 0.464 / 0.351 | GN +2.9 °C, O₂ −4.2 °C |
+| F agotamiento Sn (con F1) | 25 | 0.190 | −0.695 | 0.161 / −0.466 (sin F1) | GN +0.021 [0.001, 0.038] |
+| F ΔT (con F1) | 8 | 0.403 (0.49 sin F1) | 0.092 | 0.497 / 0.037 | O₂ −1.3 °C |
+
+GN sobre la retención de FeO sólo se identifica en el último tercio cronológico con cualquier estado (FULL, curado, k16, k20): es la
+palanca menos robusta del sistema y la que sostiene "menos GN en Reducción".
+
+### 20.5 Política y evidencia (362 batches cross-fitted; E9-07, E9-08)
+
+- Política: Reducción carbón +3.0 kg/min con avance < 0.84 y −1.3 / −2.6 / −1.4 en los tramos siguientes, GN −0.3..−0.6, aire +2..+4, O₂ ≈ +0.3;
+  Fusión carbón −4.4, GN −0.2, O₂ −0.3. Coincide con v6 en Fusión (r 0.99) y en el signo de Reducción (77-83 %); recorta menos carbón tardío.
+  Uplift J: 37 kg/escalón en R, 14 en F.
+- Cadena θ → J → KPI (pp de dos batches, mediana por batch): **+0.27 [0.25, 0.29] DEV, +0.35 [0.32, 0.39] lockbox** (≈ 137 / 179 kg Sn),
+  > 99 % de batches positivos; R temprano +0.15, R tardío +0.16, F +0.04.
+- Off-policy (OLS HC3 con controles): `dist_F` −0.49 pp/sd (p 0.13, perm 0.06 DEV), f_polvo +0.0059/sd (p 0.013, perm 0.001; total p 0.004),
+  f_dross −0.0045/sd (p 0.038 total); `dist_R` nula; placebo nulo. v6: dist_F −0.42 (p 0.17); v5: −0.70 (p 0.025).
+- Potencia (E9-08): se(dist_R) 0.21 pp/sd → MDE 0.59 frente a un efecto esperado de 0.32 pp/sd (pendiente del uplift predicho sobre la
+  distancia): potencia 32 %, ~1 000 batches necesarios. El nulo de Reducción es lo que el diseño observacional puede dar; la prueba del
+  KPI exige un piloto A/B.
+
+- Sensibilidad al legado (w 6.09 / K 2.89): Fusión idéntica; Reducción 88-90 % mismo signo con menos recorte de GN (−0.08 vs −0.45);
+  uplift +0.17 / +0.22 pp (un batch); misma evidencia off-policy. El legado cambia la intensidad, no la dirección.
+
+### 20.6 Decisión y límites
+
+Se adopta v7 como enfoque ganador: PLM por fase con signos de teoría sobre targets log telescópicos (masa por cierre físico), estado
+parsimonioso de 16 en Reducción, objetivo aditivo anclado en el KPI de dos batches (legado por el talón de matriz), política miope por
+escalón con soporte relativo. Se demuestra que con estos datos no hay enfoque mejor en forma (E9-01, E9-05), estado (E9-06), política
+(E9-03) ni palancas (E9-02), y que los márgenes restantes son de laboratorio (ruido de %FeO: techo 0.57), de campaña (agotamiento de Fusión)
+y de diseño experimental (potencia de la evidencia de Reducción). Lecciones operativas: los agentes que esperan procesos en segundo plano
+se detienen al cerrar su turno (vigilar sus logs desde el orquestador y reanudarlos); `masa_v6.agregar_masa_v6` conserva las columnas m6_*
+si ya existen (eliminarlas antes de perturbar); un `exit` dentro de un bucle de espera mata el vigilante.
+
+## 21. Dictamen del comité de pirometalurgistas analíticos sobre v7 (2026-09-16)
+
+Cuatro auditores independientes (A fundamento físico-químico, B estadística e identificación, C operación y seguridad, D datos y validación;
+informes `experimentos/v7/auditoria_[A-D]_*.md`) y síntesis en `dictamen_comite_v7.md`. Veredicto: **no desplegar en línea; piloto restringido
+tras correcciones**.
+
+- Rescatado: masa por cierre físico (targets de R invariantes a pG/gG y δ_R), targets telescópicos, PLM con cross-fitting, estado k16 como
+  predictor (optimismo ≤ 0.007), efectos del carbón (+0.178 [0.041, 0.285], óptimo interior) y del GN sobre el agotamiento de Sn, legado como
+  señal (replica en lockbox +19.8, p 0.011), recorte de carbón en R2-R3 (selectividad marginal 5.3 → 0.44 kg Sn/kg FeO), cadena de validación sin
+  fuga y reproducible.
+- En duda: efectos sobre la retención de FeO (IC libres: GN [−0.0174, +0.0002], O₂, aire, carbón ±0.045; sostienen el 82 % del uplift); K y w
+  (K_Sn IC [1.8, 5.5]; w ≈ 1 en lockbox; 1 kg Sn agotado vale 2.0-2.5 kg Sn a metal; 1 kg FeO vale 6.9 kg Sn en R0 y 0.68 en R3); mecanismo
+  del legado (persiste 2 batches, signo contrario al talón metálico); transición F6→R0 (Fe³⁺, Fe metálico del dross, Sn²⁺); ceguera al polvo
+  (9.3 t Sn/batch, 18 %); estado k16 con relojes de campaña (termocupla −0.97 con espesor; cum_aire 0.92 con el tiempo; espesor ρ −0.9996 con
+  la fecha); OOF cronológico de FeO 0.296 vs 0.333; techo de ruido corregido 0.79; latencia del ensayo (R1-R3 no ejecutables en tiempo real);
+  uplift con IC propagado ≈ [0.12, 0.63]; recorte de carbón de Fusión (defendible por costo/polvo, con λ constante y no en fin de campaña).
+- Descartado: conservación de Sn en Fusión como principio (β_F = 0); aire como palanca; F1 recomendable; "carbón selectivo"; signo de O₂ sobre ΔT
+  como física; techo 0.571 y "ruido ≤ 2.8 %"; cifra "3 % sin masa" (8 % en R, 29 % en R3); evidencia off-policy como prueba (polvo q-BH 0.24);
+  "las recomendaciones mejoran el batch" (A/B sobre el KPI exigiría ~3 500 batches por brazo); término de IC constante (`n_boot=0`); límites
+  globales de fase (52 % de R0 en la cota P99; saltos desde estados sin soporte).
+- Correcciones ya aplicadas: filtro anti-fuga endurecido (`fe.es_feature_segura_para_prescripcion` rechaza cualquier rol que mencione LEAKAGE
+  o DIAG; `m6_G_pct` reclasificado) y test `experimentos/v7/test_antifuga_v7.py` sobre las 281 columnas.
+- Hoja de ruta (§5 del dictamen): fase 0 v7.1 conservador (θ libre, uplift honesto, límites por orden, aire/O₂ congelados, β_F 0, sin legado
+  como base, contraste con objetivo lineal en kg, `espesor` fuera, IC real, precios reales); fase 1 datos de planta (latencia del ensayo,
+  especiación Fe/Sn, %Fe de dross y metal, polvo por fase, composición del GN, aire de camisa, talón, precios); fase 2 modo sombra 30-60 batches;
+  fase 3 piloto aleatorizado por escalón (carbón R0-R1 ±1 sd con techo P90, ≈ 15-30 batches por brazo; GN ≈ 230); fase 4 A/B de política
+  restringida 120 batches con endpoints de consumo/escalón y KPI como seguridad; fase 5 decisión con re-anclaje en nuevo holdout; fase 6 mejoras.

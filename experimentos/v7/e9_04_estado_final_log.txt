@@ -1,0 +1,18 @@
+[    3.1s] === R_sum_m6_ln_feo_ret: n_total=358 ===
+[    3.9s]   OLS dev: n=295 r2adj=0.171
+[    3.9s]   OLS total: n=358 r2adj=0.179
+[    4.9s]   HGB: r2_oof=0.066 r2_lockbox=0.00605122628566257
+[    7.1s] === R_sum_m6_ln_sn_dep: n_total=358 ===
+[    7.1s]   OLS dev: n=295 r2adj=0.211
+[    7.1s]   OLS total: n=358 r2adj=0.220
+[    8.1s]   HGB: r2_oof=0.119 r2_lockbox=0.12083083833266939
+[   10.1s] === J_R_batch: n_total=358 ===
+[   10.2s]   OLS dev: n=295 r2adj=0.190
+[   10.2s]   OLS total: n=358 r2adj=0.225
+[   11.1s]   HGB: r2_oof=0.025 r2_lockbox=0.06952914360445461
+[   12.8s] === recuperacion_refinada_pct: n_total=359 ===
+[   12.8s]   OLS dev: n=296 r2adj=0.078
+[   12.8s]   OLS total: n=359 r2adj=0.102
+[   13.6s]   HGB: r2_oof=-0.057 r2_lockbox=0.12844866618843198
+[   15.4s] FIN estado_final
+[   15.4s] TOTAL 15.4s

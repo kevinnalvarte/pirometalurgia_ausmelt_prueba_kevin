@@ -1,0 +1,9 @@
+[    0.0s] CONFIG: {'w_sdi': 7.86, 'pp_kpi_por_unidad_sdi': 3.522, 'beta_fusion': {'C_por_Sn': {'pp_por_sd': 0.0, 'sd_batch': 0.018, 'media_batch': 0.272}, 'T_media': {'pp_por_sd': 0.0, 'sd_batch': 75.1, 'media_batch': 1068.0}}, 'pp_kpi_por_unidad_sn_dep_F': -0.58, 'pp_kpi_por_unidad_d_lnirf_F': 0.0, 'n_escalones_fusion': 7} ESTADO_R: 16
+[   55.9s] 0: 10/60
+[   87.4s] 0: 20/60
+[  118.5s] 0: 30/60
+[  150.3s] 0: 40/60
+[  181.3s] 0: 50/60
+[  211.5s] 0: 60/60
+[  211.6s] guardado 0 (591, 66)
+[  211.6s] FIN

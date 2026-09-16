@@ -1,0 +1,17 @@
+{
+  "kpi_usado": "kpi_v6",
+  "decision_kpi": {
+    "kpi_col": "kpi_v6",
+    "rho": 0.9993486175070618,
+    "pearson": 0.9994128205025122,
+    "mae_pp": 0.09507455237662368,
+    "frac_reclasificados": 0.016574585635359115,
+    "n_fila_distinta_v3_v6": 1,
+    "n_batches": 362,
+    "dependencia_material": true
+  },
+  "veredicto": "NO SE ADOPTA COMO PALANCA DE PLAN (evidencia insuficiente)",
+  "p_batch_ok": false,
+  "senal_b2_ok": false,
+  "theta_cal_sobre_dB2": 0.0003181624588652
+}

@@ -1,0 +1,11 @@
+[03:21:46] entrenando sistema v6 en DEV sin el fold 3 (n=239)...
+[03:22:13] sd_acciones Reduccion (DEV entrenamiento): {'tasa_feed_Carbon_kg_min': 22.008261440366432, 'tasa_gn_nm3_min': 4.996062074064652, 'tasa_o2_nm3_min': 8.754526157032553, 'tasa_aire_nm3_min': 11.529816503729858}
+[03:22:36] 3: 10/60 (24s)
+[03:23:00] 3: 20/60 (48s)
+[03:23:24] 3: 30/60 (71s)
+[03:23:50] 3: 40/60 (98s)
+[03:24:15] 3: 50/60 (122s)
+[03:24:41] 3: 60/60 (148s)
+[03:24:41] 3: 59/60 batches usables, 148s total
+[03:24:41] FIN politicas_3
+[03:24:41] tiempo total: 175s

@@ -1753,7 +1753,9 @@ def es_feature_segura_para_prescripcion(nombre: str) -> bool:
     rol = CLASIFICACION_FEATURES.get(nombre)
     if rol is None:
         return False
-    return not (rol.startswith("LEAKAGE") or rol == "TARGET")
+    # Auditoria D (2026-09-16): un rol que MENCIONE LEAKAGE en cualquier posicion (p. ej. "STATE (contemporaneo: LEAKAGE ...)")
+    # tambien es inseguro; antes solo se rechazaba el prefijo y m6_G_pct pasaba el filtro.
+    return not ("LEAKAGE" in rol or rol == "TARGET" or rol == "DIAG")
 
 
 def filtrar_features_seguras(nombres: list[str]) -> list[str]:

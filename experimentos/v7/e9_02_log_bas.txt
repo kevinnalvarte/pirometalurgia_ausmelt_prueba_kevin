@@ -1,0 +1,19 @@
+[    0.0s] cargando datos (etapa=basicidad)...
+[    2.9s] df (3982, 281) batch (362, 45)
+[    2.9s] === etapa basicidad ===
+[    3.8s] e9_02_basicidad_cuadratico.csv (12, 10)
+[    3.8s]      variable               target muestra  coef_lin   coef_sq      p_sq  ci_lo_sq  ci_hi_sq   vertice    n
+0    b2_fin_F               kpi_v6     dev  0.232230  0.127118  0.158997 -0.049776  0.304012  0.483398  297
+1    b2_fin_F               kpi_v6   total  0.252460  0.074555  0.372906 -0.089438  0.238547  0.446958  360
+2    b2_fin_F  R_sum_m6_ln_feo_ret     dev  0.016351 -0.000239  0.937678 -0.006240  0.005762  2.124095  296
+3    b2_fin_F  R_sum_m6_ln_feo_ret   total  0.020137 -0.001258  0.621294 -0.006250  0.003734  0.900586  359
+4    b2_fin_F   R_sum_m6_ln_sn_dep     dev -0.045125  0.024307  0.197994 -0.012702  0.061316  0.569576  296
+5    b2_fin_F   R_sum_m6_ln_sn_dep   total -0.042747  0.018261  0.328059 -0.018334  0.054856  0.580910  359
+6   irf_fin_F               kpi_v6     dev -0.123411  0.036677  0.502855 -0.070614  0.143968  0.325030  297
+7   irf_fin_F               kpi_v6   total -0.055184  0.028147  0.801195 -0.190946  0.247240  0.304059  360
+8   irf_fin_F  R_sum_m6_ln_feo_ret     dev  0.004355  0.002915  0.476439 -0.005108  0.010937  0.252401  296
+9   irf_fin_F  R_sum_m6_ln_feo_ret   total  0.005885  0.003038  0.411030 -0.004206  0.010283  0.245784  359
+10  irf_fin_F   R_sum_m6_ln_sn_dep     dev  0.025141 -0.003939  0.732387 -0.026517  0.018639  0.370158  296
+11  irf_fin_F   R_sum_m6_ln_sn_dep   total -0.007167 -0.004218  0.546872 -0.017939  0.009504  0.249334  359
+[    4.3s] e9_02_basicidad_deciles.csv (60, 8)
+[    4.4s] FIN

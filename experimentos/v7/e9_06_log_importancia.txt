@@ -1,0 +1,17 @@
+[importancia] predictiva sn_dep lista en 5.1s
+[importancia] predictiva feo_ret lista en 5.5s
+[importancia] identificacion sn_dep/Cx_sn_v6 lista en 295.2s
+[importancia] identificacion feo_ret/tasa_feed_Carbon_kg_min lista en 367.1s
+         tipo   clave        target                        feature  importancia_r2  sd_importancia  r2_base palanca_foco feature_quitada  theta_foco_1sd  ci_lo  ci_hi  ancho_ic excluye_0_signo_correcto  delta_theta_vs_full  delta_ancho_vs_full
+0  predictiva  sn_dep  m6_ln_sn_dep        ley_sn_escoria_pct_prev          0.3250          0.0167   0.7614          NaN             NaN             NaN    NaN    NaN       NaN                      NaN                  NaN                  NaN
+1  predictiva  sn_dep  m6_ln_sn_dep       ley_feo_escoria_pct_prev          0.0004          0.0006   0.7614          NaN             NaN             NaN    NaN    NaN       NaN                      NaN                  NaN                  NaN
+2  predictiva  sn_dep  m6_ln_sn_dep      ley_sio2_escoria_pct_prev          0.0012          0.0006   0.7614          NaN             NaN             NaN    NaN    NaN       NaN                      NaN                  NaN                  NaN
+3  predictiva  sn_dep  m6_ln_sn_dep       ley_cao_escoria_pct_prev         -0.0002          0.0001   0.7614          NaN             NaN             NaN    NaN    NaN       NaN                      NaN                  NaN                  NaN
+4  predictiva  sn_dep  m6_ln_sn_dep              basicidad_B2_prev          0.0004          0.0004   0.7614          NaN             NaN             NaN    NaN    NaN       NaN                      NaN                  NaN                  NaN
+5  predictiva  sn_dep  m6_ln_sn_dep              basicidad_B4_prev         -0.0003          0.0002   0.7614          NaN             NaN             NaN    NaN    NaN       NaN                      NaN                  NaN                  NaN
+6  predictiva  sn_dep  m6_ln_sn_dep  indice_estructural_molar_prev          0.0004          0.0004   0.7614          NaN             NaN             NaN    NaN    NaN       NaN                      NaN                  NaN                  NaN
+7  predictiva  sn_dep  m6_ln_sn_dep                indice_irf_prev         -0.0012          0.0005   0.7614          NaN             NaN             NaN    NaN    NaN       NaN                      NaN                  NaN                  NaN
+8  predictiva  sn_dep  m6_ln_sn_dep              ratio_sn_feo_prev          0.0231          0.0045   0.7614          NaN             NaN             NaN    NaN    NaN       NaN                      NaN                  NaN                  NaN
+9  predictiva  sn_dep  m6_ln_sn_dep             ratio_sn_sio2_prev          0.0010          0.0012   0.7614          NaN             NaN             NaN    NaN    NaN       NaN                      NaN                  NaN                  NaN
+FIN importancia
+tiempo total: 673.0s
