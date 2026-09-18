@@ -1,0 +1,28 @@
+[19:45:40] cargando datos (etapa orden) ...
+[19:45:40] df (3982, 304), r(Reducción) (1448, 318), dev_batches=299, lockbox_batches=63
+[19:46:30] [orden A_k15/sn_dep] n_dev=898 (49.7s)
+[19:47:10] [orden B_online/sn_dep] n_dev=898 (40.4s)
+[19:47:46] [orden C_plan/sn_dep] n_dev=898 (35.9s)
+[19:48:25] [orden A_k15/feo_ret] n_dev=898 (38.8s)
+[19:49:00] [orden B_online/feo_ret] n_dev=898 (34.9s)
+[19:49:40] [orden C_plan/feo_ret] n_dev=898 (40.2s)
+[19:49:40] Resumen pct_r2_de_A (B_online, C_plan) por orden:
+[19:49:40]  target   estado  orden   n    r2_oof  r2_ref_A  pct_r2_de_A  sesgo_medio
+ sn_dep B_online      0 240 -0.079954  0.210069    -0.380610     0.020033
+ sn_dep B_online      1 246  0.038114  0.554110     0.068785     0.009350
+ sn_dep B_online      2 243  0.055127  0.166281     0.331529    -0.007052
+ sn_dep B_online      3 169 -0.023932 -0.012836     1.864458    -0.021753
+ sn_dep   C_plan      0 240  0.167022  0.210069     0.795084     0.006718
+ sn_dep   C_plan      1 246  0.027654  0.554110     0.049906     0.002119
+ sn_dep   C_plan      2 243  0.081132  0.166281     0.487922    -0.010414
+ sn_dep   C_plan      3 169  0.000256 -0.012836    -0.019939    -0.018404
+feo_ret B_online      0 240 -0.088510  0.025999    -3.404432    -0.002087
+feo_ret B_online      1 246  0.129831  0.262402     0.494779     0.001081
+feo_ret B_online      2 243 -0.045109  0.020485    -2.202056     0.000531
+feo_ret B_online      3 169 -0.118534 -0.136866     0.866059     0.003767
+feo_ret   C_plan      0 240 -0.032257  0.025999    -1.240727    -0.002090
+feo_ret   C_plan      1 246  0.046267  0.262402     0.176322     0.002916
+feo_ret   C_plan      2 243 -0.038492  0.020485    -1.879070     0.000027
+feo_ret   C_plan      3 169 -0.013281 -0.136866     0.097037     0.002023
+[19:49:40] etapa orden terminada -> e10_03_por_orden.csv
+[19:49:40] listo

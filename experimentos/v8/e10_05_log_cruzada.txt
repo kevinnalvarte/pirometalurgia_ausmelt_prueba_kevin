@@ -1,0 +1,15 @@
+[    0.0s] CONFIG: {'w_sdi': 5.93, 'pp_kpi_por_unidad_sdi': 2.781, 'w_sdi_ic': (3.96, 9.62), 'lambda_kg': 3.0, 'pp_kpi_por_kg_sn': 0.001951219512195122, 'pp_kpi_por_kg_carbon_F': 0.0, 'solo_identificados': True, 'delta_max_sd': 1.0, 'techo_carbon_R0_pct': 0.9, 'percentil_limites': (0.05, 0.95), 'percentil_soporte_minimo': 0.1, 'ventana_T_percentiles': (0.1, 0.9), 'fusion_modo': 'receta', 'congelar_fusion_fin_campana': True, 'lambda_lanza_constante': True, 'exigir_ganancia_fisica': True} OBJETIVO: log ESTADO_R: 15 PALANCAS: ['Cx_sn_v6', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min'] ['m8_exceso_C_pos', 'Cx_av_v6', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min']
+[   17.5s] evaluacion cruzada fold 0: 50 escalones acumulados
+[   43.7s] evaluacion cruzada fold 1: 196 escalones acumulados
+[  107.9s] evaluacion cruzada fold 2: 313 escalones acumulados
+[  136.3s] evaluacion cruzada fold 3: 426 escalones acumulados
+[  163.3s] evaluacion cruzada fold 4: 555 escalones acumulados
+[  166.7s] {'n_escalones': 555, 'dJ_opt_media_pp': 0.037272366175753316, 'dJ_opt_frac_pos': 1.0, 'dJ_cruzado_media_pp': 0.010024597591553849, 'dJ_cruzado_frac_pos': 0.7027027027027027, 'dJ_hgb_media_pp': -0.043241374688968374, 'dJ_hgb_frac_pos': 0.4144144144144144, 'corr_opt_cruzado': 0.630556567943236, 'corr_opt_hgb': -0.033627055247194594, 'ratio_cruzado_opt': 0.2689552239394751, 'ratio_hgb_opt': -1.1601456823285359, 'dJ_cruzado_batch_medio_pp': 0.023181881930468273, 'dJ_cruzado_batch_ic_lo': 0.016610891523944217, 'dJ_cruzado_batch_ic_hi': 0.029536446675256935, 'dJ_hgb_batch_medio_pp': -0.09999567896823933, 'dJ_hgb_batch_ic_lo': -0.14022712255289185, 'dJ_hgb_batch_ic_hi': -0.061510061522713017}
+[  166.7s] 
+                     dJ_opt_pp  dJ_cruzado_pp  dJ_hgb_pp
+orden_escalon_fase                                     
+0                      0.0498         0.0215    -0.0316
+1                      0.0285         0.0034    -0.1254
+2                      0.0377         0.0085    -0.0315
+3                      0.0284         0.0024     0.0142
+[  166.7s] FIN

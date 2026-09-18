@@ -1504,3 +1504,288 @@ tras correcciones**.
   especiación Fe/Sn, %Fe de dross y metal, polvo por fase, composición del GN, aire de camisa, talón, precios); fase 2 modo sombra 30-60 batches;
   fase 3 piloto aleatorizado por escalón (carbón R0-R1 ±1 sd con techo P90, ≈ 15-30 batches por brazo; GN ≈ 230); fase 4 A/B de política
   restringida 120 batches con endpoints de consumo/escalón y KPI como seguridad; fase 5 decisión con re-anclaje en nuevo holdout; fase 6 mejoras.
+
+## 22. Iteración 10: prescriptor v8 — fase 0 del dictamen + mejoras refutables con los datos actuales (2026-09-16, tarde/noche)
+
+Diseño `experimentos/v8/ITERACION_10_diseno.md` (seis hipótesis con experimento que las puede refutar, criterios fijados a priori), librería
+`experimentos/v8/v8_lib.py` (columnas `m8_*`, `*_prev2`, `*_F6`; θ dual; OOF cronológico; walk-forward), módulo `modelo_predictivo_v8.py`, ficha
+`candidate_win_model_v8.md`, notebook `win_analytics_v2.ipynb`, memos `e10_0N_resultados.md`. Punto de partida: v7 + dictamen del comité (§21).
+
+### 22.1 Lo que sobrevivió y lo que se refutó
+
+| Hipótesis | Veredicto |
+|---|---|
+| H1 dosis saturante `ln(1 + C/Sn)` con óptimo interior del carbón (E10-01) | **Refutada**: las 8 formas dan el mismo R² (0.763-0.767); sólo `Cx_sn_v6` (C × Sn disponible) se identifica con IC LIBRE (+0.179 [+0.033, +0.292]); la curvatura tiene el signo de la teoría pero no se identifica (−0.034 [−0.130, +0.006]); C×T y C×B2 nulos; carbón → FeO no identificado con ninguna forma; 0 % de óptimos interiores de J. La PD del HGB muestra saturación por encima de ~15-20 kg/min en R1-R3 |
+| H2 target de FeO neto del Fe metálico alimentado (E10-02) | **Adoptado** `m8_ln_feo_ret_dross50`: R² OOF 0.33 → 0.44, cronológico 0.30 → 0.42, walk-forward 0.26 → 0.33, lockbox 0.48 → 0.57 (R0 0.05 → 0.12; R1-R3 idénticos); GN identificado con IC libre (−0.012 [−0.023, −0.004]); ranking robusto a fFe 0.4-0.6; anclaje K/w invariante; piso C* rechazado. Estado: k15 (sin `espesor`, reloj de campaña) |
+| H3 estado ejecutable (E10-03) | **A medias**: con leyes de t−2 el carbón deja de identificarse; con el cierre de F6 para todo R (modo `plan`) se conserva el 92 % del R² pooled y carbón/GN identificados, pero el orden por sí solo explica 0.70 del pooled y dentro de R1 el plan cae a 0.03 (vs 0.55): el plan sirve para R0 y para planificar R1; usar F5 en R0 es peor que la media |
+| H4 objetivo robusto (E10-04a/b) | Base **sin legado K 2.78 / w 5.93 [3.96, 9.62]**; legado replica en lockbox (+19.8 pp/unidad, p 0.012) → sensibilidad K 3.52 / w 7.86; EIV λ_FeO 0.82 → w 7.4 (sensibilidad); w ≈ 0.8 en lockbox; objetivo lineal en kg λ 4.7 DEV / 2.8 total (1 t Sn agotado ≈ 0.17-0.19 pp; 1 t FeO reducido ≈ −0.55..−0.80 pp ≈ 0.35-0.5 kg Sn/kg FeO, coherente con hardhead + polvo) |
+| H5 evidencia por escalón (E10-05) | Ver 22.3 |
+| H6 Fusión con β_F = 0 (E10-06) | ΔT sin F1 (OOF 0.40 → 0.50, WF 0.09 → 0.21); ninguna palanca térmica identificada (O₂ = cota + control reactivo); carbón de Fusión +polvo (+0.006/sd) y −dross (−0.008/sd), neto KPI nulo (p 0.7) → **Fusión = receta**; recorte económico sólo con precios reales, ≤ 1 sd, ≥ P10, −O₂ 0.933 Nm³/kg C (λ extendida de Fusión 0.66-0.77: el carbón es en parte combustible) |
+
+### 22.2 v8: qué cambia respecto de v7
+
+`ModeloPLMDual`: θ libre y acotado sobre los mismos residuos cross-fitted; θ de uso = acotado sólo si el IC libre excluye 0 (carbón → FeO,
+exceso de O₂ y aire quedan en 0 y se declaran "no identificados"). Optimizador conservador: caja por orden [P5, P95] ∩ [hist ± 1 sd], carbón
+R0 ≤ P90, aire y O₂ congelados, soporte del estado < P10 → sin recomendación, ventana térmica dura relativa a la acción histórica, IC dependiente
+de la acción (réplicas bootstrap de θ), F1 sin recomendación, Fusión receta, y **salvaguarda de ganancia física**: si J sólo mejora por el
+costo (precios placeholder) la recomendación se degrada a "mantener: sólo costo". Métricas v8 (OOF / cronológico / walk-forward / lockbox):
+Sn 0.767 / 0.775 / 0.771 / 0.800; FeO neta 0.438 / 0.416 / 0.333 / 0.566; ΔT R 0.44 / 0.26 / −0.02 / 0.42; ΔT F 0.48 / 0.36 / 0.17 / 0.05. R²
+dentro de cada orden (OOF): Sn R0 0.17, R1 0.58, R2 0.05, R3 −0.10; FeO R0 0.10, R1 0.27, R2 0.02, R3 −0.08 — el modelo discrimina dentro del
+orden sólo en R0-R1; en R2-R3 el target es ruido de ensayo y lo que se usa es θ.
+
+Política cross-fitted (362 batches): Reducción recomendar 39-58 % de los escalones, mantener 10-24 %, sólo costo 9-25 %, sin soporte 11-22 %.
+Δ carbón mediana 0 en R1-R3 y +0.7 kg/min en R0 (P5-P95 ≈ ±1 sd del orden; 0 % fuera de la caja; 2-4 % en el borde; > P90 en R0 sólo si el
+histórico ya lo superaba); Δ GN ±2 Nm³/min según el balance +Sn / −FeO del estado. Desaparecen el "+3 kg/min en R0", el recorte tardío
+uniforme y el aire como palanca de v7.
+
+### 22.3 Evidencia (E10-05)
+
+1. Palanca → target con potencia (n 1083): dosis-respuesta residual monótona en el signo de la teoría para `Cx_sn` (+0.080, p 0.008,
+   saturante), GN → Sn (+0.112, p 2e-4) y GN → FeO (−0.120, p 1e-4), estables por tercios; nula para O₂, aire y carbón → FeO.
+2. Residuo de la acción → KPI sin pasar por el modelo: GN por encima de lo esperado → −0.46 pp/sd (p 0.043); carbón tardío por encima de lo
+   esperado → **+0.81 pp/sd (p 0.015)**: contradice el recorte tardío de v7 y motiva la salvaguarda "sólo costo" y un brazo del piloto.
+3. Target → KPI: K_Sn 2.78 [1.6, 4.0], K_FeO 16.5 [10.3, 22.7]; legado replica en lockbox.
+4. Uplift con IC propagado (K, w, θ): **+0.072 pp/batch [0.038, 0.121] DEV, +0.060 [0.032, 0.104] lockbox** (≈ 30-37 kg Sn/batch; v7 decía
+   +0.27 sin propagar nada).
+5. Evaluación cruzada (anti-maldición): el ΔJ del optimizador (0.037 pp/escalón) cae a 0.010 con el PLM de otro fold (27 %; por batch +0.023
+   [0.017, 0.030]) y a −0.043 con un HGB directo: el signo es robusto dentro de la familia PLM, el tamaño está inflado ×3-4, y fuera de la
+   familia no hay evidencia → el valor lo fija el piloto.
+6. Monitoreo de adherencia: nulo en DEV/total; en lockbox `dist_R` +1.3 pp/sd (p 0.03): re-anclar por campaña antes de operar.
+7. Sensibilidad del objetivo (fold 0, 60-70 batches; % de signos estrictamente opuestos a la base): carbón ≤ 7 % bajo legado, EIV, w ∈ {2, 4, 11}
+   y objetivo lineal en kg (λ 1-4.7) → robusto; GN ≤ 5 % para w ∈ [4, 11] y legado, pero 7-15 % bajo λ 3-4.7 y con Δ medio que cambia de
+   +0.3 a −1.6 Nm³/min según el peso del FeO → regla adoptada `robustez_w`: el GN sólo se mueve si su dirección se conserva en los extremos
+   del IC de w [3.96, 9.62]; recomendación sin ganancia física (sólo costo) → "mantener".
+
+### 22.4 Conclusión de la iteración
+
+v8 es el prescriptor más defendible con estos datos: identifica honestamente sus palancas (carbón × Sn disponible y GN), corrige el target de
+FeO por el Fe alimentado, elimina relojes de campaña, mueve sólo carbón y GN dentro de una caja por orden y no recomienda nada que sólo el
+costo justifique. Su valor esperado es pequeño (+0.07 pp/batch) y dependiente del evaluador; con estos datos no hay iteración de modelado que
+lo cambie: la siguiente etapa es el piloto aleatorizado por escalón (carbón R0-R1 y R2-R3 ±1 sd; GN R1-R3) con el modo `plan` para
+planificar sin latencia de laboratorio y reentrenamiento/re-anclaje por campaña.
+
+## 23. Iteración 11: asesor v9 — el valor de cada control se ancla en el KPI del batch por el canal de la acción, con re-anclaje adaptativo (2026-09-17)
+
+Diseño `experimentos/v9/ITERACION_11_diseno.md` (5 hipótesis, criterios a priori), librería `experimentos/v9/v9_lib.py`, módulo
+`modelo_predictivo_v9.py`, ficha `candidate_win_model_v9.md`, memos `experimentos/v9/e11_0N_resultados.md`. Punto de partida: v8 (§22), cuyo
+objetivo J (K, w anclados en targets agregados) no predecía el KPI por la vía de la acción.
+
+### 23.1 Hipótesis y veredictos
+
+| Hipótesis | Veredicto |
+|---|---|
+| H1 vínculo directo (a − E[a\|S]) → KPI (E11-01) | **GN en Reducción aceptado**: −1.50 pp por unidad de z medio (p 0.0014, q-BH 0.008), R2-R3 −1.10 (p 0.004); dross +1.13 pp, metal −1.06; 3/3 tercios; placebos nulos; permutación por bloques p 0.016; RV_q1 17 %; dosis-respuesta monótona. **Carbón → KPI no robusto** (p 0.15) pero su canal sí (Sn perdido en escoria −0.27 / −0.16 pp, p 0.011 / 0.032) |
+| H2 valor del reductor moderado por Sn disponible (E11-02) | **Rechazada** como rampa (p ≥ 0.14; umbral no identificado; no replica en lockbox); sólo patrón por tramos, colineal con el orden |
+| H3 objetivo anclado por la cadena θ×residuo, log o kg (E11-03) | **Rechazada**: K sin signo estable; el carbón tiene un efecto directo que los dos targets de escoria no agotan |
+| H4 KPI más preciso (E11-04) | **No se cambia el KPI**; se adoptan KPI secundarios por canal (dross para GN +53 % de potencia; Sn en escoria para carbón +220 %). El lag 3 es del sistema de pesaje (metal, dross, polvo y cierre), sin compensación entre vecinos |
+| H5 Fusión (E11-05) | **Receta**: `exo2_F` no pasa (q-BH 0.25, sin mecanismo de escalón, no aporta OOF); carbón F1-F3 → polvo ↑, F4-F6 → dross ↓, neto 0 |
+
+### 23.2 Hallazgo central: los efectos derivan con la campaña y un β estático falla fuera de su régimen
+
+β de DEV aplicado al lockbox: pendiente −0.9..−4.8 (E11-06b). Ventanas móviles de 80 batches (E11-06c): β_GN ≈ 0 (T_R 1130 °C) → −3
+(1060-1100 °C; polvo ↑, metal ↓) → −1 (1000-1050 °C; dross ↑) → +1 (985 °C, fin de campaña; polvo ↓); β_C −1 → +3..+4; GN → dross positivo en
+14/15 ventanas. Descomponer el GN en quemado / sin quemar mostró que el daño viene del **GN quemado (fuego de lanza)**, no del exceso de
+combustible (−1.37 pp, p 0.001 vs +0.46 n.s.): la lectura "GN = reductor gaseoso no selectivo" se corrige a "intensidad de fuego". La
+moderación térmica NO se identifica en el escalón (E11-08, ~160 pruebas; sólo xG×T sobre dross a nivel batch, p 0.044 / 0.027) → sin umbral
+térmico; la deriva se trata con re-anclaje.
+
+### 23.3 v9 y la demostración exigida
+
+Asesor: z = (a − Ê[a|S])/sd_res; β (pp de KPI por unidad de z medio en R0-R3) con los últimos 100 batches; recomendación = práctica habitual
++ min(1, |t|/2)·signo(β)·sd_res si |t| ≥ 1, caja [P5, P95] del orden, carbón R0 ≤ P90, sin recorte de GN con T_prev < P10. Replay prospectivo
+(cada bloque de 10 batches con un asesor entrenado sólo con el pasado; 262 batches): KPI ~ valor atribuido a lo que el operador hizo: pendiente
++0.44 (p 0.023), Spearman parcial 0.165 (p 0.008), permutación por bloques 0.043; terciles −1.26 / +0.38 / +0.89 pp. E11-07: p 0.0065 por
+permutación en bloques, **0.019-0.027 corregida por multiplicidad de ventanas**, circular shift 0.015-0.018; tercio alto − bajo +1.45 pp
+[0.56, 2.61] ≈ 741 kg Sn/batch; canales escoria (p 0.004) y dross (p 0.009); 6/7 variantes de re-anclaje p < 0.05. En lockbox el asesor se
+abstiene en GN (β → 0) y la relación es nula, no negativa. Política: GN −2.1..−0.7 Nm³/min en batches 100-199, carbón +1.2..+2.0 kg/min desde
+el batch 200. Expectativa honesta ≈ +0.5 pp/batch (calibración 0.44-0.53).
+
+### 23.4 Límites
+
+Observacional; placebos lead 1 / KPI anterior atenuados pero no nulos (persistencia ≤ 2 batches); una sola campaña (T, desgaste y tiempo
+confundidos); δ ≤ 1 sd es cota de soporte, no óptimo; Fusión sin palanca. Siguiente: modo sombra con re-anclaje cada 10 batches y piloto
+aleatorizado (GN R2-R3 ±1 sd; carbón R0-R1 +1 sd) con `f_dross` y Sn en escoria como endpoints.
+
+## 24. Iteración 12: mejoras del asesor v9, límite de información y versión de planta v9.1 con piloto embebido (2026-09-17)
+
+Diseño `experimentos/v10/ITERACION_12_diseno.md` (criterio de suficiencia para planta fijado a priori), memos `experimentos/v10/e12_0N_resultados.md`,
+módulo `asesor_planta_v9_1.py`, ficha `candidate_win_model_v9_1.md`. Dato de planta: la muestra se toma al final del escalón; escalones
+contiguos y de duración fija (R0 30, R1 25, R2 20 min) salvo F6 (58-100) y R3 (10-23).
+
+### 24.1 Diez exploraciones, una adopción
+
+| Exploración | Veredicto |
+|---|---|
+| E12-01 duración de R3/F6 | No: R3 casi exógena (R² 0.15), +5 kg Sn/min (p 0.02) sin efecto en FeO ni en KPI (+0.37 n.s.); empeora la prueba prospectiva; F6 confundida con el tamaño de carga |
+| E12-02 valoración por canal | No: ≡ KPI directo por linealidad; variantes por canal se invierten en lockbox. Identidad exacta KPI = 100·f_metal·(1 − Sn_escoria) |
+| E12-03 β por Kalman | No: t 1.6-1.8 vs 2.3 de la ventana dura; negativo en lockbox; filtro sobre-confiado 13-27 % |
+| E12-04 estado ejecutable al inicio del escalón | **Adoptado**: cierre de F6 (R0: cierre de F5) + en línea conserva 87 % de la t prospectiva, r 0.91-0.93 con las exposiciones de v9, 0 % de inversiones de dirección |
+| E12-05 lanza, O₂, enriquecimiento, aire, caudal, presión de punta | No: 0/14 con p < 0.05 (q-BH ≥ 0.63); estequiometría de planta en duda |
+| E12-06 covariables pre-tratamiento | No: R² de controles 0.08 → 0.36, se(β) −8 %, evidencia prospectiva igual o peor. La t base cae de 2.05 a 1.58 al perder 5 batches: evidencia observacional frágil |
+| E12-08 objetivo físico con λ fijo (0.6 kg Sn/kg FeO por composición del dross) | No: DEV premia retener FeO, lockbox premia agotar Sn; ningún λ sirve a los dos regímenes |
+| E12-10 estimación robusta (Huber, winsor, rangos) | No: residuo del KPI casi gaussiano (curtosis 0.36); p por permutación 0.004-0.011 con los cuatro métodos |
+| E12-07 potencia de piloto con ruido real | Simétrico ±1 sd de GN por batch: 80 batches → potencia 0.80 (β −1.1), 0.96 (−1.5), 0.52 (−0.75); tratado vs control necesita 150-200 |
+| E12-09 lazo cerrado simulado (400 batches) | Piloto de 80 + explotación con 30 % de exploración: +0.49 pp/batch [0.29, 0.64] si β = −1.1 (P(< 0) 0.2 %), +0.29 con la deriva estimada, +0.10 si β = −0.5, **0 si el efecto es nulo**; se(β) 0.54 vs 0.99 observacional |
+
+### 24.2 Conclusión
+
+El cuello de botella es de información: con 362 batches de una campaña, sd residual del KPI 3.9 pp y sd de la exposición 0.64, se(β_GN) ≥ 0.32
+aun con efecto constante (t máx ≈ 3.4); ninguna reformulación (palancas nuevas, canales, estado-espacio, covariables, objetivo físico,
+estimación robusta) lo mueve. Criterio de suficiencia: cumple ejecutabilidad, mecanismo del GN, ganancia calibrada +0.70 pp/sd [0.28, 1.17] en
+DEV-prospectivo y no-negatividad en lockbox; **no** cumple p corregida < 0.01 de forma estable ni calibración ≥ 0.6. v9.1 = v9 + estado
+ejecutable + O₂ acompañando al GN (aire intacto) + modo exploración aleatorizado con análisis secuencial: usar el asesor en modo piloto tiene
+costo esperado nulo si el efecto no existe y entrega en ~4 semanas el β causal que permite pasar a explotación (≈ +0.5 pp ≈ 250 kg Sn/batch si
+el efecto es el estimado).
+
+## 25. Iteración 13: calibración por contracción, auditoría adversarial y lectura de decisión (2026-09-17)
+
+`experimentos/v11/` (E13-01..05); detalle en `candidate_win_model_v9_1.md` §6. (1) La pendiente < 1 del KPI sobre el puntaje era dilución por el error de β̂:
+la contracción James-Stein de parte positiva β̃ = β̂·max(0, 1 − 1/t²), fijada a priori, lleva la calibración de 0.53 a 0.70 (0.65-0.87 para W 60-120) y deja
+los placebos limpios (lead 1 t 0.05; sobrevive a controlar el batch anterior): adoptada. (2) Auditoría adversarial: la p corregida honesta es 0.010-0.014
+(nulas alternativas, familia de contracciones × ventanas), 43 % de 81 especificaciones razonables con p < 0.01, y la señal es sensible a quitar 10-20 batches
+(68 % / 59 % con t > 1.645) aunque no depende de ningún bloque cronológico. (3) En el replay ESTRICTO del asesor de planta (estado ejecutable, práctica habitual
+sólo con el pasado) la evidencia es menor (t 1.4-1.7); corregir la deriva de receta con el residuo medio de los últimos 20 batches la sube a t 1.89 (pendiente
+0.74, lockbox +0.64), pero con k 40 no mejora. (4) Lectura de decisión del replay estricto: ganancia calibrada +0.57..+0.80 pp/batch, P(> 0) 0.96-0.98,
+IC95 que toca 0. Conclusión: se cumplen calibración, ejecutabilidad, mecanismo, no-negatividad en lockbox y ganancia esperada; **no** se alcanza p corregida
+< 0.01 estable, y 15 exploraciones en tres rondas muestran que no es alcanzable sin variación exógena: el piloto aleatorizado embebido (80 batches) es el paso
+que la entrega, con costo esperado nulo si el efecto no existe.
+
+### 25.1 Cuarta ronda (E14-01, `experimentos/v12/`): evidencia estricta por canal de mecanismo — negativa
+
+Con exposiciones ESTRICTAS y ejecutables (Ê[a|S] entrenado sólo con batches anteriores desde el batch 40, corrección de deriva k 20; n 222 puntuados) y
+contracción JS: GN → dross prospectivo **nulo** (t −0.72, perm. 0.65); carbón → Sn en escoria t 1.27 (perm. 0.07); GN + C → KPI t 1.85 (perm. 0.019,
+circular 0.017, Spearman 0.13; DEV pendiente 1.16, lockbox +0.37 n.s.). El vínculo GN → dross (t 3.5-4.0 con ajuste cruzado sobre toda la muestra) no
+sobrevive cuando la práctica habitual se estima sólo con el pasado: la exposición estricta es ×1.7 más ruidosa (sd 1.09 vs 0.64) porque la política de
+comportamiento se aprende con poca historia y deriva. Valorar por canal no rescata el criterio p < 0.01. Se cierra el espacio de mejoras con estos datos:
+cuatro rondas, 16 exploraciones; lo que falta es variación exógena (piloto) y más historia por campaña.
+
+
+## 26. Iteración 15: la receta de planta estaba en el Excel — asesor v10 (2026-09-17)
+
+`asesor_receta_v10.py`, `candidate_win_model_v10.md`, `experimentos/v13/`. Tras cuatro rondas negativas (§24-§25.1) se revisó el Excel crudo: la hoja
+**"Alimentación"** trae la receta por escalón de Reducción (GN, O₂, aire, carbón, R01-R04; niveles discretos revisados por tramos; también la campaña AO sin
+datos de operación) y la hoja "Data" los ensayos de laboratorio con fecha y hora. Exposición exacta y ejecutable: desvío = ejecutado − receta.
+- DEV conjunta: GN −1.58 pp (t −3.9), dross +1.23 (t +4.1); total −1.17 (t −3.1). Los operadores ejecutan el GN +0.1..+1.0 Nm³/min sobre la receta y el carbón
+  +4.5 kg/min sobre la receta en R0-R1 y −4.5..−5.7 por debajo en R2-R3. La receta en sí (nivel) no predice el KPI (t 0.3): la señal está en el desvío.
+- Prueba prospectiva: t 2.6-2.7; p corregida por multiplicidad 0.002-0.006 bajo cuatro nulas (0.012 con bloques de 10); 93 % de las especificaciones con GN +
+  carbón dan p < 0.01; jackknife −5/−10/−20 batches: 100/92/97 % con t > 1.645; ningún bloque dominante. Puntos débiles (auditoría E15-02): estandarización
+  estricta centrada p 0.013-0.027; carbón solo nunca significativo; placebo lead 1 t 1.83 (controlando persistencia el resultado queda en t 2.47); el β se
+  invierte en fin de campaña (lockbox +1.36, t 1.8) — el asesor adaptativo se abstiene allí.
+- Replay estricto del asesor v10: pendiente 0.64 (JS), Spearman parcial 0.20 (p 0.003; DEV 0.27, p 0.0006), terciles −1.04 / +0.30 / +0.74 pp, **ganancia
+  calibrada +0.58 pp/batch, IC95 [0.13, 1.13], P(> 0) 0.999**; lockbox ≈ 0.
+- Estado del criterio de suficiencia: 2, 4, 5 (GN) y 6 cumplen; 1 cumple en la especificación principal pero no de forma uniforme (rango honesto 0.01-0.03);
+  3 cumple débilmente. Lección de proceso: revisar las hojas crudas del Excel antes de declarar un límite de información.
+
+### 26.1 Receta de Fusión (E16-01, experimentos/v14/)
+
+La misma hoja trae la receta de Fusión (kg/h por tolva, F01-F07; Tv02 = carbón). Desvíos exactos: carbón de Fusión ejecutado vs receta (corr 0.92; −4 kg/min en
+F0-F1, ≈ 0 después) y carga total (−40..−58 kg/min por debajo de la receta en todos los escalones). En la regresión conjunta con los desvíos de Reducción: carbón
+de Fusión → polvo +1.50 pp (t 2.6 DEV; +1.27, t 2.5 total) y dross −0.7..−1.0 (n.s.), neto KPI nulo (t −0.9); carga n.s. Añadirlos empeora la prueba prospectiva
+(t 2.74 → 2.2-2.35) y solos no predicen (t 0.68). Fusión sigue en receta; se confirma con exposición exacta el canal carbón de Fusión → polvo.
+
+### 26.2 Régimen de fin de campaña con exposición exacta (E17-01, experimentos/v15/)
+
+Con el desvío exacto respecto de la receta, la temperatura del horno modera los CANALES con el signo de la teoría —GN → polvo crece con T (+0.78 pp por unidad de
+zT, t 2.9: fuming) y GN → dross decrece con T (−0.74, t −2.6 en DEV)— pero los dos efectos se compensan y la interacción sobre el KPI es nula (DEV +0.07, t 0.2).
+Ningún modelo estático ajustado en DEV (con o sin moderación térmica, nivel térmico o persistencia) predice el lockbox: pendiente del holdout −0.6 (t −1.4) en las
+cinco variantes; en el lockbox el GN sobre receta se asocia a menos polvo (−2.05 pp, t −3.2). Controlar la persistencia (KPI y desvío del batch anterior) deja el
+efecto del GN en DEV en −1.50 (t −3.5). Conclusión: la inversión de fin de campaña no es identificable con una sola campaña; el asesor la trata con re-anclaje
+adaptativo, abstención (|t| < 1 → ejecutar la receta) y resguardo de horno frío, y debe re-anclarse al inicio de cada campaña.
+
+### 26.3 Revisiones de la receta como quiebres conocidos (E17-02)
+
+La receta de GN tuvo 49 versiones en la campaña (tramos de 8-29 batches); en el batch 305 planta subió el GN de R0 de 28.3 a 30.8 Nm³/min (horno a ~975 °C). Por
+terciles del nivel de receta: con receta de GN baja el desvío por encima cuesta −1.85 pp (t −4.3); con receta media o alta, ≈ 0 (t −0.2 / −0.1). La interacción
+continua desvío × nivel de receta no se identifica dentro de DEV (+0.20, t 0.5; total +0.57, t 1.3) y el holdout DEV → lockbox sigue fallando (−0.61). Con 49
+revisiones, reiniciar la ventana en cada una no es practicable. Lectura: en fin de campaña la propia planta ya corrige la receta hacia más fuego; el asesor
+debe limitarse allí a ejecutar la receta (lo que ya hace por abstención).
+
+### 26.4 E18-01: la receta como instrumento — no confirma causalmente el efecto del GN (experimentos/v16/)
+
+Se usó la receta (revisión del planificador, no del operador) como instrumento del ejecutado: (1) las revisiones no responden a KPI/T/ley/dross de los 10
+batches previos (|t| ≤ 0.9, n=25-34 eventos) — soporta exogeneidad, con poca potencia. (2) Primera etapa débil: F del GN 2.8-10.4 (casi nunca > 10); F del
+carbón fuerte (84-242) SOLO con tendencia lineal, colapsa a 3-12 con tendencia cúbica o FE de bloques — el instrumento de carbón es casi la tendencia
+calendario. En el lockbox (últimos 63 batches) F≈0 para ambas palancas: no hay variación que instrumentar allí. (3) 2SLS (HC1/HAC5): el punto estimado del GN
+sobre KPI tiene **signo opuesto** al del desvío observacional en toda especificación DEV/TOTAL (+0.04 a +1.77 pp/(Nm³/min) en vez de los −0.52/−0.73 que
+implica el −1.58 pp/sd de §26), IC95 siempre cruza cero (y el valor OLS); dross pierde significación (t 4.25 → 0.5-1.6); Durbin-Wu-Hausman no rechaza
+exogeneidad (|t| ≤ 1.5) pero con poca potencia. (4) Estudio de eventos (15 revisiones grandes, k=6/8/10): misma pendiente positiva y no significativa (t
+0.26-0.77), dross también con signo contrario (t hasta −2.3). (5) Falsificación: el placebo por ubicación aleatoria no distingue la pendiente real de la nula
+(p=0.41); **falla** la prueba de que la receta futura no debe predecir el KPI de hoy (coef −0.94, t −2.05, p=0.04) — evidencia directa de que receta y campaña
+derivan juntas; el placebo de aire (2 valores) no produce falso positivo pero también es débil (F=6.5). Veredicto: el experimento natural es honestamente
+inconcluyente (instrumento débil, n de eventos grandes pequeño) y NO eleva el hallazgo del desvío a causal confirmado; sigue pendiente el piloto aleatorizado
+de v9.1 como única vía de identificación fuerte.
+
+
+## 27. Iteración 18: alternativas bajo las restricciones del proyecto — mecanismo cerrado y regla de disciplina (2026-09-17)
+
+Restricciones (usuario): sólo existe esta campaña; el piloto no se autoriza sin un modelo robusto. `experimentos/v16/` (E18-01..07), `propuesta_despliegue_v11.md`.
+- E18-01 revisiones de receta como experimento natural (IV, eventos): **falla** (F 2.8-10.4; IC95 [−1.9, +4.3]; la receta futura predice el KPI de hoy, t −2.05).
+- E18-02/05 diseño INTRA-BATCH con el desvío exacto: GN → agotamiento de Sn +0.022 por Nm³/min (p 1e-5) y retención de FeO −0.0033 (p < 1e-5), estable por tercios y
+  en DEV vs lockbox (R² fuera de muestra 0.54 / 0.61). Selectividad marginal del GN (kg Sn / kg FeO): R0 11.2, R1 0.75, R2 0.78, **R3 0.49 [0.31, 0.72]**. Carbón:
+  signo contraintuitivo, no utilizable.
+- E18-06 estado final: el desvío de GN no cambia el Sn de la escoria final (|t| ≤ 1.6: el Sn extra agotado es ADELANTO); el GN tardío sobre la receta reduce +102 kg de
+  FeO por Nm³/min (t 3.8) → dross +0.29 pp (t 2.9) → KPI −0.43 pp (t −3.1) en régimen normal; en fin de campaña el signo sobre el FeO se conserva y la inversión del KPI
+  viene del polvo. E18-04: 1 kg de FeO reducido → +0.43 kg de Sn a dross [0.18, 0.67].
+- E18-03/07 regla sin modelo **"GN nunca por encima de la receta"**: 63 % de los escalones exceden la receta (+1.06 Nm³/min); prospectiva t 2.71, p permutación 0.003,
+  p circular 0.003; ganancia +0.66 pp/batch [0.10, 1.19] en toda la campaña y +0.91 [0.28, 1.53] en régimen normal; en fin de campaña habría costado −0.85 [−2.26, 0.40]
+  → se suspende con receta de horno frío (GN de R0 > 28.3) o T previa < 1000 °C. Seguridad: 0 % fuera de [P1, P99]; gemelos históricos sin indicadores adversos; operar bajo
+  la receta no enfría el horno; piso de O₂ = P5 por orden (22.0 / 16.2 / 5.5 / 3.1). Alcances ex-ante: ninguno da p corregida < 0.01.
+- Propuesta: nivel 0 disciplina de receta (no es un experimento: es cumplir el estándar vigente) → nivel 1 sombra pre-registrada → nivel 2 asesor adaptativo con piloto.
+
+
+## 28. Iteración 19: asesor físico v11 — el modelo intra-batch validado de forma prospectiva (2026-09-17)
+
+`asesor_fisico_v11.py`, `candidate_win_model_v11.md`, `experimentos/v17/e19_01_modelo_fisico_prospectivo.py`. El modelo de escalón con efectos fijos de batch y de orden
+(θ_o del GN respecto de la receta sobre la retención de FeO: R0 −0.0035, R1 −0.0022, R2 −0.0027, R3 −0.0058 [−0.0081, −0.0034]) se agregó a batch como kg de FeO extra
+reducido por el desvío de GN, F_b = Σ_t −θ_o·(GN − receta)_t·FeO_inv_{t−1}, con θ estimado SÓLO con batches anteriores (ventana expansiva; θ_R3 entre −0.0058 y −0.0082 en
+las 14 re-estimaciones). F_b predice el FeO total reducido medido por ensayo con pendiente 0.76 [0.45, 1.07] (t 4.8; permutación por bloques 0.0002; DEV 0.79, lockbox 0.49
+n.s.), el dross (+0.19 pp por 100 kg, t 3.0) y, en régimen normal, el KPI (−0.28 pp por 100 kg, t −3.7); en fin de campaña el KPI responde con signo contrario por el canal polvo
+(−0.45 pp por 100 kg, t −3.2), sin anomalía contable del polvo en ese tramo (nivel y dispersión iguales; el polvo correlaciona 0.45 con el cierre del balance en toda la campaña).
+Valor de la regla GN ≤ receta por la vía física (281/362 batches en régimen): 146 kg de FeO sin reducir por batch → 63 kg de Sn que no van a dross [26, 98] → +0.41 pp de KPI
+[0.19, 0.63]; con 0.5 sd bajo la receta +0.95 pp [0.44, 1.46]. Conmutador de régimen: receta de horno frío (GN de R0 > 28.3) o T previa < 960 °C.
+Primer componente del proyecto que cumple a la vez precisión (p 0.0002), calibración (0.76) y estabilidad entre regímenes en una validación prospectiva estricta sin
+especificaciones que elegir; lo que sigue sin demostrarse es la causalidad estricta y el valor sobre el KPI en fin de campaña.
+
+### 28.1 El asesor v11 con su conmutador frente al KPI de toda la campaña (E19-02)
+
+FeO evitable por la regla (θ sólo del pasado; exposición 0 fuera de régimen) → KPI: −0.23 pp por 100 kg [−0.55, +0.09], t −1.42, permutación 0.15 (256 batches; regla activa en 164/193
+de DEV y 3/63 del lockbox). Sin el conmutador (exceso de GN modelado en todos los batches): KPI −0.31 pp por 100 kg (t −2.46; permutación 0.08, circular 0.02; jackknife −10/−20: 100 % / 99 %)
+y dross +0.31 pp (t 2.93; permutación 0.03, circular 0.009; jackknife 100 %). Lectura: el modelo es preciso y estable sobre el endpoint físico medido por ensayo (FeO reducido, p 0.0002)
+y consistente en signo sobre dross y KPI, pero el KPI de pesaje (sd 4.4 pp, 256 batches puntuados) no permite p < 0.01 para ningún asesor; ese umbral sobre el KPI no es alcanzable con esta
+campaña, con o sin conmutador.
+
+### 28.2 El cierre del balance de Sn como covariable de error de medida del KPI (E20-01, experimentos/v18/)
+
+cierre = Sn de salida (metal + dross + polvo + escoria final) / Sn cargado: media 1.02, sd 0.066; correlaciona −0.35 con el KPI, +0.44 con el polvo y −0.37 con el metal: es un indicador de error
+contable del batch. Como control quita el 15 % de la varianza del KPI (sd residual 4.43 → 4.09), pero no aumenta la potencia: el efecto del exceso de GN pasa de −0.86 (t −3.1) a −0.61 (t −2.4) en DEV
+porque el cierre no es del todo ajeno a la acción (placebo exceso → cierre t 1.8). La prueba prospectiva del exceso de GN no cambia (t 2.71 → 2.79; permutación 0.0025 → 0.0020; circular 0.003). Lectura:
+el vínculo exceso de GN → KPI sobrevive al control del error contable, pero el ruido del KPI no se puede reducir lo bastante por esta vía.
+
+
+## 29. Cierre: verificación final de la condición obligatoria para la recomendación de v11 (2026-09-17)
+
+`experimentos/v19/` (E21-01, E21-02), `MODELO_GANADOR_FINAL.md`. Corrección de enfoque: las rondas §24-§28 juzgaban al asesor contra un criterio propio más estricto que las
+condiciones del proyecto (p < 0.01 del modelo físico × conmutador sobre el KPI de toda la campaña). La condición pide que APLICAR LA RECOMENDACIÓN se relacione de forma positiva,
+significativa y coherente con el rendimiento. La recomendación de v11 es "GN ≤ receta"; la medida de adherencia del operador es −exceso medio de GN sobre la receta (Nm³/min).
+- KPI por +1 Nm³/min de adherencia: DEV +1.00 [0.49, 1.52] (t 3.8, p 0.0001); toda la campaña +0.72 [0.28, 1.17] (t 3.2, p 0.0015); fin de campaña −0.51 (n.s.; regla suspendida
+  allí). Cuartiles de adherencia: KPI residual −0.76 / −0.87 / +0.66 / +0.98 pp.
+- Prospectiva en batches no vistos: p por permutación ≤ 0.0085 en las 6 ventanas (60-150 y expansiva); **p corregida por multiplicidad 0.0035**; circular 0.003; jackknife
+  −5/−10/−20/−40: 97-100 % con t > 1.645.
+- Persistencia: la adherencia es autocorrelada (0.28) y su rezago predice el KPI (placebo lag 1 t 2.7), pero la parte propia del batch sobrevive: con rezagos y KPI anterior +0.87
+  (t 3.1); innovación respecto de la media móvil de 10 batches +0.91 (t 3.1); efectos fijos por bloques de 20 batches +1.06 (t 3.6).
+Con esto se cierra la iteración: v11 cumple las condiciones de aceptación dentro del régimen normal de campaña, con los límites declarados (fin de campaña, evidencia observacional).
+
+## 30. Potencia de fuego y potencial de oxígeno de la lanza como desvío respecto de la receta (E22-01, experimentos/v20/, 2026-09-17)
+
+Definiciones: O2_tot = O2 + 0.21·aire; fuego = min(GN, O2_tot/2) (GN quemado); o2_libre = O2_tot − 2·GN (> 0 oxidante, < 0 reductora); λ = O2_tot/(2·GN). Desvío = ejecutado − receta.
+- La receta fija una lanza SIEMPRE reductora con λ = 0.93 en los cuatro escalones; los operadores ejecutan λ 0.96-1.00 (o2_libre +1.4..+2.5 Nm³/min sobre la receta; sólo el 81 % de los
+  escalones queda reductor) y +0.6..+1.6 Nm³/min más de fuego. corr(desvío de GN, desvío de fuego) 0.97; corr(fuego, o2_libre) −0.36.
+- Batch (conjunta, por +1 Nm³/min): **fuego → KPI −0.60 (t −3.5 DEV; −0.47, t −3.0 total), dross +0.49 (t 3.4; total +0.54, t 4.0), FeO reducido +111 kg (t 2.8)**; potencial de oxígeno →
+  KPI nulo (t −0.1) porque sus dos efectos se compensan: lanza más oxidante en R2-R3 → menos FeO reducido (−72 kg, t −3.0) pero más Sn en la escoria final (+43 kg, t 2.7; Sn perdido
+  +0.079 pp, t 2.9). En fin de campaña el fuego → polvo −0.61 (t −2.6) y KPI +0.42 (n.s.), igual que con el GN.
+- Intra-batch (EF de batch y orden): fuego → retención de FeO −0.0021 (t −2.7; lockbox −0.0053, t −3.1) y agotamiento de Sn +0.019 (t 3.5); o2_libre → retención de FeO +0.0015 (t 2.3;
+  DEV t 2.9; lockbox n.s.) y ΔT −0.59 °C por Nm³/min (t −4.7, igual en DEV y lockbox): la lanza más oxidante enfría.
+- Prospectivo (W 100): desvío de GN p 0.004 y exceso de GN p 0.001; desvío de fuego p 0.014 y exceso de fuego p 0.005; potencial de oxígeno p 0.30 y no aporta junto al GN.
+Conclusión: se confirma con la exposición exacta que el daño es la POTENCIA DE FUEGO, no el potencial de oxígeno; el GN es el mando correcto (r 0.97 con el fuego) y predice igual o mejor.
+El potencial de oxígeno es una palanca de compromiso (protege el Fe a costa de Sn en la escoria final) sin valor neto sobre el KPI → en v11 el O₂ sigue acompañando al GN; hallazgo
+operativo: planta ejecuta una lanza más oxidante que su propia receta.

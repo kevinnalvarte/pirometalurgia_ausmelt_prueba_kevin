@@ -1,0 +1,13 @@
+target,orden,n_total,n_valid
+m6_ln_sn_dep,0,362,359
+m6_ln_sn_dep,1,362,357
+m6_ln_sn_dep,2,362,354
+m6_ln_sn_dep,3,362,256
+m8_ln_feo_ret_dross50,0,362,359
+m8_ln_feo_ret_dross50,1,362,357
+m8_ln_feo_ret_dross50,2,362,354
+m8_ln_feo_ret_dross50,3,362,256
+d_temperatura_horno_celsius,0,362,360
+d_temperatura_horno_celsius,1,362,359
+d_temperatura_horno_celsius,2,362,357
+d_temperatura_horno_celsius,3,362,356

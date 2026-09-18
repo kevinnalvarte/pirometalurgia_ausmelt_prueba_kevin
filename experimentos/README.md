@@ -146,3 +146,107 @@ paralelo), análisis de agregación/anclaje por Fable (E9-00) y síntesis en `mo
 | `v7/e9_08_potencia_fable.py` | Potencia del diseño off-policy: MDE al 80 % vs efecto esperado por la cadena (pendiente del uplift predicho sobre la distancia), n de batches requerido | dist_R: potencia 32 %, ~1 000 batches; hallazgos §20.5 |
 | `v7/e9_09_datos_artefacto.py` | Exporta `figs/datos_v7.js` (validación, θ, predicciones, techo, curva, bake-off, formas, parsimonia, anclajes, política, curvas, evidencia, potencia) para el artefacto | `figs/enfoque_v7.html`, https://claude.ai/artifact/L6GFrWjVcddg2tTa1AkL9F |
 | `v7/auditoria_[A-D]_*.md`, `v7/test_antifuga_v7.py` | Auditoría de comité (Fable 5.1 × 4: pirometalurgia, estadística, operación, datos) del enfoque v7 y test anti-fuga sobre las 281 columnas | `dictamen_comite_v7.md`, hallazgos §21 |
+
+
+### Iteración 10: `v8/` — prescriptor v8: fase 0 del dictamen del comité + mejoras refutables (2026-09-16 tarde/noche; diseño `v8/ITERACION_10_diseno.md`, hallazgos.md §22)
+
+Datos: caché `cache/df_v8.pkl` (df v6 + columnas `m8_*`, `*_prev2`, `*_F6`; `v8/v8_lib.py`). Cinco experimentos de ola 1 en paralelo (Sonnet 5;
+E10-01 y E10-06 relanzados como procesos tras la caída de los agentes por expiración del token) y ola 2 (E10-05) sobre `modelo_predictivo_v8.py`.
+
+| Script | Qué hace | Dónde quedó consolidado |
+|---|---|---|
+| `v8/v8_lib.py` | Librería: target de FeO neto del Fe del dross (`m8_ln_feo_ret_dross{40,50,60}`), piso C*, formas del carbón (dosis, ln1p, cuadrática, heterogénea), leyes de t−2 (`*_prev2`), estado plan (`*_F6`, `Cx_sn_F6`), estados candidatos, `theta_dual` (θ libre y acotado), `oof_cronologico`, `walk_forward`, `r2_por_conjuntos` | `modelo_predictivo_v8.py` |
+| `v8/e10_01_formas_carbon.py` | 8 formas del carbón sobre Sn y 5 sobre FeO: R² por conjuntos, θ libre/acotado, tercios, dosis-respuesta residual, PD del HGB por orden, óptimo interior de J en 12 estados | `Cx_sn_v6` se mantiene (única identificada); carbón→FeO no identificado; 0 % óptimos interiores; `e10_01_resultados.md` |
+| `v8/e10_02_target_estado.py` | Targets de FeO (v6 vs neto del Fe del dross 40/50/60) y Sn (v6 vs C*) × estados k16/k15/k17: R² por conjuntos, θ dual, por orden, correlación entre targets, reversión de ruido, tercios | `m8_ln_feo_ret_dross50` + estado k15 (sin espesor); `e10_02_resultados.md` |
+| `v8/e10_03_estado_ejecutable.py` | Estado k15 vs online (leyes de t−2) vs plan (cierre de F6 para todo R): R² global y por orden, θ dual, simulador de R0 con F5 | modo `plan` de `modelo_predictivo_v8` (`activar_modo_plan`); `e10_03_resultados.md` |
+| `v8/e10_04a_anclajes.py`, `e10_04b_reanclaje.py` | Anclaje K/w con IC, EIV, legado (KPI_next), objetivo lineal en kg (λ), barrido de w; re-anclaje con el target de FeO corregido | `CONFIG_V8` (K 2.781, w 5.93 [3.96, 9.62], λ_kg 3.0); `e10_04a_resultados.md` |
+| `v8/e10_05_validacion_v8.py` | Validación del sistema v8 (OOF aleatorio/cronológico/walk-forward/lockbox, θ dual, predicciones, curvas, óptimo interior), política cross-fitted con salvaguardas (0..4, lockbox), evidencia (magnitud de cambios, uplift con IC propagado, adherencia/dirección como monitoreo), evaluación cruzada anti-maldición, sensibilidad del objetivo (w, legado, lineal en kg), dosis-respuesta residual y residuo de la acción → KPI | `candidate_win_model_v8.md`, `win_analytics_v2.ipynb` |
+| `v8/e10_06_fusion.py` | Fusión con β_F = 0: ΔT con/sin F1, θ dual, familia de batch (21 pruebas, q-BH), recorte con λ de lanza constante, envolvente por orden | ΔT sin F1; Fusión = receta; `e10_06_resultados.md` |
+| `build_notebook_win_v2.py` | Genera `win_analytics_v2.ipynb` (nbformat) | El notebook mismo |
+
+Lecciones operativas: un proceso sin `OMP_NUM_THREADS` sobre-suscribe los 20 núcleos y ralentiza ×50 al resto (matar con `Stop-Process`);
+los subagentes cierran el turno al lanzar procesos en background (vigilar el PID con `until ! tasklist //FI "PID eq N"` y reanudar con SendMessage).
+
+## Iteración 11 — `v9/` (asesor v9: valor del control anclado en el KPI por el canal de la acción, re-anclaje adaptativo)
+
+Diseño `v9/ITERACION_11_diseno.md`; librería `v9/v9_lib.py` (residuos a − E[a|S] cross-fitted, exposiciones por batch, `prueba_anidada`); módulo
+`modelo_predictivo_v9.py`; ficha `candidate_win_model_v9.md`; hallazgos §23.
+
+| Script / memo | Qué hace | Resultado |
+|---|---|---|
+| `v9/e11_01_*` | Robustez del vínculo directo control → KPI (conjunta, tercios, estado de E[a\|S], placebos, RV, dosis-respuesta) | GN_R aceptado (−1.5 pp, q 0.008, RV 17 %); carbón sólo por canal escoria |
+| `v9/e11_02_*` | Moderación por Sn disponible | Rechazada como rampa; patrón por tramos |
+| `v9/e11_03_*` | Objetivo anclado por la cadena θ×residuo (log/kg) | Rechazado (signo inestable); efecto directo del carbón |
+| `v9/e11_04_*` | KPI más preciso, anatomía del ruido | KPI principal se mantiene; KPI secundarios por canal |
+| `v9/e11_05_*` | Fusión: exo2, carbón, subgrupos, mecanismo | Receta |
+| `v9/e11_06_valor_termico.py`, `e11_06b/c/d` (Fable) | Specs con compuerta térmica, β DEV → lockbox, walk-forward, ventanas móviles | β estático falla en lockbox; re-anclaje W 60-120 prospectivo positivo |
+| `v9/e11_07_*` | Validez de la prueba prospectiva (permutación por bloques, multiplicidad, placebos, canales, magnitud) | p 0.019-0.027 corregida; +1.45 pp entre terciles |
+| `v9/e11_08_*` | Moderación térmica en el escalón | No identificada |
+| `modelo_predictivo_v9.py` (`e11_09_*`), `v9/e11_09b_resumen_politica.py` | Replay prospectivo escalón a escalón + evidencia + resumen de política | pendiente +0.44 (p 0.023), Spearman 0.165 (p 0.008) |
+
+## Iteración 12 — `v10/` (mejoras de v9, límite de información, asesor de planta v9.1)
+
+Diseño `v10/ITERACION_12_diseno.md`; módulo `asesor_planta_v9_1.py`; ficha `candidate_win_model_v9_1.md`; hallazgos §24.
+
+| Script / memo | Qué hace | Resultado |
+|---|---|---|
+| `v10/e12_01_*` | Duración de R3/F6 como palanca | No adoptada |
+| `v10/e12_02_*` | Valoración por canal de pérdida | ≡ KPI directo; no adoptada |
+| `v10/e12_03_*` | β variable por filtro de Kalman | Peor que W=100 |
+| `v10/e12_04_*` (`e12_04_lib.py`: estado S3') | Estado ejecutable al inicio del escalón | **Adoptado** (87 % de la evidencia) |
+| `v10/e12_05_*` | Lanza, O₂, enriquecimiento, aire, caudal, presión | Rechazadas |
+| `v10/e12_06_covariables.py` | Covariables pre-tratamiento | Sin mejora |
+| `v10/e12_07_potencia_piloto.py` | Potencia del piloto con ruido real | ±1 sd: 80 batches → 0.80 |
+| `v10/e12_08_objetivo_fisico.py` | Objetivo ΔSn_kg − λ·ΔFeO_kg con λ fijo | Regímenes opuestos; rechazado |
+| `v10/e12_09_lazo_cerrado.py` | Simulación de lazo cerrado de estrategias | +0.3..+0.5 pp/batch; 0 bajo el nulo |
+| `v10/e12_10_robusto.py` | Huber / winsor / rangos | Sin mejora; evidencia estable (p 0.004-0.011) |
+
+## Iteración 13 — `v11/` (calibración, auditoría adversarial, decisión)
+
+| Script / memo | Qué hace | Resultado |
+|---|---|---|
+| `v11/e13_01_contraccion_js.py` | Contracción James-Stein de β (a priori, sin hiperparámetros) | Calibración 0.53 → 0.70; adoptada |
+| `v11/e13_02_replay_planta_js.py` | Replay estricto del asesor de planta con/sin JS | t 1.4-1.7; Spearman 0.19 (p 0.002) |
+| `v11/e13_03_*` (Sonnet, auditor) | Nulas alternativas, familia de contracciones, 81 especificaciones, placebos, jackknife | Calibración sí; p < 0.01 no (0.010-0.014) |
+| `v11/e13_04_sesgo_reciente.py` | Corrección de deriva de receta en Ê[a\|S] (k 20 / 40) | k 20: t 1.89, pendiente 0.74; k 40 sin mejora |
+| `v11/e13_05_decision.py` | Ganancia calibrada y P(> 0) por bootstrap | +0.57..+0.80 pp/batch; P(> 0) 0.96-0.98 |
+| `v12/e14_01_canales_estricto.py` | Evidencia prospectiva estricta por canal (GN → dross, C → Sn en escoria) con exposiciones entrenadas sólo con el pasado | Negativa: GN → dross nulo; KPI compuesto p 0.019 |
+
+
+## Iteración 15 — `v13/` (receta de planta → asesor v10)
+
+| Script / memo | Qué hace | Resultado |
+|---|---|---|
+| `v13/e15_01_receta.py` | Exposición exacta ejecutado − receta (hoja "Alimentación"), OLS conjunta y prueba prospectiva | GN −1.58 pp (t −3.9), dross t +4.1; prospectiva t 2.6-2.7, p 0.001-0.006 |
+| `v13/e15_02_*` (Sonnet, auditor) | Fuga de estandarización, ex-ante, multiplicidad, 162 especificaciones, placebos, jackknife, régimen | p corregida 0.002-0.012; 93 % con GN + C; robusto a jackknife; débil en fin de campaña |
+| `asesor_receta_v10.py` (`v13/e15_03_*`) | Replay estricto del asesor v10 + ganancia calibrada + política | +0.58 pp/batch [0.13, 1.13]; Spearman 0.20 (p 0.003) |
+| v14/e16_01_receta_fusion.py | Desvíos respecto de la receta de Fusión (carbón, carga) | Carbón F → polvo t 2.6; neto KPI nulo; Fusión = receta |
+| v15/e17_01_regimen_termico.py | Moderación térmica con exposición exacta y holdout DEV → lockbox | Canales con signo de teoría (polvo +, dross −), KPI nulo; holdout estático falla (−0.6); persistencia controlada t −3.5 |
+
+
+## Iteración 18 — `v16/` (alternativas bajo restricciones: una campaña, sin piloto)
+
+| Script / memo | Qué hace | Resultado |
+|---|---|---|
+| `v16/e18_01_*` | Revisiones de receta como instrumento / estudio de eventos | Instrumento débil; placebo de receta futura falla; no identifica |
+| `v16/e18_02_*`, `e18_05_balance_por_orden.py` | Efectos fijos de batch con desvío exacto; selectividad marginal del GN por orden | GN preciso y estable entre regímenes; R3 0.49 kg Sn/kg FeO |
+| `v16/e18_04_lambda_fisico.py`, `e18_06_estado_final.py` | Conversión FeO → dross; efecto sobre el estado final de la Reducción | +0.43 kg Sn a dross por kg FeO; Sn final no cambia; GN tardío +102 kg FeO (t 3.8) |
+| `v16/e18_03_*`, `e18_07_regla_final.py` | Alcance ex-ante, regla "GN ≤ receta", expediente de seguridad | Regla: p 0.003, +0.66 pp/batch [0.10, 1.19]; sin señales de riesgo |
+
+## Iteración 19 — `v17/` (asesor físico v11)
+
+| Script | Qué hace | Resultado |
+|---|---|---|
+| `v17/e19_01_modelo_fisico_prospectivo.py` | θ intra-batch por orden estimado sólo con el pasado → kg de FeO extra reducido por batch; contraste con FeO reducido (ensayo), dross, polvo, KPI | pendiente 0.76 [0.45, 1.07], t 4.8, p 0.0002; dross t 3.0; KPI normal t −3.7 |
+| `asesor_fisico_v11.py` | θ por orden con IC, recomendación por escalón con kg de FeO evitado, valor de la regla | k=0: +0.41 pp [0.19, 0.63]; 281/362 batches en régimen |
+| v17/e19_02_kpi_con_conmutador.py | Asesor v11 con conmutador de régimen vs KPI de toda la campaña | KPI t −1.42 (p 0.15) con conmutador; exceso modelado t −2.46; dross t 2.93 |
+| v18/e20_01_kpi_cierre.py | Cierre del balance de Sn como covariable de error de medida del KPI | −15 % de varianza; sin ganancia de potencia; prospectiva p 0.002 se mantiene |
+
+## Cierre — `v19/` (verificación final)
+
+| Script | Qué hace | Resultado |
+|---|---|---|
+| `v19/e21_01_verificacion_final.py` | Adherencia a 'GN ≤ receta' vs KPI: OLS, cuartiles, prospectiva en 6 ventanas con corrección por multiplicidad, jackknife, placebos | DEV +1.00 pp (t 3.8); p corregida 0.0035; jackknife 97-100 % |
+| `v19/e21_02_persistencia.py` | Separa la parte propia del batch de la persistencia | innovación +0.91 (t 3.1); EF por bloques +1.06 (t 3.6) |
+
+| v20/e22_01_fuego_y_potencial_o2.py | Potencia de fuego y potencial de oxígeno de lanza como desvío respecto de la receta (batch, intra-batch, prospectivo) | Fuego → KPI −0.60 (t −3.5), dross t 3.4-4.0; potencial de O₂ sin valor neto (compensa FeO vs Sn final); GN sigue siendo el mejor mando |

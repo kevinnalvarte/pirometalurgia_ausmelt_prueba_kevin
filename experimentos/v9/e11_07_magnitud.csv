@@ -1,0 +1,2 @@
+n_puntuado,pendiente_obs,pendiente_ic_lo,pendiente_ic_hi,calibracion_incluye_1,diff_tercio_alto_bajo_pp_obs,diff_ic_lo_pp,diff_ic_hi_pp,diff_obs_kgSn,diff_ic_lo_kgSn,diff_ic_hi_kgSn,sd_score,desplaz_1sd_score_en_pp_kpi,desplaz_1sd_score_en_kgSn,n_boot,bloque_batches
+261,0.527789407681556,0.21157981393002206,0.9563787764092757,False,1.4478987725846737,0.555582005768279,2.6093979637118845,741.3241715633529,284.45798695335884,1336.0117574204849,1.3343367130239272,0.7042487834146529,360.5753771083023,1000,10

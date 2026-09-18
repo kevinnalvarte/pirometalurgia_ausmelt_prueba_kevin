@@ -1,0 +1,5 @@
+variante,estadistico,obs,p_uni
+kalman_continuo_qctrl0,t_pendiente,1.6050800667387932,0.04079933388842631
+kalman_continuo_qctrl0,spearman,0.12607163828537873,0.02414654454621149
+kalman_periodico10_qctrl0,t_pendiente,1.637682570918189,0.034970857618651124
+kalman_periodico10_qctrl0,spearman,0.12230681488380883,0.026644462947543714

@@ -1,0 +1,111 @@
+[   0.0s] cargando datos...
+[  15.5s] batch (362, 48)
+[  15.5s] 1) anclaje base...
+[  44.4s] 1b) agregacion por cociente de inventarios (primer/ultimo escalon valido)...
+[  45.2s] batches con ensayo en R3: 0.710 (esperado ~0.71)
+
+== 1) anclaje base ==
+    muestra                  spec    n    K_Sn  K_Sn_lo  K_Sn_hi  K_Sn_p    K_FeO  K_FeO_lo  K_FeO_hi  K_FeO_p       w  w_boot_lo  w_boot_hi  frac_ambos_positivos   r2adj
+0      dev          suma_escalon  297  2.8529   1.6683   4.0375  0.0000  17.2618   11.0436   23.4800   0.0000  6.0506     4.0173    10.2141                 1.000  0.1069
+1  lockbox          suma_escalon   63  4.0525   1.4207   6.6843  0.0025   2.8195  -12.7447   18.3836   0.7226  0.6957    -8.6309     4.1779                 0.539  0.1859
+2    total          suma_escalon  360  3.2183   2.1844   4.2522  0.0000  15.7079   10.0023   21.4135   0.0000  4.8808     3.4182     6.8781                 1.000  0.1136
+3      dev  cociente_inventarios  297  2.8153   1.6143   4.0163  0.0000  17.3947   11.1383   23.6511   0.0000  6.1787     4.1024    10.4999                 1.000  0.1050
+4  lockbox  cociente_inventarios   63  4.1039   1.4587   6.7490  0.0024   2.9363  -12.6088   18.4814   0.7112  0.7155    -8.1843     3.9937                 0.544  0.1876
+5    total  cociente_inventarios  360  3.2053   2.1626   4.2481  0.0000  15.9343   10.1960   21.6726   0.0000  4.9712     3.5031     7.0711                 1.000  0.1129
+6      dev    solo_con_ensayo_R3  203  2.3462   0.8535   3.8390  0.0021  16.2503    8.2330   24.2677   0.0001  6.9262     4.0556    17.0216                 1.000  0.0769
+7  lockbox    solo_con_ensayo_R3   53  4.2361   1.3263   7.1458  0.0043   2.6007  -15.4775   20.6789   0.7780  0.6139    -8.4479     4.3419                 0.514  0.2059
+8    total    solo_con_ensayo_R3  256  2.9934   1.7208   4.2661  0.0000  15.0309    7.8737   22.1880   0.0000  5.0213     3.0219     8.2270                 1.000  0.0892
+[ 102.9s] 2) EIV: HGB por escalon (estado k16) para el residuo OOF...
+
+== 2) EIV: fiabilidad lambda y K/w corregidos ==
+           target              sum_col  n_batches_dev_hgb  var_total_dev  sigma_ensayo  var_ruido_a_ensayo  lambda_a_ensayo  var_ruido_b_hgb_oof  lambda_b_hgb  lambda_lo  lambda_hi
+0  m6_ln_feo_ret  R_sum_m6_ln_feo_ret                298         0.0086         0.028              0.0016           0.8183               0.0111       -0.2855    -0.2855     0.8183
+1   m6_ln_sn_dep   R_sum_m6_ln_sn_dep                298         0.2293         0.020              0.0008           0.9965               0.3636       -0.5856    -0.5856     0.9965
+
+-- K,w corregidos (combinaciones de via) --
+   lambda_feo_via lambda_sn_via  lambda_feo  lambda_sn  K_Sn_corr  K_FeO_corr   w_corr
+0       a_ensayo      a_ensayo       0.818      0.997      2.863      21.094    7.368
+1       a_ensayo         b_hgb       0.818      0.050     57.058      21.094    0.370
+2          b_hgb      a_ensayo       0.050      0.997      2.863     345.235  120.589
+3          b_hgb         b_hgb       0.050      0.050     57.058     345.235    6.051
+[ 107.8s] 3) legado...
+
+== 3) legado: efectos sobre KPI_next / placebo ==
+     muestra                     spec             variable     coef       lo       hi       p    n   r2adj
+0       dev  next_controlando_actual   R_sum_m6_ln_sn_dep   0.4972  -0.9134   1.9079  0.4897  297  0.0334
+1       dev  next_controlando_actual  R_sum_m6_ln_feo_ret   9.3742   3.5873  15.1610  0.0015  297  0.0334
+2       dev  next_controlando_actual           KPI_actual   0.0604  -0.0456   0.1663  0.2640  297  0.0334
+3       dev             placebo_prev   R_sum_m6_ln_sn_dep   0.3883  -0.9153   1.6918  0.5594  296  0.0167
+4       dev             placebo_prev  R_sum_m6_ln_feo_ret   2.0874  -4.8525   9.0274  0.5555  296  0.0167
+5   lockbox  next_controlando_actual   R_sum_m6_ln_sn_dep  -0.6697  -4.5646   3.2252  0.7361   62  0.0898
+6   lockbox  next_controlando_actual  R_sum_m6_ln_feo_ret  19.7514   4.2798  35.2229  0.0123   62  0.0898
+7   lockbox  next_controlando_actual           KPI_actual   0.0069  -0.2293   0.2431  0.9544   62  0.0898
+8   lockbox             placebo_prev   R_sum_m6_ln_sn_dep  -2.1546  -5.1132   0.8040  0.1535   63  0.1368
+9   lockbox             placebo_prev  R_sum_m6_ln_feo_ret -13.2170 -30.8827   4.4486  0.1425   63  0.1368
+10    total  next_controlando_actual   R_sum_m6_ln_sn_dep   0.5818  -0.7171   1.8808  0.3800  359  0.0519
+11    total  next_controlando_actual  R_sum_m6_ln_feo_ret  10.4242   5.0437  15.8048  0.0001  359  0.0519
+12    total  next_controlando_actual           KPI_actual   0.0599  -0.0351   0.1548  0.2165  359  0.0519
+13    total             placebo_prev   R_sum_m6_ln_sn_dep   0.2515  -0.9398   1.4427  0.6790  359  0.0176
+14    total             placebo_prev  R_sum_m6_ln_feo_ret   0.7321  -5.8450   7.3092  0.8273  359  0.0176
+
+== 3) legado: anclaje K,w (KPI_actual vs KPI_actual+KPI_next) ==
+    muestra           y        spec    n   K_Sn  K_Sn_lo  K_Sn_hi  K_Sn_p   K_FeO  K_FeO_lo  K_FeO_hi  K_FeO_p      w  w_boot_lo  w_boot_hi  frac_ambos_positivos  r2adj
+0      dev  KPI_actual  KPI_actual  297  2.853    1.668    4.037   0.000  17.262    11.044    23.480    0.000  6.051      4.017     10.214                 1.000  0.107
+1      dev    KPI_sum2    KPI_sum2  297  3.522    1.759    5.285   0.000  27.678    19.145    36.212    0.000  7.858      5.111     13.264                 1.000  0.126
+2  lockbox  KPI_actual  KPI_actual   63  4.053    1.421    6.684   0.003   2.819   -12.745    18.384    0.723  0.696     -8.631      4.178                 0.539  0.186
+3  lockbox    KPI_sum2    KPI_sum2   62  2.955   -2.137    8.047   0.255  22.091    -0.696    44.878    0.057  7.476    -46.555     36.278                 0.864  0.124
+4    total  KPI_actual  KPI_actual  360  3.218    2.184    4.252   0.000  15.708    10.002    21.414    0.000  4.881      3.418      6.878                 1.000  0.114
+5    total    KPI_sum2    KPI_sum2  359  3.823    2.184    5.462   0.000  26.943    19.001    34.884    0.000  7.047      4.990     10.425                 1.000  0.135
+[ 166.5s] 4) objetivo lineal en kg...
+
+== 4) objetivo lineal en kg ==
+    muestra                            spec    n  coef_dSn_por1000kg  coef_dSn_p  coef_dFeO_por1000kg  coef_dFeO_p  lambda_kg  lambda_kg_lo  lambda_kg_hi   r2adj  coef_sn_escoria_final_por1000kg  coef_sn_escoria_final_p
+0      dev                       lineal_kg  297              0.1701      0.0416              -0.7972       0.0065     4.6880        0.8911       20.6843  0.0291                              NaN                      NaN
+1      dev  lineal_kg_con_sn_escoria_final  297              0.1973      0.0249              -0.9300       0.0035     4.7128        1.4442       15.7760  0.0290                          -0.8799                   0.2795
+2  lockbox                       lineal_kg   63              0.1838      0.2722               1.1900       0.0640    -6.4756      -71.4786       55.5226  0.1242                              NaN                      NaN
+3  lockbox  lineal_kg_con_sn_escoria_final   63              0.1414      0.3721               0.7566       0.2565    -5.3521      -79.7657       71.5863  0.1443                          -1.3775                   0.2950
+4    total                       lineal_kg  360              0.1941      0.0030              -0.5466       0.0369     2.8161        0.4135        7.9583  0.0331                              NaN                      NaN
+5    total  lineal_kg_con_sn_escoria_final  360              0.2187      0.0007              -0.7801       0.0052     3.5675        1.3966        8.1948  0.0439                          -1.3771                   0.0178
+[ 228.3s] 5) barrido de w...
+
+== 5) barrido de w: Spearman J_R(w) vs KPI ==
+         w  muestra    tercio     rho       p    n
+0    1.00      dev     todos  0.1431  0.0134  298
+1    1.00  lockbox     todos  0.3475  0.0053   63
+2    1.00    total     todos  0.1901  0.0003  361
+3    1.00    total  tercio_0  0.0278  0.7621  121
+4    1.00    total  tercio_1  0.1838  0.0444  120
+5    1.00    total  tercio_2  0.3883  0.0000  120
+6    2.00      dev     todos  0.2004  0.0005  298
+7    2.00  lockbox     todos  0.3028  0.0159   63
+8    2.00    total     todos  0.2316  0.0000  361
+9    2.00    total  tercio_0  0.0915  0.3181  121
+10   2.00    total  tercio_1  0.2265  0.0129  120
+11   2.00    total  tercio_2  0.4024  0.0000  120
+12   4.00      dev     todos  0.2845  0.0000  298
+13   4.00  lockbox     todos  0.2410  0.0571   63
+14   4.00    total     todos  0.2858  0.0000  361
+15   4.00    total  tercio_0  0.1799  0.0483  121
+16   4.00    total  tercio_1  0.2946  0.0011  120
+17   4.00    total  tercio_2  0.3888  0.0000  120
+18   6.09      dev     todos  0.3187  0.0000  298
+19   6.09  lockbox     todos  0.1982  0.1194   63
+20   6.09    total     todos  0.2979  0.0000  361
+21   6.09    total  tercio_0  0.2380  0.0086  121
+22   6.09    total  tercio_1  0.3180  0.0004  120
+23   6.09    total  tercio_2  0.3557  0.0001  120
+24   7.86      dev     todos  0.3237  0.0000  298
+25   7.86  lockbox     todos  0.1293  0.3126   63
+26   7.86    total     todos  0.2863  0.0000  361
+27   7.86    total  tercio_0  0.2544  0.0049  121
+28   7.86    total  tercio_1  0.3099  0.0006  120
+29   7.86    total  tercio_2  0.2968  0.0010  120
+30  11.00      dev     todos  0.3162  0.0000  298
+31  11.00  lockbox     todos  0.0703  0.5839   63
+32  11.00    total     todos  0.2655  0.0000  361
+33  11.00    total  tercio_0  0.2699  0.0028  121
+34  11.00    total  tercio_1  0.2827  0.0018  120
+35  11.00    total  tercio_2  0.2309  0.0112  120
+[ 228.6s] FIN
+
+FIN

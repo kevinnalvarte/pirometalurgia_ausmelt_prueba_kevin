@@ -1,0 +1,4 @@
+[20:24:53] cargando datos (etapa corr) ...
+[20:24:53] df (3982, 315), r(Reducción) (1448, 315), dev_batches=299, lockbox_batches=63
+[20:24:53] corr_targets -> e10_02_corr_targets.csv
+[20:24:53] listo

@@ -1,0 +1,5 @@
+exposicion,patron,signos_pasos,r2_ajuste_lineal_quintiles,d_q5_q1
+x_R_gn,decreciente,"[np.int64(-1), np.int64(-1), np.int64(-1), np.int64(-1)]",0.99,-1.984772227706444
+x_R_carbon,creciente,"[np.int64(1), np.int64(1), np.int64(1), np.int64(1)]",0.896,1.1812670709742172
+x_F_carbon,no_monotona,"[np.int64(1), np.int64(-1), np.int64(-1), np.int64(1)]",0.045,0.1660265086690578
+x_F_exo2,no_monotona,"[np.int64(-1), np.int64(1), np.int64(1), np.int64(-1)]",0.338,-0.9705108793292745

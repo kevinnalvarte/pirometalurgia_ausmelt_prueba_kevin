@@ -1,0 +1,7 @@
+[19:30:07] cargando datos (etapa targets) ...
+[19:30:07] df (3982, 304), r(Reducción) (1448, 304), dev_batches=299, lockbox_batches=63
+[19:30:07] corr_targets -> e10_02_corr_targets.csv
+[19:33:27] [sn_dep k16_v7 m6_ln_sn_dep] n_dev=1045 r2_oof=0.804 cron=0.799 wf=0.801 lb=0.821 (200.3s)
+[19:36:11] [sn_dep k16_v7 m8_ln_sn_dep_cstar] n_dev=1045 r2_oof=0.550 cron=0.544 wf=0.537 lb=0.593 (164.0s)
+[19:36:11] etapa targets terminada -> e10_02_targets_estados.csv, e10_02_theta.csv, e10_02_por_orden.csv, e10_02_corr_targets.csv
+[19:36:11] listo

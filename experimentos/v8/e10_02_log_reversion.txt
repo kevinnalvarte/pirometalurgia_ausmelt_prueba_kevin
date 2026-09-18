@@ -1,0 +1,11 @@
+[20:14:52] cargando datos (etapa reversion) ...
+[20:14:52] df (3982, 315), r(Reducción) (1448, 315), dev_batches=299, lockbox_batches=63
+[20:14:52] mejor variante dross (por r2_oof_cronologico/walk_forward promedio) = m8_ln_feo_ret_dross60
+[20:15:37] [reversion m6_ln_feo_ret k15_full] n_dev=1083 r2_oof=0.325 cron=0.304 (45.0s)
+[20:16:13] [reversion m6_ln_feo_ret k15_sin_feo_prev] n_dev=1083 r2_oof=0.309 cron=0.268 (35.9s)
+[20:16:13] [reversion m6_ln_feo_ret] frac_reversion_oof=0.050 frac_reversion_cron=0.118
+[20:16:52] [reversion m8_ln_feo_ret_dross60 k15_full] n_dev=1083 r2_oof=0.460 cron=0.430 (38.9s)
+[20:17:38] [reversion m8_ln_feo_ret_dross60 k15_sin_feo_prev] n_dev=1083 r2_oof=0.450 cron=0.416 (45.5s)
+[20:17:38] [reversion m8_ln_feo_ret_dross60] frac_reversion_oof=0.022 frac_reversion_cron=0.032
+[20:17:38] etapa reversion terminada -> e10_02_reversion.csv
+[20:17:38] listo

@@ -1,0 +1,5 @@
+n_dev,n_lockbox,r2_oof,mae_oof,r2_oof_cronologico,r2_lockbox,mae_lockbox,estado,target,A
+240,62,0.12440357258047552,0.30492890376540005,0.15156010380922225,-0.5056762134480357,0.34837463410677566,A_k15,sn_dep,"Cx_sn_v6,tasa_gn_nm3_min,exceso_o2_combustion_pct,tasa_aire_nm3_min"
+240,62,-0.2205016777760962,0.38241482823633033,-0.22223660757788077,0.07474809131140647,0.2832470199857545,B_online,sn_dep,"Cx_sn_online,tasa_gn_nm3_min,exceso_o2_combustion_pct,tasa_aire_nm3_min"
+240,62,0.0011636871551852224,0.052423222724164296,-0.07642104064167032,0.17359905010576482,0.03704495587732042,A_k15,feo_ret,"tasa_feed_Carbon_kg_min,Cx_av_v6,tasa_gn_nm3_min,exceso_o2_combustion_pct,tasa_aire_nm3_min"
+240,62,-0.2924926198795066,0.060459140449967134,-0.38467191771794673,0.2764331013447975,0.036803418002016,B_online,feo_ret,"tasa_feed_Carbon_kg_min,Cx_av_online,tasa_gn_nm3_min,exceso_o2_combustion_pct,tasa_aire_nm3_min"

@@ -1,0 +1,54 @@
+[    0.0s] ##### etapa dT #####
+[    0.1s] confusion reactiva DEV: corr(O2,T_prev)=-0.525  corr(GN,T_prev)=-0.427  n=1793
+[    0.1s] a_sin_F1: n_dev=1482 n_lockbox=314 (n_F1_dev=0)
+[   44.9s]   r2_oof=0.497  r2_oof_cronologico=0.338  r2_wf=0.209  r2_lockbox=0.037
+[   48.4s]   theta (3.5s): tasa_gn_nm3_min=-0.256[-1.780,+1.152]; tasa_o2_nm3_min=-1.010[-2.455,+0.524]; tasa_aire_nm3_min=+0.578[-1.006,+2.093]; tasa_feed_Carbon_kg_min=+0.105[-1.077,+1.279]
+[   63.5s] b_F1_imputado_v7: n_dev=1778 n_lockbox=376 (n_F1_dev=296)
+[  110.9s]   r2_oof=0.403  r2_oof_cronologico=0.258  r2_wf=0.092  r2_lockbox=0.092
+[  114.5s]   theta (3.5s): tasa_gn_nm3_min=-0.922[-2.575,+0.645]; tasa_o2_nm3_min=-0.503[-2.169,+1.423]; tasa_aire_nm3_min=-0.351[-1.961,+1.014]; tasa_feed_Carbon_kg_min=+0.930[-0.544,+2.276]
+[  130.5s] c_F1_imputado_mas_esF1: n_dev=1778 n_lockbox=376 (n_F1_dev=296)
+[  182.4s]   r2_oof=0.403  r2_oof_cronologico=0.258  r2_wf=0.092  r2_lockbox=0.092
+[  186.4s]   theta (4.0s): tasa_gn_nm3_min=-0.922[-2.575,+0.645]; tasa_o2_nm3_min=-0.503[-2.169,+1.423]; tasa_aire_nm3_min=-0.351[-1.961,+1.014]; tasa_feed_Carbon_kg_min=+0.930[-0.544,+2.276]
+[  204.2s] d_b_sin_temperatura_prev: n_dev=1778 n_lockbox=376 (n_F1_dev=296)
+[ 3132.5s]   r2_oof=0.370  r2_oof_cronologico=0.112  r2_wf=0.138  r2_lockbox=0.067
+[ 3135.6s]   theta (3.1s): tasa_gn_nm3_min=-1.480[-3.162,+0.009]; tasa_o2_nm3_min=+0.050[-1.703,+1.790]; tasa_aire_nm3_min=-0.061[-1.658,+1.439]; tasa_feed_Carbon_kg_min=+1.653[+0.017,+2.964]
+[ 3148.8s] FIN dT
+[ 3148.8s] ##### etapa familia #####
+[ 3152.1s] recuperacion_refinada_pct ~ F_carbon_total_kg: ols_dev=0.10497285286683639 p_dev=0.7203894936660368 ols_total=0.3243210067981611 rho_lockbox=0.1795794930875576
+[ 3152.5s] recuperacion_refinada_pct ~ F_c_sn_ratio: ols_dev=0.17354164274203163 p_dev=0.6531657310265062 ols_total=0.3975695901634492 rho_lockbox=0.1390168970814132
+[ 3152.8s] recuperacion_refinada_pct ~ T_media_F: ols_dev=-0.12643381977545154 p_dev=0.7975607624347089 ols_total=-0.08964070705937056 rho_lockbox=-0.2780337941628264
+[ 3153.1s] recuperacion_refinada_pct ~ F_gn_total_nm3: ols_dev=-0.16628649862725464 p_dev=0.6441257797899091 ols_total=-0.19283004571379533 rho_lockbox=-0.04037058371735792
+[ 3153.5s] recuperacion_refinada_pct ~ F_exceso_o2_media: ols_dev=-0.19966825938867802 p_dev=0.5642510132670281 ols_total=-0.4058740786147051 rho_lockbox=-0.2712173579109063
+[ 3153.8s] recuperacion_refinada_pct ~ F_tgas_prebhf_media: ols_dev=-0.23636669057866705 p_dev=0.4421978834323018 ols_total=-0.27158066869891534 rho_lockbox=-0.12869623655913978
+[ 3154.1s] recuperacion_refinada_pct ~ F_sum_m6_ln_sn_dep: ols_dev=-0.26897564718121086 p_dev=0.34206223226654353 ols_total=-0.44365977254158784 rho_lockbox=-0.1412250384024578
+[ 3154.4s] f_polvo ~ F_carbon_total_kg: ols_dev=0.005327598806811252 p_dev=0.009650341994416084 ols_total=0.005512484589497225 rho_lockbox=-0.02236943164362519
+[ 3154.7s] f_polvo ~ F_c_sn_ratio: ols_dev=0.006379714825748358 p_dev=0.01708943722120674 ols_total=0.005827735404567801 rho_lockbox=0.01944124423963134
+[ 3155.0s] f_polvo ~ T_media_F: ols_dev=0.008126892985202357 p_dev=0.026758905261636726 ols_total=0.00943420349734428 rho_lockbox=0.19604454685099848
+[ 3155.3s] f_polvo ~ F_gn_total_nm3: ols_dev=-0.0010745675736248221 p_dev=0.6559564636138517 ols_total=-0.001054505762035689 rho_lockbox=-0.06149193548387097
+[ 3155.7s] f_polvo ~ F_exceso_o2_media: ols_dev=-0.0001637775903287987 p_dev=0.9207013424878351 ols_total=0.0009039595898877639 rho_lockbox=0.14741743471582183
+[ 3156.0s] f_polvo ~ F_tgas_prebhf_media: ols_dev=-0.0009187673383819796 p_dev=0.672397997576214 ols_total=-0.001080193974957798 rho_lockbox=0.1872599846390169
+[ 3156.3s] f_polvo ~ F_sum_m6_ln_sn_dep: ols_dev=-0.003440287730237834 p_dev=0.09195722886595213 ols_total=-0.0037775750043085926 rho_lockbox=0.02217741935483871
+[ 3156.7s] f_dross ~ F_carbon_total_kg: ols_dev=-0.00623977787557878 p_dev=0.013371401180091422 ols_total=-0.008924211004258534 rho_lockbox=-0.16599462365591397
+[ 3157.0s] f_dross ~ F_c_sn_ratio: ols_dev=-0.008177621727577352 p_dev=0.009693527504547673 ols_total=-0.01011203241889359 rho_lockbox=-0.17266705069124424
+[ 3157.3s] f_dross ~ T_media_F: ols_dev=-0.0077093258288130385 p_dev=0.03673365572733795 ols_total=-0.009498780458668653 rho_lockbox=0.09274193548387098
+[ 3157.6s] f_dross ~ F_gn_total_nm3: ols_dev=0.0030974538765737463 p_dev=0.2571784716775378 ols_total=0.0034519334320322705 rho_lockbox=0.10248655913978497
+[ 3157.9s] f_dross ~ F_exceso_o2_media: ols_dev=0.0023180150262783724 p_dev=0.4957518186889387 ols_total=0.002867836732454425 rho_lockbox=0.17252304147465441
+[ 3158.2s] f_dross ~ F_tgas_prebhf_media: ols_dev=0.003966025044919258 p_dev=0.14781354264251964 ols_total=0.004472442011638519 rho_lockbox=-0.04421082949308756
+[ 3158.6s] f_dross ~ F_sum_m6_ln_sn_dep: ols_dev=0.007282984494434653 p_dev=0.002824177818967925 ols_total=0.009285780891373732 rho_lockbox=0.16177035330261136
+[ 3158.6s] FIN familia: 6/21 terminos defendibles (p<0.05, q-BH<0.10, signo replica en total)
+[ 3158.6s] ##### etapa recorte #####
+[ 3158.6s] lambda extendida por orden (DEV):
+ orden_escalon_fase   n  media    sd    P5   P10   P50   P90   P95
+                  1 299  0.768 0.043 0.702 0.713 0.766 0.824 0.834
+                  2 299  0.683 0.046 0.625 0.639 0.680 0.736 0.755
+                  3 298  0.666 0.044 0.614 0.621 0.663 0.719 0.740
+                  4 299  0.664 0.049 0.620 0.632 0.663 0.701 0.716
+                  5 299  0.688 0.031 0.639 0.654 0.689 0.721 0.736
+                  6 299  0.720 0.042 0.653 0.669 0.717 0.774 0.787
+[ 3160.8s] d_temperatura_horno_celsius: r2_oof_plm_interno=0.404 n_dev=1778 (2.2s)
+[ 3162.6s] d_temperatura_gas_pre_bhf_celsius: r2_oof_plm_interno=0.536 n_dev=1778 (1.8s)
+[ 3162.6s] FIN recorte
+[ 3162.6s] ##### etapa envolvente #####
+[ 3162.6s] P10 global de espesor_ladrillo_norm_mm (DEV, fin de campana): 237.7 mm
+[ 3162.7s] FIN envolvente
+[ 3162.7s] TOTAL 3162.7s

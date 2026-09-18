@@ -1,0 +1,87 @@
+[    0.0s] CONFIG: {'w_sdi': 5.93, 'pp_kpi_por_unidad_sdi': 2.781, 'w_sdi_ic': (3.96, 9.62), 'lambda_kg': 3.0, 'pp_kpi_por_kg_sn': 0.001951219512195122, 'pp_kpi_por_kg_carbon_F': 0.0, 'solo_identificados': True, 'delta_max_sd': 1.0, 'techo_carbon_R0_pct': 0.9, 'percentil_limites': (0.05, 0.95), 'percentil_soporte_minimo': 0.1, 'ventana_T_percentiles': (0.1, 0.9), 'fusion_modo': 'receta', 'congelar_fusion_fin_campana': True, 'lambda_lanza_constante': True} OBJETIVO: log ESTADO_R: 15 PALANCAS: ['Cx_sn_v6', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min'] ['m8_exceso_C_pos', 'Cx_av_v6', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min']
+[   85.2s] 
+             clave                   palanca  signo_teorico     n  spearman_residual       p  theta_libre_1sd  ci_lo_libre  ci_hi_libre  rho_tercio0  p_tercio0  rho_tercio1  p_tercio1  rho_tercio2  p_tercio2       grupo  ols_pp_por_sd   ols_p
+0          sn_dep                  Cx_sn_v6            1.0  1083             0.0803  0.0082           0.1786       0.0402       0.2969       0.0284     0.5897       0.1113     0.0361       0.1062     0.0427         NaN            NaN     NaN
+1          sn_dep           tasa_gn_nm3_min            1.0  1083             0.1120  0.0002           0.0563       0.0217       0.0958       0.1258     0.0165       0.1026     0.0533       0.1089     0.0376         NaN            NaN     NaN
+2          sn_dep  exceso_o2_combustion_pct           -1.0  1083            -0.0328  0.2807          -0.0039      -0.0213       0.0138      -0.0562     0.2857       0.0205     0.7008      -0.0562     0.2838         NaN            NaN     NaN
+3          sn_dep         tasa_aire_nm3_min            0.0  1083             0.0111  0.7141           0.0059      -0.0109       0.0217      -0.0363     0.4907       0.1288     0.0152      -0.0364     0.4886         NaN            NaN     NaN
+4    batch_sn_dep                  Cx_sn_v6            NaN   295            -0.1026  0.0786              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN  R_temprano        -0.2782  0.2417
+5    batch_sn_dep                  Cx_sn_v6            NaN   292             0.1853  0.0015              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN    R_tardio         0.8109  0.0154
+6    batch_sn_dep                  Cx_sn_v6            NaN   297            -0.0719  0.2169              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN      R_todo        -0.2017  0.4275
+7    batch_sn_dep           tasa_gn_nm3_min            NaN   295            -0.0335  0.5667              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN  R_temprano        -0.3374  0.1748
+8    batch_sn_dep           tasa_gn_nm3_min            NaN   292            -0.0749  0.2016              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN    R_tardio        -0.4173  0.0826
+9    batch_sn_dep           tasa_gn_nm3_min            NaN   297            -0.0877  0.1316              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN      R_todo        -0.4622  0.0429
+10   batch_sn_dep  exceso_o2_combustion_pct            NaN   295             0.0048  0.9341              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN  R_temprano         0.2068  0.3472
+11   batch_sn_dep  exceso_o2_combustion_pct            NaN   292             0.0292  0.6189              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN    R_tardio         0.2427  0.2985
+12   batch_sn_dep  exceso_o2_combustion_pct            NaN   297             0.0256  0.6606              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN      R_todo         0.3230  0.1504
+13   batch_sn_dep         tasa_aire_nm3_min            NaN   295             0.0112  0.8477              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN  R_temprano        -0.0634  0.7655
+14   batch_sn_dep         tasa_aire_nm3_min            NaN   292            -0.0314  0.5931              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN    R_tardio        -0.3112  0.1259
+15   batch_sn_dep         tasa_aire_nm3_min            NaN   297             0.0025  0.9652              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN      R_todo        -0.2274  0.2893
+16        feo_ret           m8_exceso_C_pos           -1.0  1083             0.0370  0.2242           0.0031      -0.0043       0.0111       0.0555     0.2912      -0.0193     0.7171       0.0749     0.1530         NaN            NaN     NaN
+17        feo_ret                  Cx_av_v6           -1.0  1083             0.0024  0.9362          -0.0025      -0.0168       0.0094       0.0070     0.8943       0.0039     0.9416       0.0054     0.9175         NaN            NaN     NaN
+18        feo_ret           tasa_gn_nm3_min           -1.0  1083            -0.1200  0.0001          -0.0118      -0.0218      -0.0034      -0.1426     0.0065      -0.0543     0.3075      -0.1385     0.0080         NaN            NaN     NaN
+19        feo_ret  exceso_o2_combustion_pct            1.0  1083             0.0687  0.0237           0.0023      -0.0015       0.0058       0.0803     0.1269       0.0620     0.2442       0.0703     0.1799         NaN            NaN     NaN
+20        feo_ret         tasa_aire_nm3_min            1.0  1083             0.0370  0.2241           0.0027      -0.0013       0.0069       0.0214     0.6841      -0.0048     0.9285       0.0946     0.0711         NaN            NaN     NaN
+21  batch_feo_ret           m8_exceso_C_pos            NaN   295             0.0900  0.1229              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN  R_temprano         0.1370  0.6141
+22  batch_feo_ret           m8_exceso_C_pos            NaN   292             0.1602  0.0061              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN    R_tardio         0.7201  0.1075
+23  batch_feo_ret           m8_exceso_C_pos            NaN   297             0.1476  0.0109              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN      R_todo         0.5582  0.0576
+24  batch_feo_ret                  Cx_av_v6            NaN   295             0.0531  0.3639              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN  R_temprano         0.0291  0.9134
+25  batch_feo_ret                  Cx_av_v6            NaN   292             0.1715  0.0033              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN    R_tardio         0.7925  0.0016
+26  batch_feo_ret                  Cx_av_v6            NaN   297             0.1469  0.0113              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN      R_todo         0.4827  0.1025
+27  batch_feo_ret           tasa_gn_nm3_min            NaN   295            -0.0335  0.5667              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN  R_temprano        -0.3374  0.1748
+28  batch_feo_ret           tasa_gn_nm3_min            NaN   292            -0.0749  0.2016              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN    R_tardio        -0.4173  0.0826
+29  batch_feo_ret           tasa_gn_nm3_min            NaN   297            -0.0877  0.1316              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN      R_todo        -0.4622  0.0429
+30  batch_feo_ret  exceso_o2_combustion_pct            NaN   295             0.0048  0.9341              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN  R_temprano         0.2068  0.3472
+31  batch_feo_ret  exceso_o2_combustion_pct            NaN   292             0.0292  0.6189              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN    R_tardio         0.2427  0.2985
+32  batch_feo_ret  exceso_o2_combustion_pct            NaN   297             0.0256  0.6606              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN      R_todo         0.3230  0.1504
+33  batch_feo_ret         tasa_aire_nm3_min            NaN   295             0.0112  0.8477              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN  R_temprano        -0.0634  0.7655
+34  batch_feo_ret         tasa_aire_nm3_min            NaN   292            -0.0314  0.5931              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN    R_tardio        -0.3112  0.1259
+35  batch_feo_ret         tasa_aire_nm3_min            NaN   297             0.0025  0.9652              NaN          NaN          NaN          NaN        NaN          NaN        NaN          NaN        NaN      R_todo        -0.2274  0.2893
+[   85.2s] 
+       clave                   palanca  quintil_residuo   x_medio  y_res_medio   ic_lo   ic_hi    n
+0    sn_dep                  Cx_sn_v6                0  -59.7292      -0.0536 -0.0840 -0.0226  217
+1    sn_dep                  Cx_sn_v6                1   -6.8318      -0.0125 -0.0475  0.0270  216
+2    sn_dep                  Cx_sn_v6                2   -0.9316      -0.0109 -0.0399  0.0178  217
+3    sn_dep                  Cx_sn_v6                3    8.2547       0.0483  0.0166  0.0775  216
+4    sn_dep                  Cx_sn_v6                4   59.9950       0.0154 -0.0212  0.0468  217
+5    sn_dep           tasa_gn_nm3_min                0   -4.0351      -0.0465 -0.0761 -0.0170  217
+6    sn_dep           tasa_gn_nm3_min                1   -0.9271      -0.0480 -0.0815 -0.0174  216
+7    sn_dep           tasa_gn_nm3_min                2    0.2112      -0.0020 -0.0310  0.0309  217
+8    sn_dep           tasa_gn_nm3_min                3    1.3189       0.0492  0.0200  0.0850  216
+9    sn_dep           tasa_gn_nm3_min                4    3.5377       0.0346  0.0085  0.0660  217
+10   sn_dep  exceso_o2_combustion_pct                0   -9.9540       0.0015 -0.0255  0.0343  217
+11   sn_dep  exceso_o2_combustion_pct                1   -3.7092       0.0205 -0.0101  0.0496  216
+12   sn_dep  exceso_o2_combustion_pct                2   -1.3313      -0.0110 -0.0415  0.0194  217
+13   sn_dep  exceso_o2_combustion_pct                3    0.4256       0.0013 -0.0313  0.0323  216
+14   sn_dep  exceso_o2_combustion_pct                4   14.1658      -0.0260 -0.0548  0.0027  217
+15   sn_dep         tasa_aire_nm3_min                0  -10.7173      -0.0121 -0.0418  0.0208  217
+16   sn_dep         tasa_aire_nm3_min                1   -0.9065      -0.0017 -0.0405  0.0407  216
+17   sn_dep         tasa_aire_nm3_min                2    0.7818      -0.0160 -0.0487  0.0160  217
+18   sn_dep         tasa_aire_nm3_min                3    2.9785       0.0184 -0.0151  0.0474  216
+19   sn_dep         tasa_aire_nm3_min                4    7.4590      -0.0026 -0.0321  0.0254  217
+20  feo_ret           m8_exceso_C_pos                0 -165.7289      -0.0011 -0.0081  0.0056  217
+21  feo_ret           m8_exceso_C_pos                1  -41.5858      -0.0033 -0.0100  0.0036  216
+22  feo_ret           m8_exceso_C_pos                2   -9.1675       0.0009 -0.0047  0.0071  217
+23  feo_ret           m8_exceso_C_pos                3   17.4210       0.0021 -0.0047  0.0074  216
+24  feo_ret           m8_exceso_C_pos                4  203.7080       0.0034 -0.0021  0.0088  217
+25  feo_ret                  Cx_av_v6                0   -8.7920       0.0057 -0.0008  0.0117  217
+26  feo_ret                  Cx_av_v6                1   -2.5199      -0.0000 -0.0053  0.0048  216
+27  feo_ret                  Cx_av_v6                2   -0.0266      -0.0053 -0.0110  0.0011  217
+28  feo_ret                  Cx_av_v6                3    2.5890      -0.0030 -0.0093  0.0036  216
+29  feo_ret                  Cx_av_v6                4    8.7929       0.0046 -0.0012  0.0102  217
+30  feo_ret           tasa_gn_nm3_min                0   -4.0351       0.0140  0.0084  0.0189  217
+31  feo_ret           tasa_gn_nm3_min                1   -0.9271       0.0046 -0.0014  0.0107  216
+32  feo_ret           tasa_gn_nm3_min                2    0.2112      -0.0052 -0.0107 -0.0002  217
+33  feo_ret           tasa_gn_nm3_min                3    1.3189      -0.0012 -0.0078  0.0045  216
+34  feo_ret           tasa_gn_nm3_min                4    3.5377      -0.0103 -0.0168 -0.0037  217
+35  feo_ret  exceso_o2_combustion_pct                0   -9.9540      -0.0044 -0.0101  0.0010  217
+36  feo_ret  exceso_o2_combustion_pct                1   -3.7092       0.0020 -0.0047  0.0073  216
+37  feo_ret  exceso_o2_combustion_pct                2   -1.3313      -0.0012 -0.0072  0.0048  217
+38  feo_ret  exceso_o2_combustion_pct                3    0.4256      -0.0033 -0.0079  0.0021  216
+39  feo_ret  exceso_o2_combustion_pct                4   14.1658       0.0089  0.0041  0.0149  217
+40  feo_ret         tasa_aire_nm3_min                0  -10.7173      -0.0043 -0.0097  0.0017  217
+41  feo_ret         tasa_aire_nm3_min                1   -0.9065       0.0021 -0.0048  0.0082  216
+42  feo_ret         tasa_aire_nm3_min                2    0.7818      -0.0029 -0.0102  0.0033  217
+43  feo_ret         tasa_aire_nm3_min                3    2.9785       0.0012 -0.0042  0.0084  216
+44  feo_ret         tasa_aire_nm3_min                4    7.4590       0.0058  0.0002  0.0121  217
+[   85.2s] FIN

@@ -1,0 +1,16 @@
+[20:17:45] cargando datos (etapa tercios) ...
+[20:17:45] df (3982, 315), r(Reducción) (1448, 315), dev_batches=299, lockbox_batches=63
+[20:17:48] [tercios k15_sin_espesor sn_dep t0] n=363 theta_libre_1sd=-0.0184 [-0.2237,0.1543] theta_acot_1sd=0.0000 (2.9s)
+[20:17:51] [tercios k15_sin_espesor sn_dep t1] n=355 theta_libre_1sd=0.1837 [-0.0447,0.3344] theta_acot_1sd=0.1803 (2.6s)
+[20:17:53] [tercios k15_sin_espesor sn_dep t2] n=365 theta_libre_1sd=0.2813 [0.0125,0.5537] theta_acot_1sd=0.2813 (2.5s)
+[20:17:57] [tercios k15_sin_espesor feo_ret t0] n=363 theta_libre_1sd=-0.0174 [-0.0311,-0.0047] theta_acot_1sd=-0.0084 (3.6s)
+[20:18:04] [tercios k15_sin_espesor feo_ret t1] n=355 theta_libre_1sd=0.0128 [-0.0038,0.0296] theta_acot_1sd=-0.0000 (6.6s)
+[20:18:13] [tercios k15_sin_espesor feo_ret t2] n=365 theta_libre_1sd=-0.0154 [-0.0315,-0.0025] theta_acot_1sd=-0.0122 (9.5s)
+[20:18:21] [tercios k17 sn_dep t0] n=363 theta_libre_1sd=-0.0509 [-0.2317,0.1189] theta_acot_1sd=0.0000 (7.7s)
+[20:18:27] [tercios k17 sn_dep t1] n=355 theta_libre_1sd=0.1629 [-0.0877,0.3105] theta_acot_1sd=0.1629 (6.3s)
+[20:18:33] [tercios k17 sn_dep t2] n=365 theta_libre_1sd=0.2679 [-0.0025,0.5428] theta_acot_1sd=0.2679 (5.9s)
+[20:18:42] [tercios k17 feo_ret t0] n=363 theta_libre_1sd=-0.0140 [-0.0275,-0.0023] theta_acot_1sd=-0.0070 (9.0s)
+[20:18:51] [tercios k17 feo_ret t1] n=355 theta_libre_1sd=0.0078 [-0.0078,0.0239] theta_acot_1sd=-0.0000 (8.9s)
+[20:19:01] [tercios k17 feo_ret t2] n=365 theta_libre_1sd=-0.0088 [-0.0257,0.0049] theta_acot_1sd=-0.0062 (9.6s)
+[20:19:01] etapa tercios terminada -> e10_02_tercios.csv
+[20:19:01] listo

@@ -1,0 +1,6 @@
+{
+  "r3_missing": 105,
+  "first_training_batches": 100,
+  "block": 20,
+  "note": "Full pipeline forecast; no future outcomes used for fitting. Scores in kg use linear approximation as common comparator. Nested selection absent; fixed hyperparameters. Circular moving-block bootstrap L=10 exploratory; no multiplicity correction."
+}

@@ -1,0 +1,11 @@
+grupo,chequeo,coef,p,n
+R,"z__lanza ~ orden (residual, deberia ser ~0: ya en S)",-0.019846176937597253,0.35066992318121293,1446
+F,"z__lanza ~ orden (residual, deberia ser ~0: ya en S)",0.014437482467575946,0.2705372141625286,2171
+R,"z__lanza vs cum_o2_nm3_prev (proxy desgaste, Spearman)",-0.079,0.0027,1446
+R,"z__lanza vs cum_gn_nm3_prev (proxy desgaste, Spearman)",-0.073,0.0056,1446
+R,"z__lanza vs cum_aire_nm3_prev (proxy desgaste, Spearman)",-0.034,0.1923,1446
+R,"z__lanza vs tiempo_fase (proxy desgaste, Spearman)",-0.048,0.0653,1446
+F,"z__lanza vs cum_o2_nm3_prev (proxy desgaste, Spearman)",0.032,0.1406,2171
+F,"z__lanza vs cum_gn_nm3_prev (proxy desgaste, Spearman)",0.031,0.1452,2171
+F,"z__lanza vs cum_aire_nm3_prev (proxy desgaste, Spearman)",0.027,0.2032,2171
+F,"z__lanza vs tiempo_fase (proxy desgaste, Spearman)",0.02,0.3572,2171

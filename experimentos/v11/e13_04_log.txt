@@ -1,0 +1,8 @@
+   k_sesgo  muestra    n  pendiente      se       t  p_unilateral  spearman_parcial  p_spearman  p_perm_bloques  kpi_res_tercio_bajo  kpi_res_tercio_medio  kpi_res_tercio_alto  valor_rec_medio_pp
+0       20     todo  262     0.7431  0.3933  1.8895        0.0294            0.1886      0.0022          0.0866              -0.9894               -0.0796               1.0804              1.0858
+1       20      DEV  199     0.6829  0.4705  1.4516        0.0733            0.2056      0.0036          0.1028              -1.2232               -0.2100               1.4517              0.7687
+2       20  lockbox   63     0.6403  0.9297  0.6888        0.2455            0.0664      0.6052          0.2603              -0.2310               -0.3221               0.5531              2.0873 [301s]
+   k_sesgo  muestra    n  pendiente      se       t  p_unilateral  spearman_parcial  p_spearman  p_perm_bloques  kpi_res_tercio_bajo  kpi_res_tercio_medio  kpi_res_tercio_alto  valor_rec_medio_pp
+0       40     todo  262     0.5733  0.4084  1.4036        0.0802            0.1812      0.0032          0.1692              -0.7561               -0.2030               0.9678              0.9695
+1       40      DEV  199     0.5578  0.4467  1.2486        0.1059            0.2020      0.0042          0.1530              -1.3040               -0.2065               1.5303              0.8290
+2       40  lockbox   63     0.4179  1.3655  0.3061        0.3798            0.0236      0.8542          0.3803              -0.4013                0.5839              -0.1826              1.4132 [612s]

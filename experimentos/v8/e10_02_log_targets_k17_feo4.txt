@@ -1,0 +1,6 @@
+[20:11:01] cargando datos (etapa targets) ...
+[20:11:01] df (3982, 315), r(Reducción) (1448, 315), dev_batches=299, lockbox_batches=63
+[20:11:01] corr_targets -> e10_02_corr_targets.csv
+[20:12:00] [feo_ret k17 m8_ln_feo_ret_dross60] n_dev=1083 r2_oof=0.463 cron=0.427 wf=0.335 lb=0.571 (59.4s)
+[20:12:00] etapa targets terminada -> e10_02_targets_estados.csv, e10_02_theta.csv, e10_02_por_orden.csv, e10_02_corr_targets.csv
+[20:12:00] listo

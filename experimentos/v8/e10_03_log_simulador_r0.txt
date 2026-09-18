@@ -1,0 +1,10 @@
+[19:57:03] cargando datos (etapa simulador_r0) ...
+[19:57:03] df (3982, 315), r(Reducción) (1448, 318), dev_batches=299, lockbox_batches=63
+[19:57:03] [simulador_r0 sn_dep] filas comunes A/B en R0: n=302 (dev=240, lockbox=62)
+[19:59:47] [simulador_r0 A_k15/sn_dep] n_dev=240 r2_oof=0.124 cron=0.152 lb=-0.506 (164.3s)
+[20:00:39] [simulador_r0 B_online/sn_dep] n_dev=240 r2_oof=-0.221 cron=-0.222 lb=0.075 (52.0s)
+[20:00:39] [simulador_r0 feo_ret] filas comunes A/B en R0: n=302 (dev=240, lockbox=62)
+[20:01:41] [simulador_r0 A_k15/feo_ret] n_dev=240 r2_oof=0.001 cron=-0.076 lb=0.174 (62.0s)
+[20:03:38] [simulador_r0 B_online/feo_ret] n_dev=240 r2_oof=-0.292 cron=-0.385 lb=0.276 (116.6s)
+[20:03:38] etapa simulador_r0 terminada -> e10_03_simulador_r0.csv
+[20:03:38] listo

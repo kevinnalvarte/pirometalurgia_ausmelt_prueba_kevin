@@ -1,0 +1,7 @@
+periodo,modelo,n,batches,rank,p,condition
+DEV,carbon_simple,1084,298,7,7,2.726060342998947
+DEV,carbon_por_inventario,1084,298,7,7,2.7391534931514907
+DEV,carbon_acoplado,1084,298,9,9,3.3365281089396874
+LB,carbon_simple,242,63,7,7,2.112796638571238
+LB,carbon_por_inventario,242,63,7,7,2.033017344652514
+LB,carbon_acoplado,242,63,9,9,2.6951046210308

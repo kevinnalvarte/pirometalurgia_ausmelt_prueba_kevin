@@ -1,0 +1,7 @@
+canal,palanca,frac_media,estable_en_las_3_W
+f_dross,xC,0.5233838107401326,False
+f_dross,xG,0.9885057471264368,True
+f_polvo,xC,0.7633947576476312,False
+f_polvo,xG,0.46382959313993793,False
+sn_perdido_escoria_frac,xC,0.9770114942528735,True
+sn_perdido_escoria_frac,xG,0.6906434348963085,False

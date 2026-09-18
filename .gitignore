@@ -1,5 +1,7 @@
 # entorno Python
 .venv/
+.python-runtime/
+.uv-cache/
 __pycache__/
 *.pyc
 *.pyo

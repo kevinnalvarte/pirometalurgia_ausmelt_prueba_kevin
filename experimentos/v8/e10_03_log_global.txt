@@ -1,0 +1,12 @@
+[19:28:38] cargando datos (etapa global) ...
+[19:28:38] df (3982, 304), r(Reducción) (1448, 318), dev_batches=299, lockbox_batches=63
+[19:28:38] [global sn_dep] filas comunes A/B/C: n=1138 (dev=898, batches_dev=252)
+[19:30:46] [global A_k15/sn_dep] n_dev=898 r2_oof=0.786 cron=0.780 wf=0.775 lb=0.784 hgb_ref=0.784 (127.9s)
+[19:33:51] [global B_online/sn_dep] n_dev=898 r2_oof=0.697 cron=0.697 wf=0.695 lb=0.756 hgb_ref=0.692 (185.1s)
+[19:36:25] [global C_plan/sn_dep] n_dev=898 r2_oof=0.724 cron=0.720 wf=0.719 lb=0.735 hgb_ref=0.720 (154.1s)
+[19:36:25] [global feo_ret] filas comunes A/B/C: n=1138 (dev=898, batches_dev=252)
+[19:38:36] [global A_k15/feo_ret] n_dev=898 r2_oof=0.309 cron=0.272 wf=0.241 lb=0.473 hgb_ref=0.302 (130.6s)
+[19:41:43] [global B_online/feo_ret] n_dev=898 r2_oof=0.241 cron=0.171 wf=0.182 lb=0.380 hgb_ref=0.235 (186.9s)
+[19:44:50] [global C_plan/feo_ret] n_dev=898 r2_oof=0.242 cron=0.187 wf=0.181 lb=0.392 hgb_ref=0.259 (187.2s)
+[19:44:50] etapa global terminada -> e10_03_estados.csv, e10_03_theta.csv
+[19:44:50] listo

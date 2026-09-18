@@ -1,0 +1,9 @@
+[    0.1s] CONFIG: {'w_sdi': 5.93, 'pp_kpi_por_unidad_sdi': 2.781, 'w_sdi_ic': (3.96, 9.62), 'lambda_kg': 3.0, 'pp_kpi_por_kg_sn': 0.001951219512195122, 'pp_kpi_por_kg_carbon_F': 0.0, 'solo_identificados': True, 'delta_max_sd': 1.0, 'techo_carbon_R0_pct': 0.9, 'percentil_limites': (0.05, 0.95), 'percentil_soporte_minimo': 0.1, 'ventana_T_percentiles': (0.1, 0.9), 'fusion_modo': 'receta', 'congelar_fusion_fin_campana': True, 'lambda_lanza_constante': True} OBJETIVO: log ESTADO_R: 15 PALANCAS: ['Cx_sn_v6', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min'] ['m8_exceso_C_pos', 'Cx_av_v6', 'tasa_gn_nm3_min', 'exceso_o2_combustion_pct', 'tasa_aire_nm3_min']
+[  227.1s] 3: 10/60
+[  432.9s] 3: 20/60
+[  489.1s] 3: 30/60
+[  541.2s] 3: 40/60
+[  617.1s] 3: 50/60
+[  742.6s] 3: 60/60
+[  742.6s] guardado 3 (599, 74)
+[  742.6s] FIN

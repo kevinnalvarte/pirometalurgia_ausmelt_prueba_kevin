@@ -1,0 +1,4 @@
+canal,palanca_evaluada,estable_teoria_a_priori,frac_pasos_estable_prospectivo,n_pasos,coincide_mayoria_con_teoria
+f_dross,xG,True,0.9090909090909091,11,True
+f_polvo,xG,False,0.2727272727272727,11,True
+sn_perdido_escoria_frac,xC,True,1.0,11,True
